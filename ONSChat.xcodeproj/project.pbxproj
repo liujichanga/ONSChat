@@ -93,6 +93,13 @@
 		569864931DE0530D0059D484 /* RootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5698648C1DE0530D0059D484 /* RootTabBarController.m */; };
 		569864961DE055AE0059D484 /* KKUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 569864951DE055AE0059D484 /* KKUserManager.m */; };
 		569864991DE055D90059D484 /* KKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 569864981DE055D90059D484 /* KKUser.m */; };
+		56C6FFD31DE09E9000BB5C3B /* Emoji.plist in Resources */ = {isa = PBXBuildFile; fileRef = 56C6FFC91DE09E9000BB5C3B /* Emoji.plist */; };
+		56C6FFD41DE09E9000BB5C3B /* RongCloudKit.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56C6FFCA1DE09E9000BB5C3B /* RongCloudKit.strings */; };
+		56C6FFD51DE09E9000BB5C3B /* RongCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 56C6FFCC1DE09E9000BB5C3B /* RongCloud.bundle */; };
+		56C6FFD61DE09E9000BB5C3B /* RongIMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C6FFCD1DE09E9000BB5C3B /* RongIMKit.framework */; };
+		56C6FFD71DE09E9000BB5C3B /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C6FFD01DE09E9000BB5C3B /* libopencore-amrnb.a */; };
+		56C6FFD81DE09E9000BB5C3B /* RCConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 56C6FFD11DE09E9000BB5C3B /* RCConfig.plist */; };
+		56C6FFD91DE09E9000BB5C3B /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C6FFD21DE09E9000BB5C3B /* RongIMLib.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -279,6 +286,14 @@
 		569864951DE055AE0059D484 /* KKUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKUserManager.m; sourceTree = "<group>"; };
 		569864971DE055D90059D484 /* KKUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKUser.h; sourceTree = "<group>"; };
 		569864981DE055D90059D484 /* KKUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKUser.m; sourceTree = "<group>"; };
+		56C6FFC91DE09E9000BB5C3B /* Emoji.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Emoji.plist; sourceTree = "<group>"; };
+		56C6FFCB1DE09E9000BB5C3B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RongCloudKit.strings; sourceTree = "<group>"; };
+		56C6FFCC1DE09E9000BB5C3B /* RongCloud.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RongCloud.bundle; sourceTree = "<group>"; };
+		56C6FFCD1DE09E9000BB5C3B /* RongIMKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RongIMKit.framework; sourceTree = "<group>"; };
+		56C6FFCE1DE09E9000BB5C3B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/RongCloudKit.strings"; sourceTree = "<group>"; };
+		56C6FFD01DE09E9000BB5C3B /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
+		56C6FFD11DE09E9000BB5C3B /* RCConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RCConfig.plist; sourceTree = "<group>"; };
+		56C6FFD21DE09E9000BB5C3B /* RongIMLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RongIMLib.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,9 +302,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				569864651DE010EF0059D484 /* CFNetwork.framework in Frameworks */,
+				56C6FFD71DE09E9000BB5C3B /* libopencore-amrnb.a in Frameworks */,
 				569864631DE010E30059D484 /* AVFoundation.framework in Frameworks */,
+				56C6FFD91DE09E9000BB5C3B /* RongIMLib.framework in Frameworks */,
 				569864611DE010DB0059D484 /* Foundation.framework in Frameworks */,
 				5698643F1DE00F140059D484 /* libsqlite3.tbd in Frameworks */,
+				56C6FFD61DE09E9000BB5C3B /* RongIMKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,7 +334,7 @@
 		567F54501DDFEC5500872A36 /* ONSChat */ = {
 			isa = PBXGroup;
 			children = (
-				569863681DE00CB40059D484 /* OtherLibs */,
+				56C6FFC61DE09E5200BB5C3B /* OtherLibs */,
 				569863671DE00CAA0059D484 /* ThirdLibs */,
 				569863661DE00C940059D484 /* Macros */,
 				569863651DE00C880059D484 /* Classes */,
@@ -386,13 +404,6 @@
 				569863FC1DE00EAF0059D484 /* SVProgressHUD */,
 			);
 			path = ThirdLibs;
-			sourceTree = "<group>";
-		};
-		569863681DE00CB40059D484 /* OtherLibs */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = OtherLibs;
 			sourceTree = "<group>";
 		};
 		5698636E1DE00EAF0059D484 /* fmdb */ = {
@@ -836,6 +847,44 @@
 			path = Me;
 			sourceTree = "<group>";
 		};
+		56C6FFC61DE09E5200BB5C3B /* OtherLibs */ = {
+			isa = PBXGroup;
+			children = (
+				56C6FFC71DE09E6300BB5C3B /* RongCloud */,
+			);
+			path = OtherLibs;
+			sourceTree = "<group>";
+		};
+		56C6FFC71DE09E6300BB5C3B /* RongCloud */ = {
+			isa = PBXGroup;
+			children = (
+				56C6FFC81DE09E9000BB5C3B /* IMKit */,
+				56C6FFCF1DE09E9000BB5C3B /* IMLib */,
+			);
+			path = RongCloud;
+			sourceTree = "<group>";
+		};
+		56C6FFC81DE09E9000BB5C3B /* IMKit */ = {
+			isa = PBXGroup;
+			children = (
+				56C6FFC91DE09E9000BB5C3B /* Emoji.plist */,
+				56C6FFCA1DE09E9000BB5C3B /* RongCloudKit.strings */,
+				56C6FFCC1DE09E9000BB5C3B /* RongCloud.bundle */,
+				56C6FFCD1DE09E9000BB5C3B /* RongIMKit.framework */,
+			);
+			path = IMKit;
+			sourceTree = "<group>";
+		};
+		56C6FFCF1DE09E9000BB5C3B /* IMLib */ = {
+			isa = PBXGroup;
+			children = (
+				56C6FFD01DE09E9000BB5C3B /* libopencore-amrnb.a */,
+				56C6FFD11DE09E9000BB5C3B /* RCConfig.plist */,
+				56C6FFD21DE09E9000BB5C3B /* RongIMLib.framework */,
+			);
+			path = IMLib;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -878,6 +927,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 567F54451DDFEC5500872A36;
 			productRefGroup = 567F544F1DDFEC5500872A36 /* Products */;
@@ -896,7 +946,11 @@
 			files = (
 				5698643A1DE00EAF0059D484 /* SVProgressHUD.bundle in Resources */,
 				567F545E1DDFEC5500872A36 /* Assets.xcassets in Resources */,
+				56C6FFD41DE09E9000BB5C3B /* RongCloudKit.strings in Resources */,
 				567F545C1DDFEC5500872A36 /* Main.storyboard in Resources */,
+				56C6FFD31DE09E9000BB5C3B /* Emoji.plist in Resources */,
+				56C6FFD51DE09E9000BB5C3B /* RongCloud.bundle in Resources */,
+				56C6FFD81DE09E9000BB5C3B /* RCConfig.plist in Resources */,
 				569864251DE00EAF0059D484 /* MJRefresh.bundle in Resources */,
 				569864131DE00EAF0059D484 /* IQKeyboardManager.bundle in Resources */,
 			);
@@ -1001,6 +1055,15 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
+		56C6FFCA1DE09E9000BB5C3B /* RongCloudKit.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				56C6FFCB1DE09E9000BB5C3B /* en */,
+				56C6FFCE1DE09E9000BB5C3B /* zh-Hans */,
+			);
+			name = RongCloudKit.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -1099,10 +1162,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ONSChat/OtherLibs/RongCloud/IMKit",
+					"$(PROJECT_DIR)/ONSChat/OtherLibs/RongCloud/IMLib",
+				);
 				GCC_PREFIX_HEADER = "ONSChat/Macros/ONSChat-Prefix.pch";
 				INFOPLIST_FILE = ONSChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ONSChat/OtherLibs/RongCloud/IMLib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kk.ONSChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1113,10 +1185,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ONSChat/OtherLibs/RongCloud/IMKit",
+					"$(PROJECT_DIR)/ONSChat/OtherLibs/RongCloud/IMLib",
+				);
 				GCC_PREFIX_HEADER = "ONSChat/Macros/ONSChat-Prefix.pch";
 				INFOPLIST_FILE = ONSChat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ONSChat/OtherLibs/RongCloud/IMLib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.kk.ONSChat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
