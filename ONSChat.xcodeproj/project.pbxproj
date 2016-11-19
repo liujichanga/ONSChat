@@ -12,8 +12,6 @@
 		567F54591DDFEC5500872A36 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 567F54581DDFEC5500872A36 /* ViewController.m */; };
 		567F545C1DDFEC5500872A36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 567F545A1DDFEC5500872A36 /* Main.storyboard */; };
 		567F545E1DDFEC5500872A36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 567F545D1DDFEC5500872A36 /* Assets.xcassets */; };
-		567F54611DDFEC5500872A36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 567F545F1DDFEC5500872A36 /* LaunchScreen.storyboard */; };
-		567F54691DE0036300872A36 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 567F54681DE0036300872A36 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,9 +23,8 @@
 		567F54581DDFEC5500872A36 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		567F545B1DDFEC5500872A36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		567F545D1DDFEC5500872A36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		567F54601DDFEC5500872A36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		567F54621DDFEC5500872A36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		567F54681DE0036300872A36 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		569863631DE00A780059D484 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,9 +63,7 @@
 				567F54581DDFEC5500872A36 /* ViewController.m */,
 				567F545A1DDFEC5500872A36 /* Main.storyboard */,
 				567F545D1DDFEC5500872A36 /* Assets.xcassets */,
-				567F545F1DDFEC5500872A36 /* LaunchScreen.storyboard */,
 				567F54621DDFEC5500872A36 /* Info.plist */,
-				567F54681DE0036300872A36 /* Images.xcassets */,
 				567F54511DDFEC5500872A36 /* Supporting Files */,
 			);
 			path = ONSChat;
@@ -140,8 +135,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				567F54611DDFEC5500872A36 /* LaunchScreen.storyboard in Resources */,
-				567F54691DE0036300872A36 /* Images.xcassets in Resources */,
 				567F545E1DDFEC5500872A36 /* Assets.xcassets in Resources */,
 				567F545C1DDFEC5500872A36 /* Main.storyboard in Resources */,
 			);
@@ -167,16 +160,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				567F545B1DDFEC5500872A36 /* Base */,
+				569863631DE00A780059D484 /* zh-Hans */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		567F545F1DDFEC5500872A36 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				567F54601DDFEC5500872A36 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -186,6 +172,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -233,6 +220,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -315,6 +303,7 @@
 				567F54671DDFEC5500872A36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
