@@ -1,0 +1,50 @@
+//
+//  ONSChat-Prefix.pch
+//  ONSChat
+//
+//  Created by liujichang on 2016/11/19.
+//  Copyright © 2016年 LiuJichang. All rights reserved.
+//
+
+#ifndef ONSChat_Prefix_pch
+#define ONSChat_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+#import "AppDelegate.h"
+#import "KKCommonMacro.h"
+#import "KKServiceInterface.h"
+#import "KKDomain.h"
+#import "KKCategory.h"
+#import "KKUtils.h"
+#import "KKDatabase.h"
+#import "KKModel.h"
+#import "KKManager.h"
+
+#import "JSONKit.h"
+#import "UIImageView+WebCache.h"
+#import "UIButton+WebCache.h"
+//#import "WCAlertView.h"
+#import "MJRefresh.h"
+#import "SVProgressHUD.h"
+//#import "TTGlobalUICommon.h"
+#import "MBProgressHUD.h"
+#import "MBProgressHUD+Add.h"
+//
+//#import "KKButton.h"
+//
+//#import "KKUMengEvent.h"
+//
+//#import "KKTypeDefine.h"
+//
+//#import "KKNavigationController.h"
+//#import "KKBaseNavigationController.h"
+//#import "KKBaseViewController.h"
+//#import "KKBaseTableViewController.h"
+//
+//#import "KKLoadDataViewController.h"
+
+
+#endif /* ONSChat_Prefix_pch */
