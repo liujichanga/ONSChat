@@ -7,6 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		563AD3481DE14B09006945BD /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD3471DE14B09006945BD /* AssetsLibrary.framework */; };
+		563AD34A1DE14B10006945BD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD3491DE14B10006945BD /* AudioToolbox.framework */; };
+		563AD34C1DE14B1C006945BD /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD34B1DE14B1C006945BD /* CoreAudio.framework */; };
+		563AD34E1DE14B23006945BD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD34D1DE14B23006945BD /* CoreGraphics.framework */; };
+		563AD3501DE14B2A006945BD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD34F1DE14B2A006945BD /* CoreLocation.framework */; };
+		563AD3521DE14B35006945BD /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD3511DE14B35006945BD /* CoreMedia.framework */; };
+		563AD3541DE14B3B006945BD /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD3531DE14B3B006945BD /* CoreTelephony.framework */; };
+		563AD3561DE14B41006945BD /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD3551DE14B41006945BD /* CoreVideo.framework */; };
+		563AD3581DE14B47006945BD /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD3571DE14B47006945BD /* ImageIO.framework */; };
+		563AD35A1DE14B54006945BD /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD3591DE14B54006945BD /* libc++.tbd */; };
+		563AD35C1DE14B61006945BD /* libc++abi.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD35B1DE14B61006945BD /* libc++abi.tbd */; };
+		563AD35E1DE14B6E006945BD /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD35D1DE14B6E006945BD /* libstdc++.tbd */; };
+		563AD3601DE14B76006945BD /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD35F1DE14B76006945BD /* libxml2.tbd */; };
+		563AD3621DE14B7F006945BD /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD3611DE14B7F006945BD /* libz.tbd */; };
+		563AD3641DE14B83006945BD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD3631DE14B83006945BD /* MapKit.framework */; };
+		563AD3661DE14B89006945BD /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD3651DE14B89006945BD /* OpenGLES.framework */; };
+		563AD3681DE14B8E006945BD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD3671DE14B8E006945BD /* QuartzCore.framework */; };
+		563AD36A1DE14B94006945BD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD3691DE14B94006945BD /* SystemConfiguration.framework */; };
+		563AD36C1DE14B9A006945BD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD36B1DE14B9A006945BD /* UIKit.framework */; };
+		563AD36E1DE14BA2006945BD /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD36D1DE14BA2006945BD /* Photos.framework */; };
+		563AD3711DE14CE1006945BD /* ChatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 563AD3701DE14CE1006945BD /* ChatListViewController.m */; };
+		563AD3741DE1511B006945BD /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 563AD3731DE1511B006945BD /* ChatViewController.m */; };
 		567F54531DDFEC5500872A36 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 567F54521DDFEC5500872A36 /* main.m */; };
 		567F54561DDFEC5500872A36 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 567F54551DDFEC5500872A36 /* AppDelegate.m */; };
 		567F545C1DDFEC5500872A36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 567F545A1DDFEC5500872A36 /* Main.storyboard */; };
@@ -103,6 +125,30 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		563AD3471DE14B09006945BD /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		563AD3491DE14B10006945BD /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		563AD34B1DE14B1C006945BD /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		563AD34D1DE14B23006945BD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		563AD34F1DE14B2A006945BD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		563AD3511DE14B35006945BD /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		563AD3531DE14B3B006945BD /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		563AD3551DE14B41006945BD /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		563AD3571DE14B47006945BD /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		563AD3591DE14B54006945BD /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		563AD35B1DE14B61006945BD /* libc++abi.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++abi.tbd"; path = "usr/lib/libc++abi.tbd"; sourceTree = SDKROOT; };
+		563AD35D1DE14B6E006945BD /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		563AD35F1DE14B76006945BD /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		563AD3611DE14B7F006945BD /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		563AD3631DE14B83006945BD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		563AD3651DE14B89006945BD /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		563AD3671DE14B8E006945BD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		563AD3691DE14B94006945BD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		563AD36B1DE14B9A006945BD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		563AD36D1DE14BA2006945BD /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		563AD36F1DE14CE1006945BD /* ChatListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatListViewController.h; sourceTree = "<group>"; };
+		563AD3701DE14CE1006945BD /* ChatListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatListViewController.m; sourceTree = "<group>"; };
+		563AD3721DE1511B006945BD /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		563AD3731DE1511B006945BD /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		567F544E1DDFEC5500872A36 /* ONSChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ONSChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		567F54521DDFEC5500872A36 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		567F54541DDFEC5500872A36 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -301,6 +347,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				563AD36E1DE14BA2006945BD /* Photos.framework in Frameworks */,
+				563AD36C1DE14B9A006945BD /* UIKit.framework in Frameworks */,
+				563AD36A1DE14B94006945BD /* SystemConfiguration.framework in Frameworks */,
+				563AD3681DE14B8E006945BD /* QuartzCore.framework in Frameworks */,
+				563AD3661DE14B89006945BD /* OpenGLES.framework in Frameworks */,
+				563AD3641DE14B83006945BD /* MapKit.framework in Frameworks */,
+				563AD3621DE14B7F006945BD /* libz.tbd in Frameworks */,
+				563AD3601DE14B76006945BD /* libxml2.tbd in Frameworks */,
+				563AD35E1DE14B6E006945BD /* libstdc++.tbd in Frameworks */,
+				563AD35C1DE14B61006945BD /* libc++abi.tbd in Frameworks */,
+				563AD35A1DE14B54006945BD /* libc++.tbd in Frameworks */,
+				563AD3581DE14B47006945BD /* ImageIO.framework in Frameworks */,
+				563AD3561DE14B41006945BD /* CoreVideo.framework in Frameworks */,
+				563AD3541DE14B3B006945BD /* CoreTelephony.framework in Frameworks */,
+				563AD3521DE14B35006945BD /* CoreMedia.framework in Frameworks */,
+				563AD3501DE14B2A006945BD /* CoreLocation.framework in Frameworks */,
+				563AD34E1DE14B23006945BD /* CoreGraphics.framework in Frameworks */,
+				563AD34C1DE14B1C006945BD /* CoreAudio.framework in Frameworks */,
+				563AD34A1DE14B10006945BD /* AudioToolbox.framework in Frameworks */,
+				563AD3481DE14B09006945BD /* AssetsLibrary.framework in Frameworks */,
 				569864651DE010EF0059D484 /* CFNetwork.framework in Frameworks */,
 				56C6FFD71DE09E9000BB5C3B /* libopencore-amrnb.a in Frameworks */,
 				569864631DE010E30059D484 /* AVFoundation.framework in Frameworks */,
@@ -314,6 +380,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		563AD3431DE147CE006945BD /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				563AD36F1DE14CE1006945BD /* ChatListViewController.h */,
+				563AD3701DE14CE1006945BD /* ChatListViewController.m */,
+				563AD3721DE1511B006945BD /* ChatViewController.h */,
+				563AD3731DE1511B006945BD /* ChatViewController.m */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
 		567F54451DDFEC5500872A36 = {
 			isa = PBXGroup;
 			children = (
@@ -367,13 +444,13 @@
 		569863651DE00C880059D484 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				569864401DE010140059D484 /* Controllers */,
 				569864461DE010600059D484 /* DataBase */,
 				569864451DE010530059D484 /* Category */,
 				569864441DE010410059D484 /* Utils */,
 				569864431DE010360059D484 /* Manager */,
 				569864421DE010290059D484 /* Views */,
 				569864411DE0101F0059D484 /* Models */,
-				569864401DE010140059D484 /* Controllers */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -709,6 +786,26 @@
 		5698643D1DE00F130059D484 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				563AD36D1DE14BA2006945BD /* Photos.framework */,
+				563AD36B1DE14B9A006945BD /* UIKit.framework */,
+				563AD3691DE14B94006945BD /* SystemConfiguration.framework */,
+				563AD3671DE14B8E006945BD /* QuartzCore.framework */,
+				563AD3651DE14B89006945BD /* OpenGLES.framework */,
+				563AD3631DE14B83006945BD /* MapKit.framework */,
+				563AD3611DE14B7F006945BD /* libz.tbd */,
+				563AD35F1DE14B76006945BD /* libxml2.tbd */,
+				563AD35D1DE14B6E006945BD /* libstdc++.tbd */,
+				563AD35B1DE14B61006945BD /* libc++abi.tbd */,
+				563AD3591DE14B54006945BD /* libc++.tbd */,
+				563AD3571DE14B47006945BD /* ImageIO.framework */,
+				563AD3551DE14B41006945BD /* CoreVideo.framework */,
+				563AD3531DE14B3B006945BD /* CoreTelephony.framework */,
+				563AD3511DE14B35006945BD /* CoreMedia.framework */,
+				563AD34F1DE14B2A006945BD /* CoreLocation.framework */,
+				563AD34D1DE14B23006945BD /* CoreGraphics.framework */,
+				563AD34B1DE14B1C006945BD /* CoreAudio.framework */,
+				563AD3491DE14B10006945BD /* AudioToolbox.framework */,
+				563AD3471DE14B09006945BD /* AssetsLibrary.framework */,
 				569864641DE010EF0059D484 /* CFNetwork.framework */,
 				569864621DE010E30059D484 /* AVFoundation.framework */,
 				569864601DE010DB0059D484 /* Foundation.framework */,
@@ -721,10 +818,7 @@
 			isa = PBXGroup;
 			children = (
 				5698647A1DE0527D0059D484 /* Base */,
-				5698647B1DE0528D0059D484 /* Home */,
-				5698647C1DE0529A0059D484 /* Find */,
-				5698647D1DE052C20059D484 /* Letters */,
-				5698647E1DE052CA0059D484 /* Me */,
+				563AD3431DE147CE006945BD /* Chat */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -817,34 +911,6 @@
 				5698648C1DE0530D0059D484 /* RootTabBarController.m */,
 			);
 			path = Base;
-			sourceTree = "<group>";
-		};
-		5698647B1DE0528D0059D484 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		5698647C1DE0529A0059D484 /* Find */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Find;
-			sourceTree = "<group>";
-		};
-		5698647D1DE052C20059D484 /* Letters */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Letters;
-			sourceTree = "<group>";
-		};
-		5698647E1DE052CA0059D484 /* Me */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Me;
 			sourceTree = "<group>";
 		};
 		56C6FFC61DE09E5200BB5C3B /* OtherLibs */ = {
@@ -975,6 +1041,7 @@
 				569864241DE00EAF0059D484 /* MJRefreshStateHeader.m in Sources */,
 				569864121DE00EAF0059D484 /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				569864191DE00EAF0059D484 /* MJRefreshComponent.m in Sources */,
+				563AD3711DE14CE1006945BD /* ChatListViewController.m in Sources */,
 				5698640D1DE00EAF0059D484 /* IQSegmentedNextPrevious.m in Sources */,
 				569864361DE00EAF0059D484 /* UIImage+WebP.m in Sources */,
 				569864741DE051A30059D484 /* KKThredUtils.m in Sources */,
@@ -997,6 +1064,7 @@
 				569864201DE00EAF0059D484 /* MJRefreshBackNormalFooter.m in Sources */,
 				569864091DE00EAF0059D484 /* IQUIView+Hierarchy.m in Sources */,
 				569864931DE0530D0059D484 /* RootTabBarController.m in Sources */,
+				563AD3741DE1511B006945BD /* ChatViewController.m in Sources */,
 				569864231DE00EAF0059D484 /* MJRefreshNormalHeader.m in Sources */,
 				569864381DE00EAF0059D484 /* UIImageView+WebCache.m in Sources */,
 				569864331DE00EAF0059D484 /* UIButton+WebCache.m in Sources */,
