@@ -25,6 +25,7 @@
 		1C0E77A41DE3250E0083F9F8 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C0E77A31DE3250E0083F9F8 /* JavaScriptCore.framework */; };
 		1C0E77A81DE325680083F9F8 /* NearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0E77A71DE325680083F9F8 /* NearbyViewController.m */; };
 		1C0E77AC1DE325840083F9F8 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0E77AB1DE325840083F9F8 /* MeViewController.m */; };
+		1C0E77B01DE32AA20083F9F8 /* KKCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0E77AF1DE32AA20083F9F8 /* KKCarouselView.m */; };
 		563AD3481DE14B09006945BD /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD3471DE14B09006945BD /* AssetsLibrary.framework */; };
 		563AD34A1DE14B10006945BD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD3491DE14B10006945BD /* AudioToolbox.framework */; };
 		563AD34C1DE14B1C006945BD /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD34B1DE14B1C006945BD /* CoreAudio.framework */; };
@@ -164,6 +165,8 @@
 		1C0E77A71DE325680083F9F8 /* NearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyViewController.m; sourceTree = "<group>"; };
 		1C0E77AA1DE325840083F9F8 /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
 		1C0E77AB1DE325840083F9F8 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
+		1C0E77AE1DE32AA20083F9F8 /* KKCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKCarouselView.h; sourceTree = "<group>"; };
+		1C0E77AF1DE32AA20083F9F8 /* KKCarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKCarouselView.m; sourceTree = "<group>"; };
 		563AD3471DE14B09006945BD /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		563AD3491DE14B10006945BD /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		563AD34B1DE14B1C006945BD /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
@@ -410,6 +413,7 @@
 		1C0E774C1DE30F510083F9F8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1C0E77AD1DE32A9C0083F9F8 /* CarouselView */,
 				1C0E774D1DE30F6E0083F9F8 /* ONSButton */,
 			);
 			path = Views;
@@ -479,6 +483,15 @@
 				1C0E77AB1DE325840083F9F8 /* MeViewController.m */,
 			);
 			path = Me;
+			sourceTree = "<group>";
+		};
+		1C0E77AD1DE32A9C0083F9F8 /* CarouselView */ = {
+			isa = PBXGroup;
+			children = (
+				1C0E77AE1DE32AA20083F9F8 /* KKCarouselView.h */,
+				1C0E77AF1DE32AA20083F9F8 /* KKCarouselView.m */,
+			);
+			path = CarouselView;
 			sourceTree = "<group>";
 		};
 		563AD3431DE147CE006945BD /* Chat */ = {
@@ -1079,6 +1092,7 @@
 				567F54561DDFEC5500872A36 /* AppDelegate.m in Sources */,
 				1C0E77A21DE3249A0083F9F8 /* HomeViewController.m in Sources */,
 				567F54531DDFEC5500872A36 /* main.m in Sources */,
+				1C0E77B01DE32AA20083F9F8 /* KKCarouselView.m in Sources */,
 				569864961DE055AE0059D484 /* KKUserManager.m in Sources */,
 				5698641D1DE00EAF0059D484 /* MJRefreshAutoNormalFooter.m in Sources */,
 				1C0E77661DE31F870083F9F8 /* AFURLResponseSerialization.m in Sources */,
