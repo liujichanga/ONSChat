@@ -131,19 +131,8 @@ static KKUserManager *instance;
 /** 最后一个登录的用户 */
 - (KKUser *)lastLoginUser {
     
-    
     NSString *username = [KKUserDefaults stringForKey:@"userName"];
     NSString *password = [KKUserDefaults stringForKey:@"password"];
-   /* __block KKUser *lastLoginUser = nil;
-    if (userId) {
-        [KKSharedUserDao getUserById:userId completion:^(id result) {
-            lastLoginUser=result;
-        } inBackground:NO];
-        
-        //        lastLoginUser.password = password;
-        //NSString *password = [SSKeychain passwordForService:kService account:StringWithNSInteger(userId)];
-       // lastLoginUser.password = password;
-    }*/
     
     KKUser *lastLoginUser=[[KKUser alloc] init];
     lastLoginUser.userName=username;

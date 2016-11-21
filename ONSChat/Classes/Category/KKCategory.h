@@ -18,6 +18,7 @@
 #import "NSString+Valid.h"
 #import "NSDate+Utils.h"
 #import "UIColor+Hex.h"
+#import "UIImage+Resize.h"
 
 
 #endif

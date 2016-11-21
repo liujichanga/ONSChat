@@ -41,7 +41,7 @@
     }
     
     self.delegate = self;
-    self.tabBar.tintColor = KKColorOrange;
+    self.tabBar.tintColor = KKColorPurple;
     self.tabBar.translucent=NO;
     
 }

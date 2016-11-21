@@ -140,17 +140,11 @@ placeholderImage:[UIImage imageNamed:placeholder]]
 //导航栏颜色
 #define KKColorNav  [UIColor colorWithRed:240.0/255.0 green:240.0/255.0 blue:240.0/255.0 alpha:1.0]
 
-//通用导航栏的颜色
-#define KKColorOrange  [UIColor colorWithHexString:@"#fe5e07"]//ff4001
+//通用紫色
+#define KKColorPurple  [UIColor purpleColor]
 //首页背景的颜色
 #define KKColorHomeOrange  [UIColor colorWithHexString:@"#ff6000"]//f84d02
-//首页cell灰色背景
-#define KKHomeV3CellGray [UIColor colorWithHexString:@"#f84d02"]
 
-
-
-//减历页面cell背景颜色
-#define KKColorGray [UIColor colorWithRed:247.0/255.0 green:247.0/255.0 blue:240.0/255.0 alpha:1.0]
 
 /**边框线的颜色*/
 #define KKColorBorder [UIColor colorWithHexString:@"#d9d9d9"]

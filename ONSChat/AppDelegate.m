@@ -19,6 +19,44 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    self.window=[[UIWindow alloc] initWithFrame:KKScreenBounds];
+    self.window.backgroundColor=[UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+    [UINavigationBar appearance].barStyle=UIBarStyleBlack;
+    if(KKOSVersion>=8.0) [UINavigationBar appearance].translucent=YES;
+    //[UINavigationBar appearance].barTintColor=KKColorNav;
+    //[UINavigationBar appearance].tintColor = [UIColor darkGrayColor];
+    //[[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor darkGrayColor]}];
+    //[[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    //[UINavigationBar appearance].shadowImage=[[UIImage alloc] init];
+    
+    //最后一个登录用户
+    KKUser *lastLoginUser = [KKSharedUserManager lastLoginUser];
+
+    if (KKSharedUserManager.isAutoLoginEnabled) {
+        
+        // 最后一个登录的用户
+        KKSharedUserManager.currentUser = lastLoginUser;
+        
+        // 开启comback界面
+        self.window.rootViewController = KKViewControllerOfMainSB(@"ComeBackViewController");
+    } else {
+        
+        if(KKStringIsBlank(lastLoginUser.userName)||KKStringIsBlank(lastLoginUser.password))
+        {
+            //注册界面
+            self.window.rootViewController=KKViewControllerOfMainSB(@"RegisterNavigationController");
+        }
+        else
+        {
+            //登录界面
+            self.window.rootViewController=KKViewControllerOfMainSB(@"LoginNavigationController");
+        }
+        
+        
+    }
+    
     [[RCIM sharedRCIM] initWithAppKey:@"tdrvipkstmvn5"];
     
     [[RCIM sharedRCIM] connectWithToken:@"DYrZQLqqt9t/62DEaW4l870/q7qZMBWE3fN7edgYT63Dnog1BGpkyD2cFfuo9WvlE4ZesY0QgMUMtb7ko7j2Y0AJpwass/7g" success:^(NSString *userId) {
