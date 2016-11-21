@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <RongIMKit/RongIMKit.h>
+#import <AMapFoundationKit/AMapFoundationKit.h>
 
 @interface AppDelegate ()
 
@@ -27,9 +28,11 @@
     if(KKOSVersion>=8.0) [UINavigationBar appearance].translucent=YES;
     //[UINavigationBar appearance].barTintColor=KKColorNav;
     //[UINavigationBar appearance].tintColor = [UIColor darkGrayColor];
-    //[[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor darkGrayColor]}];
-    //[[UINavigationBar appearance] setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-    //[UINavigationBar appearance].shadowImage=[[UIImage alloc] init];
+
+    //高德
+    //[[AMapServices sharedServices] setEnableHTTPS:YES];
+    [AMapServices sharedServices].apiKey =@"ed83d4ee46c20bb50b74a741449c8c6b";
+    
     
     //最后一个登录用户
     KKUser *lastLoginUser = [KKSharedUserManager lastLoginUser];

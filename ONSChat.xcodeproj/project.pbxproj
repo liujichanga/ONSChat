@@ -21,6 +21,10 @@
 		1C0E779C1DE3222C0083F9F8 /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1C0E77991DE3222C0083F9F8 /* AMap.bundle */; };
 		1C0E779D1DE3222C0083F9F8 /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C0E779A1DE3222C0083F9F8 /* AMapFoundationKit.framework */; };
 		1C0E779E1DE3222C0083F9F8 /* AMapLocationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C0E779B1DE3222C0083F9F8 /* AMapLocationKit.framework */; };
+		1C0E77A21DE3249A0083F9F8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0E77A11DE3249A0083F9F8 /* HomeViewController.m */; };
+		1C0E77A41DE3250E0083F9F8 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C0E77A31DE3250E0083F9F8 /* JavaScriptCore.framework */; };
+		1C0E77A81DE325680083F9F8 /* NearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0E77A71DE325680083F9F8 /* NearbyViewController.m */; };
+		1C0E77AC1DE325840083F9F8 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0E77AB1DE325840083F9F8 /* MeViewController.m */; };
 		563AD3481DE14B09006945BD /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD3471DE14B09006945BD /* AssetsLibrary.framework */; };
 		563AD34A1DE14B10006945BD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD3491DE14B10006945BD /* AudioToolbox.framework */; };
 		563AD34C1DE14B1C006945BD /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD34B1DE14B1C006945BD /* CoreAudio.framework */; };
@@ -153,6 +157,13 @@
 		1C0E77991DE3222C0083F9F8 /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AMap.bundle; sourceTree = "<group>"; };
 		1C0E779A1DE3222C0083F9F8 /* AMapFoundationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapFoundationKit.framework; sourceTree = "<group>"; };
 		1C0E779B1DE3222C0083F9F8 /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapLocationKit.framework; sourceTree = "<group>"; };
+		1C0E77A01DE3249A0083F9F8 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		1C0E77A11DE3249A0083F9F8 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		1C0E77A31DE3250E0083F9F8 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		1C0E77A61DE325680083F9F8 /* NearbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearbyViewController.h; sourceTree = "<group>"; };
+		1C0E77A71DE325680083F9F8 /* NearbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearbyViewController.m; sourceTree = "<group>"; };
+		1C0E77AA1DE325840083F9F8 /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
+		1C0E77AB1DE325840083F9F8 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		563AD3471DE14B09006945BD /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		563AD3491DE14B10006945BD /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		563AD34B1DE14B1C006945BD /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
@@ -349,6 +360,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C0E77A41DE3250E0083F9F8 /* JavaScriptCore.framework in Frameworks */,
 				1C0E779E1DE3222C0083F9F8 /* AMapLocationKit.framework in Frameworks */,
 				563AD36E1DE14BA2006945BD /* Photos.framework in Frameworks */,
 				563AD36C1DE14B9A006945BD /* UIKit.framework in Frameworks */,
@@ -442,6 +454,33 @@
 			path = MAMap;
 			sourceTree = "<group>";
 		};
+		1C0E779F1DE324880083F9F8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1C0E77A01DE3249A0083F9F8 /* HomeViewController.h */,
+				1C0E77A11DE3249A0083F9F8 /* HomeViewController.m */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		1C0E77A51DE325500083F9F8 /* Nearby */ = {
+			isa = PBXGroup;
+			children = (
+				1C0E77A61DE325680083F9F8 /* NearbyViewController.h */,
+				1C0E77A71DE325680083F9F8 /* NearbyViewController.m */,
+			);
+			path = Nearby;
+			sourceTree = "<group>";
+		};
+		1C0E77A91DE325790083F9F8 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				1C0E77AA1DE325840083F9F8 /* MeViewController.h */,
+				1C0E77AB1DE325840083F9F8 /* MeViewController.m */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
 		563AD3431DE147CE006945BD /* Chat */ = {
 			isa = PBXGroup;
 			children = (
@@ -473,10 +512,10 @@
 		567F54501DDFEC5500872A36 /* ONSChat */ = {
 			isa = PBXGroup;
 			children = (
+				569863651DE00C880059D484 /* Classes */,
 				56C6FFC61DE09E5200BB5C3B /* OtherLibs */,
 				569863671DE00CAA0059D484 /* ThirdLibs */,
 				569863661DE00C940059D484 /* Macros */,
-				569863651DE00C880059D484 /* Classes */,
 				569863641DE00C7B0059D484 /* Resources */,
 				567F545A1DDFEC5500872A36 /* Main.storyboard */,
 				567F545D1DDFEC5500872A36 /* Assets.xcassets */,
@@ -767,6 +806,7 @@
 		5698643D1DE00F130059D484 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1C0E77A31DE3250E0083F9F8 /* JavaScriptCore.framework */,
 				563AD36D1DE14BA2006945BD /* Photos.framework */,
 				563AD36B1DE14B9A006945BD /* UIKit.framework */,
 				563AD3691DE14B94006945BD /* SystemConfiguration.framework */,
@@ -800,7 +840,10 @@
 			children = (
 				5698647A1DE0527D0059D484 /* Base */,
 				1C0E77451DE30B0E0083F9F8 /* Login */,
+				1C0E779F1DE324880083F9F8 /* Home */,
+				1C0E77A51DE325500083F9F8 /* Nearby */,
 				563AD3431DE147CE006945BD /* Chat */,
+				1C0E77A91DE325790083F9F8 /* Me */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1028,11 +1071,13 @@
 				569864271DE00EAF0059D484 /* UIScrollView+MJExtension.m in Sources */,
 				569864181DE00EAF0059D484 /* MJRefreshBackFooter.m in Sources */,
 				5698643B1DE00EAF0059D484 /* SVProgressHUD.m in Sources */,
+				1C0E77AC1DE325840083F9F8 /* MeViewController.m in Sources */,
 				569864151DE00EAF0059D484 /* MBProgressHUD+Add.m in Sources */,
 				1C0E77481DE30B380083F9F8 /* LoginViewController.m in Sources */,
 				569864591DE010B40059D484 /* NSDictionary+JsonDict.m in Sources */,
 				569864291DE00EAF0059D484 /* UIView+MJExtension.m in Sources */,
 				567F54561DDFEC5500872A36 /* AppDelegate.m in Sources */,
+				1C0E77A21DE3249A0083F9F8 /* HomeViewController.m in Sources */,
 				567F54531DDFEC5500872A36 /* main.m in Sources */,
 				569864961DE055AE0059D484 /* KKUserManager.m in Sources */,
 				5698641D1DE00EAF0059D484 /* MJRefreshAutoNormalFooter.m in Sources */,
@@ -1087,6 +1132,7 @@
 				569864301DE00EAF0059D484 /* SDWebImageDownloaderOperation.m in Sources */,
 				5698641C1DE00EAF0059D484 /* MJRefreshAutoGifFooter.m in Sources */,
 				5698642F1DE00EAF0059D484 /* SDWebImageDownloader.m in Sources */,
+				1C0E77A81DE325680083F9F8 /* NearbyViewController.m in Sources */,
 				5698648E1DE0530D0059D484 /* KKBaseTableViewController.m in Sources */,
 				569864141DE00EAF0059D484 /* JSONKit.m in Sources */,
 			);
