@@ -25,6 +25,7 @@
     // Do any additional setup after loading the view.
     _registerBtnLeftConstraint.constant=(KKScreenWidth-2*120)/3;
     _loginBtnRightConstraint.constant=(KKScreenWidth-2*120)/3;
+    
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

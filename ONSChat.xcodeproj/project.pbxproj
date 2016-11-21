@@ -18,6 +18,9 @@
 		1C0E77661DE31F870083F9F8 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0E775F1DE31F870083F9F8 /* AFURLResponseSerialization.m */; };
 		1C0E77671DE31F870083F9F8 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0E77611DE31F870083F9F8 /* AFURLSessionManager.m */; };
 		1C0E77971DE31FEA0083F9F8 /* FSNetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0E77961DE31FEA0083F9F8 /* FSNetWorking.m */; };
+		1C0E779C1DE3222C0083F9F8 /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1C0E77991DE3222C0083F9F8 /* AMap.bundle */; };
+		1C0E779D1DE3222C0083F9F8 /* AMapFoundationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C0E779A1DE3222C0083F9F8 /* AMapFoundationKit.framework */; };
+		1C0E779E1DE3222C0083F9F8 /* AMapLocationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C0E779B1DE3222C0083F9F8 /* AMapLocationKit.framework */; };
 		563AD3481DE14B09006945BD /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD3471DE14B09006945BD /* AssetsLibrary.framework */; };
 		563AD34A1DE14B10006945BD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD3491DE14B10006945BD /* AudioToolbox.framework */; };
 		563AD34C1DE14B1C006945BD /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD34B1DE14B1C006945BD /* CoreAudio.framework */; };
@@ -147,6 +150,9 @@
 		1C0E77611DE31F870083F9F8 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		1C0E77951DE31FEA0083F9F8 /* FSNetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSNetWorking.h; sourceTree = "<group>"; };
 		1C0E77961DE31FEA0083F9F8 /* FSNetWorking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSNetWorking.m; sourceTree = "<group>"; };
+		1C0E77991DE3222C0083F9F8 /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AMap.bundle; sourceTree = "<group>"; };
+		1C0E779A1DE3222C0083F9F8 /* AMapFoundationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapFoundationKit.framework; sourceTree = "<group>"; };
+		1C0E779B1DE3222C0083F9F8 /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapLocationKit.framework; sourceTree = "<group>"; };
 		563AD3471DE14B09006945BD /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		563AD3491DE14B10006945BD /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		563AD34B1DE14B1C006945BD /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
@@ -343,6 +349,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C0E779E1DE3222C0083F9F8 /* AMapLocationKit.framework in Frameworks */,
 				563AD36E1DE14BA2006945BD /* Photos.framework in Frameworks */,
 				563AD36C1DE14B9A006945BD /* UIKit.framework in Frameworks */,
 				563AD36A1DE14B94006945BD /* SystemConfiguration.framework in Frameworks */,
@@ -368,6 +375,7 @@
 				569864631DE010E30059D484 /* AVFoundation.framework in Frameworks */,
 				56C6FFD91DE09E9000BB5C3B /* RongIMLib.framework in Frameworks */,
 				569864611DE010DB0059D484 /* Foundation.framework in Frameworks */,
+				1C0E779D1DE3222C0083F9F8 /* AMapFoundationKit.framework in Frameworks */,
 				5698643F1DE00F140059D484 /* libsqlite3.tbd in Frameworks */,
 				56C6FFD61DE09E9000BB5C3B /* RongIMKit.framework in Frameworks */,
 			);
@@ -422,6 +430,16 @@
 				1C0E77611DE31F870083F9F8 /* AFURLSessionManager.m */,
 			);
 			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		1C0E77981DE3222C0083F9F8 /* MAMap */ = {
+			isa = PBXGroup;
+			children = (
+				1C0E77991DE3222C0083F9F8 /* AMap.bundle */,
+				1C0E779A1DE3222C0083F9F8 /* AMapFoundationKit.framework */,
+				1C0E779B1DE3222C0083F9F8 /* AMapLocationKit.framework */,
+			);
+			path = MAMap;
 			sourceTree = "<group>";
 		};
 		563AD3431DE147CE006945BD /* Chat */ = {
@@ -877,6 +895,7 @@
 		56C6FFC61DE09E5200BB5C3B /* OtherLibs */ = {
 			isa = PBXGroup;
 			children = (
+				1C0E77981DE3222C0083F9F8 /* MAMap */,
 				56C6FFC71DE09E6300BB5C3B /* RongCloud */,
 			);
 			path = OtherLibs;
@@ -972,6 +991,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C0E779C1DE3222C0083F9F8 /* AMap.bundle in Resources */,
 				5698643A1DE00EAF0059D484 /* SVProgressHUD.bundle in Resources */,
 				567F545E1DDFEC5500872A36 /* Assets.xcassets in Resources */,
 				56C6FFD41DE09E9000BB5C3B /* RongCloudKit.strings in Resources */,
@@ -1196,6 +1216,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ONSChat/OtherLibs/RongCloud/IMKit",
 					"$(PROJECT_DIR)/ONSChat/OtherLibs/RongCloud/IMLib",
+					"$(PROJECT_DIR)/ONSChat/OtherLibs/MAMap",
 				);
 				GCC_PREFIX_HEADER = "ONSChat/Macros/ONSChat-Prefix.pch";
 				INFOPLIST_FILE = ONSChat/Info.plist;
@@ -1222,6 +1243,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ONSChat/OtherLibs/RongCloud/IMKit",
 					"$(PROJECT_DIR)/ONSChat/OtherLibs/RongCloud/IMLib",
+					"$(PROJECT_DIR)/ONSChat/OtherLibs/MAMap",
 				);
 				GCC_PREFIX_HEADER = "ONSChat/Macros/ONSChat-Prefix.pch";
 				INFOPLIST_FILE = ONSChat/Info.plist;

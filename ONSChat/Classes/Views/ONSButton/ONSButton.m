@@ -40,6 +40,7 @@
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     
     [self setBackgroundImage:[UIImage imageWithColor:KKColorPurple forSize:self.frame.size radius:radius borderWidth:0 borderColor:nil] forState:UIControlStateHighlighted];
+    
 }
 
 +(instancetype)ONSButtonWithTitle:(NSString*)title
