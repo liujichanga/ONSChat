@@ -15,10 +15,14 @@
 //#define KKServerDomain @"http://test.kuaikuaikeji.com"
 
 // Application
-#define App @"kas"
+#define App @"mobile"
 
 //登陆
-#define ServiceInterfaceLogin KKStringWithFormat(@"%@/%@/ulogin", KKServerDomain, App)
+#define ServiceInterfaceLogin KKStringWithFormat(@"%@/%@/login", KKServerDomain, App)
+//注册
+#define ServiceInterfaceRegister KKStringWithFormat(@"%@/%@/register", KKServerDomain, App)
+//根据ip返回城市
+#define ServiceInterfaceGetCityByIp @"https://whois.pconline.com.cn/ipJson.jsp"
 
 
 

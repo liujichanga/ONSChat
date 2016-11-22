@@ -33,6 +33,8 @@
     //[[AMapServices sharedServices] setEnableHTTPS:YES];
     [AMapServices sharedServices].apiKey =@"ed83d4ee46c20bb50b74a741449c8c6b";
     
+    //开始定位
+    [KKSharedGlobalManager locationGPS];
     
     //最后一个登录用户
     KKUser *lastLoginUser = [KKSharedUserManager lastLoginUser];
