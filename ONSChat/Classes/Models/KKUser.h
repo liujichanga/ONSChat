@@ -45,6 +45,10 @@ typedef NS_ENUM(NSUInteger, KKTargetType) {
 //用户名、密码
 @property(strong,nonatomic) NSString *userName;
 @property(strong,nonatomic) NSString *password;
+
+//定位的GPS城市
+@property(strong,nonatomic) NSString *GPSCity;
+
 //uuid
 @property(strong,nonatomic) NSString *userUUID;
 //uuid 不带横线
@@ -91,14 +95,6 @@ typedef NS_ENUM(NSUInteger, KKTargetType) {
 
 @property(assign,nonatomic) NSInteger age;
 
-//本地通知 Created by sra on 2016/01/20
-@property (strong,nonatomic) NSArray *localNotificationWeights;     //体重提醒数组
-@property (assign,nonatomic) BOOL localNotificationWeightOpen;      //体重提醒开关
-@property (strong,nonatomic) NSArray *localNotificationEats;        //饮食提醒数组
-@property (assign,nonatomic) BOOL localNotificationEatOpen;         //饮食提醒开关
-@property (strong,nonatomic) NSArray *localNotificationDrinks;      //饮水提醒数组
-@property (assign,nonatomic) BOOL localNotificationDrinkOpen;       //饮水提醒开关
-
 
 //显示省份+城市
 -(NSString*)provinceAndCityDisplay;
@@ -111,14 +107,6 @@ typedef NS_ENUM(NSUInteger, KKTargetType) {
 //返回BMI描述
 -(NSString*)calBMIDesc;
 
-/******************转16进制*****************************/
--(NSString*)hexWithUserID;
--(NSString*)hexWithHeight;
--(NSString*)hexWithWeight;
--(NSString*)hexWithAge;
--(NSString*)hexWithSex;
--(NSString*)hexWithPulse;
--(NSString*)hexWithPhone;
 
 
 @end

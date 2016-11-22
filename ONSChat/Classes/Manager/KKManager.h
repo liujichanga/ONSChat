@@ -14,6 +14,7 @@
 #import "KKLocalPlistManager.h"
 #import "KKUserManager.h"
 #import "FSNetWorking.h"
+#import "KKGlobalManager.h"
 
 
 #endif /* KKManager_h */

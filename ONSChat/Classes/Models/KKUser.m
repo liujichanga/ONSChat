@@ -104,47 +104,6 @@
 }
 
 
-#pragma mark - 转16进制数据
--(NSString*)hexWithUserID
-{
-    return [NSString stringWithFormat:@"%08lx",(long)self.userCode.integerValue];
-}
--(NSString*)hexWithHeight
-{
-    return [NSString stringWithFormat:@"%02x",(int)self.height];
-}
--(NSString*)hexWithWeight
-{
-    NSString *strweight1=[NSString stringWithFormat:@"%02x",(int)floor(self.weight)];
-    NSString *strweight2=[NSString stringWithFormat:@"%02x",(int)floor((self.weight-floor(self.weight))*100)];
-    NSString *strweight=[NSString stringWithFormat:@"%@%@",strweight1,strweight2];
-    
-    return strweight;
-}
--(NSString*)hexWithAge
-{
-    return [NSString stringWithFormat:@"%02x",(int)self.age];
-    
-}
--(NSString*)hexWithSex
-{
-    return [NSString stringWithFormat:@"%02x",(int)self.sex];
-}
--(NSString*)hexWithPulse
-{
-    return [NSString stringWithFormat:@"%02x",(int)self.pulse];
-}
--(NSString *)hexWithPhone
-{
-    //    NSMutableString *str=[NSMutableString string];
-    //    for (int i=0; i<self.phone.length; i++) {
-    //        [str appendString:[NSString stringWithFormat:@"0%@",[self.phone substringWithRange:NSMakeRange(i, 1)]]];
-    //
-    //    }
-    //
-    //    return str;
-    
-    return @"";
-}
+
 
 @end
