@@ -10,4 +10,6 @@
 
 @interface VIPCell : UITableViewCell
 
+-(void)showText:(NSInteger)index;
+
 @end

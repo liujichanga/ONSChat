@@ -26,8 +26,8 @@
     KKLog(@"root viewdidload");
     
     // Item选中图片
-    NSArray *normalImages = @[@"tabbar_kk",@"tabbar_found",@"tabbar_gift",@"tabbar_me"];
-    NSArray *selectedImages = @[@"tabbar_kk_s",@"tabbar_found_s",@"tabbar_gift_s",@"tabbar_me_s"];
+    NSArray *normalImages = @[@"ic_fate_press",@"ic_nearby_press",@"ic_letter_press",@"ic_me_press"];
+    NSArray *selectedImages = @[@"ic_fate",@"ic_nearby",@"ic_letter",@"ic_me"];
     // 设置选中图片
     NSArray *viewControllers = self.viewControllers;
     NSUInteger count = viewControllers.count;

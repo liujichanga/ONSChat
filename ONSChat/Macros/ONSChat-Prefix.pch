@@ -34,6 +34,9 @@
 #import "MBProgressHUD+Add.h"
 
 #import "ONSButton.h"
+#import "NotificationView.h"
+#import "KKCarouselView.h"
+
 
 //
 //#import "KKButton.h"

@@ -8,6 +8,11 @@
 
 #import "MeInfoCell.h"
 
+@interface MeInfoCell()
+
+
+@end
+
 @implementation MeInfoCell
 
 - (void)awakeFromNib {

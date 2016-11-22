@@ -11,13 +11,42 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="MeInfoCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MeInfoCell" id="KGk-i7-Jjw" customClass="MeInfoCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qwI-hO-mTO">
+                        <rect key="frame" x="15" y="9.5" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="Neu-rj-bM0"/>
+                            <constraint firstAttribute="height" constant="25" id="XKa-of-S92"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ZW-8k-EAE">
+                        <rect key="frame" x="50" y="11.5" width="107" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="107" id="EeZ-aG-11Z"/>
+                            <constraint firstAttribute="height" constant="21" id="XNs-2c-ET6"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="qwI-hO-mTO" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="1vp-w5-dRX"/>
+                    <constraint firstItem="4ZW-8k-EAE" firstAttribute="leading" secondItem="qwI-hO-mTO" secondAttribute="trailing" constant="10" id="Glr-zP-1mb"/>
+                    <constraint firstItem="4ZW-8k-EAE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="OdD-2T-qvH"/>
+                    <constraint firstItem="qwI-hO-mTO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="egg-42-GuY"/>
+                </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="iconImageView" destination="qwI-hO-mTO" id="7OZ-aX-Z2p"/>
+                <outlet property="infoTextLabel" destination="4ZW-8k-EAE" id="d1m-dI-ar2"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

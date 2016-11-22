@@ -41,26 +41,27 @@
                             <constraint firstAttribute="width" constant="46" id="dsH-a4-qIT"/>
                             <constraint firstAttribute="height" constant="30" id="rcl-oZ-9Ek"/>
                         </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                         <state key="normal" title="开通">
-                            <color key="titleColor" red="0.98876387474402283" green="0.23688742193297063" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="titleColor" red="0.82352941176470584" green="0.34509803921568627" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                     </button>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P0o-RW-rRO">
-                        <rect key="frame" x="130" y="10" width="50" height="25"/>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="msg_img_3" translatesAutoresizingMaskIntoConstraints="NO" id="P0o-RW-rRO">
+                        <rect key="frame" x="125" y="15" width="39" height="15"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="50" id="Ezd-vt-eJx"/>
-                            <constraint firstAttribute="height" constant="25" id="IrY-xi-hNj"/>
+                            <constraint firstAttribute="width" constant="39" id="Ezd-vt-eJx"/>
+                            <constraint firstAttribute="height" constant="15" id="IrY-xi-hNj"/>
                         </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="wgk-qn-Hga" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="9JC-iU-hZb"/>
                     <constraint firstAttribute="trailing" secondItem="wgk-qn-Hga" secondAttribute="trailing" constant="8" id="Bkg-cO-cLe"/>
-                    <constraint firstItem="P0o-RW-rRO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="M7u-4x-N2X"/>
-                    <constraint firstItem="P0o-RW-rRO" firstAttribute="leading" secondItem="Y3M-hO-qQl" secondAttribute="trailing" constant="10" id="Q0b-pr-aAw"/>
+                    <constraint firstItem="P0o-RW-rRO" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="EIh-GX-fbT"/>
+                    <constraint firstItem="P0o-RW-rRO" firstAttribute="leading" secondItem="Y3M-hO-qQl" secondAttribute="trailing" constant="5" id="Q0b-pr-aAw"/>
                     <constraint firstItem="g2f-47-oc1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="S6f-sX-hvg"/>
-                    <constraint firstItem="g2f-47-oc1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="SX2-Nu-Abb"/>
-                    <constraint firstItem="wgk-qn-Hga" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="ag1-cv-xEM"/>
-                    <constraint firstItem="Y3M-hO-qQl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="e18-bq-C1E"/>
+                    <constraint firstItem="g2f-47-oc1" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="TeA-ZM-UMJ"/>
+                    <constraint firstItem="Y3M-hO-qQl" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="jP5-u1-TpV"/>
                     <constraint firstItem="Y3M-hO-qQl" firstAttribute="leading" secondItem="g2f-47-oc1" secondAttribute="trailing" constant="10" id="nlQ-mc-FH7"/>
                 </constraints>
             </tableViewCellContentView>
@@ -72,4 +73,7 @@
             </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="msg_img_3" width="39" height="15"/>
+    </resources>
 </document>

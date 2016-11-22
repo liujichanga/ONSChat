@@ -37,7 +37,21 @@
     _leftLineLeftConstraint.constant=KKScreenWidth/3.0;
     _rightLineRightConstraint.constant=KKScreenWidth/3.0;
     
+    self.selectionStyle=UITableViewCellSelectionStyleNone;
     
+    CGFloat radius=3.0;
+    
+    [_getRedButton.layer setCornerRadius:radius];
+    [_VIPButton.layer setCornerRadius:radius];
+    [_MonthButton.layer setCornerRadius:radius];
+    [_PhoneAuthButton.layer setCornerRadius:radius];
+    [_idAuthButton.layer setCornerRadius:radius];
+    
+    UIView *redview=[[UIView alloc] initWithFrame:CGRectMake(_getRedButton.frame.size.width-4, -2, 7, 7)];
+    redview.backgroundColor=[UIColor redColor];
+    [redview.layer setCornerRadius:3.0];
+    [_getRedButton addSubview:redview];
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

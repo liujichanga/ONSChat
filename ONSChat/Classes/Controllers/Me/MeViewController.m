@@ -9,9 +9,13 @@
 #import "MeViewController.h"
 #import "HeadCell.h"
 #import "VIPCell.h"
+#import "MeInfoCell.h"
+
 
 #define cellHeadIdentifier @"HeadCell"
 #define cellVIPIdentifier @"VIPCell"
+#define cellMeInfoIdentifier @"MeInfoCell"
+
 
 @interface MeViewController ()
 
@@ -28,8 +32,11 @@
     //使用registerNib 方法可以从XIB加载控件
     [self.tableView registerNib:[UINib nibWithNibName:cellHeadIdentifier bundle:nil] forCellReuseIdentifier:cellHeadIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:cellVIPIdentifier bundle:nil] forCellReuseIdentifier:cellVIPIdentifier];
-    
-    
+    [self.tableView registerNib:[UINib nibWithNibName:cellMeInfoIdentifier bundle:nil] forCellReuseIdentifier:cellMeInfoIdentifier];
+
+    NotificationView *notificationView=[[NotificationView alloc] initWithFrame:CGRectMake(10, 74, KKScreenWidth-20, 35)];
+    [self.view addSubview:notificationView];
+    [notificationView setNotificationNum:30];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,7 +72,7 @@
     {
         return 0.01;
     }
-    else return 15;
+    else return 0.01;
 }
 
 
@@ -81,34 +88,88 @@
         if(indexPath.row==0)
         {
             VIPCell *cell=[tableView dequeueReusableCellWithIdentifier:cellVIPIdentifier forIndexPath:indexPath];
+            [cell showText:indexPath.row];
             return cell;
         }
         else if(indexPath.row==1)
         {
             VIPCell *cell=[tableView dequeueReusableCellWithIdentifier:cellVIPIdentifier forIndexPath:indexPath];
+            [cell showText:indexPath.row];
+
             return cell;
         }
         else
         {
             VIPCell *cell=[tableView dequeueReusableCellWithIdentifier:cellVIPIdentifier forIndexPath:indexPath];
+            [cell showText:indexPath.row];
+
             return cell;
         }
         
     }
     else if(indexPath.section == 2)//我的资料
     {
-        //if(indexPath.row==0)
+        if(indexPath.row==0)
         {
-            UITableViewCell *cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"infocell"];
+            MeInfoCell *cell=[tableView dequeueReusableCellWithIdentifier:cellMeInfoIdentifier forIndexPath:indexPath];
+            cell.iconImageView.image=[UIImage imageNamed:@"data_img"];
+            cell.infoTextLabel.text=@"我的资料";
             return cell;
         }
-       
+        else if(indexPath.row==1)
+        {
+            MeInfoCell *cell=[tableView dequeueReusableCellWithIdentifier:cellMeInfoIdentifier forIndexPath:indexPath];
+            cell.iconImageView.image=[UIImage imageNamed:@"data_img"];
+            cell.infoTextLabel.text=@"我的动态";
+            return cell;
+        }
+        else
+        {
+            MeInfoCell *cell=[tableView dequeueReusableCellWithIdentifier:cellMeInfoIdentifier forIndexPath:indexPath];
+            cell.iconImageView.image=[UIImage imageNamed:@"gallery_img"];
+            cell.infoTextLabel.text=@"我的相册";
+            return cell;
+        }
         
     }
     else//资料
     {
-        UITableViewCell *cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"infocell"];
-        return cell;
+        if(indexPath.row==0)
+        {
+            MeInfoCell *cell=[tableView dequeueReusableCellWithIdentifier:cellMeInfoIdentifier forIndexPath:indexPath];
+            cell.iconImageView.image=[UIImage imageNamed:@"make_friends_img"];
+            cell.infoTextLabel.text=@"征友条件";
+            return cell;
+        }
+        else if(indexPath.row==1)
+        {
+            MeInfoCell *cell=[tableView dequeueReusableCellWithIdentifier:cellMeInfoIdentifier forIndexPath:indexPath];
+            cell.iconImageView.image=[UIImage imageNamed:@"goods_star_img_1"];
+            cell.infoTextLabel.text=@"诚信星级";
+            return cell;
+        }
+        else if(indexPath.row==2)
+        {
+            MeInfoCell *cell=[tableView dequeueReusableCellWithIdentifier:cellMeInfoIdentifier forIndexPath:indexPath];
+            cell.iconImageView.image=[UIImage imageNamed:@"kefu_img_1"];
+            cell.infoTextLabel.text=@"自定义招呼";
+            return cell;
+        }
+        else if(indexPath.row==3)
+        {
+            MeInfoCell *cell=[tableView dequeueReusableCellWithIdentifier:cellMeInfoIdentifier forIndexPath:indexPath];
+            cell.iconImageView.image=[UIImage imageNamed:@"kefu_img_1"];
+            cell.infoTextLabel.text=@"在线客服";
+            return cell;
+        }
+        else
+        {
+            MeInfoCell *cell=[tableView dequeueReusableCellWithIdentifier:cellMeInfoIdentifier forIndexPath:indexPath];
+            cell.iconImageView.image=[UIImage imageNamed:@"setting_img_1"];
+            cell.infoTextLabel.text=@"设置";
+            return cell;
+        }
+       
     }
     
 }

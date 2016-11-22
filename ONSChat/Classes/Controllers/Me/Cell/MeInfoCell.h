@@ -10,4 +10,10 @@
 
 @interface MeInfoCell : UITableViewCell
 
+
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
+@property (weak, nonatomic) IBOutlet UILabel *infoTextLabel;
+
+
+
 @end

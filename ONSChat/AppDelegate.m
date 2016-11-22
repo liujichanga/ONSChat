@@ -49,7 +49,7 @@
         if(KKStringIsBlank(lastLoginUser.userName)||KKStringIsBlank(lastLoginUser.password))
         {
             //注册界面
-            self.window.rootViewController=KKViewControllerOfMainSB(@"RegisterNavigationController");
+            self.window.rootViewController=KKInitViewControllerOfMainSB;// KKViewControllerOfMainSB(@"RegisterNavigationController");
         }
         else
         {
