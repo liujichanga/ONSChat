@@ -82,7 +82,7 @@
             </objects>
             <point key="canvasLocation" x="-74" y="-10553"/>
         </scene>
-        <!--Me View Controller-->
+        <!--用户中心-->
         <scene sceneID="YTU-VD-bmD">
             <objects>
                 <viewController id="L4O-cK-Cbn" customClass="MeViewController" sceneMemberID="viewController">
@@ -93,9 +93,28 @@
                     <view key="view" contentMode="scaleToFill" id="9fA-xA-2aT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="MXB-60-6Hw">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="L4O-cK-Cbn" id="s0u-re-LVT"/>
+                                    <outlet property="delegate" destination="L4O-cK-Cbn" id="TaH-EA-i4c"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MXB-60-6Hw" firstAttribute="top" secondItem="9fA-xA-2aT" secondAttribute="top" id="9KT-XZ-I6O"/>
+                            <constraint firstAttribute="trailing" secondItem="MXB-60-6Hw" secondAttribute="trailing" id="O3c-jU-35i"/>
+                            <constraint firstItem="9vz-B0-5pQ" firstAttribute="top" secondItem="MXB-60-6Hw" secondAttribute="bottom" id="Q40-1d-A2M"/>
+                            <constraint firstItem="MXB-60-6Hw" firstAttribute="leading" secondItem="9fA-xA-2aT" secondAttribute="leading" id="mOo-cZ-ZvA"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="7Qa-rY-kVF"/>
+                    <navigationItem key="navigationItem" title="用户中心" id="7Qa-rY-kVF"/>
+                    <connections>
+                        <outlet property="tableView" destination="MXB-60-6Hw" id="TXW-HG-sX3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Td2-yk-3Ww" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

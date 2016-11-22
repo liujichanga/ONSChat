@@ -27,6 +27,12 @@
 		1C0E77AC1DE325840083F9F8 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0E77AB1DE325840083F9F8 /* MeViewController.m */; };
 		1C0E77B01DE32AA20083F9F8 /* KKCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0E77AF1DE32AA20083F9F8 /* KKCarouselView.m */; };
 		1C6B3A0B1DE3DCF3008ACCA8 /* KKGlobalManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6B3A0A1DE3DCF3008ACCA8 /* KKGlobalManager.m */; };
+		1C6B3A101DE3F314008ACCA8 /* HeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6B3A0E1DE3F314008ACCA8 /* HeadCell.m */; };
+		1C6B3A111DE3F314008ACCA8 /* HeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C6B3A0F1DE3F314008ACCA8 /* HeadCell.xib */; };
+		1C6B3A151DE3F33C008ACCA8 /* VIPCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6B3A131DE3F33C008ACCA8 /* VIPCell.m */; };
+		1C6B3A161DE3F33C008ACCA8 /* VIPCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C6B3A141DE3F33C008ACCA8 /* VIPCell.xib */; };
+		1C6B3A1A1DE3F34C008ACCA8 /* MeInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6B3A181DE3F34C008ACCA8 /* MeInfoCell.m */; };
+		1C6B3A1B1DE3F34C008ACCA8 /* MeInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C6B3A191DE3F34C008ACCA8 /* MeInfoCell.xib */; };
 		563AD3481DE14B09006945BD /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD3471DE14B09006945BD /* AssetsLibrary.framework */; };
 		563AD34A1DE14B10006945BD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD3491DE14B10006945BD /* AudioToolbox.framework */; };
 		563AD34C1DE14B1C006945BD /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD34B1DE14B1C006945BD /* CoreAudio.framework */; };
@@ -170,6 +176,15 @@
 		1C0E77AF1DE32AA20083F9F8 /* KKCarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKCarouselView.m; sourceTree = "<group>"; };
 		1C6B3A091DE3DCF3008ACCA8 /* KKGlobalManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKGlobalManager.h; sourceTree = "<group>"; };
 		1C6B3A0A1DE3DCF3008ACCA8 /* KKGlobalManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKGlobalManager.m; sourceTree = "<group>"; };
+		1C6B3A0D1DE3F314008ACCA8 /* HeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadCell.h; sourceTree = "<group>"; };
+		1C6B3A0E1DE3F314008ACCA8 /* HeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadCell.m; sourceTree = "<group>"; };
+		1C6B3A0F1DE3F314008ACCA8 /* HeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeadCell.xib; sourceTree = "<group>"; };
+		1C6B3A121DE3F33C008ACCA8 /* VIPCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIPCell.h; sourceTree = "<group>"; };
+		1C6B3A131DE3F33C008ACCA8 /* VIPCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPCell.m; sourceTree = "<group>"; };
+		1C6B3A141DE3F33C008ACCA8 /* VIPCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VIPCell.xib; sourceTree = "<group>"; };
+		1C6B3A171DE3F34C008ACCA8 /* MeInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeInfoCell.h; sourceTree = "<group>"; };
+		1C6B3A181DE3F34C008ACCA8 /* MeInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeInfoCell.m; sourceTree = "<group>"; };
+		1C6B3A191DE3F34C008ACCA8 /* MeInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeInfoCell.xib; sourceTree = "<group>"; };
 		563AD3471DE14B09006945BD /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		563AD3491DE14B10006945BD /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		563AD34B1DE14B1C006945BD /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
@@ -482,6 +497,7 @@
 		1C0E77A91DE325790083F9F8 /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				1C6B3A0C1DE3F2ED008ACCA8 /* Cell */,
 				1C0E77AA1DE325840083F9F8 /* MeViewController.h */,
 				1C0E77AB1DE325840083F9F8 /* MeViewController.m */,
 			);
@@ -495,6 +511,22 @@
 				1C0E77AF1DE32AA20083F9F8 /* KKCarouselView.m */,
 			);
 			path = CarouselView;
+			sourceTree = "<group>";
+		};
+		1C6B3A0C1DE3F2ED008ACCA8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1C6B3A0D1DE3F314008ACCA8 /* HeadCell.h */,
+				1C6B3A0E1DE3F314008ACCA8 /* HeadCell.m */,
+				1C6B3A0F1DE3F314008ACCA8 /* HeadCell.xib */,
+				1C6B3A121DE3F33C008ACCA8 /* VIPCell.h */,
+				1C6B3A131DE3F33C008ACCA8 /* VIPCell.m */,
+				1C6B3A141DE3F33C008ACCA8 /* VIPCell.xib */,
+				1C6B3A171DE3F34C008ACCA8 /* MeInfoCell.h */,
+				1C6B3A181DE3F34C008ACCA8 /* MeInfoCell.m */,
+				1C6B3A191DE3F34C008ACCA8 /* MeInfoCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		563AD3431DE147CE006945BD /* Chat */ = {
@@ -1053,12 +1085,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C0E779C1DE3222C0083F9F8 /* AMap.bundle in Resources */,
+				1C6B3A1B1DE3F34C008ACCA8 /* MeInfoCell.xib in Resources */,
+				1C6B3A161DE3F33C008ACCA8 /* VIPCell.xib in Resources */,
 				5698643A1DE00EAF0059D484 /* SVProgressHUD.bundle in Resources */,
 				567F545E1DDFEC5500872A36 /* Assets.xcassets in Resources */,
 				56C6FFD41DE09E9000BB5C3B /* RongCloudKit.strings in Resources */,
 				567F545C1DDFEC5500872A36 /* Main.storyboard in Resources */,
 				56C6FFD31DE09E9000BB5C3B /* Emoji.plist in Resources */,
 				56C6FFD51DE09E9000BB5C3B /* RongCloud.bundle in Resources */,
+				1C6B3A111DE3F314008ACCA8 /* HeadCell.xib in Resources */,
 				56C6FFD81DE09E9000BB5C3B /* RCConfig.plist in Resources */,
 				569864251DE00EAF0059D484 /* MJRefresh.bundle in Resources */,
 			);
@@ -1077,6 +1112,7 @@
 				1C0E774B1DE30B4D0083F9F8 /* RegisterViewController.m in Sources */,
 				5698641F1DE00EAF0059D484 /* MJRefreshBackGifFooter.m in Sources */,
 				569864311DE00EAF0059D484 /* SDWebImageManager.m in Sources */,
+				1C6B3A101DE3F314008ACCA8 /* HeadCell.m in Sources */,
 				5698646A1DE0516E0059D484 /* KKBaseDao.m in Sources */,
 				569864241DE00EAF0059D484 /* MJRefreshStateHeader.m in Sources */,
 				569864191DE00EAF0059D484 /* MJRefreshComponent.m in Sources */,
@@ -1125,6 +1161,7 @@
 				569864051DE00EAF0059D484 /* FMDatabasePool.m in Sources */,
 				569864261DE00EAF0059D484 /* MJRefreshConst.m in Sources */,
 				569864061DE00EAF0059D484 /* FMDatabaseQueue.m in Sources */,
+				1C6B3A1A1DE3F34C008ACCA8 /* MeInfoCell.m in Sources */,
 				1C0E77501DE30F820083F9F8 /* ONSButton.m in Sources */,
 				5698648D1DE0530D0059D484 /* KKBaseNavigationController.m in Sources */,
 				569864371DE00EAF0059D484 /* UIImageView+HighlightedWebCache.m in Sources */,
@@ -1135,6 +1172,7 @@
 				569864281DE00EAF0059D484 /* UIScrollView+MJRefresh.m in Sources */,
 				569864991DE055D90059D484 /* KKUser.m in Sources */,
 				5698648F1DE0530D0059D484 /* KKBaseViewController.m in Sources */,
+				1C6B3A151DE3F33C008ACCA8 /* VIPCell.m in Sources */,
 				569864011DE00EAF0059D484 /* FMTokenizers.m in Sources */,
 				569864071DE00EAF0059D484 /* FMResultSet.m in Sources */,
 				569864391DE00EAF0059D484 /* UIView+WebCacheOperation.m in Sources */,

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A319" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="VIPCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g2f-47-oc1">
+                        <rect key="frame" x="15" y="10" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="TPy-tX-Aec"/>
+                            <constraint firstAttribute="height" constant="25" id="eao-Nr-dWS"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="包月写信" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3M-hO-qQl">
+                        <rect key="frame" x="50" y="12" width="70" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="Fbl-16-Se5"/>
+                            <constraint firstAttribute="height" constant="21" id="J27-4F-zuO"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgk-qn-Hga">
+                        <rect key="frame" x="266" y="6" width="46" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="46" id="dsH-a4-qIT"/>
+                            <constraint firstAttribute="height" constant="30" id="rcl-oZ-9Ek"/>
+                        </constraints>
+                        <state key="normal" title="开通">
+                            <color key="titleColor" red="0.98876387474402283" green="0.23688742193297063" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P0o-RW-rRO">
+                        <rect key="frame" x="130" y="10" width="50" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="Ezd-vt-eJx"/>
+                            <constraint firstAttribute="height" constant="25" id="IrY-xi-hNj"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="wgk-qn-Hga" secondAttribute="trailing" constant="8" id="Bkg-cO-cLe"/>
+                    <constraint firstItem="P0o-RW-rRO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="M7u-4x-N2X"/>
+                    <constraint firstItem="P0o-RW-rRO" firstAttribute="leading" secondItem="Y3M-hO-qQl" secondAttribute="trailing" constant="10" id="Q0b-pr-aAw"/>
+                    <constraint firstItem="g2f-47-oc1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="S6f-sX-hvg"/>
+                    <constraint firstItem="g2f-47-oc1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="SX2-Nu-Abb"/>
+                    <constraint firstItem="wgk-qn-Hga" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="ag1-cv-xEM"/>
+                    <constraint firstItem="Y3M-hO-qQl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="e18-bq-C1E"/>
+                    <constraint firstItem="Y3M-hO-qQl" firstAttribute="leading" secondItem="g2f-47-oc1" secondAttribute="trailing" constant="10" id="nlQ-mc-FH7"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="actionButton" destination="wgk-qn-Hga" id="cqG-3C-bhS"/>
+                <outlet property="iconImageView" destination="g2f-47-oc1" id="Uoe-Nm-NO1"/>
+                <outlet property="saleImageView" destination="P0o-RW-rRO" id="8ia-ji-gVs"/>
+                <outlet property="vipTextLabel" destination="Y3M-hO-qQl" id="tCh-yU-ZHa"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>
