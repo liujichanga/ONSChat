@@ -11,8 +11,7 @@
 
 @class KKResourceManager;
 
-@interface KKGlobalManager : NSObject<CLLocationManagerDelegate>
-
+@interface KKGlobalManager : NSObject
 
 #define KKSharedGlobalManager [KKGlobalManager sharedGlobalManager]
 
@@ -20,8 +19,6 @@
 +(instancetype)sharedGlobalManager;
 +(void)releaseSingleton;
 
-//位置信息
-@property (strong, nonatomic) CLLocation *userLocation;
 
 
 //启动定位

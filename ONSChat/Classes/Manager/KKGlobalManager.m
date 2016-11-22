@@ -10,7 +10,7 @@
 
 @interface KKGlobalManager()
 
-@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) AMapLocationManager *aMapManager;
 
 
 @end
@@ -52,75 +52,52 @@ static KKGlobalManager *instance;
 -(void)locationGPS
 {
     //定位
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
-
-}
-
-- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
-{
-    NSLog(@"%d",status);
-    switch (status)
-    {
-        case kCLAuthorizationStatusAuthorizedAlways:
-        case kCLAuthorizationStatusAuthorizedWhenInUse:
-        {
-            NSLog(@"已经授权");
-            [self.locationManager startUpdatingLocation];
-        }
-            break;
-        case kCLAuthorizationStatusNotDetermined:
-        {
-            NSLog(@"等待授权");
-            [self.locationManager requestWhenInUseAuthorization];
-        }
-            break;
-        default:
-        {
-            NSLog(@"授权被拒绝");
-        
-        }
-            break;
-    }
+    _aMapManager = [[AMapLocationManager alloc] init];
     
-}
+    KKSharedCurrentUser.GPSCity=@"北京市";
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
-{
-    if(locations.count > 0 && self.userLocation == nil)
-    {
-        NSLog(@"定位成功");
-        //停止定位
-        [self stopLoaction];
-        
-        self.userLocation = [locations firstObject];
-        
-        //定位成功，根据经纬度返回数据
-        //[self loadClassData:nil];
-    }
-}
+    //定位
+    [_aMapManager requestLocationWithReGeocode:YES completionBlock:^(CLLocation *location, AMapLocationReGeocode *regeocode, NSError *error) {
+        if(error)
+        {
+            NSLog(@"location error:%@",error);
+            //根据ip获取城市
+            AFHTTPSessionManager *sessionManager=[AFHTTPSessionManager manager];
+            sessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];//不直接序列化为json
+            [sessionManager GET:ServiceInterfaceGetCityByIp parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                NSData *data=(NSData*)responseObject;
+                NSStringEncoding gbkEncoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+                NSString *str=[[NSString alloc] initWithData:data encoding:gbkEncoding];
+                NSRange startRange = [str rangeOfString:@"IPCallBack("];
+                if(startRange.location!=NSNotFound)
+                {
+                    NSString *substr=[str substringFromIndex:startRange.location+startRange.length];
+                    NSRange endRange=[substr rangeOfString:@")"];
+                    if(endRange.location!=NSNotFound)
+                    {
+                        NSRange rang=NSMakeRange(0, endRange.location);
+                        NSString *jsonstr=[substr substringWithRange:rang];
+                        NSLog(@"jsonstr:%@",jsonstr);
+                        NSDictionary *dic = (NSDictionary*)[jsonstr objectFromJSONString];
+                        if(dic&&[dic isKindOfClass:[NSDictionary class]])
+                        {
+                            NSString *city=[dic stringForKey:@"city" defaultValue:@""];
+                            if(KKStringIsNotBlank(city))
+                                KKSharedCurrentUser.GPSCity=city;
+                        }
+                    }
+                }
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                
+            }];
+        }
+        else
+        {
+            NSLog(@"location:%@,regeode:%@",location,regeocode);
+            KKSharedCurrentUser.GPSCity=regeocode.city;
+        }
+    }];
 
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
-{
-    NSLog(@"定位失败");
-    //停止定位
-    [self stopLoaction];
-    
-    self.userLocation=nil;
-    
-    //定位失败，根据IP地址返回城市
-    //[self loadClassData:nil];
-}
-
-- (void)stopLoaction
-{
-    if(self.locationManager)
-    {
-        [self.locationManager stopUpdatingLocation];
-        self.locationManager.delegate = nil;
-        self.locationManager = nil;
-    }
 }
 
 @end

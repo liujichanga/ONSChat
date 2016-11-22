@@ -283,22 +283,7 @@ placeholderImage:[UIImage imageNamed:placeholder]]
 //course媒体存放的缓存目录 - sra by 20151201
 #define CacheKKCourse @"KKCourse"
 
-//本地消息通知 饮食提醒 ID - Make by Liulie on 2016/01/23
-#define LocalNotificationEatBreakfastId @"db097a6d-e4ca-4caa-b7b8-becafe88e02e"
-#define LocalNotificationEatLunchId @"7d460f3c-96e4-45d8-a4a2-b3a6573e093c"
-#define LocalNotificationEatSupperId @"395085b5-14a8-4315-83c1-4863dfe02aa3"
-
-//方案代码定义 Make by LiuLei on 2016/03/08
-#define KKProjectCode @"KK_PROJECT_CODE"
-
-//最大图片数量
-#define KKMaxFindPicsNumber 3
-
-//url
-#define KKItunesUrl @"https://itunes.apple.com/cn/app/kuai-kuai-jian-fei-ni-zhi/id1033543444?mt=8"
-
-//心率阈值（心率过低值、心率过高值）
-#define KKMinBpm (220 - KKSharedCurrentUser.age - KKSharedCurrentUser.pulse) * 0.2 + KKSharedCurrentUser.pulse
-#define KKMaxBpm (220 - KKSharedCurrentUser.age - KKSharedCurrentUser.pulse) * 0.8 + KKSharedCurrentUser.pulse
+//渠道id
+#define ChannelId @"appstore"
 
 #endif
