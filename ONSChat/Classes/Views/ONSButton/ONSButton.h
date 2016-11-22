@@ -10,6 +10,6 @@
 
 @interface ONSButton : UIButton
 
-+(instancetype)ONSButtonWithTitle:(NSString*)title;
++(instancetype)ONSButtonWithTitle:(NSString*)title frame:(CGRect)frame;
 
 @end

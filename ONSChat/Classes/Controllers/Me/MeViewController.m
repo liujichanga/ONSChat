@@ -37,6 +37,9 @@
     NotificationView *notificationView=[[NotificationView alloc] initWithFrame:CGRectMake(10, 74, KKScreenWidth-20, 35)];
     [self.view addSubview:notificationView];
     [notificationView setNotificationNum:30];
+    
+    ONSButton *btn=[ONSButton ONSButtonWithTitle:@"wodfw" frame:CGRectMake(60, 200, 100, 30)];
+    [self.view addSubview:btn];
 }
 
 - (void)didReceiveMemoryWarning {
