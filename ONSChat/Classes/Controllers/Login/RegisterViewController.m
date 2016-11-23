@@ -75,11 +75,15 @@
 - (IBAction)nextStepBtnClick:(id)sender {
     KKLog(@"下一步");
     if (self.maleBtn.selected ==YES) {
+        KKUser *user=[[KKUser alloc] init];
+        KKSharedUserManager.tempUser=user;
         KKSharedUserManager.tempUser.sex = KKMale;
         UserInfoViewController *userInfo = KKViewControllerOfMainSB(@"UserInfoViewController");
         [self.navigationController pushViewController:userInfo animated:YES];
     }else if (self.femaleBtn.selected ==YES){
-         KKSharedUserManager.tempUser.sex = KKFemale;
+        KKUser *user=[[KKUser alloc] init];
+        KKSharedUserManager.tempUser=user;
+        KKSharedUserManager.tempUser.sex = KKFemale;
     }else{
         [MBProgressHUD showMessag:@"请选择性别" toView:nil];
     }
