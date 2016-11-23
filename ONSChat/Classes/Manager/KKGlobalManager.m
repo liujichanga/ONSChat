@@ -56,7 +56,7 @@ static KKGlobalManager *instance;
     //定位
     _aMapManager = [[AMapLocationManager alloc] init];
     
-    KKSharedCurrentUser.GPSCity=@"北京市";
+    KKSharedGlobalManager.GPSCity=@"北京市";
 
     //定位
     [_aMapManager requestLocationWithReGeocode:YES completionBlock:^(CLLocation *location, AMapLocationReGeocode *regeocode, NSError *error) {
@@ -85,7 +85,7 @@ static KKGlobalManager *instance;
                         {
                             NSString *city=[dic stringForKey:@"city" defaultValue:@""];
                             if(KKStringIsNotBlank(city))
-                                KKSharedCurrentUser.GPSCity=city;
+                                KKSharedGlobalManager.GPSCity=city;
                         }
                     }
                 }
@@ -96,7 +96,7 @@ static KKGlobalManager *instance;
         else
         {
             NSLog(@"location:%@,regeode:%@",location,regeocode);
-            KKSharedCurrentUser.GPSCity=regeocode.city;
+            KKSharedGlobalManager.GPSCity=regeocode.city;
         }
     }];
 

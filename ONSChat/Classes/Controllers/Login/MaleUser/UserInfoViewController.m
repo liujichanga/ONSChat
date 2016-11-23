@@ -42,7 +42,7 @@
     }
 //    self.nickNameText.placeholder = @"占位昵称";
     self.nickNameText.delegate = self;
-    self.cityLabel.text = KKSharedUserManager.tempUser.GPSCity;
+    self.cityLabel.text = KKSharedGlobalManager.GPSCity;
 }
 
 - (void)didReceiveMemoryWarning {
