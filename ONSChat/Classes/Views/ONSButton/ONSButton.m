@@ -41,6 +41,9 @@
     
     [self setBackgroundImage:[UIImage imageWithColor:KKColorPurple forSize:self.frame.size radius:radius borderWidth:0 borderColor:nil] forState:UIControlStateHighlighted];
     
+    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateDisabled];
+    [self setBackgroundImage:[UIImage imageWithColor:KKColorPurpleDisabled forSize:self.frame.size radius:radius borderWidth:0 borderColor:nil] forState:UIControlStateDisabled];
+    
 }
 
 +(instancetype)ONSButtonWithTitle:(NSString*)title

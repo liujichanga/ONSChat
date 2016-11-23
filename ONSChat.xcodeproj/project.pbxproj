@@ -137,6 +137,7 @@
 		56C6FFD71DE09E9000BB5C3B /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C6FFD01DE09E9000BB5C3B /* libopencore-amrnb.a */; };
 		56C6FFD81DE09E9000BB5C3B /* RCConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 56C6FFD11DE09E9000BB5C3B /* RCConfig.plist */; };
 		56C6FFD91DE09E9000BB5C3B /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C6FFD21DE09E9000BB5C3B /* RongIMLib.framework */; };
+		9BC32EDE1DE537C300CDDAFB /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EDD1DE537C300CDDAFB /* UserInfoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -377,6 +378,8 @@
 		56C6FFD01DE09E9000BB5C3B /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
 		56C6FFD11DE09E9000BB5C3B /* RCConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RCConfig.plist; sourceTree = "<group>"; };
 		56C6FFD21DE09E9000BB5C3B /* RongIMLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RongIMLib.framework; sourceTree = "<group>"; };
+		9BC32EDC1DE537C300CDDAFB /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
+		9BC32EDD1DE537C300CDDAFB /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -427,6 +430,8 @@
 				1C0E77471DE30B380083F9F8 /* LoginViewController.m */,
 				1C0E77491DE30B4D0083F9F8 /* RegisterViewController.h */,
 				1C0E774A1DE30B4D0083F9F8 /* RegisterViewController.m */,
+				9BC32EDC1DE537C300CDDAFB /* UserInfoViewController.h */,
+				9BC32EDD1DE537C300CDDAFB /* UserInfoViewController.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1153,6 +1158,7 @@
 				1C0E77661DE31F870083F9F8 /* AFURLResponseSerialization.m in Sources */,
 				5698645E1DE010B40059D484 /* NSString+Valid.m in Sources */,
 				569864201DE00EAF0059D484 /* MJRefreshBackNormalFooter.m in Sources */,
+				9BC32EDE1DE537C300CDDAFB /* UserInfoViewController.m in Sources */,
 				1C0E77531DE313140083F9F8 /* UIImage+Resize.m in Sources */,
 				569864931DE0530D0059D484 /* RootTabBarController.m in Sources */,
 				563AD3741DE1511B006945BD /* ChatViewController.m in Sources */,

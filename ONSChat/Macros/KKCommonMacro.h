@@ -142,6 +142,7 @@ placeholderImage:[UIImage imageNamed:placeholder]]
 
 //通用紫色
 #define KKColorPurple  [UIColor colorWithRed:210.0/255.0 green:88.0/255.0 blue:210.0/255.0 alpha:1.0]
+#define KKColorPurpleDisabled  [UIColor colorWithRed:210.0/255.0 green:88.0/255.0 blue:210.0/255.0 alpha:0.5]
 //首页背景的颜色
 #define KKColorHomeOrange  [UIColor colorWithHexString:@"#ff6000"]//f84d02
 
