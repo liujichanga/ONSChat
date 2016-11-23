@@ -55,7 +55,6 @@
 }
 //男性按钮点击事件
 - (IBAction)maleBtnClick:(UIButton*)sender {
-    KKLog(@"男");
     sender.selected = YES;
     self.femaleBtn.selected = NO;
 }
@@ -76,11 +75,11 @@
 - (IBAction)nextStepBtnClick:(id)sender {
     KKLog(@"下一步");
     if (self.maleBtn.selected ==YES) {
-        KKSharedCurrentUser.sex = KKMale;
+        KKSharedUserManager.tempUser.sex = KKMale;
         UserInfoViewController *userInfo = KKViewControllerOfMainSB(@"UserInfoViewController");
         [self.navigationController pushViewController:userInfo animated:YES];
     }else if (self.femaleBtn.selected ==YES){
-        KKSharedCurrentUser.sex = KKFemale;
+         KKSharedUserManager.tempUser.sex = KKFemale;
     }else{
         [MBProgressHUD showMessag:@"请选择性别" toView:nil];
     }

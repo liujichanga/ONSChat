@@ -22,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+   
     //请求数据后 替换内容
     self.hobbyStrArray = @[@"11",@"2222",@"3333333",@"555555",@"444444444444444",@"666",@"7",@"8888888",@"999999"];
     [self subviewsUI];
@@ -45,10 +46,7 @@
         [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
         [btn setBackgroundImage:[UIImage imageWithColor:KKColorPurple forSize:btn.frame.size radius:3.0 borderWidth:1 borderColor:nil] forState:UIControlStateSelected];
     }
-    
-    
 }
-
 
 - (IBAction)hobbyBtnClick:(UIButton*)sender {
     sender.selected = !sender.selected;
@@ -77,6 +75,7 @@
         hobbyStr = [hobbyStr stringByReplacingOccurrencesOfString:@" " withString:@""];
     }
     KKLog(@"%@",hobbyStr);
+    KKSharedUserManager.tempUser.hobby = hobbyStr;
 }
 
 @end

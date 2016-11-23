@@ -15,7 +15,7 @@
 #define maxAge 50
 
 
-@interface UserInfoViewController ()
+@interface UserInfoViewController ()<UITextFieldDelegate>
 //昵称输入
 @property (weak, nonatomic) IBOutlet UITextField *nickNameText;
 //年龄选择
@@ -40,7 +40,9 @@
         NSString *ageStr = [NSString stringWithFormat:@"%d",i];
         [self.ageArray addObject:ageStr];
     }
-    [self subviewsUI];
+    self.nickNameText.placeholder = @"占位昵称";
+    self.nickNameText.delegate = self;
+    self.cityLabel.text = KKSharedUserManager.tempUser.GPSCity;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,13 +50,11 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)subviewsUI{
-    self.nickNameText.placeholder = @"占位昵称";
-    
-    self.cityLabel.text = KKSharedCurrentUser.GPSCity;
-}
+
 //随机昵称
 - (IBAction)randomNameClick:(id)sender {
+    [self.nickNameText resignFirstResponder];
+
     self.nickNameText.text = @"随机昵称";
     
 }
@@ -68,6 +68,8 @@
     NSString *ageStr = [self.ageArray objectAtIndex:row];
     
     KKLog(@"nickName %@--age %@",nickName,ageStr);
+    KKSharedUserManager.tempUser.nickName = nickName;
+    KKSharedUserManager.tempUser.age = [ageStr integerValue];
     UserHobbyViewController *hobby = KKViewControllerOfMainSB(@"UserHobbyViewController");
     [self.navigationController pushViewController:hobby animated:YES];
     
@@ -111,4 +113,10 @@
     return pickerLabel;
 }
 
+#pragma mark - UITextFieldDelegate
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
 @end
