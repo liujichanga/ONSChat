@@ -26,6 +26,10 @@
 		1C0E77A81DE325680083F9F8 /* NearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0E77A71DE325680083F9F8 /* NearbyViewController.m */; };
 		1C0E77AC1DE325840083F9F8 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0E77AB1DE325840083F9F8 /* MeViewController.m */; };
 		1C0E77B01DE32AA20083F9F8 /* KKCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0E77AF1DE32AA20083F9F8 /* KKCarouselView.m */; };
+		1C0FF5D31DE5352700DBF4E0 /* TwoPicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0FF5D11DE5352700DBF4E0 /* TwoPicCell.m */; };
+		1C0FF5D41DE5352700DBF4E0 /* TwoPicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C0FF5D21DE5352700DBF4E0 /* TwoPicCell.xib */; };
+		1C0FF5D81DE5354400DBF4E0 /* OneVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0FF5D61DE5354400DBF4E0 /* OneVideoCell.m */; };
+		1C0FF5D91DE5354400DBF4E0 /* OneVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C0FF5D71DE5354400DBF4E0 /* OneVideoCell.xib */; };
 		1C6B3A0B1DE3DCF3008ACCA8 /* KKGlobalManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6B3A0A1DE3DCF3008ACCA8 /* KKGlobalManager.m */; };
 		1C6B3A101DE3F314008ACCA8 /* HeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6B3A0E1DE3F314008ACCA8 /* HeadCell.m */; };
 		1C6B3A111DE3F314008ACCA8 /* HeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C6B3A0F1DE3F314008ACCA8 /* HeadCell.xib */; };
@@ -175,6 +179,12 @@
 		1C0E77AB1DE325840083F9F8 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		1C0E77AE1DE32AA20083F9F8 /* KKCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKCarouselView.h; sourceTree = "<group>"; };
 		1C0E77AF1DE32AA20083F9F8 /* KKCarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKCarouselView.m; sourceTree = "<group>"; };
+		1C0FF5D01DE5352700DBF4E0 /* TwoPicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoPicCell.h; sourceTree = "<group>"; };
+		1C0FF5D11DE5352700DBF4E0 /* TwoPicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoPicCell.m; sourceTree = "<group>"; };
+		1C0FF5D21DE5352700DBF4E0 /* TwoPicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoPicCell.xib; sourceTree = "<group>"; };
+		1C0FF5D51DE5354400DBF4E0 /* OneVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneVideoCell.h; sourceTree = "<group>"; };
+		1C0FF5D61DE5354400DBF4E0 /* OneVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneVideoCell.m; sourceTree = "<group>"; };
+		1C0FF5D71DE5354400DBF4E0 /* OneVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OneVideoCell.xib; sourceTree = "<group>"; };
 		1C6B3A091DE3DCF3008ACCA8 /* KKGlobalManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKGlobalManager.h; sourceTree = "<group>"; };
 		1C6B3A0A1DE3DCF3008ACCA8 /* KKGlobalManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKGlobalManager.m; sourceTree = "<group>"; };
 		1C6B3A0D1DE3F314008ACCA8 /* HeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadCell.h; sourceTree = "<group>"; };
@@ -483,6 +493,7 @@
 		1C0E779F1DE324880083F9F8 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				1C0FF5CF1DE534CA00DBF4E0 /* Cell */,
 				1C0E77A01DE3249A0083F9F8 /* HomeViewController.h */,
 				1C0E77A11DE3249A0083F9F8 /* HomeViewController.m */,
 			);
@@ -515,6 +526,19 @@
 				1C0E77AF1DE32AA20083F9F8 /* KKCarouselView.m */,
 			);
 			path = CarouselView;
+			sourceTree = "<group>";
+		};
+		1C0FF5CF1DE534CA00DBF4E0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1C0FF5D01DE5352700DBF4E0 /* TwoPicCell.h */,
+				1C0FF5D11DE5352700DBF4E0 /* TwoPicCell.m */,
+				1C0FF5D21DE5352700DBF4E0 /* TwoPicCell.xib */,
+				1C0FF5D51DE5354400DBF4E0 /* OneVideoCell.h */,
+				1C0FF5D61DE5354400DBF4E0 /* OneVideoCell.m */,
+				1C0FF5D71DE5354400DBF4E0 /* OneVideoCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		1C6B3A0C1DE3F2ED008ACCA8 /* Cell */ = {
@@ -1097,6 +1121,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C0FF5D41DE5352700DBF4E0 /* TwoPicCell.xib in Resources */,
 				1C0E779C1DE3222C0083F9F8 /* AMap.bundle in Resources */,
 				1C6B3A1B1DE3F34C008ACCA8 /* MeInfoCell.xib in Resources */,
 				1C6B3A161DE3F33C008ACCA8 /* VIPCell.xib in Resources */,
@@ -1108,6 +1133,7 @@
 				56C6FFD51DE09E9000BB5C3B /* RongCloud.bundle in Resources */,
 				1C6B3A111DE3F314008ACCA8 /* HeadCell.xib in Resources */,
 				56C6FFD81DE09E9000BB5C3B /* RCConfig.plist in Resources */,
+				1C0FF5D91DE5354400DBF4E0 /* OneVideoCell.xib in Resources */,
 				569864251DE00EAF0059D484 /* MJRefresh.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1131,6 +1157,7 @@
 				569864191DE00EAF0059D484 /* MJRefreshComponent.m in Sources */,
 				563AD3711DE14CE1006945BD /* ChatListViewController.m in Sources */,
 				569864361DE00EAF0059D484 /* UIImage+WebP.m in Sources */,
+				1C0FF5D81DE5354400DBF4E0 /* OneVideoCell.m in Sources */,
 				569864741DE051A30059D484 /* KKThredUtils.m in Sources */,
 				569864211DE00EAF0059D484 /* MJRefreshBackStateFooter.m in Sources */,
 				569864581DE010B40059D484 /* NSDate+Utils.m in Sources */,
@@ -1167,6 +1194,7 @@
 				5698642C1DE00EAF0059D484 /* SDImageCache.m in Sources */,
 				5698642D1DE00EAF0059D484 /* SDWebImageCompat.m in Sources */,
 				569864781DE051FA0059D484 /* KKLocalPlistManager.m in Sources */,
+				1C0FF5D31DE5352700DBF4E0 /* TwoPicCell.m in Sources */,
 				569864031DE00EAF0059D484 /* FMDatabase.m in Sources */,
 				569864321DE00EAF0059D484 /* SDWebImagePrefetcher.m in Sources */,
 				569864351DE00EAF0059D484 /* UIImage+MultiFormat.m in Sources */,
