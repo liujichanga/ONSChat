@@ -39,17 +39,23 @@
     [self setTitleColor:KKColorPurple forState:UIControlStateNormal];
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     
-    [self setBackgroundImage:[UIImage imageWithColor:KKColorPurple forSize:self.frame.size radius:radius borderWidth:0 borderColor:nil] forState:UIControlStateHighlighted];
+    if(!CGSizeEqualToSize(self.frame.size, CGSizeZero))
+    {
+        [self setBackgroundImage:[UIImage imageWithColor:KKColorPurple forSize:self.frame.size radius:radius borderWidth:0 borderColor:nil] forState:UIControlStateHighlighted];
+    }
     
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateDisabled];
     [self setBackgroundImage:[UIImage imageWithColor:KKColorPurpleDisabled forSize:self.frame.size radius:radius borderWidth:0 borderColor:nil] forState:UIControlStateDisabled];
     
 }
 
-+(instancetype)ONSButtonWithTitle:(NSString*)title
++(instancetype)ONSButtonWithTitle:(NSString*)title frame:(CGRect)frame
 {
-    ONSButton *btn=[self buttonWithType:UIButtonTypeCustom];
-    [btn buttonCustom];
+    ONSButton *btn=[ONSButton buttonWithType:UIButtonTypeCustom];
+    btn.frame=frame;
+    [btn setTitle:title forState:UIControlStateNormal];
+    
+    [btn setBackgroundImage:[UIImage imageWithColor:KKColorPurple forSize:btn.frame.size radius:3.0 borderWidth:0 borderColor:nil] forState:UIControlStateHighlighted];
     
     return btn;
 }

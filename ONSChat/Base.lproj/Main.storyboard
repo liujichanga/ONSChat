@@ -647,9 +647,28 @@
                     <view key="view" contentMode="scaleToFill" id="w1n-4s-O1r">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o6i-fi-pkW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="w61-EG-Hxw" id="TGn-qp-9xO"/>
+                                    <outlet property="delegate" destination="w61-EG-Hxw" id="yLh-dN-I6I"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aqt-Gy-4xf" firstAttribute="top" secondItem="o6i-fi-pkW" secondAttribute="bottom" id="CTs-gX-Q09"/>
+                            <constraint firstAttribute="trailing" secondItem="o6i-fi-pkW" secondAttribute="trailing" id="Wzw-p4-ueM"/>
+                            <constraint firstItem="o6i-fi-pkW" firstAttribute="leading" secondItem="w1n-4s-O1r" secondAttribute="leading" id="q3e-EW-Kh6"/>
+                            <constraint firstItem="o6i-fi-pkW" firstAttribute="top" secondItem="w1n-4s-O1r" secondAttribute="top" id="zWn-ew-o2z"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="推荐" id="Lmk-yW-YAq"/>
+                    <connections>
+                        <outlet property="tableView" destination="o6i-fi-pkW" id="MS3-wW-vrb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7pP-f0-90b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
