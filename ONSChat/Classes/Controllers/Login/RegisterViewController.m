@@ -8,6 +8,7 @@
 
 #import "RegisterViewController.h"
 #import "UserInfoViewController.h"
+#import "FemaleNickNameViewController.h"
 
 #define MaleColor [UIColor colorWithHexString:@"60D1DA"]
 
@@ -33,6 +34,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 //子控件处理
 -(void)subviewsUI{
     
@@ -84,6 +86,9 @@
         KKUser *user=[[KKUser alloc] init];
         KKSharedUserManager.tempUser=user;
         KKSharedUserManager.tempUser.sex = KKFemale;
+        FemaleNickNameViewController *femaleNick = KKViewControllerOfMainSB(@"FemaleNickNameViewController");
+        [self.navigationController pushViewController:femaleNick animated:YES];
+        
     }else{
         [MBProgressHUD showMessag:@"请选择性别" toView:nil];
     }

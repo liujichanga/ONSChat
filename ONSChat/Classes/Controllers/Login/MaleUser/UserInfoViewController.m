@@ -40,7 +40,7 @@
         NSString *ageStr = [NSString stringWithFormat:@"%d",i];
         [self.ageArray addObject:ageStr];
     }
-    self.nickNameText.placeholder = @"占位昵称";
+//    self.nickNameText.placeholder = @"占位昵称";
     self.nickNameText.delegate = self;
     self.cityLabel.text = KKSharedUserManager.tempUser.GPSCity;
 }
@@ -62,17 +62,17 @@
 - (IBAction)nextStepBtnClick:(id)sender {
     NSString *nickName = self.nickNameText.text;
     if (nickName.length==0) {
-        nickName = self.nickNameText.placeholder;
+        [MBProgressHUD showMessag:@"请输入昵称" toView:nil];
+    }else{
+        NSInteger row = [self.agePicker selectedRowInComponent:0];
+        NSString *ageStr = [self.ageArray objectAtIndex:row];
+        
+        KKLog(@"nickName %@--age %@",nickName,ageStr);
+        KKSharedUserManager.tempUser.nickName = nickName;
+        KKSharedUserManager.tempUser.age = [ageStr integerValue];
+        UserHobbyViewController *hobby = KKViewControllerOfMainSB(@"UserHobbyViewController");
+        [self.navigationController pushViewController:hobby animated:YES];
     }
-    NSInteger row = [self.agePicker selectedRowInComponent:0];
-    NSString *ageStr = [self.ageArray objectAtIndex:row];
-    
-    KKLog(@"nickName %@--age %@",nickName,ageStr);
-    KKSharedUserManager.tempUser.nickName = nickName;
-    KKSharedUserManager.tempUser.age = [ageStr integerValue];
-    UserHobbyViewController *hobby = KKViewControllerOfMainSB(@"UserHobbyViewController");
-    [self.navigationController pushViewController:hobby animated:YES];
-    
 }
 
 #pragma mark - UIPickerViewDataSource
