@@ -44,7 +44,7 @@
         btn.titleLabel.adjustsFontSizeToFitWidth = YES;
         
         [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-        [btn setBackgroundImage:[UIImage imageWithColor:KKColorPurple forSize:btn.frame.size radius:3.0 borderWidth:1 borderColor:nil] forState:UIControlStateSelected];
+        [btn setBackgroundImage:[UIImage imageWithColor:KKColorPurple forSize:btn.frame.size radius:0 borderWidth:1 borderColor:nil] forState:UIControlStateSelected];
     }
 }
 
