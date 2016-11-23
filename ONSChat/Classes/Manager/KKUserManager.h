@@ -38,11 +38,7 @@
 //是否已经登陆
 @property(assign,nonatomic) BOOL isLogined;
 
-//主动退出登录
-@property(assign,nonatomic) BOOL logoutClick;
 
-//是否为随便看看
-@property(assign,nonatomic) BOOL isHaveLook;
 
 //未读消息数量
 @property(assign,nonatomic) NSInteger messageNumber;

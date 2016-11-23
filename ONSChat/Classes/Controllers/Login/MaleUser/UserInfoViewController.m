@@ -42,7 +42,7 @@
     }
     self.nickNameText.placeholder = @"占位昵称";
     self.nickNameText.delegate = self;
-    self.cityLabel.text = KKSharedUserManager.tempUser.GPSCity;
+    self.cityLabel.text = KKSharedGlobalManager.GPSCity;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,6 +70,7 @@
     KKLog(@"nickName %@--age %@",nickName,ageStr);
     KKSharedUserManager.tempUser.nickName = nickName;
     KKSharedUserManager.tempUser.age = [ageStr integerValue];
+    KKSharedUserManager.tempUser.address=self.cityLabel.text;
     UserHobbyViewController *hobby = KKViewControllerOfMainSB(@"UserHobbyViewController");
     [self.navigationController pushViewController:hobby animated:YES];
     

@@ -24,6 +24,9 @@
 //启动定位
 -(void)locationGPS;
 
+//程序定位的城市
+@property(strong,nonatomic) NSString *GPSCity;
+
 //职业范围
 @property(strong,nonatomic) NSArray *jobArr;
 

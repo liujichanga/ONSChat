@@ -71,11 +71,25 @@
     }
     if (hobbyStr.length==0) {
         [MBProgressHUD showMessag:@"请选择兴趣爱好" toView:nil];
+        return;
     }else{
         hobbyStr = [hobbyStr stringByReplacingOccurrencesOfString:@" " withString:@""];
     }
     KKLog(@"%@",hobbyStr);
     KKSharedUserManager.tempUser.hobby = hobbyStr;
+    
+    NSDictionary *params=@{@"gender":@(KKSharedUserManager.tempUser.sex),@"nickname":KKSharedUserManager.tempUser.nickName,@"channel":ChannelId,@"age":@(KKSharedUserManager.tempUser.age),@"address":KKSharedUserManager.tempUser.address,@"hobby":KKSharedUserManager.tempUser.hobby};
+    
+    [SVProgressHUD show];
+    //注册
+    [FSSharedNetWorkingManager POST:ServiceInterfaceRegister parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSDictionary *dic = (NSDictionary*)responseObject;
+        KKLog(@"dic:%@",dic);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
 }
 
 @end

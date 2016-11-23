@@ -11,9 +11,8 @@
 
 /** 性别 */
 typedef NS_ENUM(NSUInteger, KKSex) {
-    KKSExNone=0, //未知
-    KKMale=1, // 男
-    KKFemale=2, // 女
+    KKFemale=0, // 女
+    KKMale=1 // 男
 };
 
 
@@ -78,8 +77,7 @@ typedef NS_ENUM(NSUInteger, KKSex) {
 @property(strong,nonatomic) NSString *baoyueEndTime;//包月到期时间
 
 
-//程序定位的城市
-@property(strong,nonatomic) NSString *GPSCity;
+
 
 //额外信息，在推荐跟附近页面会用到
 @property(assign,nonatomic) BOOL isliked;//是否已经喜欢
