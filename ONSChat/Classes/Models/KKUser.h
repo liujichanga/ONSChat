@@ -16,97 +16,76 @@ typedef NS_ENUM(NSUInteger, KKSex) {
     KKFemale=2, // 女
 };
 
-/** 健身目标 */
-typedef NS_ENUM(NSUInteger, KKTargetType) {
-    KKTargetTypeNone=0, //未知
-    KKTargetTypeJianFei=1, // 减肥
-    KKTargetTypeSuXing=2, // 塑形
-    KKTargetTypeZengJi=3, // 增肌
-};
 
 @interface KKUser : NSObject
 
+//登录用户id跟密码
 @property(assign,nonatomic) long long userId;
-@property(copy,nonatomic) NSString *name;
-
-
-//邮件姓名
-@property(nonatomic,strong) NSString *mail_name;
-//邮寄地址省
-@property (nonatomic,strong) NSString *mail_city;
-//邮寄地址市
-@property (nonatomic,strong) NSString *mail_province;
-@property (nonatomic,strong) NSString *mail_tele;
-@property (nonatomic,strong) NSString *mail_address;
-
-// 身份证号
-@property (nonatomic,strong) NSString *insurance_id;
-
-//用户名、密码
-@property(strong,nonatomic) NSString *userName;
 @property(strong,nonatomic) NSString *password;
 
-//定位的GPS城市
+//基本信息
+@property(assign,nonatomic) NSInteger age;//年龄
+@property(assign,nonatomic) KKSex sex;//性别
+@property(strong,nonatomic) NSString *nickName;//昵称
+@property(strong,nonatomic) NSString *birthday;//生日
+@property(strong,nonatomic) NSString *address;//居住地(格式如“北京-北京”)
+@property(assign,nonatomic) NSInteger height;//厘米
+@property(assign,nonatomic) NSInteger weight;//公斤
+@property(strong,nonatomic) NSString *blood;//血型
+@property(strong,nonatomic) NSString *astro;//星座,根据生日计算
+@property(strong,nonatomic) NSString *graduate;//学历
+@property(strong,nonatomic) NSString *job;//职业
+@property(strong,nonatomic) NSString *income;//收入
+@property(strong,nonatomic) NSString *hasHouse;//是否有房
+@property(assign,nonatomic) BOOL hasCar;//是否有车
+
+@property(strong,nonatomic) NSString *marry;//婚姻状况
+@property(strong,nonatomic) NSString *child;//是否想要小孩
+@property(strong,nonatomic) NSString *distanceLove;//是否接受异地恋
+@property(strong,nonatomic) NSString *lovetype;//喜欢的异性类型
+@property(strong,nonatomic) NSString *livetog;//是否接受婚前性行为
+@property(strong,nonatomic) NSString *withparent;//愿意跟父母同住
+@property(strong,nonatomic) NSString *pos;//魅力部位
+
+@property(strong,nonatomic) NSString *hobby;//兴趣爱好
+@property(strong,nonatomic) NSString *personality;//个性特征
+
+@property(strong,nonatomic) NSString *phone;//手机号码
+@property(strong,nonatomic) NSString *qq;//QQ号码
+@property(strong,nonatomic) NSString *weixin;//微信号码
+
+@property(strong,nonatomic) NSString *sign;//内心独白
+
+
+//征友条件
+@property(strong,nonatomic) NSString *ta_age;//ta的年龄范围
+@property(strong,nonatomic) NSString *ta_height;//ta的身高范围
+@property(strong,nonatomic) NSString *ta_graduate;//ta的学历
+@property(strong,nonatomic) NSString *ta_income;//TA的收入
+@property(strong,nonatomic) NSString *ta_address;//TA的住所
+
+
+//在登录时候跟我的页面会用到
+@property(strong,nonatomic) NSString *avatarUrl;//头像地址
+@property(assign,nonatomic) BOOL hasPhone;//是否手机验证
+@property(assign,nonatomic) BOOL isVIP;//是否vip
+@property(assign,nonatomic) BOOL isMsg;//短信包月状态
+@property(assign,nonatomic) NSInteger beannum;//红豆数量
+@property(assign,nonatomic) NSInteger likedmeNum;//喜欢我的人数量
+@property(assign,nonatomic) NSInteger melikeNum;//我喜欢的人数量
+@property(assign,nonatomic) NSInteger visitNum;//最近访客数量
+@property(strong,nonatomic) NSString *vipEndTime;//vip到期时间
+@property(strong,nonatomic) NSString *baoyueEndTime;//包月到期时间
+
+
+//程序定位的城市
 @property(strong,nonatomic) NSString *GPSCity;
 
-//uuid
-@property(strong,nonatomic) NSString *userUUID;
-//uuid 不带横线
-@property(strong,nonatomic) NSString *userUUIDNoLine;
-
-
-//邀请人ID
-@property(strong,nonatomic) NSString *userCode;
-
-//当前是否正在绑定手机号,如果是弹出绑定手机号了，那不检测个人信息是否齐全,不让用户操作的页面过多
-@property(assign,nonatomic) BOOL isBindPhone;
-
-//其他信息
-@property(strong,nonatomic) NSString *headImgUrl;
-@property(strong,nonatomic) NSString *nickName;
-@property(assign,nonatomic) KKSex sex;
-@property(strong,nonatomic) NSString *birthday;
-@property(strong,nonatomic) NSString *province;
-@property(strong,nonatomic) NSString *city;
-// 真实姓名
-@property (nonatomic,strong) NSString *real_name;
-@property(strong,nonatomic) NSString *tele;
-@property(assign,nonatomic) CGFloat weight;//公斤
-@property(assign,nonatomic) CGFloat height;//厘米
-@property(assign,nonatomic) CGFloat targetWeight;//要减掉的体重
-@property(assign,nonatomic) CGFloat phase_init_weight;//阶段初始体重
-@property(assign,nonatomic) NSInteger targetDays;//暂时用不到
-@property(assign,nonatomic) NSInteger pulse;
-@property(assign,nonatomic) NSInteger points;
-@property(assign,nonatomic) CGFloat initweight;
-@property(assign,nonatomic) NSInteger type;//账号类型，3是手机号注册，如果不是3，设置里面修改密码的功能隐藏
-@property(assign,nonatomic) BOOL userUpdateProfile;//是否更新过个人信息，默认在昵称第一步完成提交为ture
-@property(assign,nonatomic) KKTargetType targetType;//健身目标
-@property(assign,nonatomic) KKUserIdentifierType circleUserType;//身份标示
-@property(assign,nonatomic) KKCourseVoiceType courseVoiceType;//男女配音
-
-//是否允许查看隐私
-@property (nonatomic, assign, getter=isCheckPrivacy) BOOL checkPrivacy;
-//订阅弹出
-@property (nonatomic, assign, getter=isSubscribe) BOOL subscribe;
-
-//headImageData
-@property(strong,nonatomic) UIImage *headImage;
-
-@property(assign,nonatomic) NSInteger age;
-
-
-//显示省份+城市
--(NSString*)provinceAndCityDisplay;
-
-//读取性别
--(NSString*)sexDisplay;
-
-//计算bmi，
--(CGFloat)calBMI;
-//返回BMI描述
--(NSString*)calBMIDesc;
-
+//额外信息，在推荐跟附近页面会用到
+@property(assign,nonatomic) BOOL isliked;//是否已经喜欢
+@property(assign,nonatomic) BOOL noticedToday;//是否今天已打过招呼
+@property(strong,nonatomic) NSArray *avatarUrlList;//头像相册列表
+@property(strong,nonatomic) NSString *distanceKm;//显示的距离
 
 
 @end

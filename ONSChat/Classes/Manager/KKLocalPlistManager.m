@@ -55,7 +55,7 @@ static KKLocalPlistManager *instance;
         NSString *plistname=@"kkprofile_common.plist";
         if(KKSharedUserManager.isLogined)
         {
-            plistname=KKStringWithFormat(@"kkprofile_%@.plist",KKSharedCurrentUser.userUUID);
+            plistname=KKStringWithFormat(@"kkprofile_%lld.plist",KKSharedCurrentUser.userId);
         }
         self.plistPath=KKStringWithFormat(@"%@/%@",KKPathOfDocument,plistname);
        

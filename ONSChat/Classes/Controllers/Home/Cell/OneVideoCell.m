@@ -8,11 +8,25 @@
 
 #import "OneVideoCell.h"
 
+@interface OneVideoCell()
+
+@property (weak, nonatomic) IBOutlet UIView *bgView;
+@property (weak, nonatomic) IBOutlet UIImageView *headImageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *ageLabel;
+
+
+@end
+
 @implementation OneVideoCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.selectionStyle=UITableViewCellSelectionStyleNone;
+
+    [_bgView.layer setMasksToBounds:YES];
+    [_bgView.layer setCornerRadius:5.0];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

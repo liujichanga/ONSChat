@@ -48,10 +48,10 @@
         self.window.rootViewController = KKViewControllerOfMainSB(@"ComeBackViewController");
     } else {
         
-        if(KKStringIsBlank(lastLoginUser.userName)||KKStringIsBlank(lastLoginUser.password))
+        if(lastLoginUser.userId>0 ||KKStringIsBlank(lastLoginUser.password))
         {
             //注册界面
-            self.window.rootViewController=KKViewControllerOfMainSB(@"RegisterNavigationController");//KKInitViewControllerOfMainSB;//
+            self.window.rootViewController=KKInitViewControllerOfMainSB;//KKViewControllerOfMainSB(@"RegisterNavigationController");
         }
         else
         {
