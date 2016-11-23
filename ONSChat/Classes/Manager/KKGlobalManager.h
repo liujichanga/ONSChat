@@ -24,6 +24,8 @@
 //启动定位
 -(void)locationGPS;
 
+//职业范围
+@property(strong,nonatomic) NSArray *jobArr;
 
 
 @end
