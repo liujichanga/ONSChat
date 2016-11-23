@@ -26,6 +26,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.tableView.backgroundColor=[UIColor groupTableViewBackgroundColor];
+    self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
     
     //使用registerNib 方法可以从XIB加载控件
     [self.tableView registerNib:[UINib nibWithNibName:cellTwoPicIdentifier bundle:nil] forCellReuseIdentifier:cellTwoPicIdentifier];
@@ -52,15 +54,25 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 200;
+    if(indexPath.row==0)
+        return 210*KKScreenWidth/320.0;
+    else return 267*KKScreenWidth/320.0;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    TwoPicCell *cell=[tableView dequeueReusableCellWithIdentifier:cellTwoPicIdentifier forIndexPath:indexPath];
-    
-    return cell;
+    if(indexPath.row==0)
+    {
+        TwoPicCell *cell=[tableView dequeueReusableCellWithIdentifier:cellTwoPicIdentifier forIndexPath:indexPath];
+        
+        return cell;
+    }
+    else
+    {
+        OneVideoCell *cell=[tableView dequeueReusableCellWithIdentifier:cellOneVideoIdentifier forIndexPath:indexPath];
+        return cell;
+    }
     
 }
 

@@ -10,4 +10,7 @@
 
 @interface TwoPicCell : UITableViewCell
 
+@property (nonatomic, copy) void(^clickBlock)(long long userid);
+
+
 @end
