@@ -142,8 +142,8 @@
 		56C6FFD71DE09E9000BB5C3B /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C6FFD01DE09E9000BB5C3B /* libopencore-amrnb.a */; };
 		56C6FFD81DE09E9000BB5C3B /* RCConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 56C6FFD11DE09E9000BB5C3B /* RCConfig.plist */; };
 		56C6FFD91DE09E9000BB5C3B /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C6FFD21DE09E9000BB5C3B /* RongIMLib.framework */; };
-		9BC32EDE1DE537C300CDDAFB /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EDD1DE537C300CDDAFB /* UserInfoViewController.m */; };
-		9BC32EE11DE555E300CDDAFB /* UserHobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EE01DE555E300CDDAFB /* UserHobbyViewController.m */; };
+		9BC32EE81DE5A8CE00CDDAFB /* UserHobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EE51DE5A8CE00CDDAFB /* UserHobbyViewController.m */; };
+		9BC32EE91DE5A8CE00CDDAFB /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EE71DE5A8CE00CDDAFB /* UserInfoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -392,10 +392,10 @@
 		56C6FFD01DE09E9000BB5C3B /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
 		56C6FFD11DE09E9000BB5C3B /* RCConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RCConfig.plist; sourceTree = "<group>"; };
 		56C6FFD21DE09E9000BB5C3B /* RongIMLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RongIMLib.framework; sourceTree = "<group>"; };
-		9BC32EDC1DE537C300CDDAFB /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
-		9BC32EDD1DE537C300CDDAFB /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
-		9BC32EDF1DE555E300CDDAFB /* UserHobbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserHobbyViewController.h; sourceTree = "<group>"; };
-		9BC32EE01DE555E300CDDAFB /* UserHobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserHobbyViewController.m; sourceTree = "<group>"; };
+		9BC32EE41DE5A8CE00CDDAFB /* UserHobbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserHobbyViewController.h; sourceTree = "<group>"; };
+		9BC32EE51DE5A8CE00CDDAFB /* UserHobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserHobbyViewController.m; sourceTree = "<group>"; };
+		9BC32EE61DE5A8CE00CDDAFB /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
+		9BC32EE71DE5A8CE00CDDAFB /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -442,14 +442,12 @@
 		1C0E77451DE30B0E0083F9F8 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				9BC32EE21DE5A88D00CDDAFB /* FemaleUser */,
+				9BC32EE31DE5A88D00CDDAFB /* MaleUser */,
 				1C0E77461DE30B380083F9F8 /* LoginViewController.h */,
 				1C0E77471DE30B380083F9F8 /* LoginViewController.m */,
 				1C0E77491DE30B4D0083F9F8 /* RegisterViewController.h */,
 				1C0E774A1DE30B4D0083F9F8 /* RegisterViewController.m */,
-				9BC32EDC1DE537C300CDDAFB /* UserInfoViewController.h */,
-				9BC32EDD1DE537C300CDDAFB /* UserInfoViewController.m */,
-				9BC32EDF1DE555E300CDDAFB /* UserHobbyViewController.h */,
-				9BC32EE01DE555E300CDDAFB /* UserHobbyViewController.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1084,6 +1082,24 @@
 			path = IMLib;
 			sourceTree = "<group>";
 		};
+		9BC32EE21DE5A88D00CDDAFB /* FemaleUser */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FemaleUser;
+			sourceTree = "<group>";
+		};
+		9BC32EE31DE5A88D00CDDAFB /* MaleUser */ = {
+			isa = PBXGroup;
+			children = (
+				9BC32EE41DE5A8CE00CDDAFB /* UserHobbyViewController.h */,
+				9BC32EE51DE5A8CE00CDDAFB /* UserHobbyViewController.m */,
+				9BC32EE61DE5A8CE00CDDAFB /* UserInfoViewController.h */,
+				9BC32EE71DE5A8CE00CDDAFB /* UserInfoViewController.m */,
+			);
+			path = MaleUser;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1203,7 +1219,6 @@
 				1C0E77661DE31F870083F9F8 /* AFURLResponseSerialization.m in Sources */,
 				5698645E1DE010B40059D484 /* NSString+Valid.m in Sources */,
 				569864201DE00EAF0059D484 /* MJRefreshBackNormalFooter.m in Sources */,
-				9BC32EDE1DE537C300CDDAFB /* UserInfoViewController.m in Sources */,
 				1C0E77531DE313140083F9F8 /* UIImage+Resize.m in Sources */,
 				569864931DE0530D0059D484 /* RootTabBarController.m in Sources */,
 				563AD3741DE1511B006945BD /* ChatViewController.m in Sources */,
@@ -1222,8 +1237,8 @@
 				569864031DE00EAF0059D484 /* FMDatabase.m in Sources */,
 				569864321DE00EAF0059D484 /* SDWebImagePrefetcher.m in Sources */,
 				569864351DE00EAF0059D484 /* UIImage+MultiFormat.m in Sources */,
-				9BC32EE11DE555E300CDDAFB /* UserHobbyViewController.m in Sources */,
 				5698642E1DE00EAF0059D484 /* SDWebImageDecoder.m in Sources */,
+				9BC32EE81DE5A8CE00CDDAFB /* UserHobbyViewController.m in Sources */,
 				569864051DE00EAF0059D484 /* FMDatabasePool.m in Sources */,
 				569864261DE00EAF0059D484 /* MJRefreshConst.m in Sources */,
 				569864061DE00EAF0059D484 /* FMDatabaseQueue.m in Sources */,
@@ -1246,6 +1261,7 @@
 				1C0E77671DE31F870083F9F8 /* AFURLSessionManager.m in Sources */,
 				569864721DE051A30059D484 /* KKBLEUtils.m in Sources */,
 				5698641B1DE00EAF0059D484 /* MJRefreshHeader.m in Sources */,
+				9BC32EE91DE5A8CE00CDDAFB /* UserInfoViewController.m in Sources */,
 				569864171DE00EAF0059D484 /* MJRefreshAutoFooter.m in Sources */,
 				569864021DE00EAF0059D484 /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
 				5698642B1DE00EAF0059D484 /* NSData+ImageContentType.m in Sources */,
