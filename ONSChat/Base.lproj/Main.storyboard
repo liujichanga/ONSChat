@@ -859,6 +859,24 @@
             </objects>
             <point key="canvasLocation" x="-1610.4000000000001" y="-15063.418290854574"/>
         </scene>
+        <!--每日推荐-->
+        <scene sceneID="S8B-5X-r07">
+            <objects>
+                <viewController storyboardIdentifier="DailyRecommandViewController" title="每日推荐" id="3yY-st-CLW" customClass="DailyRecommandViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sB9-aI-L4e"/>
+                        <viewControllerLayoutGuide type="bottom" id="i5C-Xp-jNB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jkz-2R-IoS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k58-pd-TjB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-668" y="-15064"/>
+        </scene>
         <!--登录Nav-->
         <scene sceneID="DIl-EX-x9t">
             <objects>

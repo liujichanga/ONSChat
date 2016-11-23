@@ -42,6 +42,8 @@ static KKGlobalManager *instance;
 {
     if(self=[super init])
     {
+        _jobArr=@[@"",@"",@"",@""];
+        
         
     }
     
