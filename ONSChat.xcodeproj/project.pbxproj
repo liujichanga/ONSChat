@@ -144,6 +144,9 @@
 		56C6FFD91DE09E9000BB5C3B /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C6FFD21DE09E9000BB5C3B /* RongIMLib.framework */; };
 		9BC32EE81DE5A8CE00CDDAFB /* UserHobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EE51DE5A8CE00CDDAFB /* UserHobbyViewController.m */; };
 		9BC32EE91DE5A8CE00CDDAFB /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EE71DE5A8CE00CDDAFB /* UserInfoViewController.m */; };
+		9BC32EEC1DE5AE4400CDDAFB /* FemaleNickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EEB1DE5AE4400CDDAFB /* FemaleNickNameViewController.m */; };
+		9BC32EF01DE5AE8E00CDDAFB /* TopPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EEF1DE5AE8E00CDDAFB /* TopPageView.m */; };
+		9BC32EF21DE5AE9700CDDAFB /* TopPageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BC32EF11DE5AE9700CDDAFB /* TopPageView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -396,6 +399,11 @@
 		9BC32EE51DE5A8CE00CDDAFB /* UserHobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserHobbyViewController.m; sourceTree = "<group>"; };
 		9BC32EE61DE5A8CE00CDDAFB /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
 		9BC32EE71DE5A8CE00CDDAFB /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
+		9BC32EEA1DE5AE4400CDDAFB /* FemaleNickNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FemaleNickNameViewController.h; sourceTree = "<group>"; };
+		9BC32EEB1DE5AE4400CDDAFB /* FemaleNickNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FemaleNickNameViewController.m; sourceTree = "<group>"; };
+		9BC32EEE1DE5AE8E00CDDAFB /* TopPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopPageView.h; sourceTree = "<group>"; };
+		9BC32EEF1DE5AE8E00CDDAFB /* TopPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopPageView.m; sourceTree = "<group>"; };
+		9BC32EF11DE5AE9700CDDAFB /* TopPageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopPageView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -442,6 +450,7 @@
 		1C0E77451DE30B0E0083F9F8 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				9BC32EED1DE5AE7200CDDAFB /* View */,
 				9BC32EE21DE5A88D00CDDAFB /* FemaleUser */,
 				9BC32EE31DE5A88D00CDDAFB /* MaleUser */,
 				1C0E77461DE30B380083F9F8 /* LoginViewController.h */,
@@ -1085,6 +1094,8 @@
 		9BC32EE21DE5A88D00CDDAFB /* FemaleUser */ = {
 			isa = PBXGroup;
 			children = (
+				9BC32EEA1DE5AE4400CDDAFB /* FemaleNickNameViewController.h */,
+				9BC32EEB1DE5AE4400CDDAFB /* FemaleNickNameViewController.m */,
 			);
 			path = FemaleUser;
 			sourceTree = "<group>";
@@ -1098,6 +1109,16 @@
 				9BC32EE71DE5A8CE00CDDAFB /* UserInfoViewController.m */,
 			);
 			path = MaleUser;
+			sourceTree = "<group>";
+		};
+		9BC32EED1DE5AE7200CDDAFB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9BC32EEE1DE5AE8E00CDDAFB /* TopPageView.h */,
+				9BC32EEF1DE5AE8E00CDDAFB /* TopPageView.m */,
+				9BC32EF11DE5AE9700CDDAFB /* TopPageView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1171,6 +1192,7 @@
 				56C6FFD31DE09E9000BB5C3B /* Emoji.plist in Resources */,
 				56C6FFD51DE09E9000BB5C3B /* RongCloud.bundle in Resources */,
 				1C6B3A111DE3F314008ACCA8 /* HeadCell.xib in Resources */,
+				9BC32EF21DE5AE9700CDDAFB /* TopPageView.xib in Resources */,
 				56C6FFD81DE09E9000BB5C3B /* RCConfig.plist in Resources */,
 				1C0FF5D91DE5354400DBF4E0 /* OneVideoCell.xib in Resources */,
 				569864251DE00EAF0059D484 /* MJRefresh.bundle in Resources */,
@@ -1210,6 +1232,7 @@
 				1C0E77481DE30B380083F9F8 /* LoginViewController.m in Sources */,
 				569864591DE010B40059D484 /* NSDictionary+JsonDict.m in Sources */,
 				569864291DE00EAF0059D484 /* UIView+MJExtension.m in Sources */,
+				9BC32EF01DE5AE8E00CDDAFB /* TopPageView.m in Sources */,
 				567F54561DDFEC5500872A36 /* AppDelegate.m in Sources */,
 				1C0E77A21DE3249A0083F9F8 /* HomeViewController.m in Sources */,
 				567F54531DDFEC5500872A36 /* main.m in Sources */,
@@ -1218,6 +1241,7 @@
 				5698641D1DE00EAF0059D484 /* MJRefreshAutoNormalFooter.m in Sources */,
 				1C0E77661DE31F870083F9F8 /* AFURLResponseSerialization.m in Sources */,
 				5698645E1DE010B40059D484 /* NSString+Valid.m in Sources */,
+				9BC32EEC1DE5AE4400CDDAFB /* FemaleNickNameViewController.m in Sources */,
 				569864201DE00EAF0059D484 /* MJRefreshBackNormalFooter.m in Sources */,
 				1C0E77531DE313140083F9F8 /* UIImage+Resize.m in Sources */,
 				569864931DE0530D0059D484 /* RootTabBarController.m in Sources */,

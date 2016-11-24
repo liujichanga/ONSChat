@@ -749,6 +749,28 @@
             </objects>
             <point key="canvasLocation" x="-250.40000000000001" y="-15791.154422788606"/>
         </scene>
+        <!--完善信息-->
+        <scene sceneID="2xw-gP-J6V">
+            <objects>
+                <viewController storyboardIdentifier="FemaleNickNameViewController" id="wHR-WC-HkM" customClass="FemaleNickNameViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5mh-iV-hsr"/>
+                        <viewControllerLayoutGuide type="bottom" id="9Y0-PY-juG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1g1-zi-IMA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="完善信息" id="0TH-Qm-fuK">
+                        <barButtonItem key="backBarButtonItem" title="返回" id="0es-AD-c2T"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CEL-2c-iAV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="409" y="-15792"/>
+        </scene>
         <!--登录-->
         <scene sceneID="FUx-Iz-OvK">
             <objects>
