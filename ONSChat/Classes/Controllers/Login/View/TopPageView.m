@@ -37,10 +37,10 @@
     }
 }
 
-+(instancetype)showPageViewWith:(NSInteger)pageNub andFrame:(CGRect)frame{
++(instancetype)showPageViewWith:(NSInteger)pageNub{
     
     TopPageView *view = KKViewOfMainBundle(@"TopPageView");
-    view.frame = frame;
+    view.frame = CGRectMake(0, 70, KKScreenWidth, 60);
     view.pageNub = pageNub;
     return view;
 }

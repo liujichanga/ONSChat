@@ -36,7 +36,8 @@
 #import "ONSButton.h"
 #import "NotificationView.h"
 #import "KKCarouselView.h"
-
+//女性注册页面 顶部进度条
+#import "TopPageView.h"
 
 //
 //#import "KKButton.h"

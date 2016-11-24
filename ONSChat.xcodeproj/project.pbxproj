@@ -147,6 +147,11 @@
 		9BC32EEC1DE5AE4400CDDAFB /* FemaleNickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EEB1DE5AE4400CDDAFB /* FemaleNickNameViewController.m */; };
 		9BC32EF01DE5AE8E00CDDAFB /* TopPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EEF1DE5AE8E00CDDAFB /* TopPageView.m */; };
 		9BC32EF21DE5AE9700CDDAFB /* TopPageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BC32EF11DE5AE9700CDDAFB /* TopPageView.xib */; };
+		9BC32EF51DE68EAB00CDDAFB /* FemaleJobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EF41DE68EAB00CDDAFB /* FemaleJobViewController.m */; };
+		9BC32EF81DE6C7F300CDDAFB /* FemaleHeightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EF71DE6C7F300CDDAFB /* FemaleHeightViewController.m */; };
+		9BC32EFB1DE6D31600CDDAFB /* FemaleIncomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EFA1DE6D31600CDDAFB /* FemaleIncomeViewController.m */; };
+		9BC32EFE1DE6E01900CDDAFB /* FemaleInterestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EFD1DE6E01900CDDAFB /* FemaleInterestViewController.m */; };
+		9BC32F011DE6E05600CDDAFB /* FemalePersonalityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32F001DE6E05600CDDAFB /* FemalePersonalityViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -404,6 +409,16 @@
 		9BC32EEE1DE5AE8E00CDDAFB /* TopPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopPageView.h; sourceTree = "<group>"; };
 		9BC32EEF1DE5AE8E00CDDAFB /* TopPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopPageView.m; sourceTree = "<group>"; };
 		9BC32EF11DE5AE9700CDDAFB /* TopPageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopPageView.xib; sourceTree = "<group>"; };
+		9BC32EF31DE68EAB00CDDAFB /* FemaleJobViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FemaleJobViewController.h; sourceTree = "<group>"; };
+		9BC32EF41DE68EAB00CDDAFB /* FemaleJobViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FemaleJobViewController.m; sourceTree = "<group>"; };
+		9BC32EF61DE6C7F300CDDAFB /* FemaleHeightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FemaleHeightViewController.h; sourceTree = "<group>"; };
+		9BC32EF71DE6C7F300CDDAFB /* FemaleHeightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FemaleHeightViewController.m; sourceTree = "<group>"; };
+		9BC32EF91DE6D31600CDDAFB /* FemaleIncomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FemaleIncomeViewController.h; sourceTree = "<group>"; };
+		9BC32EFA1DE6D31600CDDAFB /* FemaleIncomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FemaleIncomeViewController.m; sourceTree = "<group>"; };
+		9BC32EFC1DE6E01900CDDAFB /* FemaleInterestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FemaleInterestViewController.h; sourceTree = "<group>"; };
+		9BC32EFD1DE6E01900CDDAFB /* FemaleInterestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FemaleInterestViewController.m; sourceTree = "<group>"; };
+		9BC32EFF1DE6E05600CDDAFB /* FemalePersonalityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FemalePersonalityViewController.h; sourceTree = "<group>"; };
+		9BC32F001DE6E05600CDDAFB /* FemalePersonalityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FemalePersonalityViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1096,6 +1111,16 @@
 			children = (
 				9BC32EEA1DE5AE4400CDDAFB /* FemaleNickNameViewController.h */,
 				9BC32EEB1DE5AE4400CDDAFB /* FemaleNickNameViewController.m */,
+				9BC32EF31DE68EAB00CDDAFB /* FemaleJobViewController.h */,
+				9BC32EF41DE68EAB00CDDAFB /* FemaleJobViewController.m */,
+				9BC32EF61DE6C7F300CDDAFB /* FemaleHeightViewController.h */,
+				9BC32EF71DE6C7F300CDDAFB /* FemaleHeightViewController.m */,
+				9BC32EF91DE6D31600CDDAFB /* FemaleIncomeViewController.h */,
+				9BC32EFA1DE6D31600CDDAFB /* FemaleIncomeViewController.m */,
+				9BC32EFC1DE6E01900CDDAFB /* FemaleInterestViewController.h */,
+				9BC32EFD1DE6E01900CDDAFB /* FemaleInterestViewController.m */,
+				9BC32EFF1DE6E05600CDDAFB /* FemalePersonalityViewController.h */,
+				9BC32F001DE6E05600CDDAFB /* FemalePersonalityViewController.m */,
 			);
 			path = FemaleUser;
 			sourceTree = "<group>";
@@ -1211,6 +1236,7 @@
 				5698642A1DE00EAF0059D484 /* MKAnnotationView+WebCache.m in Sources */,
 				1C0E774B1DE30B4D0083F9F8 /* RegisterViewController.m in Sources */,
 				5698641F1DE00EAF0059D484 /* MJRefreshBackGifFooter.m in Sources */,
+				9BC32F011DE6E05600CDDAFB /* FemalePersonalityViewController.m in Sources */,
 				569864311DE00EAF0059D484 /* SDWebImageManager.m in Sources */,
 				1C6B3A101DE3F314008ACCA8 /* HeadCell.m in Sources */,
 				5698646A1DE0516E0059D484 /* KKBaseDao.m in Sources */,
@@ -1223,13 +1249,16 @@
 				569864211DE00EAF0059D484 /* MJRefreshBackStateFooter.m in Sources */,
 				569864581DE010B40059D484 /* NSDate+Utils.m in Sources */,
 				5698645C1DE010B40059D484 /* NSString+Digest.m in Sources */,
+				9BC32EFB1DE6D31600CDDAFB /* FemaleIncomeViewController.m in Sources */,
 				569864271DE00EAF0059D484 /* UIScrollView+MJExtension.m in Sources */,
 				569864181DE00EAF0059D484 /* MJRefreshBackFooter.m in Sources */,
 				5698643B1DE00EAF0059D484 /* SVProgressHUD.m in Sources */,
 				1C6B3A0B1DE3DCF3008ACCA8 /* KKGlobalManager.m in Sources */,
 				1C0E77AC1DE325840083F9F8 /* MeViewController.m in Sources */,
 				569864151DE00EAF0059D484 /* MBProgressHUD+Add.m in Sources */,
+				9BC32EFE1DE6E01900CDDAFB /* FemaleInterestViewController.m in Sources */,
 				1C0E77481DE30B380083F9F8 /* LoginViewController.m in Sources */,
+				9BC32EF51DE68EAB00CDDAFB /* FemaleJobViewController.m in Sources */,
 				569864591DE010B40059D484 /* NSDictionary+JsonDict.m in Sources */,
 				569864291DE00EAF0059D484 /* UIView+MJExtension.m in Sources */,
 				9BC32EF01DE5AE8E00CDDAFB /* TopPageView.m in Sources */,
@@ -1286,6 +1315,7 @@
 				569864721DE051A30059D484 /* KKBLEUtils.m in Sources */,
 				5698641B1DE00EAF0059D484 /* MJRefreshHeader.m in Sources */,
 				9BC32EE91DE5A8CE00CDDAFB /* UserInfoViewController.m in Sources */,
+				9BC32EF81DE6C7F300CDDAFB /* FemaleHeightViewController.m in Sources */,
 				569864171DE00EAF0059D484 /* MJRefreshAutoFooter.m in Sources */,
 				569864021DE00EAF0059D484 /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
 				5698642B1DE00EAF0059D484 /* NSData+ImageContentType.m in Sources */,
