@@ -25,6 +25,8 @@
 #define ServiceInterfaceGetCityByIp @"https://whois.pconline.com.cn/ipJson.jsp"
 //每日推荐
 #define ServiceInterfaceDailyRecommand KKStringWithFormat(@"%@/%@/daily", KKServerDomain, App)
+//随机昵称
+#define ServiceInterfaceRandomNickName KKStringWithFormat(@"%@/%@/getnickname", KKServerDomain, App)
 
 
 

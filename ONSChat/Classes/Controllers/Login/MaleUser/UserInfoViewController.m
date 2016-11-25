@@ -40,7 +40,16 @@
     }
 //    self.nickNameText.placeholder = @"占位昵称";
     self.nickNameText.delegate = self;
-    self.cityLabel.text = KKSharedGlobalManager.GPSCity;
+    self.cityLabel.text = KKStringWithFormat(@"%@-%@",KKSharedGlobalManager.GPSProvince,KKSharedGlobalManager.GPSCity);
+    
+    //获取随机名称
+    [FSSharedNetWorkingManager GET:ServiceInterfaceRandomNickName parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *dic=(NSDictionary*)responseObject;
+        KKLog(@"random:%@",dic);
+        self.nickNameText.text=[dic stringForKey:@"nickname" defaultValue:@""];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
     
 }
 
@@ -54,7 +63,14 @@
 - (IBAction)randomNameClick:(id)sender {
     [self.nickNameText resignFirstResponder];
 
-    self.nickNameText.text = @"随机昵称";
+    //获取随机名称
+    [FSSharedNetWorkingManager GET:ServiceInterfaceRandomNickName parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *dic=(NSDictionary*)responseObject;
+        KKLog(@"random:%@",dic);
+        self.nickNameText.text=[dic stringForKey:@"nickname" defaultValue:@""];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
     
 }
 //下一步
