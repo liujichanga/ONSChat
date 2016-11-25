@@ -37,7 +37,7 @@
     //第一个选项的Y值
     CGFloat startY = titleLab.frame.origin.y+titleLab.frame.size.height+20;
     //根据屏幕高度计算选项高度
-    CGFloat btnH = (KKScreenHeight - startY-KKSharedGlobalManager.jobArr.count*Interval)/(float)KKSharedGlobalManager.jobArr.count;
+    CGFloat btnH = (KKScreenHeight - startY-20-KKSharedGlobalManager.jobArr.count*Interval)/(float)KKSharedGlobalManager.jobArr.count;
     
     for (int i = 0; i < KKSharedGlobalManager.jobArr.count; ++i) {
         NSString *jobStr = [KKSharedGlobalManager.jobArr objectAtIndex:i];
