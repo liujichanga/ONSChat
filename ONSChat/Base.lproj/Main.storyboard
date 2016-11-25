@@ -122,10 +122,10 @@
             </objects>
             <point key="canvasLocation" x="788" y="-10553"/>
         </scene>
-        <!--附近-->
+        <!--附近Nav-->
         <scene sceneID="SyG-hz-hAv">
             <objects>
-                <navigationController hidesBottomBarWhenPushed="YES" id="Be7-CG-2Lt" customClass="KKBaseNavigationController" sceneMemberID="viewController">
+                <navigationController title="附近Nav" hidesBottomBarWhenPushed="YES" id="Be7-CG-2Lt" customClass="KKBaseNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="附近" id="aRH-Kh-ChJ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RSq-3S-PqU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -150,13 +150,54 @@
                     <view key="view" contentMode="scaleToFill" id="p7M-cg-1Jd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nearby_img" translatesAutoresizingMaskIntoConstraints="NO" id="5ui-Ss-zBp">
+                                <rect key="frame" x="20" y="84" width="15" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="15" id="ELd-zO-BXi"/>
+                                    <constraint firstAttribute="height" constant="24" id="kga-2z-AtI"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您现在位于北京市，下面的美女都在你附近出没过，赶紧给她们他招呼吧！" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nwL-nh-zdf">
+                                <rect key="frame" x="55" y="78" width="300" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="qML-gH-QtX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="8Qy-dB-24s">
+                                <rect key="frame" x="0.0" y="120" width="375" height="498"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="O6G-zt-Yzl" id="ZFF-Gs-apU"/>
+                                    <outlet property="delegate" destination="O6G-zt-Yzl" id="iQ2-ht-so0"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="8Qy-dB-24s" secondAttribute="trailing" id="AIs-mZ-8rl"/>
+                            <constraint firstItem="5ui-Ss-zBp" firstAttribute="leading" secondItem="p7M-cg-1Jd" secondAttribute="leading" constant="20" id="JsH-7b-lzw"/>
+                            <constraint firstItem="nwL-nh-zdf" firstAttribute="leading" secondItem="5ui-Ss-zBp" secondAttribute="trailing" constant="20" id="NTq-JS-eS8"/>
+                            <constraint firstAttribute="trailing" secondItem="nwL-nh-zdf" secondAttribute="trailing" constant="20" id="Thz-fl-uzn"/>
+                            <constraint firstItem="5ui-Ss-zBp" firstAttribute="top" secondItem="Q48-8Y-KAN" secondAttribute="bottom" constant="20" id="WHw-w3-4L9"/>
+                            <constraint firstItem="8Qy-dB-24s" firstAttribute="top" secondItem="nwL-nh-zdf" secondAttribute="bottom" id="cj3-Na-NOM"/>
+                            <constraint firstItem="nwL-nh-zdf" firstAttribute="top" secondItem="Q48-8Y-KAN" secondAttribute="bottom" constant="14" id="d0J-ov-XNL"/>
+                            <constraint firstItem="uSL-ck-Zmn" firstAttribute="top" secondItem="8Qy-dB-24s" secondAttribute="bottom" id="l8j-SU-2HL"/>
+                            <constraint firstItem="8Qy-dB-24s" firstAttribute="leading" secondItem="p7M-cg-1Jd" secondAttribute="leading" id="vEb-AZ-gcQ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="附近" id="ftq-aa-c7i"/>
+                    <connections>
+                        <outlet property="nearLabel" destination="nwL-nh-zdf" id="mzk-hx-MLM"/>
+                        <outlet property="tableView" destination="8Qy-dB-24s" id="aJG-qc-hRD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rUd-1W-LkB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="805" y="-12283"/>
+            <point key="canvasLocation" x="804" y="-12283.808095952025"/>
         </scene>
         <!--注册Nav-->
         <scene sceneID="mwd-Hd-iYW">
@@ -974,5 +1015,6 @@
     <resources>
         <image name="ic_login" width="12" height="14"/>
         <image name="ic_register_bg" width="375" height="667"/>
+        <image name="nearby_img" width="15" height="24"/>
     </resources>
 </document>

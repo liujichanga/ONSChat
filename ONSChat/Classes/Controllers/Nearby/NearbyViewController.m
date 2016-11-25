@@ -9,6 +9,8 @@
 #import "NearbyViewController.h"
 
 @interface NearbyViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *nearLabel;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -17,6 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
