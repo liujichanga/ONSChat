@@ -10,7 +10,6 @@
 #import "UserInfoViewController.h"
 #import "FemaleNickNameViewController.h"
 #import "DailyRecommandViewController.h"
-#import "UploadHeadImageViewController.h"
 
 #define MaleColor [UIColor colorWithHexString:@"60D1DA"]
 
@@ -19,8 +18,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *maleBtn;
 //女性按钮
 @property (weak, nonatomic) IBOutlet UIButton *femaleBtn;
-//下一步按钮
-@property (weak, nonatomic) IBOutlet ONSButton *nextStepBtn;
 
 @end
 
@@ -90,16 +87,14 @@
         KKUser *user=[[KKUser alloc] init];
         KKSharedUserManager.tempUser=user;
         KKSharedUserManager.tempUser.sex = KKMale;
-        UserInfoViewController *userInfo = KKViewControllerOfMainSB(@"UserInfoViewController");
-        [self.navigationController pushViewController:userInfo animated:YES];
+//        UserInfoViewController *userInfo = KKViewControllerOfMainSB(@"UserInfoViewController");
+//        [self.navigationController pushViewController:userInfo animated:YES];
         
-//        [self.navigationController setNavigationBarHidden:NO];
-//        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-//        DailyRecommandViewController *daily = KKViewControllerOfMainSB(@"DailyRecommandViewController");
-//        [self.navigationController pushViewController:daily animated:YES];
-//        
-//        UploadHeadImageViewController *headImage = KKViewControllerOfMainSB(@"DailyRecommandViewController");
-//        [self.navigationController pushViewController:headImage animated:YES];
+        [self.navigationController setNavigationBarHidden:NO];
+        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+        DailyRecommandViewController *daily = KKViewControllerOfMainSB(@"DailyRecommandViewController");
+        [self.navigationController pushViewController:daily animated:YES];
+
         
     }else if (self.femaleBtn.selected ==YES){
         KKUser *user=[[KKUser alloc] init];

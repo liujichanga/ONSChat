@@ -7,6 +7,7 @@
 //
 
 #import "DailyRecommandViewController.h"
+#import "UploadHeadImageViewController.h"
 
 @interface DailyRecommandViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *topLabel;
@@ -24,8 +25,9 @@
     NSValue*rangValue;
     newTopStr = [topStr splitByPercent:&rangValue];
     self.topLabel.attributedText = newTopStr;
+    
     [self loadDailyRecommandData];
-//    [self showDailyRecommand];
+    [self showDailyRecommandWithAvatarArray:nil];
 
 }
 
@@ -35,17 +37,24 @@
 }
 
 -(void)loadDailyRecommandData{
-    [FSSharedNetWorkingManager GET:ServiceInterfaceDailyRecommand parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [SVProgressHUD show];
+    NSDictionary *param = @{@"limit":@(self.headImageArray.count)};
+    [FSSharedNetWorkingManager GET:ServiceInterfaceDailyRecommand parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *respDic = (NSDictionary*)responseObject;
         KKLog(@"%@",respDic);
+        
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD dismissWithError:KKErrorInfo(error) afterDelay:1.2];
         
     }];
     
 }
 
 -(void)showDailyRecommandWithAvatarArray:(NSArray*)avatarArr{
-    for (int i = 0; i < self.headImageArray.count; ++i) {
+    
+    NSInteger count =avatarArr.count>self.headImageArray.count?self.headImageArray.count:avatarArr.count;
+    for (int i = 0; i < count; ++i) {
         UIImageView *headImg = [self.headImageArray objectAtIndex:i];
         NSString *avaStr = [avatarArr objectAtIndex:i];
         KKImageViewWithUrlstring(headImg, avaStr, @"def_head");
@@ -54,6 +63,9 @@
 }
 
 - (IBAction)tellThemBtnClick:(id)sender {
+
+    UploadHeadImageViewController *headImage = KKViewControllerOfMainSB(@"UploadHeadImageViewController");
+    [self.navigationController pushViewController:headImage animated:YES];
 }
 - (IBAction)changeBtnClick:(id)sender {
 }

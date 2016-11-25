@@ -31,8 +31,7 @@
     TopPageView *pageView = [TopPageView showPageViewWith:5];
     [self.view addSubview:pageView];
     
-    ONSButton *nextStepBtn = [ONSButton ONSButtonWithTitle:@"下一步" frame:CGRectMake(20, KKScreenHeight-80, KKScreenWidth-40, 40)];
-    nextStepBtn.selected = YES;
+    ONSButtonPurple *nextStepBtn = [ONSButtonPurple ONSButtonWithTitle:@"下一步" frame:CGRectMake(20, KKScreenHeight-80, KKScreenWidth-40, 40)];
     [nextStepBtn addTarget:self action:@selector(nextStepBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:nextStepBtn];
     

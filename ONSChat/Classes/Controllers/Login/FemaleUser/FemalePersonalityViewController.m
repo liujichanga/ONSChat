@@ -28,8 +28,7 @@
     TopPageView *pageView = [TopPageView showPageViewWith:6];
     [self.view addSubview:pageView];
     
-    ONSButton *finishBtn = [ONSButton ONSButtonWithTitle:@"提交" frame:CGRectMake(20, KKScreenHeight-80, KKScreenWidth-40, 40)];
-    finishBtn.selected = YES;
+    ONSButtonPurple *finishBtn = [ONSButtonPurple ONSButtonWithTitle:@"提交" frame:CGRectMake(20, KKScreenHeight-80, KKScreenWidth-40, 40)];
     [finishBtn addTarget:self action:@selector(finishBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:finishBtn];
     
