@@ -17,6 +17,38 @@
             endingLineNumber = "85"
             landmarkName = "-finishBtnClick:"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[UserHobbyViewController finishBtnClick:]"
+                  moduleName = "ONSChat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kk-liujichang/Desktop/GitHubRep/ONSChat/ONSChat/Classes/Controllers/Login/MaleUser/UserHobbyViewController.m"
+                  timestampString = "501764565.86142"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "2140">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__42-[UserHobbyViewController finishBtnClick:]_block_invoke"
+                  moduleName = "ONSChat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kk-liujichang/Desktop/GitHubRep/ONSChat/ONSChat/Classes/Controllers/Login/MaleUser/UserHobbyViewController.m"
+                  timestampString = "501764565.862779"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "72">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -91,7 +91,7 @@ static KKGlobalManager *instance;
                         NSDictionary *dic = (NSDictionary*)[jsonstr objectFromJSONString];
                         if(dic&&[dic isKindOfClass:[NSDictionary class]])
                         {
-                            NSString *province = [dic stringForKey:@"province" defaultValue:@""];
+                            NSString *province = [dic stringForKey:@"pro" defaultValue:@""];
                             if(KKStringIsNotBlank(province))
                             {
                                 province = [province stringByReplacingOccurrencesOfString:@"省" withString:@""];
