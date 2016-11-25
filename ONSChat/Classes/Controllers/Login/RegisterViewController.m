@@ -9,6 +9,8 @@
 #import "RegisterViewController.h"
 #import "UserInfoViewController.h"
 #import "FemaleNickNameViewController.h"
+#import "DailyRecommandViewController.h"
+#import "UploadHeadImageViewController.h"
 
 #define MaleColor [UIColor colorWithHexString:@"60D1DA"]
 
@@ -89,6 +91,15 @@
         KKSharedUserManager.tempUser.sex = KKMale;
         UserInfoViewController *userInfo = KKViewControllerOfMainSB(@"UserInfoViewController");
         [self.navigationController pushViewController:userInfo animated:YES];
+        
+//        [self.navigationController setNavigationBarHidden:NO];
+//        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+//        DailyRecommandViewController *daily = KKViewControllerOfMainSB(@"DailyRecommandViewController");
+//        [self.navigationController pushViewController:daily animated:YES];
+//        
+//        UploadHeadImageViewController *headImage = KKViewControllerOfMainSB(@"DailyRecommandViewController");
+//        [self.navigationController pushViewController:headImage animated:YES];
+        
     }else if (self.femaleBtn.selected ==YES){
         KKUser *user=[[KKUser alloc] init];
         KKSharedUserManager.tempUser=user;

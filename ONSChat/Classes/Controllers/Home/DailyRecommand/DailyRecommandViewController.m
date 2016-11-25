@@ -9,6 +9,8 @@
 #import "DailyRecommandViewController.h"
 
 @interface DailyRecommandViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *topLabel;
+@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *headImageArray;
 
 @end
 
@@ -17,6 +19,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    NSString *topStr = @"给大家%打个招呼%吧，你会结识很多新朋友哦！";
+    NSMutableAttributedString *newTopStr;
+    NSValue*rangValue;
+    newTopStr = [topStr splitByPercent:&rangValue];
+    self.topLabel.attributedText = newTopStr;
+    [self loadDailyRecommandData];
+//    [self showDailyRecommand];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +34,28 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)loadDailyRecommandData{
+    [FSSharedNetWorkingManager GET:ServiceInterfaceDailyRecommand parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *respDic = (NSDictionary*)responseObject;
+        KKLog(@"%@",respDic);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+    
 }
-*/
+
+-(void)showDailyRecommandWithAvatarArray:(NSArray*)avatarArr{
+    for (int i = 0; i < self.headImageArray.count; ++i) {
+        UIImageView *headImg = [self.headImageArray objectAtIndex:i];
+        NSString *avaStr = [avatarArr objectAtIndex:i];
+        KKImageViewWithUrlstring(headImg, avaStr, @"def_head");
+    }
+    
+}
+
+- (IBAction)tellThemBtnClick:(id)sender {
+}
+- (IBAction)changeBtnClick:(id)sender {
+}
 
 @end
