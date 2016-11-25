@@ -34,6 +34,8 @@
 #import "MBProgressHUD+Add.h"
 
 #import "ONSButton.h"
+#import "ONSButtonPurple.h"
+
 #import "NotificationView.h"
 #import "KKCarouselView.h"
 //女性注册页面 顶部进度条

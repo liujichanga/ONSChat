@@ -10,7 +10,7 @@
 
 @interface UserHobbyViewController ()
 //完成按钮
-@property (weak, nonatomic) IBOutlet ONSButton *finishBtn;
+@property (weak, nonatomic) IBOutlet ONSButtonPurple *finishBtn;
 //兴趣标签
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *hobbyArray;
 //兴趣文案(最多9个)
