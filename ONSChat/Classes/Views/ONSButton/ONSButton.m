@@ -38,12 +38,12 @@
     
     [self setTitleColor:KKColorPurple forState:UIControlStateNormal];
     [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateDisabled];
+    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
 
     if(!CGSizeEqualToSize(self.frame.size, CGSizeZero))
     {
         [self setBackgroundImage:[UIImage imageWithColor:KKColorPurple forSize:self.frame.size radius:radius borderWidth:0 borderColor:nil] forState:UIControlStateHighlighted];
-        [self setBackgroundImage:[UIImage imageWithColor:KKColorPurpleDisabled forSize:self.frame.size radius:radius borderWidth:0 borderColor:nil] forState:UIControlStateDisabled];
+        [self setBackgroundImage:[UIImage imageWithColor:KKColorPurple forSize:self.frame.size radius:radius borderWidth:0 borderColor:nil] forState:UIControlStateSelected];
     }
 }
 
@@ -54,6 +54,7 @@
     [btn setTitle:title forState:UIControlStateNormal];
     
     [btn setBackgroundImage:[UIImage imageWithColor:KKColorPurple forSize:btn.frame.size radius:3.0 borderWidth:0 borderColor:nil] forState:UIControlStateHighlighted];
+    [btn setBackgroundImage:[UIImage imageWithColor:KKColorPurple forSize:btn.frame.size radius:3.0 borderWidth:0 borderColor:nil] forState:UIControlStateSelected];
     
     return btn;
 }

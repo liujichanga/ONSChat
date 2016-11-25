@@ -34,6 +34,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    //隐藏导航栏
+    if (self.navigationController.navigationBarHidden==NO) {
+        [self.navigationController setNavigationBarHidden:YES];
+    }
+}
 
 //子控件处理
 -(void)subviewsUI{
@@ -86,6 +93,8 @@
         KKUser *user=[[KKUser alloc] init];
         KKSharedUserManager.tempUser=user;
         KKSharedUserManager.tempUser.sex = KKFemale;
+        [self.navigationController setNavigationBarHidden:NO];
+        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
         FemaleNickNameViewController *femaleNick = KKViewControllerOfMainSB(@"FemaleNickNameViewController");
         [self.navigationController pushViewController:femaleNick animated:YES];
         

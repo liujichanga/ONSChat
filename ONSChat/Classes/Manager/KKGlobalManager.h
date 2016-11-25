@@ -29,6 +29,12 @@
 
 //职业范围
 @property(strong,nonatomic) NSArray *jobArr;
-
-
+//身高范围
+@property (nonatomic, strong) NSArray *heightArr;
+//收入范围
+@property (nonatomic, strong) NSArray *incomeArr;
+//兴趣爱好
+@property (nonatomic, strong) NSArray *interestArr;
+//个人特点
+@property (nonatomic, strong) NSArray *personalityArr;
 @end

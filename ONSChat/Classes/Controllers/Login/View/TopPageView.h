@@ -10,5 +10,5 @@
 
 @interface TopPageView : UIView
 
-+(instancetype)showPageViewWith:(NSInteger)pageNub andFrame:(CGRect)frame;
++(instancetype)showPageViewWith:(NSInteger)pageNub;
 @end
