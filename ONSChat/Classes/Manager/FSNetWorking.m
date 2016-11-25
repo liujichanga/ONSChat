@@ -38,7 +38,7 @@ static FSNetWorking *instance;
         _sessionManager=[AFHTTPSessionManager manager];
         _sessionManager.requestSerializer.timeoutInterval=30;//超时改为30秒
         //_sessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];//不直接序列化为json
-        _sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", nil];
+        //_sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", nil];
 
         
         // 完全信任服务端证书模式
@@ -110,9 +110,9 @@ static FSNetWorking *instance;
 {
     return [_sessionManager POST:URLString parameters:parameters progress:uploadProgress success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         //显示原始数据
-        NSData *data=(NSData*)responseObject;
-        NSString *str=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        NSLog(@"str:%@",str);
+//        NSData *data=(NSData*)responseObject;
+//        NSString *str=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+//        NSLog(@"str:%@",str);
         success(task,responseObject);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError *error) {

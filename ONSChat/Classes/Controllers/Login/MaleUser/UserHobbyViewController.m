@@ -83,10 +83,45 @@
     [FSSharedNetWorkingManager POST:ServiceInterfaceRegister parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         NSDictionary *dic = (NSDictionary*)responseObject;
-        KKLog(@"dic:%@",dic);
+        KKLog(@"register:%@",responseObject);
+        BOOL status=[dic boolForKey:@"status" defaultValue:NO];
+        if(status)
+        {
+            KKSharedUserManager.tempUser.userId=[dic longlongForKey:@"id" defaultValue:0];
+            KKSharedUserManager.tempUser.password=[dic stringForKey:@"password" defaultValue:@""];
+            
+            //执行登录
+            NSDictionary *para=@{@"loginname":@(KKSharedUserManager.tempUser.userId),@"password":KKSharedUserManager.tempUser.password,@"channel":ChannelId};
+            [FSSharedNetWorkingManager POST:ServiceInterfaceLogin parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                
+                NSDictionary *loginDic = (NSDictionary*)responseObject;
+                KKLog(@"login:%@",loginDic);
+                BOOL status1=[loginDic boolForKey:@"status" defaultValue:NO];
+                if(status1)
+                {
+                    [SVProgressHUD dismiss];
+                    
+                    KKSharedUserManager.currentUser=KKSharedUserManager.tempUser;
+                    
+                    [KKAppDelegate loginSucceed:loginDic];
+                }
+                else
+                {
+                    [SVProgressHUD dismissWithError:[loginDic stringForKey:@"statusMsg" defaultValue:@"登录失败"] afterDelay:2.0];
+                }
+                
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                [SVProgressHUD dismissWithError:KKErrorInfo(error) afterDelay:2.0];
+            }];
+        }
+        else
+        {
+            [SVProgressHUD dismissWithError:[dic stringForKey:@"statusMsg" defaultValue:@"注册失败"] afterDelay:2.0];
+        }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
+        [SVProgressHUD dismissWithError:KKErrorInfo(error) afterDelay:2.0];
     }];
 }
 

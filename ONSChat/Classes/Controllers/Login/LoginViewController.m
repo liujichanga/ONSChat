@@ -37,10 +37,39 @@
 - (IBAction)loginClick:(id)sender {
     if(KKStringIsBlank(_userCodeTextField.text)||KKStringIsBlank(_passwordTextField.text))
     {
-        [SVProgressHUD showErrorWithStatus:@"账号密码不能为空"];
+        [SVProgressHUD showErrorWithStatus:@"账号密码不能为空" duration:2.0];
         return;
     }
     
+    [SVProgressHUD show];
+    
+    //执行登录
+    NSDictionary *para=@{@"loginname":_userCodeTextField.text,@"password":_passwordTextField.text,@"channel":ChannelId};
+    [FSSharedNetWorkingManager POST:ServiceInterfaceLogin parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSDictionary *loginDic = (NSDictionary*)responseObject;
+        KKLog(@"login:%@",loginDic);
+        BOOL status1=[loginDic boolForKey:@"status" defaultValue:NO];
+        if(status1)
+        {
+            [SVProgressHUD dismiss];
+            
+            KKUser *user=[[KKUser alloc] init];
+            user.userId=[_userCodeTextField.text longLongValue];
+            user.password=_passwordTextField.text;
+            
+            KKSharedUserManager.currentUser=user;
+            
+            [KKAppDelegate loginSucceed:loginDic];
+        }
+        else
+        {
+            [SVProgressHUD dismissWithError:[loginDic stringForKey:@"statusMsg" defaultValue:@"登录失败"] afterDelay:2.0];
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD dismissWithError:KKErrorInfo(error) afterDelay:2.0];
+    }];
     
     
 }

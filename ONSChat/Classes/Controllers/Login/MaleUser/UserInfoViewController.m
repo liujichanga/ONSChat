@@ -85,6 +85,8 @@
         KKLog(@"nickName %@--age %@",nickName,ageStr);
         KKSharedUserManager.tempUser.nickName = nickName;
         KKSharedUserManager.tempUser.age = [ageStr integerValue];
+        KKSharedUserManager.tempUser.address=self.cityLabel.text;
+        
         UserHobbyViewController *hobby = KKViewControllerOfMainSB(@"UserHobbyViewController");
         [self.navigationController pushViewController:hobby animated:YES];
     }
