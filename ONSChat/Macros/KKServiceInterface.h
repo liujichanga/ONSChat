@@ -15,7 +15,7 @@
 //#define KKServerDomain @"http://test.kuaikuaikeji.com"
 
 // Application
-#define App @"mobile"
+#define App @"sp-api/mobile"
 
 //登陆
 #define ServiceInterfaceLogin KKStringWithFormat(@"%@/%@/login", KKServerDomain, App)
@@ -23,6 +23,8 @@
 #define ServiceInterfaceRegister KKStringWithFormat(@"%@/%@/register", KKServerDomain, App)
 //根据ip返回城市
 #define ServiceInterfaceGetCityByIp @"https://whois.pconline.com.cn/ipJson.jsp"
+//每日推荐
+#define ServiceInterfaceDailyRecommand KKStringWithFormat(@"%@/%@/daily", KKServerDomain, App)
 
 
 
