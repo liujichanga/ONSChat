@@ -43,7 +43,7 @@
     if(!CGSizeEqualToSize(self.frame.size, CGSizeZero))
     {
         [self setBackgroundImage:[UIImage imageWithColor:KKColorPurple forSize:self.frame.size radius:Radius borderWidth:0 borderColor:nil] forState:UIControlStateHighlighted];
-        //[self setBackgroundImage:[UIImage imageWithColor:KKColorPurple forSize:self.frame.size radius:Radius borderWidth:0 borderColor:nil] forState:UIControlStateNormal];
+        [self setBackgroundImage:[UIImage imageWithColor:KKColorPurple forSize:self.frame.size radius:Radius borderWidth:0 borderColor:nil] forState:UIControlStateSelected];
     }
 }
 
@@ -54,6 +54,7 @@
     [btn setTitle:title forState:UIControlStateNormal];
     
     [btn setBackgroundImage:[UIImage imageWithColor:KKColorPurple forSize:btn.frame.size radius:Radius borderWidth:0 borderColor:nil] forState:UIControlStateHighlighted];
+    [btn setBackgroundImage:[UIImage imageWithColor:KKColorPurple forSize:btn.frame.size radius:Radius borderWidth:0 borderColor:nil] forState:UIControlStateSelected];
 
     
     return btn;

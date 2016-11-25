@@ -71,7 +71,7 @@
         {
             NSRange rang=NSMakeRange(startRange.location, endRange.location);
             NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:[self stringByReplacingOccurrencesOfString:@"%" withString:@""]];
-            [attributedString addAttribute:NSForegroundColorAttributeName value:KKColorHomeOrange range:rang];
+            [attributedString addAttribute:NSForegroundColorAttributeName value:KKColorPurple range:rang];
             
             if(rangeValue!=nil) *rangeValue=[NSValue valueWithRange:rang];
             

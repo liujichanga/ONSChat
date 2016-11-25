@@ -24,8 +24,6 @@
 @property (nonatomic, strong) NSMutableArray *ageArray;
 //居住地
 @property (weak, nonatomic) IBOutlet UILabel *cityLabel;
-//下一步
-@property (weak, nonatomic) IBOutlet ONSButtonPurple *nextStepBtn;
 
 @end
 

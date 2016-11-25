@@ -14,7 +14,6 @@
 
 @interface FemaleNickNameViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *nickNameTextField;
-@property (weak, nonatomic) IBOutlet ONSButton *nextStepBtn;
 
 @end
 
