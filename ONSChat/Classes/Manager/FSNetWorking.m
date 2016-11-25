@@ -38,7 +38,7 @@ static FSNetWorking *instance;
         _sessionManager=[AFHTTPSessionManager manager];
         _sessionManager.requestSerializer.timeoutInterval=30;//超时改为30秒
         //_sessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];//不直接序列化为json
-        _sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+        _sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", nil];
 
         
         // 完全信任服务端证书模式

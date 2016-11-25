@@ -24,6 +24,8 @@
 //启动定位
 -(void)locationGPS;
 
+//程序定位到的省
+@property(strong,nonatomic) NSString *GPSProvince;
 //程序定位的城市
 @property(strong,nonatomic) NSString *GPSCity;
 

@@ -42,6 +42,9 @@ static KKGlobalManager *instance;
 {
     if(self=[super init])
     {
+        _GPSProvince=@"北京";
+        _GPSCity=@"北京";
+        
         _jobArr=@[@"在校学生",@"军人",@"私营业主",@"企业职工",@"农业劳动者",@"事业单位工作者",@"自由职业"];
         NSMutableArray *heightArray = [NSMutableArray array];
         for (int i = 120; i <= 220; ++i) {
@@ -63,8 +66,6 @@ static KKGlobalManager *instance;
     //定位
     _aMapManager = [[AMapLocationManager alloc] init];
     
-    KKSharedGlobalManager.GPSCity=@"北京市";
-
     //定位
     [_aMapManager requestLocationWithReGeocode:YES completionBlock:^(CLLocation *location, AMapLocationReGeocode *regeocode, NSError *error) {
         if(error)
@@ -90,9 +91,21 @@ static KKGlobalManager *instance;
                         NSDictionary *dic = (NSDictionary*)[jsonstr objectFromJSONString];
                         if(dic&&[dic isKindOfClass:[NSDictionary class]])
                         {
+                            NSString *province = [dic stringForKey:@"province" defaultValue:@""];
+                            if(KKStringIsNotBlank(province))
+                            {
+                                province = [province stringByReplacingOccurrencesOfString:@"省" withString:@""];
+                                province = [province stringByReplacingOccurrencesOfString:@"市" withString:@""];
+                                KKSharedGlobalManager.GPSProvince=province;
+                            }
+                            
                             NSString *city=[dic stringForKey:@"city" defaultValue:@""];
                             if(KKStringIsNotBlank(city))
+                            {
+                                city = [city stringByReplacingOccurrencesOfString:@"市" withString:@""];
+                                city = [city stringByReplacingOccurrencesOfString:@"区" withString:@""];
                                 KKSharedGlobalManager.GPSCity=city;
+                            }
                         }
                     }
                 }
@@ -103,7 +116,22 @@ static KKGlobalManager *instance;
         else
         {
             NSLog(@"location:%@,regeode:%@",location,regeocode);
-            KKSharedGlobalManager.GPSCity=regeocode.city;
+            NSString *province = regeocode.province;
+            if(KKStringIsNotBlank(province))
+            {
+                province = [province stringByReplacingOccurrencesOfString:@"省" withString:@""];
+                province = [province stringByReplacingOccurrencesOfString:@"市" withString:@""];
+                KKSharedGlobalManager.GPSProvince=province;
+            }
+            
+            NSString *city=regeocode.city;
+            if(KKStringIsNotBlank(city))
+            {
+                city = [city stringByReplacingOccurrencesOfString:@"市" withString:@""];
+                city = [city stringByReplacingOccurrencesOfString:@"区" withString:@""];
+                KKSharedGlobalManager.GPSCity=city;
+            }
+            
         }
     }];
 
