@@ -10,7 +10,10 @@
 #import "UploadHeadImageViewController.h"
 
 @interface DailyRecommandViewController ()
+//顶部文案
 @property (weak, nonatomic) IBOutlet UILabel *topLabel;
+
+//头像数组
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *headImageArray;
 
 @end
@@ -36,6 +39,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+//请求数据
 -(void)loadDailyRecommandData{
     [SVProgressHUD show];
     NSDictionary *param = @{@"limit":@(self.headImageArray.count)};
@@ -46,11 +50,10 @@
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [SVProgressHUD dismissWithError:KKErrorInfo(error) afterDelay:1.2];
-        
     }];
-    
 }
 
+//取到头像 赋值
 -(void)showDailyRecommandWithAvatarArray:(NSArray*)avatarArr{
     
     NSInteger count =avatarArr.count>self.headImageArray.count?self.headImageArray.count:avatarArr.count;
@@ -59,15 +62,16 @@
         NSString *avaStr = [avatarArr objectAtIndex:i];
         KKImageViewWithUrlstring(headImg, avaStr, @"def_head");
     }
-    
 }
-
+//告诉他们
 - (IBAction)tellThemBtnClick:(id)sender {
 
     UploadHeadImageViewController *headImage = KKViewControllerOfMainSB(@"UploadHeadImageViewController");
     [self.navigationController pushViewController:headImage animated:YES];
 }
+//换一批
 - (IBAction)changeBtnClick:(id)sender {
+    KKLog(@"换一批");
 }
 
 @end

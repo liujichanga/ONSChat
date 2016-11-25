@@ -38,7 +38,7 @@
 }
 //跳过
 - (IBAction)skipClick:(id)sender {
-    
+    KKLog(@"跳过");
     
 }
 
@@ -71,7 +71,6 @@
     {
         UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
     }
-    
-    self.userHeadImageView.image = image;//[UIImage imageWithData:imageData];
+    self.userHeadImageView.image = image;
 }
 @end
