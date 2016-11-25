@@ -25,7 +25,7 @@
 //居住地
 @property (weak, nonatomic) IBOutlet UILabel *cityLabel;
 //下一步
-@property (weak, nonatomic) IBOutlet ONSButton *nextStepBtn;
+@property (weak, nonatomic) IBOutlet ONSButtonPurple *nextStepBtn;
 
 @end
 
@@ -43,6 +43,7 @@
 //    self.nickNameText.placeholder = @"占位昵称";
     self.nickNameText.delegate = self;
     self.cityLabel.text = KKSharedGlobalManager.GPSCity;
+    
 }
 
 - (void)didReceiveMemoryWarning {

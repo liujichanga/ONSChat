@@ -41,6 +41,7 @@
 		1C6B3A1A1DE3F34C008ACCA8 /* MeInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6B3A181DE3F34C008ACCA8 /* MeInfoCell.m */; };
 		1C6B3A1B1DE3F34C008ACCA8 /* MeInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C6B3A191DE3F34C008ACCA8 /* MeInfoCell.xib */; };
 		1C6B3A1F1DE4414C008ACCA8 /* NotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6B3A1E1DE4414C008ACCA8 /* NotificationView.m */; };
+		1CF680FC1DE82A5D0046F34D /* ONSButtonPurple.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF680FB1DE82A5D0046F34D /* ONSButtonPurple.m */; };
 		563AD3481DE14B09006945BD /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD3471DE14B09006945BD /* AssetsLibrary.framework */; };
 		563AD34A1DE14B10006945BD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD3491DE14B10006945BD /* AudioToolbox.framework */; };
 		563AD34C1DE14B1C006945BD /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD34B1DE14B1C006945BD /* CoreAudio.framework */; };
@@ -216,6 +217,8 @@
 		1C6B3A191DE3F34C008ACCA8 /* MeInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeInfoCell.xib; sourceTree = "<group>"; };
 		1C6B3A1D1DE4414C008ACCA8 /* NotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationView.h; sourceTree = "<group>"; };
 		1C6B3A1E1DE4414C008ACCA8 /* NotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationView.m; sourceTree = "<group>"; };
+		1CF680FA1DE82A5D0046F34D /* ONSButtonPurple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONSButtonPurple.h; sourceTree = "<group>"; };
+		1CF680FB1DE82A5D0046F34D /* ONSButtonPurple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONSButtonPurple.m; sourceTree = "<group>"; };
 		563AD3471DE14B09006945BD /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		563AD3491DE14B10006945BD /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		563AD34B1DE14B1C006945BD /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
@@ -496,6 +499,8 @@
 			children = (
 				1C0E774E1DE30F820083F9F8 /* ONSButton.h */,
 				1C0E774F1DE30F820083F9F8 /* ONSButton.m */,
+				1CF680FA1DE82A5D0046F34D /* ONSButtonPurple.h */,
+				1CF680FB1DE82A5D0046F34D /* ONSButtonPurple.m */,
 			);
 			path = ONSButton;
 			sourceTree = "<group>";
@@ -1268,6 +1273,7 @@
 				5698645C1DE010B40059D484 /* NSString+Digest.m in Sources */,
 				9BC32EFB1DE6D31600CDDAFB /* FemaleIncomeViewController.m in Sources */,
 				569864271DE00EAF0059D484 /* UIScrollView+MJExtension.m in Sources */,
+				1CF680FC1DE82A5D0046F34D /* ONSButtonPurple.m in Sources */,
 				569864181DE00EAF0059D484 /* MJRefreshBackFooter.m in Sources */,
 				5698643B1DE00EAF0059D484 /* SVProgressHUD.m in Sources */,
 				1C6B3A0B1DE3DCF3008ACCA8 /* KKGlobalManager.m in Sources */,

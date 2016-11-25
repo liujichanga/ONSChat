@@ -8,6 +8,8 @@
 
 #import "ONSButton.h"
 
+#define Radius  3.0
+
 @implementation ONSButton
 
 - (id)initWithFrame:(CGRect)frame
@@ -29,10 +31,8 @@
 
 -(void)buttonCustom
 {
-    CGFloat radius = 3.0;
-    
     [self.layer setMasksToBounds:YES];
-    [self.layer setCornerRadius:radius];
+    [self.layer setCornerRadius:Radius];
     [self.layer setBorderWidth:1.0]; //边框宽度
     [self.layer setBorderColor:KKColorPurple.CGColor];//边框颜色
     
@@ -42,8 +42,8 @@
 
     if(!CGSizeEqualToSize(self.frame.size, CGSizeZero))
     {
-        [self setBackgroundImage:[UIImage imageWithColor:KKColorPurple forSize:self.frame.size radius:radius borderWidth:0 borderColor:nil] forState:UIControlStateHighlighted];
-        [self setBackgroundImage:[UIImage imageWithColor:KKColorPurple forSize:self.frame.size radius:radius borderWidth:0 borderColor:nil] forState:UIControlStateSelected];
+        [self setBackgroundImage:[UIImage imageWithColor:KKColorPurple forSize:self.frame.size radius:Radius borderWidth:0 borderColor:nil] forState:UIControlStateHighlighted];
+        //[self setBackgroundImage:[UIImage imageWithColor:KKColorPurple forSize:self.frame.size radius:Radius borderWidth:0 borderColor:nil] forState:UIControlStateNormal];
     }
 }
 
@@ -53,8 +53,8 @@
     btn.frame=frame;
     [btn setTitle:title forState:UIControlStateNormal];
     
-    [btn setBackgroundImage:[UIImage imageWithColor:KKColorPurple forSize:btn.frame.size radius:3.0 borderWidth:0 borderColor:nil] forState:UIControlStateHighlighted];
-    [btn setBackgroundImage:[UIImage imageWithColor:KKColorPurple forSize:btn.frame.size radius:3.0 borderWidth:0 borderColor:nil] forState:UIControlStateSelected];
+    [btn setBackgroundImage:[UIImage imageWithColor:KKColorPurple forSize:btn.frame.size radius:Radius borderWidth:0 borderColor:nil] forState:UIControlStateHighlighted];
+
     
     return btn;
 }
