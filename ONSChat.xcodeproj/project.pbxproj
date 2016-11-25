@@ -31,6 +31,8 @@
 		1C0FF5D81DE5354400DBF4E0 /* OneVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0FF5D61DE5354400DBF4E0 /* OneVideoCell.m */; };
 		1C0FF5D91DE5354400DBF4E0 /* OneVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C0FF5D71DE5354400DBF4E0 /* OneVideoCell.xib */; };
 		1C0FF5DD1DE5A6B700DBF4E0 /* DailyRecommandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0FF5DC1DE5A6B700DBF4E0 /* DailyRecommandViewController.m */; };
+		1C327C5E1DE691E400E9DFB3 /* NearUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C327C5C1DE691E400E9DFB3 /* NearUserCell.m */; };
+		1C327C5F1DE691E400E9DFB3 /* NearUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C327C5D1DE691E400E9DFB3 /* NearUserCell.xib */; };
 		1C6B3A0B1DE3DCF3008ACCA8 /* KKGlobalManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6B3A0A1DE3DCF3008ACCA8 /* KKGlobalManager.m */; };
 		1C6B3A101DE3F314008ACCA8 /* HeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6B3A0E1DE3F314008ACCA8 /* HeadCell.m */; };
 		1C6B3A111DE3F314008ACCA8 /* HeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C6B3A0F1DE3F314008ACCA8 /* HeadCell.xib */; };
@@ -198,6 +200,9 @@
 		1C0FF5D71DE5354400DBF4E0 /* OneVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OneVideoCell.xib; sourceTree = "<group>"; };
 		1C0FF5DB1DE5A6B700DBF4E0 /* DailyRecommandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyRecommandViewController.h; sourceTree = "<group>"; };
 		1C0FF5DC1DE5A6B700DBF4E0 /* DailyRecommandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyRecommandViewController.m; sourceTree = "<group>"; };
+		1C327C5B1DE691E400E9DFB3 /* NearUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearUserCell.h; sourceTree = "<group>"; };
+		1C327C5C1DE691E400E9DFB3 /* NearUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearUserCell.m; sourceTree = "<group>"; };
+		1C327C5D1DE691E400E9DFB3 /* NearUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearUserCell.xib; sourceTree = "<group>"; };
 		1C6B3A091DE3DCF3008ACCA8 /* KKGlobalManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKGlobalManager.h; sourceTree = "<group>"; };
 		1C6B3A0A1DE3DCF3008ACCA8 /* KKGlobalManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKGlobalManager.m; sourceTree = "<group>"; };
 		1C6B3A0D1DE3F314008ACCA8 /* HeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadCell.h; sourceTree = "<group>"; };
@@ -539,6 +544,7 @@
 		1C0E77A51DE325500083F9F8 /* Nearby */ = {
 			isa = PBXGroup;
 			children = (
+				1C327C5A1DE6918400E9DFB3 /* Cell */,
 				1C0E77A61DE325680083F9F8 /* NearbyViewController.h */,
 				1C0E77A71DE325680083F9F8 /* NearbyViewController.m */,
 			);
@@ -584,6 +590,16 @@
 				1C0FF5DC1DE5A6B700DBF4E0 /* DailyRecommandViewController.m */,
 			);
 			path = DailyRecommand;
+			sourceTree = "<group>";
+		};
+		1C327C5A1DE6918400E9DFB3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1C327C5B1DE691E400E9DFB3 /* NearUserCell.h */,
+				1C327C5C1DE691E400E9DFB3 /* NearUserCell.m */,
+				1C327C5D1DE691E400E9DFB3 /* NearUserCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		1C6B3A0C1DE3F2ED008ACCA8 /* Cell */ = {
@@ -1212,6 +1228,7 @@
 				1C6B3A161DE3F33C008ACCA8 /* VIPCell.xib in Resources */,
 				5698643A1DE00EAF0059D484 /* SVProgressHUD.bundle in Resources */,
 				567F545E1DDFEC5500872A36 /* Assets.xcassets in Resources */,
+				1C327C5F1DE691E400E9DFB3 /* NearUserCell.xib in Resources */,
 				56C6FFD41DE09E9000BB5C3B /* RongCloudKit.strings in Resources */,
 				567F545C1DDFEC5500872A36 /* Main.storyboard in Resources */,
 				56C6FFD31DE09E9000BB5C3B /* Emoji.plist in Resources */,
@@ -1313,6 +1330,7 @@
 				5698645B1DE010B40059D484 /* NSString+Convertor.m in Sources */,
 				1C0E77671DE31F870083F9F8 /* AFURLSessionManager.m in Sources */,
 				569864721DE051A30059D484 /* KKBLEUtils.m in Sources */,
+				1C327C5E1DE691E400E9DFB3 /* NearUserCell.m in Sources */,
 				5698641B1DE00EAF0059D484 /* MJRefreshHeader.m in Sources */,
 				9BC32EE91DE5A8CE00CDDAFB /* UserInfoViewController.m in Sources */,
 				9BC32EF81DE6C7F300CDDAFB /* FemaleHeightViewController.m in Sources */,

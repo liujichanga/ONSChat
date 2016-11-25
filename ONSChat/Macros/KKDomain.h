@@ -12,7 +12,7 @@
 // Domain
 //#define KKServerDomain @"http://192.168.40.56:8080"
 //#define KKServerDomain @"http://s.kuaikuaikeji.com"
-#define KKServerDomain @"http://www.tongchengsupei.com"
+#define KKServerDomain @"http://jiaoyou2app.tongchengsupei.cn:8090"
 
 #ifdef DEBUG
 #define KKBuildVersion KKStringWithFormat(@"dev-%@-%@", KKAppVersion,KKAppBuildVersion)
