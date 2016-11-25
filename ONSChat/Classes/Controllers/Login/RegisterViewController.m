@@ -87,13 +87,13 @@
         KKUser *user=[[KKUser alloc] init];
         KKSharedUserManager.tempUser=user;
         KKSharedUserManager.tempUser.sex = KKMale;
-//        UserInfoViewController *userInfo = KKViewControllerOfMainSB(@"UserInfoViewController");
-//        [self.navigationController pushViewController:userInfo animated:YES];
+        UserInfoViewController *userInfo = KKViewControllerOfMainSB(@"UserInfoViewController");
+        [self.navigationController pushViewController:userInfo animated:YES];
         
-        [self.navigationController setNavigationBarHidden:NO];
-        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-        DailyRecommandViewController *daily = KKViewControllerOfMainSB(@"DailyRecommandViewController");
-        [self.navigationController pushViewController:daily animated:YES];
+//        [self.navigationController setNavigationBarHidden:NO];
+//        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+//        DailyRecommandViewController *daily = KKViewControllerOfMainSB(@"DailyRecommandViewController");
+//        [self.navigationController pushViewController:daily animated:YES];
 
         
     }else if (self.femaleBtn.selected ==YES){
