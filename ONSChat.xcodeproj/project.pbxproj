@@ -160,6 +160,8 @@
 		9BC32F0A1DE8200100CDDAFB /* UploadHeadImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32F091DE8200100CDDAFB /* UploadHeadImageViewController.m */; };
 		9BFB22C81DE95A1300DB9BE6 /* BindingPhoneNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB22C71DE95A1300DB9BE6 /* BindingPhoneNumberViewController.m */; };
 		9BFB22CC1DE95A4C00DB9BE6 /* RecommendUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB22CB1DE95A4C00DB9BE6 /* RecommendUserInfoViewController.m */; };
+		9BFB22D21DE9709500DB9BE6 /* BaseInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB22D01DE9709500DB9BE6 /* BaseInfoCell.m */; };
+		9BFB22D31DE9709500DB9BE6 /* BaseInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BFB22D11DE9709500DB9BE6 /* BaseInfoCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -442,6 +444,9 @@
 		9BFB22C71DE95A1300DB9BE6 /* BindingPhoneNumberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindingPhoneNumberViewController.m; sourceTree = "<group>"; };
 		9BFB22CA1DE95A4C00DB9BE6 /* RecommendUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendUserInfoViewController.h; sourceTree = "<group>"; };
 		9BFB22CB1DE95A4C00DB9BE6 /* RecommendUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendUserInfoViewController.m; sourceTree = "<group>"; };
+		9BFB22CF1DE9709500DB9BE6 /* BaseInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseInfoCell.h; sourceTree = "<group>"; };
+		9BFB22D01DE9709500DB9BE6 /* BaseInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseInfoCell.m; sourceTree = "<group>"; };
+		9BFB22D11DE9709500DB9BE6 /* BaseInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaseInfoCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1229,6 +1234,9 @@
 		9BFB22CD1DE95A9900DB9BE6 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				9BFB22CF1DE9709500DB9BE6 /* BaseInfoCell.h */,
+				9BFB22D01DE9709500DB9BE6 /* BaseInfoCell.m */,
+				9BFB22D11DE9709500DB9BE6 /* BaseInfoCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1304,6 +1312,7 @@
 				1C0E779C1DE3222C0083F9F8 /* AMap.bundle in Resources */,
 				1C6B3A1B1DE3F34C008ACCA8 /* MeInfoCell.xib in Resources */,
 				1C6B3A161DE3F33C008ACCA8 /* VIPCell.xib in Resources */,
+				9BFB22D31DE9709500DB9BE6 /* BaseInfoCell.xib in Resources */,
 				5698643A1DE00EAF0059D484 /* SVProgressHUD.bundle in Resources */,
 				567F545E1DDFEC5500872A36 /* Assets.xcassets in Resources */,
 				1C327C5F1DE691E400E9DFB3 /* NearUserCell.xib in Resources */,
@@ -1362,6 +1371,7 @@
 				1C0E77A21DE3249A0083F9F8 /* HomeViewController.m in Sources */,
 				567F54531DDFEC5500872A36 /* main.m in Sources */,
 				1C0E77B01DE32AA20083F9F8 /* KKCarouselView.m in Sources */,
+				9BFB22D21DE9709500DB9BE6 /* BaseInfoCell.m in Sources */,
 				9BFB22C81DE95A1300DB9BE6 /* BindingPhoneNumberViewController.m in Sources */,
 				9BC32F0A1DE8200100CDDAFB /* UploadHeadImageViewController.m in Sources */,
 				569864961DE055AE0059D484 /* KKUserManager.m in Sources */,
