@@ -30,11 +30,18 @@ static FSNetWorking *instance;
     
 }
 
+-(void)dealloc
+{
+    KKLog(@"FSNetWork dealloc");
+    KKNotificationCenterRemoveObserverOfSelf;
+}
+
 -(nullable instancetype)init
 {
     if(self=[super init])
     {
         NSLog(@"FSNetWorking init");
+        
         _sessionManager=[AFHTTPSessionManager manager];
         _sessionManager.requestSerializer.timeoutInterval=30;//超时改为30秒
         //_sessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];//不直接序列化为json
@@ -65,13 +72,17 @@ static FSNetWorking *instance;
                  case AFNetworkReachabilityStatusUnknown:
                  case AFNetworkReachabilityStatusNotReachable:
                  {
-                     
+                     [KKNotificationCenter postNotificationName:FSNetWorkingManagerNotification_NetWorkStatusChanged object:nil];
                  }
                      break;
                  case AFNetworkReachabilityStatusReachableViaWWAN:
+                 {
+                     [KKNotificationCenter postNotificationName:FSNetWorkingManagerNotification_NetWorkStatusChanged object:nil];
+                 }
+                     break;
                  case AFNetworkReachabilityStatusReachableViaWiFi:
                  {
-                     
+                     [KKNotificationCenter postNotificationName:FSNetWorkingManagerNotification_NetWorkStatusChanged object:nil];
                  }
                      break;
                      

@@ -92,7 +92,7 @@
             
             //执行登录
             NSDictionary *para=@{@"loginname":@(KKSharedUserManager.tempUser.userId),@"password":KKSharedUserManager.tempUser.password,@"channel":ChannelId};
-            [FSSharedNetWorkingManager POST:ServiceInterfaceLogin parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            [FSSharedNetWorkingManager GET:ServiceInterfaceLogin parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 
                 NSDictionary *loginDic = (NSDictionary*)responseObject;
                 KKLog(@"login:%@",loginDic);
@@ -102,6 +102,7 @@
                     [SVProgressHUD dismiss];
                     
                     KKSharedUserManager.currentUser=KKSharedUserManager.tempUser;
+                    KKSharedUserManager.isNewReisterUser=YES;//新注册用户
                     
                     [KKAppDelegate loginSucceed:loginDic];
                 }

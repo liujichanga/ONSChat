@@ -88,6 +88,55 @@
         KKLog(@"personality %@",personalityStr);
         KKSharedUserManager.tempUser.personality = personalityStr;
 
+        //注册
+        NSDictionary *params=@{@"gender":@(KKSharedUserManager.tempUser.sex),@"nickname":KKSharedUserManager.tempUser.nickName,@"channel":ChannelId,@"job":KKSharedUserManager.tempUser.job,@"height":@(KKSharedUserManager.tempUser.height),@"income":KKSharedUserManager.tempUser.income,@"hobby":KKSharedUserManager.tempUser.hobby,@"personality":KKSharedUserManager.tempUser.personality};
+        
+        [SVProgressHUD show];
+        
+        [FSSharedNetWorkingManager POST:ServiceInterfaceRegister parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            
+            NSDictionary *dic = (NSDictionary*)responseObject;
+            KKLog(@"register:%@",responseObject);
+            BOOL status=[dic boolForKey:@"status" defaultValue:NO];
+            if(status)
+            {
+                KKSharedUserManager.tempUser.userId=[dic longlongForKey:@"id" defaultValue:0];
+                KKSharedUserManager.tempUser.password=[dic stringForKey:@"password" defaultValue:@""];
+                
+                //执行登录
+                NSDictionary *para=@{@"loginname":@(KKSharedUserManager.tempUser.userId),@"password":KKSharedUserManager.tempUser.password,@"channel":ChannelId};
+                [FSSharedNetWorkingManager GET:ServiceInterfaceLogin parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                    
+                    NSDictionary *loginDic = (NSDictionary*)responseObject;
+                    KKLog(@"login:%@",loginDic);
+                    BOOL status1=[loginDic boolForKey:@"status" defaultValue:NO];
+                    if(status1)
+                    {
+                        [SVProgressHUD dismiss];
+                        
+                        KKSharedUserManager.currentUser=KKSharedUserManager.tempUser;
+                        KKSharedUserManager.isNewReisterUser=YES;//新注册用户
+                        
+                        [KKAppDelegate loginSucceed:loginDic];
+                    }
+                    else
+                    {
+                        [SVProgressHUD dismissWithError:[loginDic stringForKey:@"statusMsg" defaultValue:@"登录失败"] afterDelay:2.0];
+                    }
+                    
+                } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                    [SVProgressHUD dismissWithError:KKErrorInfo(error) afterDelay:2.0];
+                }];
+            }
+            else
+            {
+                [SVProgressHUD dismissWithError:[dic stringForKey:@"statusMsg" defaultValue:@"注册失败"] afterDelay:2.0];
+            }
+            
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            
+            [SVProgressHUD dismissWithError:KKErrorInfo(error) afterDelay:2.0];
+        }];
     }
 }
 

@@ -42,7 +42,7 @@ static KKUserManager *instance;
     
     instance.autoLoginEnabled = NO;
     instance.lastChannelId=@"";
-    instance.isLogined=NO;
+    instance.isNewReisterUser=NO;
     
     once = 0;
     instance = nil;

@@ -35,8 +35,8 @@
 //自动登陆
 @property(assign,nonatomic,getter=isAutoLoginEnabled) BOOL autoLoginEnabled;
 
-//是否已经登陆
-@property(assign,nonatomic) BOOL isLogined;
+//是否为新注册用户
+@property(assign,nonatomic) BOOL isNewReisterUser;
 
 
 

@@ -35,6 +35,13 @@
     
     //开始定位
     [KKSharedGlobalManager locationGPS];
+
+    //network init
+    FSSharedNetWorkingManager;
+
+    //local init
+    KKSharedLocalPlistManager;
+    
     
     //最后一个登录用户
     KKUser *lastLoginUser = [KKSharedUserManager lastLoginUser];
@@ -107,7 +114,28 @@
 
 -(void)loginSucceed:(NSDictionary *)dic
 {
+    NSTimeInterval baoyue=[dic longlongForKey:@"baoyueendtime" defaultValue:0]/1000.0;
+    KKSharedCurrentUser.baoyueEndTime=[[NSDate dateWithTimeIntervalSince1970:baoyue] string];
+    NSTimeInterval vip=[dic longlongForKey:@"vipendtime" defaultValue:0]/1000.0;
+    KKSharedCurrentUser.vipEndTime=[[NSDate dateWithTimeIntervalSince1970:vip] string];
+
+    KKSharedCurrentUser.beannum=[dic integerForKey:@"beanCount" defaultValue:0];
+    KKSharedCurrentUser.sex=[dic integerForKey:@"gender" defaultValue:0];
+    KKSharedCurrentUser.isVIP=[dic boolForKey:@"isVIP" defaultValue:NO];
+    KKSharedCurrentUser.isMsg=[dic boolForKey:@"isMonth" defaultValue:NO];
+    KKSharedCurrentUser.phone=[dic stringForKey:@"phone" defaultValue:@""];
+    KKSharedCurrentUser.dayFirst=YES;//[dic boolForKey:@"dayfirst" defaultValue:NO];
     
+    //获取头像
+    NSString *avater = [KKSharedLocalPlistManager kkValueForKey:Plist_Key_Avatar];
+    if(KKStringIsNotBlank(avater))
+    {
+        KKSharedCurrentUser.avatarUrl=[CacheUserPath stringByAppendingPathComponent:avater];
+    }
+    
+    KKSharedUserManager.autoLoginEnabled=YES;
+    
+    self.window.rootViewController=KKInitViewControllerOfMainSB;
 }
 
 

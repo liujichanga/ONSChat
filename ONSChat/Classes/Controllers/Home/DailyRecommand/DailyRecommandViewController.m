@@ -66,12 +66,13 @@
 //告诉他们
 - (IBAction)tellThemBtnClick:(id)sender {
 
-    UploadHeadImageViewController *headImage = KKViewControllerOfMainSB(@"UploadHeadImageViewController");
-    [self.navigationController pushViewController:headImage animated:YES];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 //换一批
 - (IBAction)changeBtnClick:(id)sender {
     KKLog(@"换一批");
+    
+    [self loadDailyRecommandData];
 }
 
 @end

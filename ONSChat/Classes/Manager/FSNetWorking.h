@@ -11,6 +11,10 @@
 
 #define FSSharedNetWorkingManager [FSNetWorking sharedManager]
 
+
+//网络变化的通知
+#define FSNetWorkingManagerNotification_NetWorkStatusChanged @"FSNetWorkingManagerNotification_NetWorkStatusChanged"
+
 @interface FSNetWorking : NSObject
 
 +(nullable instancetype)sharedManager;

@@ -7,7 +7,8 @@
 //
 
 #import "RootTabBarController.h"
-
+#import "UploadHeadImageViewController.h"
+#import "DailyRecommandViewController.h"
 
 
 @interface RootTabBarController ()<UITabBarControllerDelegate>
@@ -44,6 +45,10 @@
     self.tabBar.tintColor = KKColorPurple;
     self.tabBar.translucent=NO;
     
+    KKWEAKSELF
+    [KKThredUtils runInMainQueue:^{
+        [weakself loginCheck];
+    } delay:0.2];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -60,6 +65,37 @@
     self.viewControllers = nil;
     KKLog(@"tabbar dealloc");
 }
+
+-(void)loginCheck
+{
+    //付费过
+    if(KKSharedCurrentUser.isMsg||KKSharedCurrentUser.isVIP||KKSharedCurrentUser.beannum>0)
+    {
+        if(KKStringIsBlank(KKSharedCurrentUser.phone))
+        {
+            //没有验证过手机号，先验证手机号
+            
+        }
+    }
+    else if(!KKSharedUserManager.isNewReisterUser && KKStringIsBlank(KKSharedCurrentUser.avatarUrl))
+    {
+        //如果不是新注册用户，并且没有上传头像,需要上传头像
+        UploadHeadImageViewController *uploadVC = KKViewControllerOfMainSB(@"UploadHeadImageViewController");
+        //uploadVC.showCancelButton=YES;
+        UINavigationController *navController=[[UINavigationController alloc] initWithRootViewController:uploadVC];
+        [self presentViewController:navController animated:YES completion:nil];
+
+    }
+    else if(KKSharedUserManager.isNewReisterUser || KKSharedCurrentUser.dayFirst)
+    {
+        // 如果是今天第一次登陆，需要弹出每日推荐
+        DailyRecommandViewController *dailyVC = KKViewControllerOfMainSB(@"DailyRecommandViewController");
+        //uploadVC.showCancelButton=YES;
+        UINavigationController *navController=[[UINavigationController alloc] initWithRootViewController:dailyVC];
+        [self presentViewController:navController animated:YES completion:nil];
+    }
+}
+
 
 
 
