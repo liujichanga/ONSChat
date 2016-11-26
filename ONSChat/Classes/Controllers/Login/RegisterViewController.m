@@ -99,7 +99,6 @@
         KKSharedUserManager.tempUser=user;
         KKSharedUserManager.tempUser.sex = KKFemale;
         [self.navigationController setNavigationBarHidden:NO];
-        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
         FemaleNickNameViewController *femaleNick = KKViewControllerOfMainSB(@"FemaleNickNameViewController");
         [self.navigationController pushViewController:femaleNick animated:YES];
         

@@ -20,6 +20,8 @@
     [super viewDidLoad];
     //self.interactivePopGestureRecognizer.delegate = self;
     NSLog(@"KKBaseNavigationController view did");
+    self.navigationBar.tintColor = [UIColor whiteColor];
+
 }
 
 //自定义返回按钮的同时支持右滑事件,需要在gestureRecognizerShouldBegin把不支持右划的都写上,暂时不用这种方式
