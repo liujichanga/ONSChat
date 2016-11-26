@@ -9,5 +9,6 @@
 #import "KKBaseViewController.h"
 
 @interface BindingPhoneNumberViewController : KKBaseViewController
-
+//是否有下一步处理
+@property (nonatomic, assign) BOOL isNext;
 @end

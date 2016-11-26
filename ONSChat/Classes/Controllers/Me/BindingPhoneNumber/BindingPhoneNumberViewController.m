@@ -57,6 +57,8 @@
         [MBProgressHUD showMessag:@"请输入正确的手机号" toView:nil];
         return;
     }
+
+    
     [self startCountdown];
 }
 
@@ -65,9 +67,28 @@
     if (self.codeText.text.length==0||![self.codeText.text isMatchsRegex:KKRegexNub]) {
         [MBProgressHUD showMessag:@"请填写正确的验证码" toView:nil];
         return;
-    }    
-    KKLog(@"绑定");
-    
+    }
+    NSDictionary *param = @{@"mobile":self.phoneNubText.text,@"code":self.codeText.text,@"type":@(0)};
+    [SVProgressHUD show];
+    [FSSharedNetWorkingManager GET:ServiceInterfaceUserSendSmsCode parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *respDic = (NSDictionary*)responseObject;
+        if (respDic&&respDic.count>0) {
+            NSInteger status = [respDic integerForKey:@"status" defaultValue:0];
+            if (status==1) {
+               //是否有下一步处理
+                if (self.isNext) {
+                    
+                }else{
+                    
+                }
+            }else{
+                //失败
+                [SVProgressHUD dismissWithError:@"绑定失败，请重试" afterDelay:1.2];
+            }
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD dismissWithError:KKErrorInfo(error) afterDelay:1.2];
+    }];
 }
 
 #pragma mark - Timer selector

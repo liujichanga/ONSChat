@@ -9,7 +9,6 @@
 #import "RegisterViewController.h"
 #import "UserInfoViewController.h"
 #import "FemaleNickNameViewController.h"
-#import "BindingPhoneNumberViewController.h"
 
 #define MaleColor [UIColor colorWithHexString:@"60D1DA"]
 
@@ -87,14 +86,8 @@
         KKUser *user=[[KKUser alloc] init];
         KKSharedUserManager.tempUser=user;
         KKSharedUserManager.tempUser.sex = KKMale;
-//        UserInfoViewController *userInfo = KKViewControllerOfMainSB(@"UserInfoViewController");
-//        [self.navigationController pushViewController:userInfo animated:YES];
-        
-        [self.navigationController setNavigationBarHidden:NO];
-        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-        BindingPhoneNumberViewController *daily = KKViewControllerOfMainSB(@"BindingPhoneNumberViewController");
-        [self.navigationController pushViewController:daily animated:YES];
-
+        UserInfoViewController *userInfo = KKViewControllerOfMainSB(@"UserInfoViewController");
+        [self.navigationController pushViewController:userInfo animated:YES];
         
     }else if (self.femaleBtn.selected ==YES){
         KKUser *user=[[KKUser alloc] init];
