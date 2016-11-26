@@ -9,7 +9,7 @@
 #import "BindingPhoneNumberViewController.h"
 
 // 重新获取验证码的等待时间
-#define WaitSecond 5
+#define WaitSecond 60
 
 @interface BindingPhoneNumberViewController ()<UITextFieldDelegate>
 //手机号输入
@@ -76,7 +76,7 @@
     
     _getCodeBtn.enabled = NO;
     [self.getCodeBtn.layer setBorderColor:[UIColor lightGrayColor].CGColor];
-    _second = WaitSecond;
+    _second = WaitSecond-1;
     _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(countdown:) userInfo:nil repeats:YES];
     
     NSString *title = KKStringWithFormat(@"%ds后重新发送", _second);
