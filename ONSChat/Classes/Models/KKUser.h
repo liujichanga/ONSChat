@@ -19,7 +19,7 @@ typedef NS_ENUM(NSUInteger, KKSex) {
 @interface KKUser : NSObject
 
 //登录用户id跟密码
-@property(assign,nonatomic) long long userId;
+@property(strong,nonatomic) NSString *userId;
 @property(strong,nonatomic) NSString *password;
 
 //基本信息
@@ -84,6 +84,10 @@ typedef NS_ENUM(NSUInteger, KKSex) {
 @property(assign,nonatomic) BOOL noticedToday;//是否今天已打过招呼
 @property(strong,nonatomic) NSArray *avatarUrlList;//头像相册列表
 @property(strong,nonatomic) NSString *distanceKm;//显示的距离
+
+
+//是否为付费过的用户
+-(BOOL)isPayUser;
 
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "BindingPhoneNumberViewController.h"
+#import "UploadHeadImageViewController.h"
+#import "DailyRecommandViewController.h"
 
 // 重新获取验证码的等待时间
 #define WaitSecond 60
@@ -75,12 +77,42 @@
         if (respDic&&respDic.count>0) {
             NSInteger status = [respDic integerForKey:@"status" defaultValue:0];
             if (status==1) {
-               //是否有下一步处理
-                if (self.isNext) {
-                    
-                }else{
-                    
+               //下一步处理
+                if(KKSharedCurrentUser.sex==KKFemale)
+                {
+                    //女性用户绑定完就消失了
+                    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
                 }
+                else
+                {
+                    //男性用户，可能是应用内付费的，需要pop，
+                    //或者登陆验证的，需要继续后面流程，或者dismiss
+                    if(self.isDismiss)
+                    {
+                        //如果头像没有上传
+                        if(KKStringIsBlank(KKSharedCurrentUser.avatarUrl))
+                        {
+                            UploadHeadImageViewController *uploadVC = KKViewControllerOfMainSB(@"UploadHeadImageViewController");
+                            [self.navigationController pushViewController:uploadVC animated:YES];
+                        }
+                        else if(KKSharedCurrentUser.dayFirst)
+                        {
+                            //需要显示每日推荐
+                            DailyRecommandViewController *dailyVC = KKViewControllerOfMainSB(@"DailyRecommandViewController");
+                            [self.navigationController pushViewController:dailyVC animated:YES];
+                        }
+                        else
+                        {
+                            //都不需要，消失
+                            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+                        }
+                    }
+                    else
+                    {
+                        [self.navigationController popToRootViewControllerAnimated:YES];
+                    }
+                }
+
             }else{
                 //失败
                 [SVProgressHUD dismissWithError:@"绑定失败，请重试" afterDelay:1.2];

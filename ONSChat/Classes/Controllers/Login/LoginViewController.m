@@ -26,6 +26,15 @@
     _registerBtnLeftConstraint.constant=(KKScreenWidth-2*120)/3;
     _loginBtnRightConstraint.constant=(KKScreenWidth-2*120)/3;
     
+    if(KKStringIsNotBlank([KKSharedUserManager lastLoginUser].userId))
+    {
+        _userCodeTextField.text=[KKSharedUserManager lastLoginUser].userId;
+    }
+    
+    if(KKStringIsNotBlank([KKSharedUserManager lastLoginUser].password))
+    {
+        _passwordTextField.text=[KKSharedUserManager lastLoginUser].password;
+    }
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -33,6 +42,9 @@
     [self.view endEditing:YES];
 }
 - (IBAction)registerClick:(id)sender {
+    
+    self.view.window.rootViewController=KKViewControllerOfMainSB(@"RegisterNavigationController");
+    
 }
 - (IBAction)loginClick:(id)sender {
     if(KKStringIsBlank(_userCodeTextField.text)||KKStringIsBlank(_passwordTextField.text))
@@ -45,7 +57,7 @@
     
     //执行登录
     NSDictionary *para=@{@"loginname":_userCodeTextField.text,@"password":_passwordTextField.text,@"channel":ChannelId};
-    [FSSharedNetWorkingManager POST:ServiceInterfaceLogin parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [FSSharedNetWorkingManager GET:ServiceInterfaceLogin parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         NSDictionary *loginDic = (NSDictionary*)responseObject;
         KKLog(@"login:%@",loginDic);
@@ -55,7 +67,7 @@
             [SVProgressHUD dismiss];
             
             KKUser *user=[[KKUser alloc] init];
-            user.userId=[_userCodeTextField.text longLongValue];
+            user.userId=_userCodeTextField.text;
             user.password=_passwordTextField.text;
             
             KKSharedUserManager.currentUser=user;

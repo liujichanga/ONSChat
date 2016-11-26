@@ -27,7 +27,7 @@
     [UINavigationBar appearance].barStyle=UIBarStyleBlack;
     if(KKOSVersion>=8.0) [UINavigationBar appearance].translucent=YES;
     //[UINavigationBar appearance].barTintColor=KKColorNav;
-    //[UINavigationBar appearance].tintColor = [UIColor darkGrayColor];
+    [UINavigationBar appearance].tintColor = [UIColor whiteColor];
 
     //高德
     //[[AMapServices sharedServices] setEnableHTTPS:YES];
@@ -39,8 +39,6 @@
     //network init
     FSSharedNetWorkingManager;
 
-    //local init
-    KKSharedLocalPlistManager;
     
     
     //最后一个登录用户
@@ -55,10 +53,10 @@
         self.window.rootViewController = KKViewControllerOfMainSB(@"ComeBackViewController");
     } else {
         
-        if(lastLoginUser.userId>0 ||KKStringIsBlank(lastLoginUser.password))
+        if(KKStringIsBlank(lastLoginUser.userId) ||KKStringIsBlank(lastLoginUser.password))
         {
             //注册界面
-            self.window.rootViewController=KKViewControllerOfMainSB(@"RegisterNavigationController");//KKInitViewControllerOfMainSB
+            self.window.rootViewController=KKViewControllerOfMainSB(@"RegisterNavigationController");
         }
         else
         {
@@ -125,6 +123,7 @@
     KKSharedCurrentUser.isMsg=[dic boolForKey:@"isMonth" defaultValue:NO];
     KKSharedCurrentUser.phone=[dic stringForKey:@"phone" defaultValue:@""];
     KKSharedCurrentUser.dayFirst=YES;//[dic boolForKey:@"dayfirst" defaultValue:NO];
+    
     
     //获取头像
     NSString *avater = [KKSharedLocalPlistManager kkValueForKey:Plist_Key_Avatar];

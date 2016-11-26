@@ -100,11 +100,11 @@
             BOOL status=[dic boolForKey:@"status" defaultValue:NO];
             if(status)
             {
-                KKSharedUserManager.tempUser.userId=[dic longlongForKey:@"id" defaultValue:0];
+                KKSharedUserManager.tempUser.userId=[dic stringForKey:@"id" defaultValue:@""];
                 KKSharedUserManager.tempUser.password=[dic stringForKey:@"password" defaultValue:@""];
                 
                 //执行登录
-                NSDictionary *para=@{@"loginname":@(KKSharedUserManager.tempUser.userId),@"password":KKSharedUserManager.tempUser.password,@"channel":ChannelId};
+                NSDictionary *para=@{@"loginname":KKSharedUserManager.tempUser.userId,@"password":KKSharedUserManager.tempUser.password,@"channel":ChannelId};
                 [FSSharedNetWorkingManager GET:ServiceInterfaceLogin parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                     
                     NSDictionary *loginDic = (NSDictionary*)responseObject;

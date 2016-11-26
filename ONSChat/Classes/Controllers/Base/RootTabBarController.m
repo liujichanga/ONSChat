@@ -9,6 +9,8 @@
 #import "RootTabBarController.h"
 #import "UploadHeadImageViewController.h"
 #import "DailyRecommandViewController.h"
+#import "BindingPhoneNumberViewController.h"
+#import "VIPPayViewController.h"
 
 
 @interface RootTabBarController ()<UITabBarControllerDelegate>
@@ -68,32 +70,60 @@
 
 -(void)loginCheck
 {
-    //付费过
-    if(KKSharedCurrentUser.isMsg||KKSharedCurrentUser.isVIP||KKSharedCurrentUser.beannum>0)
+    if(KKSharedCurrentUser.sex==KKFemale)
     {
-        if(KKStringIsBlank(KKSharedCurrentUser.phone))
+        //女性用户
+        if(![KKSharedCurrentUser isPayUser])
         {
-            //没有验证过手机号，先验证手机号
-            
+            //没有付费，先付费
+            VIPPayViewController *vipVC=KKViewControllerOfMainSB(@"VIPPayViewController");
+            vipVC.isDismiss=YES;
+            UINavigationController *navController=[[UINavigationController alloc] initWithRootViewController:vipVC];
+            [self presentViewController:navController animated:YES completion:nil];
+        }
+        else
+        {
+            //是否验证过手机号
+            if(KKStringIsBlank(KKSharedCurrentUser.phone))
+            {
+                //验证手机号
+                BindingPhoneNumberViewController *bindVC = KKViewControllerOfMainSB(@"BindingPhoneNumberViewController");
+                bindVC.isDismiss=YES;
+                UINavigationController *navController=[[UINavigationController alloc] initWithRootViewController:bindVC];
+                [self presentViewController:navController animated:YES completion:nil];
+            }
         }
     }
-    else if(!KKSharedUserManager.isNewReisterUser && KKStringIsBlank(KKSharedCurrentUser.avatarUrl))
+    else
     {
-        //如果不是新注册用户，并且没有上传头像,需要上传头像
-        UploadHeadImageViewController *uploadVC = KKViewControllerOfMainSB(@"UploadHeadImageViewController");
-        //uploadVC.showCancelButton=YES;
-        UINavigationController *navController=[[UINavigationController alloc] initWithRootViewController:uploadVC];
-        [self presentViewController:navController animated:YES completion:nil];
-
+        //男性用户
+        //付费过,没有验证过手机号，先验证手机号
+        if([KKSharedCurrentUser isPayUser]&&KKStringIsBlank(KKSharedCurrentUser.phone))
+        {
+            BindingPhoneNumberViewController *bindVC = KKViewControllerOfMainSB(@"BindingPhoneNumberViewController");
+            bindVC.isDismiss=YES;
+            UINavigationController *navController=[[UINavigationController alloc] initWithRootViewController:bindVC];
+            [self presentViewController:navController animated:YES completion:nil];
+        }
+        else if(!KKSharedUserManager.isNewReisterUser && KKStringIsBlank(KKSharedCurrentUser.avatarUrl))
+        {
+            //如果不是新注册用户，并且没有上传头像,需要上传头像
+            UploadHeadImageViewController *uploadVC = KKViewControllerOfMainSB(@"UploadHeadImageViewController");
+            //uploadVC.showCancelButton=YES;
+            UINavigationController *navController=[[UINavigationController alloc] initWithRootViewController:uploadVC];
+            [self presentViewController:navController animated:YES completion:nil];
+            
+        }
+        else if(KKSharedUserManager.isNewReisterUser || KKSharedCurrentUser.dayFirst)
+        {
+            // 如果是今天第一次登陆，需要弹出每日推荐
+            DailyRecommandViewController *dailyVC = KKViewControllerOfMainSB(@"DailyRecommandViewController");
+            //uploadVC.showCancelButton=YES;
+            UINavigationController *navController=[[UINavigationController alloc] initWithRootViewController:dailyVC];
+            [self presentViewController:navController animated:YES completion:nil];
+        }
     }
-    else if(KKSharedUserManager.isNewReisterUser || KKSharedCurrentUser.dayFirst)
-    {
-        // 如果是今天第一次登陆，需要弹出每日推荐
-        DailyRecommandViewController *dailyVC = KKViewControllerOfMainSB(@"DailyRecommandViewController");
-        //uploadVC.showCancelButton=YES;
-        UINavigationController *navController=[[UINavigationController alloc] initWithRootViewController:dailyVC];
-        [self presentViewController:navController animated:YES completion:nil];
-    }
+    
 }
 
 

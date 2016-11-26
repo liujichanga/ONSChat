@@ -10,6 +10,7 @@
 #import "HeadCell.h"
 #import "VIPCell.h"
 #import "MeInfoCell.h"
+#import "SettingTableViewController.h"
 
 
 #define cellHeadIdentifier @"HeadCell"
@@ -37,9 +38,7 @@
     NotificationView *notificationView=[[NotificationView alloc] initWithFrame:CGRectMake(10, 74, KKScreenWidth-20, 35)];
     [self.view addSubview:notificationView];
     [notificationView setNotificationNum:30];
-    
-    ONSButton *btn=[ONSButton ONSButtonWithTitle:@"wodfw" frame:CGRectMake(60, 200, 100, 30)];
-    [self.view addSubview:btn];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,14 +68,14 @@
     return 44;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    if(section==0)
-    {
-        return 0.01;
-    }
-    else return 0.01;
-}
+//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+//{
+//    if(section==0)
+//    {
+//        return 0.01;
+//    }
+//    else return 0.01;
+//}
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -179,6 +178,64 @@
 
 -(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
    
+    if(indexPath.section==1)
+    {
+        if(indexPath.row==0)
+        {
+            //包月写信
+        }
+        else if(indexPath.row==1)
+        {
+            //vip会员
+            
+        }
+        else if(indexPath.row==2)
+        {
+            //红豆
+        }
+    }
+    else if(indexPath.section==2)
+    {
+        if(indexPath.row==0)
+        {
+            //我的资料
+        }
+        else if(indexPath.row==1)
+        {
+            //我的动态
+            
+        }
+        else if(indexPath.row==2)
+        {
+            //我的相册
+        }
+    }
+    else if(indexPath.section==3)
+    {
+        if(indexPath.row==0)
+        {
+            //征友条件
+        }
+        else if(indexPath.row==1)
+        {
+            //诚信星级
+            
+        }
+        else if(indexPath.row==2)
+        {
+            //自定义招呼
+        }
+        else if(indexPath.row==3)
+        {
+            //在线客服
+        }
+        else if(indexPath.row==4)
+        {
+            //设置
+            SettingTableViewController *settingTVC=KKViewControllerOfMainSB(@"SettingTableViewController");
+            [self.navigationController pushViewController:settingTVC animated:YES];
+        }
+    }
 }
 
 @end

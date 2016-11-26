@@ -43,6 +43,9 @@
 		1C6B3A1F1DE4414C008ACCA8 /* NotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6B3A1E1DE4414C008ACCA8 /* NotificationView.m */; };
 		1CDD6CF81DE9209E006AAFAB /* ComeBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD6CF71DE9209E006AAFAB /* ComeBackViewController.m */; };
 		1CDD6CFC1DE92928006AAFAB /* WCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD6CFB1DE92928006AAFAB /* WCAlertView.m */; };
+		1CDD6D001DE97771006AAFAB /* VIPPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD6CFF1DE97771006AAFAB /* VIPPayViewController.m */; };
+		1CDD6D031DE9778C006AAFAB /* BaoYuePayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD6D021DE9778C006AAFAB /* BaoYuePayViewController.m */; };
+		1CDD6D071DE97CCE006AAFAB /* SettingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD6D061DE97CCE006AAFAB /* SettingTableViewController.m */; };
 		1CF680FC1DE82A5D0046F34D /* ONSButtonPurple.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF680FB1DE82A5D0046F34D /* ONSButtonPurple.m */; };
 		563AD3481DE14B09006945BD /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD3471DE14B09006945BD /* AssetsLibrary.framework */; };
 		563AD34A1DE14B10006945BD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD3491DE14B10006945BD /* AudioToolbox.framework */; };
@@ -228,6 +231,12 @@
 		1CDD6CF71DE9209E006AAFAB /* ComeBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComeBackViewController.m; sourceTree = "<group>"; };
 		1CDD6CFA1DE92928006AAFAB /* WCAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCAlertView.h; sourceTree = "<group>"; };
 		1CDD6CFB1DE92928006AAFAB /* WCAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCAlertView.m; sourceTree = "<group>"; };
+		1CDD6CFE1DE97771006AAFAB /* VIPPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIPPayViewController.h; sourceTree = "<group>"; };
+		1CDD6CFF1DE97771006AAFAB /* VIPPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPPayViewController.m; sourceTree = "<group>"; };
+		1CDD6D011DE9778C006AAFAB /* BaoYuePayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaoYuePayViewController.h; sourceTree = "<group>"; };
+		1CDD6D021DE9778C006AAFAB /* BaoYuePayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaoYuePayViewController.m; sourceTree = "<group>"; };
+		1CDD6D051DE97CCE006AAFAB /* SettingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewController.h; sourceTree = "<group>"; };
+		1CDD6D061DE97CCE006AAFAB /* SettingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewController.m; sourceTree = "<group>"; };
 		1CF680FA1DE82A5D0046F34D /* ONSButtonPurple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONSButtonPurple.h; sourceTree = "<group>"; };
 		1CF680FB1DE82A5D0046F34D /* ONSButtonPurple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONSButtonPurple.m; sourceTree = "<group>"; };
 		563AD3471DE14B09006945BD /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -583,6 +592,7 @@
 		1C0E77A91DE325790083F9F8 /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				1CDD6D041DE97C20006AAFAB /* Setting */,
 				9BFB22C51DE959ED00DB9BE6 /* BindingPhoneNumber */,
 				1C6B3A0C1DE3F2ED008ACCA8 /* Cell */,
 				1C0E77AA1DE325840083F9F8 /* MeViewController.h */,
@@ -664,6 +674,26 @@
 				1CDD6CFB1DE92928006AAFAB /* WCAlertView.m */,
 			);
 			path = WCAlertView;
+			sourceTree = "<group>";
+		};
+		1CDD6CFD1DE9774A006AAFAB /* Pay */ = {
+			isa = PBXGroup;
+			children = (
+				1CDD6CFE1DE97771006AAFAB /* VIPPayViewController.h */,
+				1CDD6CFF1DE97771006AAFAB /* VIPPayViewController.m */,
+				1CDD6D011DE9778C006AAFAB /* BaoYuePayViewController.h */,
+				1CDD6D021DE9778C006AAFAB /* BaoYuePayViewController.m */,
+			);
+			path = Pay;
+			sourceTree = "<group>";
+		};
+		1CDD6D041DE97C20006AAFAB /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				1CDD6D051DE97CCE006AAFAB /* SettingTableViewController.h */,
+				1CDD6D061DE97CCE006AAFAB /* SettingTableViewController.m */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		563AD3431DE147CE006945BD /* Chat */ = {
@@ -1030,6 +1060,7 @@
 				1C0E77A51DE325500083F9F8 /* Nearby */,
 				563AD3431DE147CE006945BD /* Chat */,
 				1C0E77A91DE325790083F9F8 /* Me */,
+				1CDD6CFD1DE9774A006AAFAB /* Pay */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1337,6 +1368,7 @@
 			files = (
 				569864341DE00EAF0059D484 /* UIImage+GIF.m in Sources */,
 				5698645F1DE010B40059D484 /* UIColor+Hex.m in Sources */,
+				1CDD6D031DE9778C006AAFAB /* BaoYuePayViewController.m in Sources */,
 				5698642A1DE00EAF0059D484 /* MKAnnotationView+WebCache.m in Sources */,
 				1C0E774B1DE30B4D0083F9F8 /* RegisterViewController.m in Sources */,
 				5698641F1DE00EAF0059D484 /* MJRefreshBackGifFooter.m in Sources */,
@@ -1425,6 +1457,7 @@
 				569864721DE051A30059D484 /* KKBLEUtils.m in Sources */,
 				1C327C5E1DE691E400E9DFB3 /* NearUserCell.m in Sources */,
 				5698641B1DE00EAF0059D484 /* MJRefreshHeader.m in Sources */,
+				1CDD6D001DE97771006AAFAB /* VIPPayViewController.m in Sources */,
 				9BC32EE91DE5A8CE00CDDAFB /* UserInfoViewController.m in Sources */,
 				9BC32EF81DE6C7F300CDDAFB /* FemaleHeightViewController.m in Sources */,
 				569864171DE00EAF0059D484 /* MJRefreshAutoFooter.m in Sources */,
@@ -1438,6 +1471,7 @@
 				5698641C1DE00EAF0059D484 /* MJRefreshAutoGifFooter.m in Sources */,
 				5698642F1DE00EAF0059D484 /* SDWebImageDownloader.m in Sources */,
 				1C0E77A81DE325680083F9F8 /* NearbyViewController.m in Sources */,
+				1CDD6D071DE97CCE006AAFAB /* SettingTableViewController.m in Sources */,
 				5698648E1DE0530D0059D484 /* KKBaseTableViewController.m in Sources */,
 				1CDD6CFC1DE92928006AAFAB /* WCAlertView.m in Sources */,
 				569864141DE00EAF0059D484 /* JSONKit.m in Sources */,
