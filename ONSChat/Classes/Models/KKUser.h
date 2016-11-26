@@ -75,7 +75,7 @@ typedef NS_ENUM(NSUInteger, KKSex) {
 @property(assign,nonatomic) NSInteger visitNum;//最近访客数量
 @property(strong,nonatomic) NSString *vipEndTime;//vip到期时间
 @property(strong,nonatomic) NSString *baoyueEndTime;//包月到期时间
-
+@property(assign,nonatomic) BOOL dayFirst;//是否今天第一次登录
 
 
 

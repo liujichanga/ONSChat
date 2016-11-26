@@ -41,6 +41,8 @@
 		1C6B3A1A1DE3F34C008ACCA8 /* MeInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6B3A181DE3F34C008ACCA8 /* MeInfoCell.m */; };
 		1C6B3A1B1DE3F34C008ACCA8 /* MeInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C6B3A191DE3F34C008ACCA8 /* MeInfoCell.xib */; };
 		1C6B3A1F1DE4414C008ACCA8 /* NotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6B3A1E1DE4414C008ACCA8 /* NotificationView.m */; };
+		1CDD6CF81DE9209E006AAFAB /* ComeBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD6CF71DE9209E006AAFAB /* ComeBackViewController.m */; };
+		1CDD6CFC1DE92928006AAFAB /* WCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD6CFB1DE92928006AAFAB /* WCAlertView.m */; };
 		1CF680FC1DE82A5D0046F34D /* ONSButtonPurple.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF680FB1DE82A5D0046F34D /* ONSButtonPurple.m */; };
 		563AD3481DE14B09006945BD /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD3471DE14B09006945BD /* AssetsLibrary.framework */; };
 		563AD34A1DE14B10006945BD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 563AD3491DE14B10006945BD /* AudioToolbox.framework */; };
@@ -218,6 +220,10 @@
 		1C6B3A191DE3F34C008ACCA8 /* MeInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeInfoCell.xib; sourceTree = "<group>"; };
 		1C6B3A1D1DE4414C008ACCA8 /* NotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationView.h; sourceTree = "<group>"; };
 		1C6B3A1E1DE4414C008ACCA8 /* NotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationView.m; sourceTree = "<group>"; };
+		1CDD6CF61DE9209E006AAFAB /* ComeBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComeBackViewController.h; sourceTree = "<group>"; };
+		1CDD6CF71DE9209E006AAFAB /* ComeBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComeBackViewController.m; sourceTree = "<group>"; };
+		1CDD6CFA1DE92928006AAFAB /* WCAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCAlertView.h; sourceTree = "<group>"; };
+		1CDD6CFB1DE92928006AAFAB /* WCAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCAlertView.m; sourceTree = "<group>"; };
 		1CF680FA1DE82A5D0046F34D /* ONSButtonPurple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONSButtonPurple.h; sourceTree = "<group>"; };
 		1CF680FB1DE82A5D0046F34D /* ONSButtonPurple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONSButtonPurple.m; sourceTree = "<group>"; };
 		563AD3471DE14B09006945BD /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -638,6 +644,15 @@
 			path = NotifactionView;
 			sourceTree = "<group>";
 		};
+		1CDD6CF91DE92928006AAFAB /* WCAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				1CDD6CFA1DE92928006AAFAB /* WCAlertView.h */,
+				1CDD6CFB1DE92928006AAFAB /* WCAlertView.m */,
+			);
+			path = WCAlertView;
+			sourceTree = "<group>";
+		};
 		563AD3431DE147CE006945BD /* Chat */ = {
 			isa = PBXGroup;
 			children = (
@@ -729,6 +744,7 @@
 		569863671DE00CAA0059D484 /* ThirdLibs */ = {
 			isa = PBXGroup;
 			children = (
+				1CDD6CF91DE92928006AAFAB /* WCAlertView */,
 				1C0E77541DE31F870083F9F8 /* AFNetworking */,
 				5698643C1DE00EF20059D484 /* SelfLibs */,
 				5698636E1DE00EAF0059D484 /* fmdb */,
@@ -1090,6 +1106,8 @@
 				569864841DE0530D0059D484 /* KKBaseViewController.m */,
 				5698648B1DE0530D0059D484 /* RootTabBarController.h */,
 				5698648C1DE0530D0059D484 /* RootTabBarController.m */,
+				1CDD6CF61DE9209E006AAFAB /* ComeBackViewController.h */,
+				1CDD6CF71DE9209E006AAFAB /* ComeBackViewController.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1329,6 +1347,7 @@
 				569864351DE00EAF0059D484 /* UIImage+MultiFormat.m in Sources */,
 				5698642E1DE00EAF0059D484 /* SDWebImageDecoder.m in Sources */,
 				9BC32EE81DE5A8CE00CDDAFB /* UserHobbyViewController.m in Sources */,
+				1CDD6CF81DE9209E006AAFAB /* ComeBackViewController.m in Sources */,
 				569864051DE00EAF0059D484 /* FMDatabasePool.m in Sources */,
 				569864261DE00EAF0059D484 /* MJRefreshConst.m in Sources */,
 				569864061DE00EAF0059D484 /* FMDatabaseQueue.m in Sources */,
@@ -1366,6 +1385,7 @@
 				5698642F1DE00EAF0059D484 /* SDWebImageDownloader.m in Sources */,
 				1C0E77A81DE325680083F9F8 /* NearbyViewController.m in Sources */,
 				5698648E1DE0530D0059D484 /* KKBaseTableViewController.m in Sources */,
+				1CDD6CFC1DE92928006AAFAB /* WCAlertView.m in Sources */,
 				569864141DE00EAF0059D484 /* JSONKit.m in Sources */,
 				1C0FF5DD1DE5A6B700DBF4E0 /* DailyRecommandViewController.m in Sources */,
 				1C6B3A1F1DE4414C008ACCA8 /* NotificationView.m in Sources */,

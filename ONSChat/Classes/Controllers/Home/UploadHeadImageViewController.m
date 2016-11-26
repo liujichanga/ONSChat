@@ -7,6 +7,8 @@
 //
 
 #import "UploadHeadImageViewController.h"
+#import "DailyRecommandViewController.h"
+
 
 @interface UploadHeadImageViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 //头像
@@ -39,7 +41,22 @@
 //跳过
 - (IBAction)skipClick:(id)sender {
     KKLog(@"跳过");
-    
+    [self nextAction];
+}
+
+-(void)nextAction
+{
+    if(KKSharedCurrentUser.dayFirst)
+    {
+        // 如果是今天第一次登陆，需要弹出每日推荐
+        DailyRecommandViewController *dailyVC = KKViewControllerOfMainSB(@"DailyRecommandViewController");
+        [self.navigationController pushViewController:dailyVC animated:YES];
+    }
+    else
+    {
+        //消失
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 #pragma mark - UIImagePickerControllerDelegate
@@ -67,10 +84,26 @@
     
     // 原图
     UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
-    if (picker.sourceType == UIImagePickerControllerSourceTypeCamera)
-    {
-        UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
-    }
+
     self.userHeadImageView.image = image;
+    
+    long long int timestamp = [NSDate date].timeIntervalSince1970 * 1000 + arc4random()%1000;
+    NSString *imagename=KKStringWithFormat(@"%lld.jpg",timestamp);
+    NSString *path = [CacheUserPath stringByAppendingPathComponent:imagename];
+    
+    NSData *imagedata=UIImageJPEGRepresentation(image, 0.75);
+    
+    BOOL result = [imagedata writeToFile:path atomically:path];
+    
+    if(result)
+    {
+        [KKSharedLocalPlistManager setKKValue:imagename forKey:Plist_Key_Avatar];
+        KKSharedCurrentUser.avatarUrl=[CacheUserPath stringByAppendingPathComponent:imagename];
+    }
+
+    KKWEAKSELF
+    [KKThredUtils runInMainQueue:^{
+        [weakself nextAction];
+    } delay:0.5];
 }
 @end

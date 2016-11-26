@@ -278,13 +278,17 @@ placeholderImage:[UIImage imageNamed:placeholder]]
 //网络异常时的显示信息
 #define KKErrorInfo(error) [error.userInfo objectForKey:@"KKHttpError"]
 
-//topic媒体存放的缓存目录
-#define CacheTopic @"Topic"
+//用户信息存放的目录
+#define CacheUserDic @"CacheUser"
 
-//course媒体存放的缓存目录 - sra by 20151201
-#define CacheKKCourse @"KKCourse"
+//用户信息存放路径
+#define CacheUserPath  [KKPathOfCache stringByAppendingPathComponent:CacheUserDic]
 
 //渠道id
 #define ChannelId @"appstore"
+
+
+
+
 
 #endif

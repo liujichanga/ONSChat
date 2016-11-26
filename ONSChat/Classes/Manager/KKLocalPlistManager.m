@@ -52,11 +52,15 @@ static KKLocalPlistManager *instance;
         
         _plistDataDic=[NSMutableDictionary dictionary];
         
-        NSString *plistname=@"kkprofile_common.plist";
-        if(KKSharedUserManager.isLogined)
+        NSLog(@"path:%@",CacheUserPath);
+        BOOL dicExist=[[NSFileManager defaultManager] fileExistsAtPath:CacheUserPath isDirectory:nil];
+        if(!dicExist)
         {
-            plistname=KKStringWithFormat(@"kkprofile_%lld.plist",KKSharedCurrentUser.userId);
+            //创建目录
+            [[NSFileManager defaultManager] createDirectoryAtPath:CacheUserPath withIntermediateDirectories:YES attributes:nil error:nil];
         }
+        
+        NSString *plistname=KKStringWithFormat(@"kkprofile_%lld.plist",KKSharedCurrentUser.userId);
         self.plistPath=KKStringWithFormat(@"%@/%@",KKPathOfDocument,plistname);
        
         BOOL exist = [[NSFileManager defaultManager] fileExistsAtPath:self.plistPath];

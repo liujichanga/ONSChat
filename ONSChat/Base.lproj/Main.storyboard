@@ -1697,6 +1697,38 @@
             </objects>
             <point key="canvasLocation" x="-2342" y="-15063"/>
         </scene>
+        <!--Come Back View Controller-->
+        <scene sceneID="8RD-Za-YVR">
+            <objects>
+                <viewController storyboardIdentifier="ComeBackViewController" id="pXb-Jl-fOR" customClass="ComeBackViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cyj-0F-zMz"/>
+                        <viewControllerLayoutGuide type="bottom" id="rBi-JV-Olf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OGN-rT-zoF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2p6-gt-Pme">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="2p6-gt-Pme" secondAttribute="trailing" id="1X6-bY-fcn"/>
+                            <constraint firstItem="rBi-JV-Olf" firstAttribute="top" secondItem="2p6-gt-Pme" secondAttribute="bottom" id="LHa-3e-DBZ"/>
+                            <constraint firstItem="2p6-gt-Pme" firstAttribute="top" secondItem="OGN-rT-zoF" secondAttribute="top" id="WgN-nP-f2x"/>
+                            <constraint firstItem="2p6-gt-Pme" firstAttribute="leading" secondItem="OGN-rT-zoF" secondAttribute="leading" id="pf4-vG-04I"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bgImageView" destination="2p6-gt-Pme" id="qAm-Dm-B0G"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b2N-VC-376" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2346" y="-14356"/>
+        </scene>
         <!--推荐-->
         <scene sceneID="cam-l0-WIv">
             <objects>
