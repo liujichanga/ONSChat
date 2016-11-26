@@ -156,6 +156,8 @@
 		9BC32EFE1DE6E01900CDDAFB /* FemaleInterestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EFD1DE6E01900CDDAFB /* FemaleInterestViewController.m */; };
 		9BC32F011DE6E05600CDDAFB /* FemalePersonalityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32F001DE6E05600CDDAFB /* FemalePersonalityViewController.m */; };
 		9BC32F0A1DE8200100CDDAFB /* UploadHeadImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32F091DE8200100CDDAFB /* UploadHeadImageViewController.m */; };
+		9BC32F0D1DE92BFE00CDDAFB /* RecommendUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32F0C1DE92BFE00CDDAFB /* RecommendUserInfoViewController.m */; };
+		9BC32F101DE9333200CDDAFB /* BindingPhoneNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32F0F1DE9333200CDDAFB /* BindingPhoneNumberViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -430,6 +432,10 @@
 		9BC32F001DE6E05600CDDAFB /* FemalePersonalityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FemalePersonalityViewController.m; sourceTree = "<group>"; };
 		9BC32F081DE8200100CDDAFB /* UploadHeadImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadHeadImageViewController.h; sourceTree = "<group>"; };
 		9BC32F091DE8200100CDDAFB /* UploadHeadImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadHeadImageViewController.m; sourceTree = "<group>"; };
+		9BC32F0B1DE92BFE00CDDAFB /* RecommendUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendUserInfoViewController.h; sourceTree = "<group>"; };
+		9BC32F0C1DE92BFE00CDDAFB /* RecommendUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendUserInfoViewController.m; sourceTree = "<group>"; };
+		9BC32F0E1DE9333200CDDAFB /* BindingPhoneNumberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BindingPhoneNumberViewController.h; sourceTree = "<group>"; };
+		9BC32F0F1DE9333200CDDAFB /* BindingPhoneNumberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindingPhoneNumberViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -548,6 +554,8 @@
 				1C0E77A11DE3249A0083F9F8 /* HomeViewController.m */,
 				9BC32F081DE8200100CDDAFB /* UploadHeadImageViewController.h */,
 				9BC32F091DE8200100CDDAFB /* UploadHeadImageViewController.m */,
+				9BC32F0B1DE92BFE00CDDAFB /* RecommendUserInfoViewController.h */,
+				9BC32F0C1DE92BFE00CDDAFB /* RecommendUserInfoViewController.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -568,6 +576,8 @@
 				1C6B3A0C1DE3F2ED008ACCA8 /* Cell */,
 				1C0E77AA1DE325840083F9F8 /* MeViewController.h */,
 				1C0E77AB1DE325840083F9F8 /* MeViewController.m */,
+				9BC32F0E1DE9333200CDDAFB /* BindingPhoneNumberViewController.h */,
+				9BC32F0F1DE9333200CDDAFB /* BindingPhoneNumberViewController.m */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -1330,6 +1340,7 @@
 				5698642E1DE00EAF0059D484 /* SDWebImageDecoder.m in Sources */,
 				9BC32EE81DE5A8CE00CDDAFB /* UserHobbyViewController.m in Sources */,
 				569864051DE00EAF0059D484 /* FMDatabasePool.m in Sources */,
+				9BC32F0D1DE92BFE00CDDAFB /* RecommendUserInfoViewController.m in Sources */,
 				569864261DE00EAF0059D484 /* MJRefreshConst.m in Sources */,
 				569864061DE00EAF0059D484 /* FMDatabaseQueue.m in Sources */,
 				1C6B3A1A1DE3F34C008ACCA8 /* MeInfoCell.m in Sources */,
@@ -1348,6 +1359,7 @@
 				569864071DE00EAF0059D484 /* FMResultSet.m in Sources */,
 				569864391DE00EAF0059D484 /* UIView+WebCacheOperation.m in Sources */,
 				5698645B1DE010B40059D484 /* NSString+Convertor.m in Sources */,
+				9BC32F101DE9333200CDDAFB /* BindingPhoneNumberViewController.m in Sources */,
 				1C0E77671DE31F870083F9F8 /* AFURLSessionManager.m in Sources */,
 				569864721DE051A30059D484 /* KKBLEUtils.m in Sources */,
 				1C327C5E1DE691E400E9DFB3 /* NearUserCell.m in Sources */,

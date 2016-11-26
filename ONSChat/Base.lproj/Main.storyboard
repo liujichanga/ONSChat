@@ -123,6 +123,95 @@
             </objects>
             <point key="canvasLocation" x="788" y="-10553"/>
         </scene>
+        <!--绑定手机号-->
+        <scene sceneID="9vQ-yl-tda">
+            <objects>
+                <viewController storyboardIdentifier="BindingPhoneNumberViewController" title="绑定手机号" id="mZf-CV-l6H" customClass="BindingPhoneNumberViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Uh0-9R-0AY"/>
+                        <viewControllerLayoutGuide type="bottom" id="qvw-ar-vgo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OpR-6v-5tB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="快输入手机号吧" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nRx-dc-52v">
+                                <rect key="frame" x="20" y="104" width="335" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="THl-q0-dFa"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R4T-U8-XhK">
+                                <rect key="frame" x="20" y="184" width="335" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="czo-ka-muL"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GdE-hu-oIB" customClass="ONSButtonPurple">
+                                <rect key="frame" x="20" y="314" width="335" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="aeA-Mw-cyc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="绑定手机号"/>
+                                <connections>
+                                    <action selector="bindingPhoneBtnClick:" destination="mZf-CV-l6H" eventType="touchUpInside" id="NQs-jc-1iA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VmD-4L-o1f">
+                                <rect key="frame" x="237" y="189" width="110" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="9yN-9B-Iha"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="获取验证码">
+                                    <color key="titleColor" red="0.82352941180000006" green="0.34509803919999998" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getCodeBtnClick:" destination="mZf-CV-l6H" eventType="touchUpInside" id="xu1-m3-OFx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="R4T-U8-XhK" secondAttribute="trailing" constant="20" id="0Co-dr-O15"/>
+                            <constraint firstItem="VmD-4L-o1f" firstAttribute="trailing" secondItem="R4T-U8-XhK" secondAttribute="trailing" constant="-8" id="DBc-PE-zc5"/>
+                            <constraint firstItem="GdE-hu-oIB" firstAttribute="top" secondItem="R4T-U8-XhK" secondAttribute="bottom" constant="80" id="G8j-2i-XnD"/>
+                            <constraint firstAttribute="trailing" secondItem="nRx-dc-52v" secondAttribute="trailing" constant="20" id="HQr-Ve-nVs"/>
+                            <constraint firstItem="nRx-dc-52v" firstAttribute="leading" secondItem="OpR-6v-5tB" secondAttribute="leading" constant="20" id="Is0-PG-TwF"/>
+                            <constraint firstAttribute="trailing" secondItem="GdE-hu-oIB" secondAttribute="trailing" constant="20" id="R5h-fx-fp7"/>
+                            <constraint firstItem="nRx-dc-52v" firstAttribute="top" secondItem="Uh0-9R-0AY" secondAttribute="bottom" constant="84" id="WPy-wx-O7z"/>
+                            <constraint firstItem="VmD-4L-o1f" firstAttribute="top" secondItem="R4T-U8-XhK" secondAttribute="top" constant="5" id="YXS-w9-DZJ"/>
+                            <constraint firstItem="VmD-4L-o1f" firstAttribute="bottom" secondItem="R4T-U8-XhK" secondAttribute="bottom" constant="-5" id="n51-AS-fIa"/>
+                            <constraint firstItem="R4T-U8-XhK" firstAttribute="leading" secondItem="OpR-6v-5tB" secondAttribute="leading" constant="20" id="taJ-F9-Ius"/>
+                            <constraint firstItem="GdE-hu-oIB" firstAttribute="leading" secondItem="OpR-6v-5tB" secondAttribute="leading" constant="20" id="tdZ-2e-Otb"/>
+                            <constraint firstItem="R4T-U8-XhK" firstAttribute="top" secondItem="nRx-dc-52v" secondAttribute="bottom" constant="30" id="y0j-TH-4Jv"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="绑定手机号" id="vWq-v7-lEc">
+                        <barButtonItem key="backBarButtonItem" title="返回" id="rKG-Vn-fDg"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="codeText" destination="R4T-U8-XhK" id="yB9-b2-8L2"/>
+                        <outlet property="getCodeBtn" destination="VmD-4L-o1f" id="9qK-oT-Cmc"/>
+                        <outlet property="phoneNubText" destination="nRx-dc-52v" id="LGy-82-e8a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2DA-ag-x4x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1440.8" y="-10558.470764617692"/>
+        </scene>
         <!--附近Nav-->
         <scene sceneID="SyG-hz-hAv">
             <objects>
@@ -1751,6 +1840,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7pP-f0-90b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="809" y="-12958"/>
+        </scene>
+        <!--推荐用户资料-->
+        <scene sceneID="CI0-DW-v4Y">
+            <objects>
+                <viewController storyboardIdentifier="RecommendUserInfoViewController" title="推荐用户资料" id="0yc-yL-NNh" customClass="RecommendUserInfoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HKq-sd-HsP"/>
+                        <viewControllerLayoutGuide type="bottom" id="5lE-Lv-ExW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wx9-A1-gM3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4ab-L8-eSO">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="0yc-yL-NNh" id="8xh-XI-47s"/>
+                                    <outlet property="delegate" destination="0yc-yL-NNh" id="ADw-96-5C4"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="4ab-L8-eSO" secondAttribute="trailing" id="0Og-ex-Krs"/>
+                            <constraint firstItem="5lE-Lv-ExW" firstAttribute="top" secondItem="4ab-L8-eSO" secondAttribute="bottom" id="Lnj-kD-klv"/>
+                            <constraint firstItem="4ab-L8-eSO" firstAttribute="leading" secondItem="wx9-A1-gM3" secondAttribute="leading" id="c0x-Gb-0J1"/>
+                            <constraint firstItem="4ab-L8-eSO" firstAttribute="top" secondItem="wx9-A1-gM3" secondAttribute="top" id="yYE-xY-WPC"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="vhe-Q8-60N">
+                        <barButtonItem key="backBarButtonItem" title="返回" id="eGG-hd-Ctr"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="4ab-L8-eSO" id="cSM-er-4wa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ImR-mP-U50" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1444" y="-12958"/>
         </scene>
     </scenes>
     <resources>

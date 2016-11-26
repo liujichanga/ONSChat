@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "TwoPicCell.h"
 #import "OneVideoCell.h"
+#import "RecommendUserInfoViewController.h"
 
 #define cellTwoPicIdentifier @"TwoPicCell"
 #define cellOneVideoIdentifier @"OneVideoCell"
@@ -77,7 +78,8 @@
 }
 
 -(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
-    
+    RecommendUserInfoViewController *recommendUser = KKViewControllerOfMainSB(@"RecommendUserInfoViewController");
+    [self.navigationController pushViewController:recommendUser animated:YES];
 }
 
 @end
