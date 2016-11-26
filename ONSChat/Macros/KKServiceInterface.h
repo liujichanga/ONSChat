@@ -27,6 +27,8 @@
 #define ServiceInterfaceDailyRecommand KKStringWithFormat(@"%@/%@/daily", KKServerDomain, App)
 //随机昵称
 #define ServiceInterfaceRandomNickName KKStringWithFormat(@"%@/%@/getnickname", KKServerDomain, App)
+//打招呼
+#define ServiceInterfaceGreet KKStringWithFormat(@"%@/%@/greet", KKServerDomain, App)
 
 
 

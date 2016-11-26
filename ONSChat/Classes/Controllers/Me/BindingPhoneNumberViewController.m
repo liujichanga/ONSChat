@@ -65,8 +65,7 @@
     if (self.codeText.text.length==0||![self.codeText.text isMatchsRegex:KKRegexNub]) {
         [MBProgressHUD showMessag:@"请填写正确的验证码" toView:nil];
         return;
-    }
-    
+    }    
     KKLog(@"绑定");
     
 }

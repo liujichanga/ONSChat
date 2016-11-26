@@ -15,7 +15,8 @@
 
 //头像数组
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *headImageArray;
-
+//uid 打招呼使用
+@property (nonatomic, strong) NSString *uidStr;
 @end
 
 @implementation DailyRecommandViewController
@@ -28,10 +29,8 @@
     NSValue*rangValue;
     newTopStr = [topStr splitByPercent:&rangValue];
     self.topLabel.attributedText = newTopStr;
-    
+    self.navigationItem.hidesBackButton = YES;
     [self loadDailyRecommandData];
-    [self showDailyRecommandWithAvatarArray:nil];
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,16 +44,36 @@
     NSDictionary *param = @{@"limit":@(self.headImageArray.count)};
     [FSSharedNetWorkingManager GET:ServiceInterfaceDailyRecommand parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *respDic = (NSDictionary*)responseObject;
-        KKLog(@"%@",respDic);
-        
-        
+        KKLog(@"daily %@",respDic);
+        if (respDic&&respDic.count>0) {
+            [SVProgressHUD dismiss];
+            NSArray *aaData = [respDic objectForKey:@"aaData"];
+            if (aaData.count>0) {
+                //保存头像url
+                NSMutableArray *avaStrArr = [NSMutableArray array];
+                //拼接uid
+                NSString *uidStr;
+                for (NSDictionary *dic in aaData) {
+                    NSString *avaStr = [dic stringForKey:@"avatar" defaultValue:@""];
+                    NSString *uid = [dic stringForKey:@"id" defaultValue:@""];
+                    [avaStrArr addObject:avaStr];
+                    if (uidStr.length==0) {
+                        uidStr =uid;
+                    }else{
+                        uidStr = [uidStr stringByAppendingString:[NSString stringWithFormat:@",%@",uid]];
+                    }
+                }
+                self.uidStr = uidStr;
+                [self showDailyRecommandWithAvatarArray:avaStrArr];
+            }
+        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [SVProgressHUD dismissWithError:KKErrorInfo(error) afterDelay:1.2];
     }];
 }
 
 //取到头像 赋值
--(void)showDailyRecommandWithAvatarArray:(NSArray*)avatarArr{
+-(void)showDailyRecommandWithAvatarArray:(NSMutableArray*)avatarArr{
     
     NSInteger count =avatarArr.count>self.headImageArray.count?self.headImageArray.count:avatarArr.count;
     for (int i = 0; i < count; ++i) {
@@ -65,7 +84,12 @@
 }
 //告诉他们
 - (IBAction)tellThemBtnClick:(id)sender {
-
+    NSDictionary *param = @{@"uid":self.uidStr};
+    [FSSharedNetWorkingManager POST:ServiceInterfaceGreet parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *respDic = (NSDictionary*)responseObject;
+        KKLog(@"greet %@",respDic);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    }];
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 //换一批
