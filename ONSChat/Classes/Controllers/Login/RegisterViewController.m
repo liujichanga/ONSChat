@@ -9,6 +9,7 @@
 #import "RegisterViewController.h"
 #import "UserInfoViewController.h"
 #import "FemaleNickNameViewController.h"
+#import "LoginViewController.h"
 
 #define MaleColor [UIColor colorWithHexString:@"60D1DA"]
 
@@ -74,6 +75,10 @@
 //马上进入
 - (IBAction)rightNowEnterClick:(id)sender {
      KKLog(@"进入");
+    [self.navigationController setNavigationBarHidden:NO];
+    
+    LoginViewController *loginVC=KKViewControllerOfMainSB(@"LoginViewController");
+    [self.navigationController pushViewController:loginVC animated:YES];
 }
 //使用协议
 - (IBAction)useAgreementClick:(id)sender {

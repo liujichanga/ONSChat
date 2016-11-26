@@ -60,7 +60,7 @@ static KKLocalPlistManager *instance;
             [[NSFileManager defaultManager] createDirectoryAtPath:CacheUserPath withIntermediateDirectories:YES attributes:nil error:nil];
         }
         
-        NSString *plistname=KKStringWithFormat(@"kkprofile_%lld.plist",KKSharedCurrentUser.userId);
+        NSString *plistname=KKStringWithFormat(@"kkprofile_%@.plist",KKSharedCurrentUser.userId);
         self.plistPath=KKStringWithFormat(@"%@/%@",KKPathOfDocument,plistname);
        
         BOOL exist = [[NSFileManager defaultManager] fileExistsAtPath:self.plistPath];

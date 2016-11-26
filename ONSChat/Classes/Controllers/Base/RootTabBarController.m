@@ -10,6 +10,7 @@
 #import "UploadHeadImageViewController.h"
 #import "DailyRecommandViewController.h"
 #import "BindingPhoneNumberViewController.h"
+#import "VIPPayViewController.h"
 
 
 @interface RootTabBarController ()<UITabBarControllerDelegate>
@@ -75,7 +76,10 @@
         if(![KKSharedCurrentUser isPayUser])
         {
             //没有付费，先付费
-            
+            VIPPayViewController *vipVC=KKViewControllerOfMainSB(@"VIPPayViewController");
+            vipVC.isDismiss=YES;
+            UINavigationController *navController=[[UINavigationController alloc] initWithRootViewController:vipVC];
+            [self presentViewController:navController animated:YES completion:nil];
         }
         else
         {
@@ -84,6 +88,7 @@
             {
                 //验证手机号
                 BindingPhoneNumberViewController *bindVC = KKViewControllerOfMainSB(@"BindingPhoneNumberViewController");
+                bindVC.isDismiss=YES;
                 UINavigationController *navController=[[UINavigationController alloc] initWithRootViewController:bindVC];
                 [self presentViewController:navController animated:YES completion:nil];
             }
@@ -96,6 +101,7 @@
         if([KKSharedCurrentUser isPayUser]&&KKStringIsBlank(KKSharedCurrentUser.phone))
         {
             BindingPhoneNumberViewController *bindVC = KKViewControllerOfMainSB(@"BindingPhoneNumberViewController");
+            bindVC.isDismiss=YES;
             UINavigationController *navController=[[UINavigationController alloc] initWithRootViewController:bindVC];
             [self presentViewController:navController animated:YES completion:nil];
         }

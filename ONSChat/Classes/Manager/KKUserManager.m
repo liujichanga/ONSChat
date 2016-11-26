@@ -46,7 +46,6 @@ static KKUserManager *instance;
     
     once = 0;
     instance = nil;
-    KKSharedCurrentUser=nil;
     KKApplication.applicationIconBadgeNumber = 0;
     
     
@@ -58,7 +57,7 @@ static KKUserManager *instance;
 - (void)setCurrentUser:(KKUser *)currentUser {
     
     // 此处保存到本地
-    [KKUserDefaults setValue:@(currentUser.userId) forKey:@"userid"];
+    [KKUserDefaults setValue:currentUser.userId forKey:@"userid"];
     [KKUserDefaults setValue:currentUser.password forKey:@"password"];
     
     
@@ -135,7 +134,7 @@ static KKUserManager *instance;
     NSString *password = [KKUserDefaults stringForKey:@"password"];
     
     KKUser *lastLoginUser=[[KKUser alloc] init];
-    lastLoginUser.userId=[userid longLongValue];
+    lastLoginUser.userId=userid;
     lastLoginUser.password=password;
     
     return lastLoginUser;

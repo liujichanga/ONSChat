@@ -50,7 +50,7 @@
         case AFNetworkReachabilityStatusReachableViaWiFi:
         {
             //执行静默登录
-            NSDictionary *para=@{@"loginname":@(KKSharedCurrentUser.userId),@"password":KKSharedCurrentUser.password,@"channel":ChannelId};
+            NSDictionary *para=@{@"loginname":KKSharedCurrentUser.userId,@"password":KKSharedCurrentUser.password,@"channel":ChannelId};
             [FSSharedNetWorkingManager GET:ServiceInterfaceLogin parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 
                 NSDictionary *loginDic = (NSDictionary*)responseObject;

@@ -1,15 +1,14 @@
 //
-//  BindingPhoneNumberViewController.h
+//  VIPPayViewController.h
 //  ONSChat
 //
-//  Created by 王磊 on 2016/11/26.
+//  Created by liujichang on 2016/11/26.
 //  Copyright © 2016年 LiuJichang. All rights reserved.
 //
 
 #import "KKBaseViewController.h"
 
-@interface BindingPhoneNumberViewController : KKBaseViewController
-
+@interface VIPPayViewController : KKBaseViewController
 
 //是否最后dismiss
 @property(nonatomic,assign) BOOL isDismiss;

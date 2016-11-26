@@ -19,7 +19,7 @@ typedef NS_ENUM(NSUInteger, KKSex) {
 @interface KKUser : NSObject
 
 //登录用户id跟密码
-@property(assign,nonatomic) long long userId;
+@property(strong,nonatomic) NSString *userId;
 @property(strong,nonatomic) NSString *password;
 
 //基本信息
