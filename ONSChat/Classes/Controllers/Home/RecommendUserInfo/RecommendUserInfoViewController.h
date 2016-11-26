@@ -9,5 +9,6 @@
 #import "KKBaseViewController.h"
 
 @interface RecommendUserInfoViewController : KKBaseViewController
-
+//用户id
+@property (nonatomic, assign) long long uid;
 @end
