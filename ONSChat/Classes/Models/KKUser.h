@@ -86,4 +86,8 @@ typedef NS_ENUM(NSUInteger, KKSex) {
 @property(strong,nonatomic) NSString *distanceKm;//显示的距离
 
 
+//是否为付费过的用户
+-(BOOL)isPayUser;
+
+
 @end

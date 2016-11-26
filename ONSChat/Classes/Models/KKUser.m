@@ -11,7 +11,12 @@
 @implementation KKUser
 
 
-
+-(BOOL)isPayUser
+{
+    if(KKSharedCurrentUser.isMsg||KKSharedCurrentUser.isVIP||KKSharedCurrentUser.beannum>0)
+        return YES;
+    else return NO;
+}
 
 
 @end
