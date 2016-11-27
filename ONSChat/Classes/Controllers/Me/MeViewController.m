@@ -18,7 +18,7 @@
 #define cellMeInfoIdentifier @"MeInfoCell"
 
 
-@interface MeViewController ()
+@interface MeViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -46,6 +46,90 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    KKLog(@"me view will appear");
+    
+    [FSSharedNetWorkingManager GET:ServiceInterfaceUserCenter parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSDictionary *dic = (NSDictionary*)responseObject;
+        KKLog(@"usercenter:%@",dic);
+        BOOL status=[dic boolForKey:@"status" defaultValue:NO];
+        if(status)
+        {
+            NSTimeInterval baoyue=[dic longlongForKey:@"baoyueendtime" defaultValue:0]/1000.0;
+            KKSharedCurrentUser.baoyueEndTime=[[NSDate dateWithTimeIntervalSince1970:baoyue] string];
+            NSTimeInterval vip=[dic longlongForKey:@"vipendtime" defaultValue:0]/1000.0;
+            KKSharedCurrentUser.vipEndTime=[[NSDate dateWithTimeIntervalSince1970:vip] string];
+            
+            KKSharedCurrentUser.beannum=[dic integerForKey:@"beannum" defaultValue:0];
+            KKSharedCurrentUser.isVIP=[dic boolForKey:@"vip" defaultValue:NO];
+            KKSharedCurrentUser.isBaoYue=[dic boolForKey:@"msg" defaultValue:NO];
+            KKSharedCurrentUser.isPhone=[dic boolForKey:@"hasPhone" defaultValue:NO];
+            
+            KKSharedCurrentUser.likedmeNum=[dic integerForKey:@"likednum" defaultValue:0];
+            KKSharedCurrentUser.melikeNum=[dic integerForKey:@"likenum" defaultValue:0];
+            KKSharedCurrentUser.visitNum=[dic integerForKey:@"visitnum" defaultValue:0];
+            
+            KKSharedCurrentUser.nickName=[[dic stringForKey:@"nickname" defaultValue:@""] stringByReplacingPercentEscapesUsingEncoding:NSUnicodeStringEncoding];
+            
+            [self.tableView reloadData];
+        }
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+}
+
+
+#pragma mark - UIImagePickerControllerDelegate
+/** 打开照片选择器 */
+- (void)openImagePickerControllerWithScourceType:(UIImagePickerControllerSourceType)sourceType {
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    [picker setValue:@(UIStatusBarStyleLightContent) forKey:@"_previousStatusBarStyle"];
+    picker.sourceType = sourceType;
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    [self presentViewController:picker animated:YES completion:nil];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+/** 获取到图片后进入这里 */
+-(void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    // 关闭Picker
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    // 原图
+    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
+    
+    long long int timestamp = [NSDate date].timeIntervalSince1970 * 1000 + arc4random()%1000;
+    NSString *imagename=KKStringWithFormat(@"%lld.jpg",timestamp);
+    NSString *path = [CacheUserPath stringByAppendingPathComponent:imagename];
+    
+    NSData *imagedata=UIImageJPEGRepresentation(image, 0.75);
+    
+    BOOL result = [imagedata writeToFile:path atomically:path];
+    
+    if(result)
+    {
+        [KKSharedLocalPlistManager setKKValue:imagename forKey:Plist_Key_Avatar];
+        KKSharedCurrentUser.avatarUrl=[CacheUserPath stringByAppendingPathComponent:imagename];
+        
+        [self.tableView reloadData];
+    }
+    
+}
+
+
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -68,14 +152,14 @@
     return 44;
 }
 
-//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-//{
-//    if(section==0)
-//    {
-//        return 0.01;
-//    }
-//    else return 0.01;
-//}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if(section==0)
+    {
+        return 0.01;
+    }
+    else return 0.01;
+}
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -83,6 +167,25 @@
     if(indexPath.section == 0)
     {
         HeadCell *cell=[tableView dequeueReusableCellWithIdentifier:cellHeadIdentifier forIndexPath:indexPath];
+        [cell displayInfo];
+        KKWEAKSELF
+        cell.changeHeadImage=^{
+          
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"请选择" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+            UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+               
+                [weakself openImagePickerControllerWithScourceType:UIImagePickerControllerSourceTypeCamera];
+
+            }];
+            UIAlertAction *libraryAction = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [weakself openImagePickerControllerWithScourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+
+            }];
+            [alertController addAction:cameraAction];
+            [alertController addAction:libraryAction];
+            [weakself presentViewController:alertController animated:YES completion:nil];
+            
+        };
         return cell;
     }
     else if(indexPath.section == 1)

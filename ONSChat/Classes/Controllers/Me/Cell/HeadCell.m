@@ -51,6 +51,10 @@
     redview.backgroundColor=[UIColor redColor];
     [redview.layer setCornerRadius:3.0];
     [_getRedButton addSubview:redview];
+    
+    UITapGestureRecognizer *headGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(headTap:)];
+    [self.headImageView addGestureRecognizer:headGestureRecognizer];
+
 
 }
 
@@ -58,6 +62,45 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+-(void)displayInfo
+{
+    _nickNameLabel.text=KKSharedCurrentUser.nickName;
+    _myRedLabel.text=KKStringWithFormat(@"我的红豆：%ld颗",(long)KKSharedCurrentUser.beannum);
+    if(KKStringIsNotBlank(KKSharedCurrentUser.avatarUrl))
+    {
+        UIImage *image=[[UIImage alloc] initWithContentsOfFile:KKSharedCurrentUser.avatarUrl];
+        _headImageView.image=image;
+        _noHeadLabel.hidden=YES;
+    }
+    
+    _likeMeLabel.text=KKStringWithFormat(@"喜欢我的人%ld",KKSharedCurrentUser.likedmeNum);
+    _meLikeLabel.text=KKStringWithFormat(@"我喜欢的人%ld",KKSharedCurrentUser.melikeNum);
+    _lastVisterLabel.text=KKStringWithFormat(@"最近访客%ld",KKSharedCurrentUser.visitNum);
+    
+    if(KKSharedCurrentUser.isVIP)
+    {
+        [_VIPButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    }
+    if(KKSharedCurrentUser.isBaoYue)
+    {
+        [_MonthButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    }
+    if(KKSharedCurrentUser.isPhone)
+    {
+        [_PhoneAuthButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    }
+    if(KKSharedCurrentUser.isIdentity)
+    {
+        [_idAuthButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    }
+    
+}
+
+-(void)headTap:(id)sender
+{
+    if(self.changeHeadImage) self.changeHeadImage();
 }
 
 @end

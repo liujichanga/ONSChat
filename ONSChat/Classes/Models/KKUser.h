@@ -66,9 +66,11 @@ typedef NS_ENUM(NSUInteger, KKSex) {
 
 //在登录时候跟我的页面会用到
 @property(strong,nonatomic) NSString *avatarUrl;//头像地址
-@property(assign,nonatomic) BOOL hasPhone;//是否手机验证
+@property(assign,nonatomic) BOOL isPhone;//是否手机验证
 @property(assign,nonatomic) BOOL isVIP;//是否vip
-@property(assign,nonatomic) BOOL isMsg;//短信包月状态
+@property(assign,nonatomic) BOOL isBaoYue;//短信包月状态
+@property(assign,nonatomic) BOOL isIdentity;//是否身份认证状态
+
 @property(assign,nonatomic) NSInteger beannum;//红豆数量
 @property(assign,nonatomic) NSInteger likedmeNum;//喜欢我的人数量
 @property(assign,nonatomic) NSInteger melikeNum;//我喜欢的人数量
@@ -88,6 +90,17 @@ typedef NS_ENUM(NSUInteger, KKSex) {
 
 //是否为付费过的用户
 -(BOOL)isPayUser;
+
+/******************** 持久化模型 **********************/
+//推荐，附近 列表用的简单的
+-(instancetype)initWithDicSimple:(NSDictionary*)dic;
+
+//我的完整资料用的
+-(instancetype)initWithDicFull:(NSDictionary*)dic;
+
+
+
+
 
 
 @end

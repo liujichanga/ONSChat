@@ -14,10 +14,14 @@
 #define cellTwoPicIdentifier @"TwoPicCell"
 #define cellOneVideoIdentifier @"OneVideoCell"
 
+#define PerPageNumber 5
 
 @interface HomeViewController ()
-
+{
+    NSInteger currentPage;
+}
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property(strong,nonatomic) NSMutableArray *arrDatas;
 
 
 @end
@@ -34,7 +38,17 @@
     [self.tableView registerNib:[UINib nibWithNibName:cellTwoPicIdentifier bundle:nil] forCellReuseIdentifier:cellTwoPicIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:cellOneVideoIdentifier bundle:nil] forCellReuseIdentifier:cellOneVideoIdentifier];
     
+    currentPage=0;
+    self.arrDatas=[NSMutableArray array];
     
+    //读取数据
+    KKWEAKSELF
+    MJRefreshNormalHeader *header =[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [weakself loadNewData];
+        
+    }];
+    self.tableView.header=header;
+    [self.tableView.header beginRefreshing];
     
 }
 
@@ -43,8 +57,39 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+#pragma mark - PrivateMethod
+-(void)loadNewData
+{
+    [self.arrDatas removeAllObjects];
+    currentPage=0;
+    
+    [self loadData];
+}
+-(void)loadMoreData
+{
+    currentPage+=1;
+    
+    [self loadData];
+}
+-(void)loadData
+{
+    NSMutableDictionary *params=[NSMutableDictionary dictionary];
+    [params setValue:@(PerPageNumber) forKey:@"limit"];
+    [params setValue:@(currentPage) forKey:@"currentPage"];
+    
+    [FSSharedNetWorkingManager GET:ServiceInterfaceIndex parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSDictionary *dic=(NSDictionary*)responseObject;
+        KKLog(@"index:%@",dic);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+}
 
+
+
+#pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }

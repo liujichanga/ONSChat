@@ -10,4 +10,10 @@
 
 @interface HeadCell : UITableViewCell
 
+@property (nonatomic, copy) void(^changeHeadImage)();
+
+
+-(void)displayInfo;
+
+
 @end
