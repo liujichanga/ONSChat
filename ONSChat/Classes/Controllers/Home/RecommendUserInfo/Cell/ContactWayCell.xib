@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KGk-i7-Jjw" customClass="ContactWayCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSj-yu-IBS">
+                        <rect key="frame" x="250" y="0.0" width="62" height="43.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="62" id="UuC-b9-YYz"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <state key="normal" title="立即查看">
+                            <color key="titleColor" red="0.82352941176470584" green="0.34509803921568627" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="lookBtnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="7Ue-Hu-hz8"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vcY-QZ-EDf">
+                        <rect key="frame" x="10" y="0.0" width="230" height="43.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="HSj-yu-IBS" firstAttribute="leading" secondItem="vcY-QZ-EDf" secondAttribute="trailing" constant="10" id="8Yx-Jm-GUC"/>
+                    <constraint firstAttribute="bottom" secondItem="HSj-yu-IBS" secondAttribute="bottom" id="Sl5-NS-Zn0"/>
+                    <constraint firstAttribute="trailing" secondItem="HSj-yu-IBS" secondAttribute="trailing" constant="8" id="c67-gB-fbW"/>
+                    <constraint firstItem="vcY-QZ-EDf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="hPB-ds-zYE"/>
+                    <constraint firstAttribute="bottom" secondItem="vcY-QZ-EDf" secondAttribute="bottom" id="lF0-mk-3zd"/>
+                    <constraint firstItem="HSj-yu-IBS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="lx9-dP-gcN"/>
+                    <constraint firstItem="vcY-QZ-EDf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="ruM-Is-RdK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="contactWayLab" destination="vcY-QZ-EDf" id="Thz-Tb-xeu"/>
+                <outlet property="lookBtn" destination="HSj-yu-IBS" id="jlr-2e-W9G"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

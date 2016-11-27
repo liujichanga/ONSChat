@@ -60,6 +60,7 @@
     if (textSize.width>self.descLab.frame.size.width) {
         self.descLab.numberOfLines =2;
         self.descLab.textAlignment = NSTextAlignmentLeft;
+        self.descLab.adjustsFontSizeToFitWidth = YES;
     }
     self.descLab.text = descStr;
     
