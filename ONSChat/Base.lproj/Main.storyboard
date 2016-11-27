@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A319" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uf8-zw-tJh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uf8-zw-tJh">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -258,10 +258,10 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="fxg-M1-iwg">
-                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fxg-M1-iwg" id="X1H-zl-NJi">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -1949,9 +1949,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4ab-L8-eSO">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="4ab-L8-eSO">
+                                <rect key="frame" x="0.0" y="-1" width="375" height="668"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="0yc-yL-NNh" id="8xh-XI-47s"/>
                                     <outlet property="delegate" destination="0yc-yL-NNh" id="ADw-96-5C4"/>
@@ -1963,7 +1963,7 @@
                             <constraint firstAttribute="trailing" secondItem="4ab-L8-eSO" secondAttribute="trailing" id="0Og-ex-Krs"/>
                             <constraint firstItem="5lE-Lv-ExW" firstAttribute="top" secondItem="4ab-L8-eSO" secondAttribute="bottom" id="Lnj-kD-klv"/>
                             <constraint firstItem="4ab-L8-eSO" firstAttribute="leading" secondItem="wx9-A1-gM3" secondAttribute="leading" id="c0x-Gb-0J1"/>
-                            <constraint firstItem="4ab-L8-eSO" firstAttribute="top" secondItem="wx9-A1-gM3" secondAttribute="top" id="yYE-xY-WPC"/>
+                            <constraint firstItem="4ab-L8-eSO" firstAttribute="top" secondItem="wx9-A1-gM3" secondAttribute="top" constant="-1" id="yYE-xY-WPC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vhe-Q8-60N">

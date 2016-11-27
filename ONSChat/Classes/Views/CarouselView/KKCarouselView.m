@@ -57,8 +57,7 @@
 @property (strong, nonatomic) ImagePageControl *pageConrol;
 @property (strong, nonatomic) UIImageView *pageBgImageView;
 
-
-
+@property (nonatomic, strong) UILabel *pageLab;
 @end
 
 
@@ -84,32 +83,37 @@
 
         for (int i = 0 ; i<3; i++) {
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * frame.size.width, 0, frame.size.width, frame.size.height)];
-            imageView.contentMode = UIViewContentModeScaleAspectFill;
+            imageView.contentMode = UIViewContentModeScaleAspectFit;
             imageView.clipsToBounds = YES;
             [_scrollView addSubview:imageView];
             imageView.tag = 1000 + i;
-            imageView.backgroundColor = [UIColor redColor];
+            imageView.backgroundColor = [UIColor blackColor];
             
             imageView.userInteractionEnabled = YES;
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
             [imageView addGestureRecognizer:tap];
         }
         
+        UILabel *pageLab = [[UILabel alloc]initWithFrame:CGRectMake(0, frame.size.height-40, frame.size.width-20, 25)];
+        pageLab.textColor = [UIColor whiteColor];
+        pageLab.textAlignment = NSTextAlignmentRight;
+        pageLab.font = [UIFont systemFontOfSize:15];
+        [self addSubview:pageLab];
+        self.pageLab = pageLab;
         
-        _bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, frame.size.height-12, frame.size.width, 12)];
-        _bottomView.backgroundColor = [UIColor clearColor];
-        [self addSubview:_bottomView];
-        
-        
-        _pageBgImageView = [UIImageView new];
-        _pageBgImageView.image = [UIImage imageNamed:@"KKCarouselViewBg"];
-        [_bottomView addSubview:_pageBgImageView];
-        
-        
-        _pageConrol = [ImagePageControl new];
-        _pageConrol.currentPageIndicatorTintColor = [UIColor clearColor];
-        _pageConrol.pageIndicatorTintColor = [UIColor clearColor];
-        [_bottomView addSubview:_pageConrol];
+//        _bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, frame.size.height-12, frame.size.width, 12)];
+//        _bottomView.backgroundColor = [UIColor greenColor];
+//        [self addSubview:_bottomView];
+
+//        _pageBgImageView = [UIImageView new];
+//        _pageBgImageView.image = [UIImage imageNamed:@"KKCarouselViewBg"];
+//        [_bottomView addSubview:_pageBgImageView];
+//        
+//        
+//        _pageConrol = [ImagePageControl new];
+//        _pageConrol.currentPageIndicatorTintColor = [UIColor clearColor];
+//        _pageConrol.pageIndicatorTintColor = [UIColor clearColor];
+//        [_bottomView addSubview:_pageConrol];
     }
     return self;
 }
@@ -126,6 +130,7 @@
     _currentPage = 0;
     _pageConrol.numberOfPages = array.count;
     _pageConrol.currentPage = _currentPage;
+    self.pageLab.text = [NSString stringWithFormat:@"%zd/%zd",_currentPage,array.count];
     [self invalidateTimer];
     if(array.count > 1){
         _pageConrol.hidden = NO;
@@ -201,6 +206,7 @@
     [self refreshImage:@[@(leftIndex),@(_currentPage),@(rightIndex)]];
     
     _pageConrol.currentPage = _currentPage;
+    self.pageLab.text = [NSString stringWithFormat:@"%zd/%zd",_currentPage,_imageArray.count];
 }
 
 

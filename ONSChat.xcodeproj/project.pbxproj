@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040309061DEAD1BA00F516E5 /* SignCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040309051DEAD1BA00F516E5 /* SignCell.m */; };
+		040309081DEAD88200F516E5 /* SignCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040309071DEAD88200F516E5 /* SignCell.xib */; };
+		0403090C1DEADBCA00F516E5 /* ContactWayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403090A1DEADBCA00F516E5 /* ContactWayCell.m */; };
+		0403090D1DEADBCA00F516E5 /* ContactWayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0403090B1DEADBCA00F516E5 /* ContactWayCell.xib */; };
+		040309111DEAE09C00F516E5 /* CarouselCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403090F1DEAE09C00F516E5 /* CarouselCell.m */; };
+		040309121DEAE09C00F516E5 /* CarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040309101DEAE09C00F516E5 /* CarouselCell.xib */; };
 		1C0E77481DE30B380083F9F8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0E77471DE30B380083F9F8 /* LoginViewController.m */; };
 		1C0E774B1DE30B4D0083F9F8 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0E774A1DE30B4D0083F9F8 /* RegisterViewController.m */; };
 		1C0E77501DE30F820083F9F8 /* ONSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0E774F1DE30F820083F9F8 /* ONSButton.m */; };
@@ -168,6 +174,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		040309041DEAD1BA00F516E5 /* SignCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignCell.h; sourceTree = "<group>"; };
+		040309051DEAD1BA00F516E5 /* SignCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignCell.m; sourceTree = "<group>"; };
+		040309071DEAD88200F516E5 /* SignCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignCell.xib; sourceTree = "<group>"; };
+		040309091DEADBCA00F516E5 /* ContactWayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactWayCell.h; sourceTree = "<group>"; };
+		0403090A1DEADBCA00F516E5 /* ContactWayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactWayCell.m; sourceTree = "<group>"; };
+		0403090B1DEADBCA00F516E5 /* ContactWayCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactWayCell.xib; sourceTree = "<group>"; };
+		0403090E1DEAE09C00F516E5 /* CarouselCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarouselCell.h; sourceTree = "<group>"; };
+		0403090F1DEAE09C00F516E5 /* CarouselCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarouselCell.m; sourceTree = "<group>"; };
+		040309101DEAE09C00F516E5 /* CarouselCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarouselCell.xib; sourceTree = "<group>"; };
 		1C0E77461DE30B380083F9F8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		1C0E77471DE30B380083F9F8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		1C0E77491DE30B4D0083F9F8 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
@@ -1268,6 +1283,15 @@
 				9BFB22CF1DE9709500DB9BE6 /* BaseInfoCell.h */,
 				9BFB22D01DE9709500DB9BE6 /* BaseInfoCell.m */,
 				9BFB22D11DE9709500DB9BE6 /* BaseInfoCell.xib */,
+				040309041DEAD1BA00F516E5 /* SignCell.h */,
+				040309051DEAD1BA00F516E5 /* SignCell.m */,
+				040309071DEAD88200F516E5 /* SignCell.xib */,
+				040309091DEADBCA00F516E5 /* ContactWayCell.h */,
+				0403090A1DEADBCA00F516E5 /* ContactWayCell.m */,
+				0403090B1DEADBCA00F516E5 /* ContactWayCell.xib */,
+				0403090E1DEAE09C00F516E5 /* CarouselCell.h */,
+				0403090F1DEAE09C00F516E5 /* CarouselCell.m */,
+				040309101DEAE09C00F516E5 /* CarouselCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1346,6 +1370,7 @@
 				9BFB22D31DE9709500DB9BE6 /* BaseInfoCell.xib in Resources */,
 				5698643A1DE00EAF0059D484 /* SVProgressHUD.bundle in Resources */,
 				567F545E1DDFEC5500872A36 /* Assets.xcassets in Resources */,
+				040309121DEAE09C00F516E5 /* CarouselCell.xib in Resources */,
 				1C327C5F1DE691E400E9DFB3 /* NearUserCell.xib in Resources */,
 				56C6FFD41DE09E9000BB5C3B /* RongCloudKit.strings in Resources */,
 				567F545C1DDFEC5500872A36 /* Main.storyboard in Resources */,
@@ -1353,9 +1378,11 @@
 				56C6FFD51DE09E9000BB5C3B /* RongCloud.bundle in Resources */,
 				1C6B3A111DE3F314008ACCA8 /* HeadCell.xib in Resources */,
 				9BC32EF21DE5AE9700CDDAFB /* TopPageView.xib in Resources */,
+				040309081DEAD88200F516E5 /* SignCell.xib in Resources */,
 				56C6FFD81DE09E9000BB5C3B /* RCConfig.plist in Resources */,
 				1C0FF5D91DE5354400DBF4E0 /* OneVideoCell.xib in Resources */,
 				569864251DE00EAF0059D484 /* MJRefresh.bundle in Resources */,
+				0403090D1DEADBCA00F516E5 /* ContactWayCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1388,6 +1415,7 @@
 				9BC32EFB1DE6D31600CDDAFB /* FemaleIncomeViewController.m in Sources */,
 				569864271DE00EAF0059D484 /* UIScrollView+MJExtension.m in Sources */,
 				1CF680FC1DE82A5D0046F34D /* ONSButtonPurple.m in Sources */,
+				040309061DEAD1BA00F516E5 /* SignCell.m in Sources */,
 				569864181DE00EAF0059D484 /* MJRefreshBackFooter.m in Sources */,
 				5698643B1DE00EAF0059D484 /* SVProgressHUD.m in Sources */,
 				1C6B3A0B1DE3DCF3008ACCA8 /* KKGlobalManager.m in Sources */,
@@ -1406,6 +1434,7 @@
 				9BFB22D21DE9709500DB9BE6 /* BaseInfoCell.m in Sources */,
 				9BFB22C81DE95A1300DB9BE6 /* BindingPhoneNumberViewController.m in Sources */,
 				9BC32F0A1DE8200100CDDAFB /* UploadHeadImageViewController.m in Sources */,
+				040309111DEAE09C00F516E5 /* CarouselCell.m in Sources */,
 				569864961DE055AE0059D484 /* KKUserManager.m in Sources */,
 				5698641D1DE00EAF0059D484 /* MJRefreshAutoNormalFooter.m in Sources */,
 				1C0E77661DE31F870083F9F8 /* AFURLResponseSerialization.m in Sources */,
@@ -1432,6 +1461,7 @@
 				569864351DE00EAF0059D484 /* UIImage+MultiFormat.m in Sources */,
 				5698642E1DE00EAF0059D484 /* SDWebImageDecoder.m in Sources */,
 				9BC32EE81DE5A8CE00CDDAFB /* UserHobbyViewController.m in Sources */,
+				0403090C1DEADBCA00F516E5 /* ContactWayCell.m in Sources */,
 				1CDD6CF81DE9209E006AAFAB /* ComeBackViewController.m in Sources */,
 				569864051DE00EAF0059D484 /* FMDatabasePool.m in Sources */,
 				569864261DE00EAF0059D484 /* MJRefreshConst.m in Sources */,
