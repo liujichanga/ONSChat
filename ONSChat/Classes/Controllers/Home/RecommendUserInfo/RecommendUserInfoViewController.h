@@ -11,6 +11,5 @@
 @interface RecommendUserInfoViewController : KKBaseViewController
 //用户id
 @property (nonatomic, assign) long long uid;
-//用户名
-@property (nonatomic, strong) NSString *nickStr;
+
 @end

@@ -10,5 +10,5 @@
 
 @interface CarouselCell : UITableViewCell
 @property (nonatomic, strong) NSArray *avatarArray;
-@property (nonatomic, strong) NSString *ageStr;
+@property (nonatomic, assign) NSInteger age;
 @end

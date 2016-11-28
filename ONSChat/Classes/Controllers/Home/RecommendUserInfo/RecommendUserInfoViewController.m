@@ -36,7 +36,8 @@
 //图片轮播
 @property (nonatomic, strong) NSArray *avatarArray;
 //年龄
-@property (nonatomic, strong) NSString *ageStr;
+@property (nonatomic, assign) NSInteger age;
+
 @end
 
 @implementation RecommendUserInfoViewController
@@ -53,7 +54,7 @@
     self.TABaseInfoA = [NSArray array];
     self.avatarArray = [NSArray array];
 
-    self.title = self.nickStr;
+  
     
     [self.tableView registerNib:[UINib nibWithNibName:cellBaseInfoIdentifier bundle:nil] forCellReuseIdentifier:cellBaseInfoIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:cellSignIdentifier bundle:nil] forCellReuseIdentifier:cellSignIdentifier];
@@ -77,38 +78,56 @@
         KKLog(@"资料 %@",respDic);
         if (respDic&&respDic.count>0) {
             [SVProgressHUD dismiss];
-            NSDictionary *userDic = [respDic objectForKey:@"user"];
-            NSString*job = [userDic stringForKey:@"job" defaultValue:@""];
-            NSString*income = [userDic stringForKey:@"income" defaultValue:@""];
-            NSString*blood = [userDic stringForKey:@"blood" defaultValue:@""];
-            NSString*weight = [userDic stringForKey:@"weight" defaultValue:@""];
-            NSString*astro = [userDic stringForKey:@"astro" defaultValue:@""];
-            NSString*marry = [userDic stringForKey:@"marry" defaultValue:@""];
-            NSString*house = [userDic stringForKey:@"house" defaultValue:@""];
-            NSString*car = [userDic stringForKey:@"car" defaultValue:@""];
-            self.baseInfoA1 = [NSArray arrayWithObjects:job,income,blood,weight,astro,marry,house,car,nil];
+//            NSDictionary *userDic = [respDic objectForKey:@"user"];
+//            NSString*job = [userDic stringForKey:@"job" defaultValue:@""];
+//            NSString*income = [userDic stringForKey:@"income" defaultValue:@""];
+//            NSString*blood = [userDic stringForKey:@"blood" defaultValue:@""];
+//            NSString*weight = [userDic stringForKey:@"weight" defaultValue:@""];
+//            NSString*astro = [userDic stringForKey:@"astro" defaultValue:@""];
+//            NSString*marry = [userDic stringForKey:@"marry" defaultValue:@""];
+//            NSString*house = [userDic stringForKey:@"house" defaultValue:@""];
+//            NSString*car = [userDic stringForKey:@"car" defaultValue:@""];
+//            self.baseInfoA1 = [NSArray arrayWithObjects:job,income,blood,weight,astro,marry,house,car,nil];
+//            
+//            NSString*pos = [userDic stringForKey:@"pos" defaultValue:@""];
+//            NSString*lovetype = [userDic stringForKey:@"lovetype" defaultValue:@""];
+//            NSString*distance = [userDic stringForKey:@"distance" defaultValue:@""];
+//            NSString*child = [userDic stringForKey:@"child" defaultValue:@""];
+//            NSString*livetog = [userDic stringForKey:@"livetog" defaultValue:@""];
+//            NSString*withparent = [userDic stringForKey:@"withparent" defaultValue:@""];
+//            NSString*hobby = [userDic stringForKey:@"hobby" defaultValue:@""];
+//            NSString*personality = [userDic stringForKey:@"personality" defaultValue:@""];
+//            self.baseInfoA2 = [NSArray arrayWithObjects:pos,lovetype,distance,child,livetog,withparent,hobby,personality, nil];
+//           
+//            NSString*taAddress = [userDic stringForKey:@"taAddress" defaultValue:@""];
+//            NSString*taAge = [userDic stringForKey:@"taAge" defaultValue:@""];
+//            NSString*taIncome = [userDic stringForKey:@"taIncome" defaultValue:@""];
+//            NSString*taHeight = [userDic stringForKey:@"taHeight" defaultValue:@""];
+//            NSString*taGraduate = [userDic stringForKey:@"taGraduate" defaultValue:@""];
+//            self.TABaseInfoA = [NSArray arrayWithObjects:taAddress,taAge,taIncome,taHeight,taGraduate,nil];
+//            
+//            self.signStr = [userDic stringForKey:@"sign" defaultValue:@""];
+//            self.avatarArray = [respDic objectForKey:@"avatarlist"];
+//            self.age = [userDic integerForKey:@"age" defaultValue:0];
+//            self.title = [userDic stringForKey:@"nickName" defaultValue:@""];
             
-            NSString*pos = [userDic stringForKey:@"pos" defaultValue:@""];
-            NSString*lovetype = [userDic stringForKey:@"lovetype" defaultValue:@""];
-            NSString*distance = [userDic stringForKey:@"distance" defaultValue:@""];
-            NSString*child = [userDic stringForKey:@"child" defaultValue:@""];
-            NSString*livetog = [userDic stringForKey:@"livetog" defaultValue:@""];
-            NSString*withparent = [userDic stringForKey:@"withparent" defaultValue:@""];
-            NSString*hobby = [userDic stringForKey:@"hobby" defaultValue:@""];
-            NSString*personality = [userDic stringForKey:@"personality" defaultValue:@""];
-            self.baseInfoA2 = [NSArray arrayWithObjects:pos,lovetype,distance,child,livetog,withparent,hobby,personality, nil];
-           
-            NSString*taAddress = [userDic stringForKey:@"taAddress" defaultValue:@""];
-            NSString*taAge = [userDic stringForKey:@"taAge" defaultValue:@""];
-            NSString*taIncome = [userDic stringForKey:@"taIncome" defaultValue:@""];
-            NSString*taHeight = [userDic stringForKey:@"taHeight" defaultValue:@""];
-            NSString*taGraduate = [userDic stringForKey:@"taGraduate" defaultValue:@""];
-            self.TABaseInfoA = [NSArray arrayWithObjects:taAddress,taAge,taIncome,taHeight,taGraduate,nil];
+            KKUser*user = [[KKUser alloc]initWithDicFull:respDic];
             
-            self.signStr = [userDic stringForKey:@"sign" defaultValue:@""];
-            self.avatarArray = [respDic objectForKey:@"avatarlist"];
-            self.ageStr = [userDic stringForKey:@"age" defaultValue:@""];
+            NSString *hasCar;
+            if (user.hasCar==YES) {
+                hasCar =@"是";
+            }else{
+                hasCar = @"否";
+            }
+            self.baseInfoA1 = [NSArray arrayWithObjects:user.job,user.income,user.blood,[NSString stringWithFormat:@"%ldkg",(long)user.weight],user.astro,user.marry,user.hasHouse,hasCar,nil];
+            self.baseInfoA2 = [NSArray arrayWithObjects:user.pos,user.lovetype,user.distanceLove,user.child,user.livetog,user.withparent,user.hobby,user.personality, nil];
+            self.TABaseInfoA = [NSArray arrayWithObjects:user.ta_address,user.ta_age,user.ta_income,user.ta_height,user.ta_graduate,nil];
             
+            self.signStr = user.sign;
+            self.avatarArray = user.avatarUrlList;
+            self.age = user.age;
+            
+            self.title =user.nickName;
             [self.tableView reloadData];
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -181,7 +200,7 @@
         CarouselCell *cell=[tableView dequeueReusableCellWithIdentifier:cellCarouselIdentifier forIndexPath:indexPath];
         if (self.avatarArray.count>0) {
             cell.avatarArray = self.avatarArray;
-            cell.ageStr = self.ageStr;
+            cell.age = self.age;
         }
         return cell;
     }

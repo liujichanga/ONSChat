@@ -124,8 +124,7 @@
 
 -(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
     RecommendUserInfoViewController *recommendUser = KKViewControllerOfMainSB(@"RecommendUserInfoViewController");
-    recommendUser.nickStr = @"二丫";
-    recommendUser.uid = 12684;
+    recommendUser.uid = 26488;
     [self.navigationController pushViewController:recommendUser animated:YES];
 }
 
