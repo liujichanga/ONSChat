@@ -35,8 +35,8 @@
 #define ServiceInterfaceUserSendSmsCode KKStringWithFormat(@"%@/%@/user/SendSmsCode", KKServerDomain, App)
 //首页推荐
 #define ServiceInterfaceIndex KKStringWithFormat(@"%@/%@/indexdata", KKServerDomain, App)
-//附近的人
-#define ServiceInterfaceNearByUserList KKStringWithFormat(@"%@/%@/nearby/userlist", KKServerDomain, App)
+//动态列表
+#define ServiceInterfaceDynamics KKStringWithFormat(@"%@/%@/user/dynamics", KKServerDomain, App)
 //我的页面，付费信息
 #define ServiceInterfaceUserCenter KKStringWithFormat(@"%@/%@/user/center", KKServerDomain, App)
 //喜欢某人

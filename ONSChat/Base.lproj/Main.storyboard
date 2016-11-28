@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uf8-zw-tJh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A319" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uf8-zw-tJh">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -258,10 +258,10 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="fxg-M1-iwg">
-                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fxg-M1-iwg" id="X1H-zl-NJi">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -275,6 +275,89 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y6j-Cm-xkN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2201" y="-10558"/>
+        </scene>
+        <!--我的相册-->
+        <scene sceneID="WSM-Ok-N8D">
+            <objects>
+                <viewController storyboardIdentifier="MyPhotoViewController" title="我的相册" hidesBottomBarWhenPushed="YES" id="bWO-k8-EI6" customClass="MyPhotoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="W7q-on-hEI"/>
+                        <viewControllerLayoutGuide type="bottom" id="dsB-yO-cJb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wIY-ER-LQI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sZZ-77-Fo6">
+                                <rect key="frame" x="20" y="60" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Iil-rm-8eW"/>
+                                    <constraint firstAttribute="width" constant="50" id="MYy-vU-m3K"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="ic_camera_enhance_black_18dp"/>
+                                <connections>
+                                    <action selector="uploadClick:" destination="bWO-k8-EI6" eventType="touchUpInside" id="O9K-D2-731"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0A8-Od-gPh" userLabel="imageview1">
+                                <rect key="frame" x="80" y="30" width="95" height="133"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="95" id="h2K-WT-TcV"/>
+                                    <constraint firstAttribute="height" secondItem="0A8-Od-gPh" secondAttribute="width" multiplier="70:50" id="osb-7g-L35"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hnJ-wQ-CTO" userLabel="imageview2">
+                                <rect key="frame" x="185" y="30" width="95" height="133"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" secondItem="hnJ-wQ-CTO" secondAttribute="width" multiplier="70:50" id="FK1-yb-Ia9"/>
+                                    <constraint firstAttribute="width" constant="95" id="rsF-pL-BWS"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l8h-NI-B8m" userLabel="imageview3">
+                                <rect key="frame" x="290" y="30" width="95" height="133"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" secondItem="l8h-NI-B8m" secondAttribute="width" multiplier="70:50" id="LwM-8u-ava"/>
+                                    <constraint firstAttribute="width" constant="95" id="vbd-ts-yX1"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PN4-8h-p32">
+                                <rect key="frame" x="20" y="236" width="335" height="76.5"/>
+                                <string key="text">说明：
+
+1、请上传本人近期清晰的正面照或侧面照。
+2、照片格式为JPG、PNG，大小不超过5MB。</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="l8h-NI-B8m" firstAttribute="leading" secondItem="hnJ-wQ-CTO" secondAttribute="trailing" constant="10" id="9Xt-DQ-XB3"/>
+                            <constraint firstItem="PN4-8h-p32" firstAttribute="top" secondItem="0A8-Od-gPh" secondAttribute="bottom" constant="73" id="Id9-uz-HeR"/>
+                            <constraint firstAttribute="trailing" secondItem="PN4-8h-p32" secondAttribute="trailing" constant="20" id="Sna-Nf-x09"/>
+                            <constraint firstItem="hnJ-wQ-CTO" firstAttribute="leading" secondItem="0A8-Od-gPh" secondAttribute="trailing" constant="10" id="Tcq-0a-0w7"/>
+                            <constraint firstItem="l8h-NI-B8m" firstAttribute="top" secondItem="W7q-on-hEI" secondAttribute="bottom" constant="10" id="a1K-f1-gL8"/>
+                            <constraint firstItem="0A8-Od-gPh" firstAttribute="top" secondItem="W7q-on-hEI" secondAttribute="bottom" constant="10" id="dYn-ri-O7W"/>
+                            <constraint firstItem="sZZ-77-Fo6" firstAttribute="top" secondItem="W7q-on-hEI" secondAttribute="bottom" constant="40" id="fBh-Vb-Jv8"/>
+                            <constraint firstItem="PN4-8h-p32" firstAttribute="leading" secondItem="wIY-ER-LQI" secondAttribute="leading" constant="20" id="fDd-Vk-RcY"/>
+                            <constraint firstItem="0A8-Od-gPh" firstAttribute="leading" secondItem="sZZ-77-Fo6" secondAttribute="trailing" constant="10" id="t1O-p5-esH"/>
+                            <constraint firstItem="sZZ-77-Fo6" firstAttribute="leading" secondItem="wIY-ER-LQI" secondAttribute="leading" constant="20" id="vRV-Nm-gCF"/>
+                            <constraint firstItem="hnJ-wQ-CTO" firstAttribute="top" secondItem="W7q-on-hEI" secondAttribute="bottom" constant="10" id="zyw-ze-Xe1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView1" destination="0A8-Od-gPh" id="3fP-fT-3l8"/>
+                        <outlet property="imageView1WidthConstraint" destination="h2K-WT-TcV" id="3am-Ub-ciH"/>
+                        <outlet property="imageView2" destination="hnJ-wQ-CTO" id="4hb-0B-6MW"/>
+                        <outlet property="imageView2WidthConstraint" destination="rsF-pL-BWS" id="K2A-48-ISi"/>
+                        <outlet property="imageView3" destination="l8h-NI-B8m" id="DfB-a5-Gyi"/>
+                        <outlet property="imageView3WidthConstraint" destination="vbd-ts-yX1" id="h7c-jl-nDq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qja-nu-tgz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2952.8000000000002" y="-10553.073463268367"/>
         </scene>
         <!--附近Nav-->
         <scene sceneID="SyG-hz-hAv">
@@ -1980,6 +2063,7 @@
     </scenes>
     <resources>
         <image name="def_head" width="80" height="98"/>
+        <image name="ic_camera_enhance_black_18dp" width="18" height="18"/>
         <image name="ic_login" width="12" height="14"/>
         <image name="ic_register_bg" width="375" height="667"/>
         <image name="logo" width="186" height="50"/>

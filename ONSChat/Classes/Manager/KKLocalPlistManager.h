@@ -16,6 +16,9 @@
 
 //在这里定义会用到的key
 #define Plist_Key_Avatar @"Plist_Key_Avatar" //头像名称
+#define Plist_Key_Photo1 @"Plist_Key_Photo1" //相册1
+#define Plist_Key_Photo2 @"Plist_Key_Photo2" //相册1
+#define Plist_Key_Photo3 @"Plist_Key_Photo3" //相册1
 
 
 

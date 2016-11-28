@@ -49,7 +49,10 @@
     }];
     self.tableView.header=header;
     [self.tableView.header beginRefreshing];
-    
+ 
+    NotificationView *notificationView=[[NotificationView alloc] initWithFrame:CGRectMake(10, 74, KKScreenWidth-20, 35)];
+    [self.view addSubview:notificationView];
+    [notificationView setNotificationNum:30];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -142,9 +145,9 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row%3==0)
+    if(indexPath.row%3==2)
     {
-        return 267*KKScreenWidth/320.0;
+        return 287*KKScreenWidth/320.0;
     }
     else        
         return 210*KKScreenWidth/320.0;

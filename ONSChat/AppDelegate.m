@@ -121,7 +121,7 @@
     KKSharedCurrentUser.isVIP=[dic boolForKey:@"isVIP" defaultValue:NO];
     KKSharedCurrentUser.isBaoYue=[dic boolForKey:@"isMonth" defaultValue:NO];
     KKSharedCurrentUser.phone=[dic stringForKey:@"phone" defaultValue:@""];
-    KKSharedCurrentUser.dayFirst=YES;//[dic boolForKey:@"dayfirst" defaultValue:NO];
+    KKSharedCurrentUser.dayFirst=[dic boolForKey:@"dayfirst" defaultValue:NO];
     
     
     //获取头像

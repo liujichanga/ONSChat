@@ -76,7 +76,9 @@
     KKLog(@"%@",hobbyStr);
     KKSharedUserManager.tempUser.hobby = hobbyStr;
     
-    NSDictionary *params=@{@"gender":@(KKSharedUserManager.tempUser.sex),@"nickname":[KKSharedUserManager.tempUser.nickName stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],@"channel":ChannelId,@"age":@(KKSharedUserManager.tempUser.age),@"address":KKSharedUserManager.tempUser.address,@"hobby":KKSharedUserManager.tempUser.hobby};
+    //NSDictionary *params=@{@"gender":@(KKSharedUserManager.tempUser.sex),@"nickname":KKSharedUserManager.tempUser.nickName,@"channel":ChannelId,@"age":@(KKSharedUserManager.tempUser.age),@"address":KKSharedUserManager.tempUser.address,@"hobby":KKSharedUserManager.tempUser.hobby};
+    
+      NSDictionary *params=@{@"gender":@(0),@"nickname":@"测试",@"channel":@"appstore",@"age":@(24),@"address":@"北京-北京",@"hobby":@"兴趣爱好"};
     
     [SVProgressHUD show];
     //注册
