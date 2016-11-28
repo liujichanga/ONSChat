@@ -41,7 +41,8 @@
 #define ServiceInterfaceUserCenter KKStringWithFormat(@"%@/%@/user/center", KKServerDomain, App)
 //喜欢某人
 #define ServiceInterfaceLike KKStringWithFormat(@"%@/%@/like", KKServerDomain, App)
-
+//动态相关
+#define ServiceInterfaceDynamicsabout KKStringWithFormat(@"%@/%@/user/dynamicsabout", KKServerDomain, App)
 
 
 

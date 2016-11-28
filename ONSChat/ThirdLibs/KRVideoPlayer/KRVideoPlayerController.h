@@ -16,10 +16,10 @@
 @property (nonatomic, assign) int indexNub;
 @property (nonatomic, copy)  void(^shareBlock)();
 
-//- (instancetype)initWithFrame:(CGRect)frame andShowShare:(BOOL)showShare;
-- (instancetype)initWithFrame:(CGRect)frame andtype:(NSInteger)typeNub;
+- (instancetype)initWithFrame:(CGRect)frame;
 
 - (void)showInWindow;
+- (void)showInView:(UIView*)view;
 - (void)dismiss;
 -(void)leftBtnClick;
 -(void)rightBtnClick;
