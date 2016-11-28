@@ -160,7 +160,7 @@
     {
         TwoPicCell *cell=[tableView dequeueReusableCellWithIdentifier:cellTwoPicIdentifier forIndexPath:indexPath];
         
-        if(self.arrDatas.count>(val*PerPageNumber+mod))
+        if(self.arrDatas.count>(val*PerPageNumber+mod+1))
         {
             [cell displayLeftDic:self.arrDatas[val*PerPageNumber+mod] rightDic:self.arrDatas[val*PerPageNumber+mod+1]];
         }
