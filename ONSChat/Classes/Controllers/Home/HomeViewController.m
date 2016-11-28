@@ -81,12 +81,54 @@
         
         NSDictionary *dic=(NSDictionary*)responseObject;
         KKLog(@"index:%@",dic);
+        BOOL status=[dic boolForKey:@"status" defaultValue:NO];
+        if(status)
+        {
+            NSArray *arr=[dic objectForKey:@"aaData"];
+            if(arr&&[arr isKindOfClass:[NSArray class]])
+            {
+                for (NSDictionary *dic in arr) {
+                    KKUser *user = [[KKUser alloc] initWithDicSimple:dic];
+                    [self.arrDatas addObject:user];
+                }
+                
+                [self tableViewReload:arr.count];
+            }
+            else
+            {
+                [SVProgressHUD showErrorWithStatus:@"读取失败" duration:2.0];
+                [self.tableView.header endRefreshing];
+            }
+        }
+        else
+        {
+            [SVProgressHUD showErrorWithStatus:@"读取失败" duration:2.0];
+            [self.tableView.header endRefreshing];
+
+        }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+        [SVProgressHUD showErrorWithStatus:KKErrorInfo(error) duration:2.0];
+        [self tableViewReload:-1];
     }];
 }
 
+//tableview 重载
+-(void)tableViewReload:(NSInteger)arrNumber
+{
+    [self.tableView reloadData];
+    [self.tableView.header endRefreshing];
+    
+    if(arrNumber==PerPageNumber || arrNumber== -1)
+    {
+        KKWEAKSELF
+        //显示加载更多
+        self.tableView.footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            [weakself loadMoreData];
+        }];
+    }
+    else [self.tableView.footer noticeNoMoreData];
+}
 
 
 #pragma mark - Table view data source
@@ -95,28 +137,63 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return self.arrDatas.count/PerPageNumber*3;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row==0)
+    if(indexPath.row%3==0)
+    {
+        return 267*KKScreenWidth/320.0;
+    }
+    else        
         return 210*KKScreenWidth/320.0;
-    else return 267*KKScreenWidth/320.0;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if(indexPath.row==0)
+    NSInteger val=indexPath.row/3;
+    NSInteger mod = indexPath.row%3;
+    
+    if(mod==0 || mod==1)
     {
         TwoPicCell *cell=[tableView dequeueReusableCellWithIdentifier:cellTwoPicIdentifier forIndexPath:indexPath];
+        
+        if(self.arrDatas.count>(val*PerPageNumber+mod))
+        {
+            [cell displayLeftDic:self.arrDatas[val*PerPageNumber+mod] rightDic:self.arrDatas[val*PerPageNumber+mod+1]];
+        }
+        
+        KKWEAKSELF
+        cell.clickBlock=^(NSString *userid){
+            
+            RecommendUserInfoViewController *recommendUser = KKViewControllerOfMainSB(@"RecommendUserInfoViewController");
+            recommendUser.uid = userid;
+            [weakself.navigationController pushViewController:recommendUser animated:YES];
+
+        };
         
         return cell;
     }
     else
     {
         OneVideoCell *cell=[tableView dequeueReusableCellWithIdentifier:cellOneVideoIdentifier forIndexPath:indexPath];
+        
+        if(self.arrDatas.count>(val*PerPageNumber+mod))
+        {
+            [cell displayDic:self.arrDatas[val*PerPageNumber+mod]];
+        }
+        
+        KKWEAKSELF
+        cell.clickBlock=^(NSString *userid){
+            
+            RecommendUserInfoViewController *recommendUser = KKViewControllerOfMainSB(@"RecommendUserInfoViewController");
+            recommendUser.uid = userid;
+            [weakself.navigationController pushViewController:recommendUser animated:YES];
+            
+        };
+        
         return cell;
     }
     

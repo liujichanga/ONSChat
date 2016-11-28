@@ -22,7 +22,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QoY-4G-sya" userLabel="leftview">
                         <rect key="frame" x="10" y="10" width="145" height="189.5"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="def_image" translatesAutoresizingMaskIntoConstraints="NO" id="Rcf-D0-1ab">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="def_head" translatesAutoresizingMaskIntoConstraints="NO" id="Rcf-D0-1ab">
                                 <rect key="frame" x="0.0" y="0.0" width="145" height="134.5"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我来得及访问" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LkZ-I5-AYe" userLabel="namelabel">
@@ -105,7 +105,7 @@
                                     <action selector="rightLickClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Cf9-aM-cnJ"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="def_image" translatesAutoresizingMaskIntoConstraints="NO" id="J45-xM-yc1">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="def_head" translatesAutoresizingMaskIntoConstraints="NO" id="J45-xM-yc1">
                                 <rect key="frame" x="0.0" y="0.0" width="145" height="134.5"/>
                             </imageView>
                         </subviews>
@@ -155,7 +155,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="def_image" width="50" height="50"/>
+        <image name="def_head" width="80" height="98"/>
         <image name="ic_dynamic_like" width="14" height="14"/>
         <image name="ic_dynamic_like_sel" width="14" height="14"/>
     </resources>
