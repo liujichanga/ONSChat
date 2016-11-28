@@ -94,17 +94,20 @@
             [imageView addGestureRecognizer:tap];
         }
         
-        UILabel *pageLab = [[UILabel alloc]initWithFrame:CGRectMake(0, frame.size.height-40, frame.size.width-20, 25)];
-        pageLab.textColor = [UIColor whiteColor];
-        pageLab.textAlignment = NSTextAlignmentRight;
-        pageLab.font = [UIFont systemFontOfSize:15];
-        [self addSubview:pageLab];
-        self.pageLab = pageLab;
-        
-//        _bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, frame.size.height-12, frame.size.width, 12)];
-//        _bottomView.backgroundColor = [UIColor greenColor];
-//        [self addSubview:_bottomView];
+        _bottomView = [[UIView alloc] initWithFrame:CGRectMake(frame.size.width-KKScreenWidth*(68/375.0), frame.size.height-40,KKScreenWidth*(68/375.0), KKScreenWidth*(30/375.0))];
+        _bottomView.backgroundColor = [UIColor clearColor];
+        [self addSubview:_bottomView];
 
+        UIImageView *pageImg = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, KKScreenWidth*(68/375.0),KKScreenWidth*(30/375.0))];
+        pageImg.image = [UIImage imageNamed:@"pageNubBg"];
+        [_bottomView addSubview:pageImg];
+        
+        UILabel *pageLab = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, KKScreenWidth*(68/375.0),KKScreenWidth*(30/375.0))];
+        pageLab.textColor = [UIColor whiteColor];
+        pageLab.textAlignment = NSTextAlignmentCenter;
+        pageLab.font = [UIFont systemFontOfSize:16];
+        [_bottomView addSubview:pageLab];
+        self.pageLab = pageLab;
 //        _pageBgImageView = [UIImageView new];
 //        _pageBgImageView.image = [UIImage imageNamed:@"KKCarouselViewBg"];
 //        [_bottomView addSubview:_pageBgImageView];
@@ -130,7 +133,7 @@
     _currentPage = 0;
     _pageConrol.numberOfPages = array.count;
     _pageConrol.currentPage = _currentPage;
-    self.pageLab.text = [NSString stringWithFormat:@"%zd/%zd",_currentPage,array.count];
+    self.pageLab.text = [NSString stringWithFormat:@"%zd/%zd",_currentPage+1,array.count];
     [self invalidateTimer];
     if(array.count > 1){
         _pageConrol.hidden = NO;
@@ -151,7 +154,7 @@
         _scrollView.contentSize = CGSizeMake(_scrollView.frame.size.width, _scrollView.frame.size.height);
         UIImageView *imageView = [_scrollView viewWithTag:1000];
         NSString *imageStr = array.firstObject;
-        [imageView sd_setImageWithURL:[NSURL URLWithString:imageStr] placeholderImage:[UIImage imageNamed:@"def_image"]];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:imageStr] placeholderImage:[UIImage imageNamed:@"def_head"]];
     }
 }
 
@@ -206,7 +209,7 @@
     [self refreshImage:@[@(leftIndex),@(_currentPage),@(rightIndex)]];
     
     _pageConrol.currentPage = _currentPage;
-    self.pageLab.text = [NSString stringWithFormat:@"%zd/%zd",_currentPage,_imageArray.count];
+    self.pageLab.text = [NSString stringWithFormat:@"%zd/%zd",_currentPage+1,_imageArray.count];
 }
 
 
@@ -229,7 +232,7 @@
         UIImageView *imageView = [_scrollView viewWithTag:1000 + i];
         NSInteger index = [[indexArray objectAtIndex:i] intValue];
         NSString *imageStr = [_imageArray objectAtIndex:index];
-        [imageView sd_setImageWithURL:[NSURL URLWithString:imageStr] placeholderImage:[UIImage imageNamed:@"def_image"]];       
+        [imageView sd_setImageWithURL:[NSURL URLWithString:imageStr] placeholderImage:[UIImage imageNamed:@"def_head"]];       
     }
 }
 

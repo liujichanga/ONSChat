@@ -22,11 +22,30 @@
     [self.contentView addSubview:carouseView];
     self.carouselView = carouseView;
     
-    UILabel *ageLab = [[UILabel alloc]initWithFrame:CGRectMake(10, carouseView.frame.size.height+10, 10, 30)];
+    UILabel *ageLab = [[UILabel alloc]initWithFrame:CGRectMake(10, carouseView.frame.size.height+13, 36, 24)];
     ageLab.backgroundColor = [UIColor cyanColor];
     ageLab.textColor = [UIColor whiteColor];
+    ageLab.font = [UIFont systemFontOfSize:13];
+    ageLab.textAlignment = NSTextAlignmentCenter;
+    ageLab.layer.cornerRadius = 2.0;
+    ageLab.layer.masksToBounds = YES;
     [self.contentView addSubview:ageLab];
     self.ageLab = ageLab;
+    
+    UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(ageLab.frame.origin.x+ageLab.frame.size.width+5, ageLab.frame.origin.y, 73, 24)];
+    lab.text = @"身份已验证";
+    lab.textAlignment = NSTextAlignmentCenter;
+    lab.backgroundColor = [UIColor orangeColor];
+    lab.textColor = [UIColor whiteColor];
+    lab.font = [UIFont systemFontOfSize:13];
+    lab.layer.cornerRadius = 2.0;
+    lab.layer.masksToBounds = YES;
+    [self.contentView addSubview:lab];
+    
+    UIImageView* vipImg = [[UIImageView alloc]initWithFrame:CGRectMake(lab.frame.origin.x+lab.frame.size.width+5, carouseView.frame.size.height+10, 53, 21)];
+    vipImg.image = [UIImage imageNamed:@"near_vip_one"];
+    vipImg.center = CGPointMake(vipImg.center.x, lab.center.y);
+    [self.contentView addSubview:vipImg];
     
 }
 
@@ -42,10 +61,9 @@
     [self.carouselView setNetworkImageURLStr:avatarArray];
 }
 
--(void)setAgeStr:(NSString *)ageStr{
-    _ageStr =ageStr;
-    self.ageLab.text = [NSString stringWithFormat:@" %@岁 ",ageStr];
-    [self.ageLab sizeToFit];
+-(void)setAge:(NSInteger)age{
+    _age =age;
+    self.ageLab.text = [NSString stringWithFormat:@"%ld岁",(long)age];
 }
 
 @end
