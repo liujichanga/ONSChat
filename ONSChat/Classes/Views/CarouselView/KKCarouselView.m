@@ -88,7 +88,7 @@
             [_scrollView addSubview:imageView];
             imageView.tag = 1000 + i;
             imageView.backgroundColor = [UIColor blackColor];
-            
+            imageView.image = [UIImage imageNamed:@"def_head"];
             imageView.userInteractionEnabled = YES;
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
             [imageView addGestureRecognizer:tap];
@@ -108,6 +108,7 @@
         pageLab.font = [UIFont systemFontOfSize:16];
         [_bottomView addSubview:pageLab];
         self.pageLab = pageLab;
+        
 //        _pageBgImageView = [UIImageView new];
 //        _pageBgImageView.image = [UIImage imageNamed:@"KKCarouselViewBg"];
 //        [_bottomView addSubview:_pageBgImageView];
@@ -150,7 +151,7 @@
     }else {
         _pageConrol.hidden = YES;
         _pageBgImageView.hidden = YES;
-        
+        _bottomView.hidden = YES;
         _scrollView.contentSize = CGSizeMake(_scrollView.frame.size.width, _scrollView.frame.size.height);
         UIImageView *imageView = [_scrollView viewWithTag:1000];
         NSString *imageStr = array.firstObject;

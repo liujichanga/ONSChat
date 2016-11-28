@@ -10,7 +10,6 @@
 
 @interface KRVideoPlayerControlView : UIView
 
-@property (nonatomic, strong, readonly) UIView *topBar;
 @property (nonatomic, strong, readonly) UIView *bottomBar;
 @property (nonatomic, strong, readonly) UIButton *playButton;
 @property (nonatomic, strong, readonly) UIButton *pauseButton;
@@ -18,12 +17,9 @@
 @property (nonatomic, strong, readonly) UIButton *shrinkScreenButton;
 @property (nonatomic, strong, readonly) UISlider *progressSlider;
 @property (nonatomic, strong, readonly) UIButton *closeButton;
-@property (nonatomic, strong, readonly) UILabel *timeLabel;
+@property (nonatomic, strong, readonly) UILabel *endTimeLabel;
+@property (nonatomic, strong, readonly) UILabel *startTimeLabel;
 @property (nonatomic, strong, readonly) UIActivityIndicatorView *indicatorView;
-@property (nonatomic, strong, readonly) UIButton *leftBtn;
-@property (nonatomic, strong, readonly) UIButton *rightBtn;
-@property (nonatomic, strong, readonly) UILabel *hitLabel;
-@property (nonatomic, strong, readonly) UIButton *shareBtn;
 
 - (void)animateHide;
 - (void)animateShow;

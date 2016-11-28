@@ -168,6 +168,7 @@
 		9B53D32F1DEBD9FA00913DFC /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B53D32D1DEBD9FA00913DFC /* VideoCell.xib */; };
 		9B53D3351DEC098700913DFC /* KRVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B53D3321DEC098700913DFC /* KRVideoPlayerController.m */; };
 		9B53D3361DEC098700913DFC /* KRVideoPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B53D3341DEC098700913DFC /* KRVideoPlayerControlView.m */; };
+		9B53D3391DEC324B00913DFC /* UserInfoHasVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B53D3381DEC324B00913DFC /* UserInfoHasVideoViewController.m */; };
 		9BC32EE81DE5A8CE00CDDAFB /* UserHobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EE51DE5A8CE00CDDAFB /* UserHobbyViewController.m */; };
 		9BC32EE91DE5A8CE00CDDAFB /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EE71DE5A8CE00CDDAFB /* UserInfoViewController.m */; };
 		9BC32EEC1DE5AE4400CDDAFB /* FemaleNickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EEB1DE5AE4400CDDAFB /* FemaleNickNameViewController.m */; };
@@ -478,6 +479,8 @@
 		9B53D3321DEC098700913DFC /* KRVideoPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRVideoPlayerController.m; sourceTree = "<group>"; };
 		9B53D3331DEC098700913DFC /* KRVideoPlayerControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRVideoPlayerControlView.h; sourceTree = "<group>"; };
 		9B53D3341DEC098700913DFC /* KRVideoPlayerControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRVideoPlayerControlView.m; sourceTree = "<group>"; };
+		9B53D3371DEC324B00913DFC /* UserInfoHasVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoHasVideoViewController.h; path = ONSChat/Classes/Controllers/Home/RecommendUserInfo/UserInfoHasVideoViewController.h; sourceTree = SOURCE_ROOT; };
+		9B53D3381DEC324B00913DFC /* UserInfoHasVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoHasVideoViewController.m; path = ONSChat/Classes/Controllers/Home/RecommendUserInfo/UserInfoHasVideoViewController.m; sourceTree = SOURCE_ROOT; };
 		9BC32EE41DE5A8CE00CDDAFB /* UserHobbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserHobbyViewController.h; sourceTree = "<group>"; };
 		9BC32EE51DE5A8CE00CDDAFB /* UserHobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserHobbyViewController.m; sourceTree = "<group>"; };
 		9BC32EE61DE5A8CE00CDDAFB /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
@@ -1360,6 +1363,8 @@
 				9BFB22CE1DE95A9900DB9BE6 /* View */,
 				9BFB22CA1DE95A4C00DB9BE6 /* RecommendUserInfoViewController.h */,
 				9BFB22CB1DE95A4C00DB9BE6 /* RecommendUserInfoViewController.m */,
+				9B53D3371DEC324B00913DFC /* UserInfoHasVideoViewController.h */,
+				9B53D3381DEC324B00913DFC /* UserInfoHasVideoViewController.m */,
 			);
 			path = RecommendUserInfo;
 			sourceTree = "<group>";
@@ -1508,6 +1513,7 @@
 				569864211DE00EAF0059D484 /* MJRefreshBackStateFooter.m in Sources */,
 				569864581DE010B40059D484 /* NSDate+Utils.m in Sources */,
 				5698645C1DE010B40059D484 /* NSString+Digest.m in Sources */,
+				9B53D3391DEC324B00913DFC /* UserInfoHasVideoViewController.m in Sources */,
 				9BC32EFB1DE6D31600CDDAFB /* FemaleIncomeViewController.m in Sources */,
 				569864271DE00EAF0059D484 /* UIScrollView+MJExtension.m in Sources */,
 				1CF680FC1DE82A5D0046F34D /* ONSButtonPurple.m in Sources */,

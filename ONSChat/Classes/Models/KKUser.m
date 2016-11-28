@@ -70,7 +70,8 @@
         
         self.sign = [userDic stringForKey:@"sign" defaultValue:@""];
         self.age = [userDic integerForKey:@"age" defaultValue:0];
-        self.nickName = [userDic stringForKey:@"nickname" defaultValue:@""];     
+        self.nickName = [userDic stringForKey:@"nickname" defaultValue:@""];
+        self.noticedToday = [userDic boolForKey:@"noticed" defaultValue:NO];
     }
     
     return self;

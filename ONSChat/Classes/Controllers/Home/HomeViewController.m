@@ -10,6 +10,7 @@
 #import "TwoPicCell.h"
 #import "OneVideoCell.h"
 #import "RecommendUserInfoViewController.h"
+#import "UserInfoHasVideoViewController.h"
 
 #define cellTwoPicIdentifier @"TwoPicCell"
 #define cellOneVideoIdentifier @"OneVideoCell"
@@ -174,7 +175,6 @@
             RecommendUserInfoViewController *recommendUser = KKViewControllerOfMainSB(@"RecommendUserInfoViewController");
             recommendUser.uid = userid;
             [weakself.navigationController pushViewController:recommendUser animated:YES];
-
         };
         
         return cell;
@@ -191,8 +191,9 @@
         KKWEAKSELF
         cell.clickBlock=^(NSString *userid){
             
-            RecommendUserInfoViewController *recommendUser = KKViewControllerOfMainSB(@"RecommendUserInfoViewController");
-            recommendUser.uid = userid;
+            UserInfoHasVideoViewController *recommendUser = KKViewControllerOfMainSB(@"UserInfoHasVideoViewController");
+            recommendUser.uid = @"26520";
+            recommendUser.dynamicsID = @"796";
             [weakself.navigationController pushViewController:recommendUser animated:YES];
             
         };

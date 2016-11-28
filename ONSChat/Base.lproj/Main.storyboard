@@ -2060,6 +2060,46 @@
             </objects>
             <point key="canvasLocation" x="1444" y="-12958"/>
         </scene>
+        <!--推荐用户资料_有视频-->
+        <scene sceneID="9s5-Z8-Di7">
+            <objects>
+                <viewController storyboardIdentifier="UserInfoHasVideoViewController" title="推荐用户资料_有视频" hidesBottomBarWhenPushed="YES" id="hee-ui-Ghk" customClass="UserInfoHasVideoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6Bt-wp-MqB"/>
+                        <viewControllerLayoutGuide type="bottom" id="YVx-N0-dfs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="v3G-5x-rn1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9LI-N1-vZA">
+                                <rect key="frame" x="0.0" y="-1" width="375" height="668"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="hee-ui-Ghk" id="ymP-nV-p3I"/>
+                                    <outlet property="delegate" destination="hee-ui-Ghk" id="JIV-i6-tnV"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YVx-N0-dfs" firstAttribute="top" secondItem="9LI-N1-vZA" secondAttribute="bottom" id="Dlg-r1-A89"/>
+                            <constraint firstItem="9LI-N1-vZA" firstAttribute="leading" secondItem="v3G-5x-rn1" secondAttribute="leading" id="Yr9-cV-arA"/>
+                            <constraint firstItem="9LI-N1-vZA" firstAttribute="top" secondItem="v3G-5x-rn1" secondAttribute="top" constant="-1" id="tTk-eK-0C4"/>
+                            <constraint firstAttribute="trailing" secondItem="9LI-N1-vZA" secondAttribute="trailing" id="taj-tl-PtX"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Zot-iz-uU2">
+                        <barButtonItem key="backBarButtonItem" title="返回" id="Ypy-D5-cjG"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="9LI-N1-vZA" id="Vw8-Dj-XOu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3yx-PO-Fyx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2092" y="-12958"/>
+        </scene>
     </scenes>
     <resources>
         <image name="def_head" width="80" height="98"/>

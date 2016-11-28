@@ -50,7 +50,6 @@
     ONSButtonPurple *btn=[ONSButtonPurple buttonWithType:UIButtonTypeCustom];
     btn.frame=frame;
     [btn setTitle:title forState:UIControlStateNormal];
-    
     [btn setBackgroundImage:[UIImage imageWithColor:KKColorPurple forSize:btn.frame.size radius:Radius borderWidth:0 borderColor:nil] forState:UIControlStateNormal];
     
     return btn;
