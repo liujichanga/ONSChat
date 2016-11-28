@@ -72,44 +72,12 @@
 
 -(void)loadInfoData{
     [SVProgressHUD show];
-    NSDictionary *param = @{@"uid":@(self.uid)};
+    NSDictionary *param = @{@"uid":self.uid};
     [FSSharedNetWorkingManager GET:ServiceInterfaceUserInfo parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *respDic = (NSDictionary*)responseObject;
         KKLog(@"资料 %@",respDic);
         if (respDic&&respDic.count>0) {
             [SVProgressHUD dismiss];
-//            NSDictionary *userDic = [respDic objectForKey:@"user"];
-//            NSString*job = [userDic stringForKey:@"job" defaultValue:@""];
-//            NSString*income = [userDic stringForKey:@"income" defaultValue:@""];
-//            NSString*blood = [userDic stringForKey:@"blood" defaultValue:@""];
-//            NSString*weight = [userDic stringForKey:@"weight" defaultValue:@""];
-//            NSString*astro = [userDic stringForKey:@"astro" defaultValue:@""];
-//            NSString*marry = [userDic stringForKey:@"marry" defaultValue:@""];
-//            NSString*house = [userDic stringForKey:@"house" defaultValue:@""];
-//            NSString*car = [userDic stringForKey:@"car" defaultValue:@""];
-//            self.baseInfoA1 = [NSArray arrayWithObjects:job,income,blood,weight,astro,marry,house,car,nil];
-//            
-//            NSString*pos = [userDic stringForKey:@"pos" defaultValue:@""];
-//            NSString*lovetype = [userDic stringForKey:@"lovetype" defaultValue:@""];
-//            NSString*distance = [userDic stringForKey:@"distance" defaultValue:@""];
-//            NSString*child = [userDic stringForKey:@"child" defaultValue:@""];
-//            NSString*livetog = [userDic stringForKey:@"livetog" defaultValue:@""];
-//            NSString*withparent = [userDic stringForKey:@"withparent" defaultValue:@""];
-//            NSString*hobby = [userDic stringForKey:@"hobby" defaultValue:@""];
-//            NSString*personality = [userDic stringForKey:@"personality" defaultValue:@""];
-//            self.baseInfoA2 = [NSArray arrayWithObjects:pos,lovetype,distance,child,livetog,withparent,hobby,personality, nil];
-//           
-//            NSString*taAddress = [userDic stringForKey:@"taAddress" defaultValue:@""];
-//            NSString*taAge = [userDic stringForKey:@"taAge" defaultValue:@""];
-//            NSString*taIncome = [userDic stringForKey:@"taIncome" defaultValue:@""];
-//            NSString*taHeight = [userDic stringForKey:@"taHeight" defaultValue:@""];
-//            NSString*taGraduate = [userDic stringForKey:@"taGraduate" defaultValue:@""];
-//            self.TABaseInfoA = [NSArray arrayWithObjects:taAddress,taAge,taIncome,taHeight,taGraduate,nil];
-//            
-//            self.signStr = [userDic stringForKey:@"sign" defaultValue:@""];
-//            self.avatarArray = [respDic objectForKey:@"avatarlist"];
-//            self.age = [userDic integerForKey:@"age" defaultValue:0];
-//            self.title = [userDic stringForKey:@"nickName" defaultValue:@""];
             
             KKUser*user = [[KKUser alloc]initWithDicFull:respDic];
             
