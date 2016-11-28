@@ -10,4 +10,8 @@
 
 @interface OneVideoCell : UITableViewCell
 
+@property (nonatomic, copy) void(^clickBlock)(NSString *userid);
+
+-(void)displayDic:(KKUser*)user;
+
 @end

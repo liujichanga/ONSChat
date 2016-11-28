@@ -39,6 +39,8 @@
 #define ServiceInterfaceNearByUserList KKStringWithFormat(@"%@/%@/nearby/userlist", KKServerDomain, App)
 //我的页面，付费信息
 #define ServiceInterfaceUserCenter KKStringWithFormat(@"%@/%@/user/center", KKServerDomain, App)
+//喜欢某人
+#define ServiceInterfaceLike KKStringWithFormat(@"%@/%@/like", KKServerDomain, App)
 
 
 

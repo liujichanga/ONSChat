@@ -23,8 +23,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *rightLikeButton;
 
 
-@property(assign,nonatomic) long long leftUserid;
-@property(assign,nonatomic) long long rightUserid;
+@property(strong,nonatomic) KKUser *leftUser;
+@property(strong,nonatomic) KKUser *rightUser;
 
 @end
 
@@ -39,6 +39,12 @@
     [_leftView.layer setCornerRadius:5.0];
     [_rightView.layer setMasksToBounds:YES];
     [_rightView.layer setCornerRadius:5.0];
+    
+    UITapGestureRecognizer *leftheadGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(leftTap:)];
+    [self.leftView addGestureRecognizer:leftheadGestureRecognizer];
+    
+    UITapGestureRecognizer *rightheadGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(rightTap:)];
+    [self.rightView addGestureRecognizer:rightheadGestureRecognizer];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -46,14 +52,86 @@
 
     // Configure the view for the selected state
 }
+
+-(void)leftTap:(id)sender
+{
+    if(self.clickBlock) self.clickBlock(self.leftUser.userId);
+}
+
+-(void)rightTap:(id)sender
+{
+    if(self.clickBlock) self.clickBlock(self.rightUser.userId);
+}
+
 - (IBAction)leftLikeClick:(id)sender {
     
-    if(self.clickBlock) self.clickBlock(self.leftUserid);
+    if(!_leftLikeButton.selected)
+    {
+        //提交接口
+        NSDictionary *params=@{@"fid":self.leftUser.userId};
+        [FSSharedNetWorkingManager POST:ServiceInterfaceLike parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            
+        }];
+        
+        _leftUser.isliked=YES;
+        _leftLikeButton.selected=YES;
+    }
+    else
+    {
+        [MBProgressHUD showMessag:@"已经喜欢过了" toView:nil];
+    }
 }
 - (IBAction)rightLickClick:(id)sender {
   
-    if(self.clickBlock) self.clickBlock(self.rightUserid);
+    if(!_rightLikeButton.selected)
+    {
+        //提交接口
+        NSDictionary *params=@{@"fid":self.rightUser.userId};
+        [FSSharedNetWorkingManager POST:ServiceInterfaceLike parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            
+        }];
+        
+        _rightUser.isliked=YES;
+        _rightLikeButton.selected=YES;
+    }
+    else
+    {
+        [MBProgressHUD showMessag:@"已经喜欢过了" toView:nil];
+    }
+}
+
+-(void)displayLeftDic:(KKUser*)leftUser rightDic:(KKUser*)rightUser
+{
+    _leftUser = leftUser;
+    _rightUser = rightUser;
+    
+    _leftImageView.image=[UIImage imageNamed:@"def_head"];
+    NSString *leftimageurl=leftUser.avatarUrl;
+    if(KKStringIsNotBlank(leftimageurl))
+    {
+        KKImageViewWithUrlstring(_leftImageView, leftimageurl, @"def_head");
+    }
+    _leftNameLabel.text=leftUser.nickName;
+    _leftAgeLabel.text=KKStringWithFormat(@"%ld岁 %@",leftUser.age,leftUser.address);
+    _leftLikeButton.selected=leftUser.isliked;
+    
+    
+    _rightImageView.image=[UIImage imageNamed:@"def_head"];
+    NSString *rightimageurl=rightUser.avatarUrl;
+    if(KKStringIsNotBlank(rightimageurl))
+    {
+        KKImageViewWithUrlstring(_rightImageView, rightimageurl, @"def_head");
+    }
+    _rightNameLabel.text=rightUser.nickName;
+    _rightAgeLabel.text=KKStringWithFormat(@"%ld岁 %@",rightUser.age,rightUser.address);
+    _rightLikeButton.selected=rightUser.isliked;
 
 }
+
+
 
 @end
