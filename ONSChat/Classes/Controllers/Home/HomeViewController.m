@@ -170,7 +170,8 @@
         cell.clickBlock=^(NSString *userid){
             
             RecommendUserInfoViewController *recommendUser = KKViewControllerOfMainSB(@"RecommendUserInfoViewController");
-            recommendUser.uid = userid;
+            recommendUser.uid = @"26520";
+            recommendUser.dynamicsID = @"796";
             [weakself.navigationController pushViewController:recommendUser animated:YES];
         };
         
