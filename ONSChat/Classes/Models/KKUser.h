@@ -86,7 +86,7 @@ typedef NS_ENUM(NSUInteger, KKSex) {
 @property(assign,nonatomic) BOOL noticedToday;//是否今天已打过招呼
 @property(strong,nonatomic) NSArray *avatarUrlList;//头像相册列表
 @property(strong,nonatomic) NSString *distanceKm;//显示的距离
-
+@property(strong,nonatomic) NSString *dynamicsId;//动态id
 
 //是否为付费过的用户
 -(BOOL)isPayUser;

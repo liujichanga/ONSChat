@@ -15,4 +15,6 @@
 
 -(NSString*)sha1;
 
+//urlencode
+- (NSString *)UrlValueEncode;
 @end
