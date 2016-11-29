@@ -84,4 +84,10 @@
     return returnValue;
 }
 
+- (NSString *)UrlValueEncode
+{
+    NSString *result = (NSString*)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,(CFStringRef)self, NULL,CFSTR("!*'();:@&=+$,/?%#[]"),kCFStringEncodingUTF8));
+    return result;
+}
+
 @end

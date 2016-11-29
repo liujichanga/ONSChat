@@ -11,6 +11,7 @@
 #import "VIPCell.h"
 #import "MeInfoCell.h"
 #import "SettingTableViewController.h"
+#import "MyPhotoViewController.h"
 
 
 #define cellHeadIdentifier @"HeadCell"
@@ -72,7 +73,7 @@
             KKSharedCurrentUser.melikeNum=[dic integerForKey:@"likenum" defaultValue:0];
             KKSharedCurrentUser.visitNum=[dic integerForKey:@"visitnum" defaultValue:0];
             
-            KKSharedCurrentUser.nickName=[[dic stringForKey:@"nickname" defaultValue:@""] stringByReplacingPercentEscapesUsingEncoding:NSUnicodeStringEncoding];
+            KKSharedCurrentUser.nickName=[dic stringForKey:@"nickname" defaultValue:@""]; //stringByReplacingPercentEscapesUsingEncoding:NSUnicodeStringEncoding];
             
             [self.tableView reloadData];
         }
@@ -171,7 +172,7 @@
         KKWEAKSELF
         cell.changeHeadImage=^{
           
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"请选择" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"请选择" preferredStyle:UIAlertControllerStyleActionSheet];
             UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                
                 [weakself openImagePickerControllerWithScourceType:UIImagePickerControllerSourceTypeCamera];
@@ -181,8 +182,11 @@
                 [weakself openImagePickerControllerWithScourceType:UIImagePickerControllerSourceTypePhotoLibrary];
 
             }];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+            
             [alertController addAction:cameraAction];
             [alertController addAction:libraryAction];
+            [alertController addAction:cancelAction];
             [weakself presentViewController:alertController animated:YES completion:nil];
             
         };
@@ -311,6 +315,8 @@
         else if(indexPath.row==2)
         {
             //我的相册
+            MyPhotoViewController *myPhotoTVC=KKViewControllerOfMainSB(@"MyPhotoViewController");
+            [self.navigationController pushViewController:myPhotoTVC animated:YES];
         }
     }
     else if(indexPath.section==3)

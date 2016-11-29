@@ -28,7 +28,7 @@
         _address=[dic stringForKey:@"address" defaultValue:@""];
         _age=[dic integerForKey:@"age" defaultValue:0];
         _nickName=[dic stringForKey:@"nickname" defaultValue:@""];
-        
+        _dynamicsId=[dic stringForKey:@"dynamicsId" defaultValue:@""];
        
     }
     

@@ -62,7 +62,9 @@
 
 -(void)tap:(id)sender
 {
-    
+    UITabBarController *tabBarController=(UITabBarController*)KKRootController;
+    if(tabBarController.viewControllers.count>2)
+        tabBarController.selectedIndex=2;
 }
 
 

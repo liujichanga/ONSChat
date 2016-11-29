@@ -56,6 +56,8 @@
 
 }
 
+
+
 - (IBAction)finishBtnClick:(id)sender {
     NSString *hobbyStr;
     for (UIButton* btn in self.hobbyArray) {
@@ -76,11 +78,20 @@
     KKLog(@"%@",hobbyStr);
     KKSharedUserManager.tempUser.hobby = hobbyStr;
     
-    NSDictionary *params=@{@"gender":@(KKSharedUserManager.tempUser.sex),@"nickname":[KKSharedUserManager.tempUser.nickName stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],@"channel":ChannelId,@"age":@(KKSharedUserManager.tempUser.age),@"address":KKSharedUserManager.tempUser.address,@"hobby":KKSharedUserManager.tempUser.hobby};
+    NSURLComponents *component=[NSURLComponents componentsWithString:ServiceInterfaceRegister];
+    component.queryItems=@[
+                           [NSURLQueryItem queryItemWithName:@"gender" value:KKStringWithFormat(@"%zd",KKSharedUserManager.tempUser.sex)],
+                            [NSURLQueryItem queryItemWithName:@"nickname" value:KKSharedUserManager.tempUser.nickName],
+                            [NSURLQueryItem queryItemWithName:@"channel" value:ChannelId],
+                            [NSURLQueryItem queryItemWithName:@"age" value:KKStringWithFormat(@"%zd",KKSharedUserManager.tempUser.age)],
+                            [NSURLQueryItem queryItemWithName:@"address" value:KKSharedUserManager.tempUser.address],
+                           [NSURLQueryItem queryItemWithName:@"hobby" value:KKSharedUserManager.tempUser.hobby]
+                           ];
     
     [SVProgressHUD show];
+    
     //注册
-    [FSSharedNetWorkingManager POST:ServiceInterfaceRegister parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [FSSharedNetWorkingManager POST:component.URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         NSDictionary *dic = (NSDictionary*)responseObject;
         KKLog(@"register:%@",responseObject);
