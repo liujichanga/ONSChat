@@ -12,4 +12,8 @@
 
 @interface NearUserCell : UITableViewCell
 
+-(void)displayInfo:(KKUser*)user;
+
 @end
+
+

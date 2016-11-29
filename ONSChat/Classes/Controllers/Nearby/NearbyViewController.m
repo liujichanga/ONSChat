@@ -60,8 +60,8 @@
         
         NSDictionary *dic=(NSDictionary*)responseObject;
         KKLog(@"nearby:%@",dic);
-        BOOL status=[dic boolForKey:@"status" defaultValue:NO];
-        if(status)
+        NSInteger status=[dic integerForKey:@"status" defaultValue:0];
+        if(status==1)
         {
             NSArray *arr=[dic objectForKey:@"aaData"];
             if(arr&&[arr isKindOfClass:[NSArray class]])
@@ -128,6 +128,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NearUserCell *cell=[tableView dequeueReusableCellWithIdentifier:cellNearUserIdentifier forIndexPath:indexPath];
+    
+    if(self.arrDatas.count>indexPath.section)
+    {
+        [cell displayInfo:self.arrDatas[indexPath.section]];
+    }
     
     return  cell;
     

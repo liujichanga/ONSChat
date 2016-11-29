@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *descLabel;
 @property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 
+@property(strong,nonatomic) KKUser *user;
 
 @end
 
@@ -32,6 +33,13 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+-(void)displayInfo:(KKUser *)user
+{
+    _user=user;
+    
+    
 }
 
 @end
