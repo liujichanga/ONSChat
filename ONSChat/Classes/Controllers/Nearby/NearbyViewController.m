@@ -112,7 +112,21 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100;
+    if(self.arrDatas.count>indexPath.section)
+    {
+        KKUser *user=self.arrDatas[indexPath.section];
+        CGFloat height = NearUserTopHeight+NearUserBottomHeight+10;
+        CGSize size=[user.dynamicText sizeWithFont:[UIFont systemFontOfSize:15] maxSize:CGSizeMake(KKScreenWidth-NearUserLeftInterval*2, 1000)];
+        height+=size.height;
+        if(user.dynamicsType==KKDynamicsTypeVideo)
+            height+=NearUserVideoHeight;
+        else
+            height+=NearUserImageHeight;
+        
+        return height;
+    }
+    
+    return 200;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
