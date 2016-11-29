@@ -18,6 +18,7 @@ static const CGFloat kVideoPlayerControllerAnimationTimeinterval = 0.3f;
 @property (nonatomic, assign) BOOL isFullscreenMode;
 @property (nonatomic, assign) CGRect originFrame;
 @property (nonatomic, strong) NSTimer *durationTimer;
+@property (nonatomic, strong) UIView *videoSuperView;
 
 @end
 
@@ -76,7 +77,7 @@ static const CGFloat kVideoPlayerControllerAnimationTimeinterval = 0.3f;
 
 - (void)showInView:(UIView*)view
 {
-
+    self.videoSuperView = view;
     [view addSubview:self.view];
     self.view.alpha = 0.0;
     [UIView animateWithDuration:kVideoPlayerControllerAnimationTimeinterval animations:^{
@@ -179,6 +180,8 @@ static const CGFloat kVideoPlayerControllerAnimationTimeinterval = 0.3f;
     if (self.isFullscreenMode) {
         return;
     }
+    [KKNotificationCenter postNotificationName:@"fullScreen" object:nil];
+    [self showInWindow];
     self.originFrame = self.view.frame;
     [UIView animateWithDuration:0.3f animations:^{
         self.frame = [UIScreen mainScreen].bounds;
@@ -194,9 +197,8 @@ static const CGFloat kVideoPlayerControllerAnimationTimeinterval = 0.3f;
     if (!self.isFullscreenMode) {
         return;
     }
-    NSDictionary *dic = @{@"nub":@(self.indexNub)};
-    [KKNotificationCenter postNotificationName:@"UPDATA_ACTION_DESCRIPTION" object:nil userInfo:dic];
-
+    [KKNotificationCenter postNotificationName:@"shrinkScreen" object:nil];
+    [self showInView:self.videoSuperView];
     [UIView animateWithDuration:0.3f animations:^{
         self.frame = self.originFrame;
         

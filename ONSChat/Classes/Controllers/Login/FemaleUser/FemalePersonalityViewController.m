@@ -88,12 +88,12 @@
         KKLog(@"personality %@",personalityStr);
         KKSharedUserManager.tempUser.personality = personalityStr;
 
-        //注册
-        NSDictionary *params=@{@"gender":@(KKSharedUserManager.tempUser.sex),@"nickname":KKSharedUserManager.tempUser.nickName,@"channel":ChannelId,@"job":KKSharedUserManager.tempUser.job,@"height":@(KKSharedUserManager.tempUser.height),@"income":KKSharedUserManager.tempUser.income,@"hobby":KKSharedUserManager.tempUser.hobby,@"personality":KKSharedUserManager.tempUser.personality};
+        NSURLComponents *component = [NSURLComponents componentsWithString:ServiceInterfaceRegister];
+        component.queryItems = @[[NSURLQueryItem queryItemWithName:@"gender" value:[NSString stringWithFormat:@"%zd",KKSharedUserManager.tempUser.sex]],[NSURLQueryItem queryItemWithName:@"nickname" value:KKSharedUserManager.tempUser.nickName],[NSURLQueryItem queryItemWithName:@"channel" value:ChannelId],[NSURLQueryItem queryItemWithName:@"job" value:KKSharedUserManager.tempUser.job],[NSURLQueryItem queryItemWithName:@"height" value:[NSString stringWithFormat:@"%zd",KKSharedUserManager.tempUser.height]],[NSURLQueryItem queryItemWithName:@"income" value:KKSharedUserManager.tempUser.income],[NSURLQueryItem queryItemWithName:@"hobby" value:KKSharedUserManager.tempUser.hobby],[NSURLQueryItem queryItemWithName:@"personality" value:KKSharedUserManager.tempUser.personality]];
         
         [SVProgressHUD show];
         
-        [FSSharedNetWorkingManager POST:ServiceInterfaceRegister parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [FSSharedNetWorkingManager POST:component.URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
             NSDictionary *dic = (NSDictionary*)responseObject;
             KKLog(@"register:%@",responseObject);

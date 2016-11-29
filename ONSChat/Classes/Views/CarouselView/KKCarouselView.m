@@ -134,9 +134,10 @@
     _currentPage = 0;
     _pageConrol.numberOfPages = array.count;
     _pageConrol.currentPage = _currentPage;
-    self.pageLab.text = [NSString stringWithFormat:@"%zd/%zd",_currentPage+1,array.count];
     [self invalidateTimer];
     if(array.count > 1){
+        self.pageLab.text = [NSString stringWithFormat:@"%zd/%zd",_currentPage+1,array.count];
+        _bottomView.hidden = NO;
         _pageConrol.hidden = NO;
         
         CGFloat width = array.count * 16 + 5;

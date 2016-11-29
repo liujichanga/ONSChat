@@ -68,10 +68,10 @@
     [self.tableView registerNib:[UINib nibWithNibName:cellCarouselIdentifier bundle:nil] forCellReuseIdentifier:cellCarouselIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:cellVideolIdentifier bundle:nil] forCellReuseIdentifier:cellVideolIdentifier];
     
-    
     [self loadInfoData];
-    [self loadVideoData];
-
+    if (self.dynamicsID) {
+        [self loadVideoData];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -181,6 +181,9 @@
     return 60;
 }
 -(CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section{
+    if (section==0) {
+        return 0.1;
+    }
     return 10;
 }
 -(CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section{
@@ -213,15 +216,15 @@
     KKWEAKSELF
     if (indexPath.section==0) {
         CarouselCell *cell=[tableView dequeueReusableCellWithIdentifier:cellCarouselIdentifier forIndexPath:indexPath];
-        if (self.avatarArray.count>0) {
-            cell.avatarArray = self.avatarArray;
-        }
+        cell.avatarArray = self.avatarArray;
         cell.age = self.age;
         return cell;
     }
     else if (indexPath.section==1){
         VideoCell *cell=[tableView dequeueReusableCellWithIdentifier:cellVideolIdentifier forIndexPath:indexPath];
+        cell.hidden = YES;
         if (self.videoDic.count>0) {
+            cell.hidden = NO;
             cell.dataDic = self.videoDic;
         }
         cell.heightBlock = ^(CGFloat height){
