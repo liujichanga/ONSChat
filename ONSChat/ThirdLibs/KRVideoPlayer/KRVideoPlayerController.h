@@ -21,6 +21,6 @@
 - (void)showInWindow;
 - (void)showInView:(UIView*)view;
 - (void)dismiss;
--(void)leftBtnClick;
--(void)rightBtnClick;
+
+
 @end

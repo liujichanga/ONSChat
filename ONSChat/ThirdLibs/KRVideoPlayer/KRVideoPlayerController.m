@@ -18,9 +18,8 @@ static const CGFloat kVideoPlayerControllerAnimationTimeinterval = 0.3f;
 @property (nonatomic, assign) BOOL isFullscreenMode;
 @property (nonatomic, assign) CGRect originFrame;
 @property (nonatomic, strong) NSTimer *durationTimer;
-//@property (nonatomic, assign) BOOL showShare;
-//使用场景 1MV(分享，不全屏) 2动作介绍（不分享，全屏） 3自选课（不分享，不全屏）
-//@property (nonatomic, assign) NSInteger typeNub;
+@property (nonatomic, strong) UIView *videoSuperView;
+
 @end
 
 @implementation KRVideoPlayerController
@@ -30,57 +29,18 @@ static const CGFloat kVideoPlayerControllerAnimationTimeinterval = 0.3f;
     [self cancelObserver];
 }
 
-//- (instancetype)initWithFrame:(CGRect)frame andShowShare:(BOOL)showShare
-//{
-//    self = [super init];
-//    KKLog(@"%zd",showShare);
-//    if (self) {
-//        self.showShare = showShare;
-//        self.view.frame = frame;
-//        self.view.backgroundColor = [UIColor blackColor];
-//        self.controlStyle = MPMovieControlStyleNone;
-//        [self.view addSubview:self.videoControl];
-//        self.videoControl.frame = self.view.bounds;
-//        self.videoControl.leftBtn.hidden = YES;
-//        self.videoControl.rightBtn.hidden = YES;
-//        [self configObserver];
-//        [self configControlAction];
-//        if (showShare==YES) {
-//            self.videoControl.shareBtn.hidden = NO;
-//            self.videoControl.fullScreenButton.hidden = YES;
-//        }else{
-//            self.videoControl.shareBtn.hidden = YES;
-//            self.videoControl.fullScreenButton.hidden = NO;
-//        }
-//
-//    }
-//    return self;
-//}
-
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super init];
     if (self) {
-//        self.typeNub = typeNub;
         self.view.frame = frame;
         self.view.backgroundColor = [UIColor blackColor];
         self.controlStyle = MPMovieControlStyleNone;
         [self.view addSubview:self.videoControl];
         self.videoControl.frame = self.view.bounds;
-//        self.videoControl.leftBtn.hidden = YES;
-//        self.videoControl.rightBtn.hidden = YES;
+
         [self configObserver];
         [self configControlAction];
-//        if (typeNub==1) {
-//            self.videoControl.shareBtn.hidden = NO;
-//            self.videoControl.fullScreenButton.hidden = YES;
-//        }else if (typeNub==2){
-//            self.videoControl.shareBtn.hidden = YES;
-//            self.videoControl.fullScreenButton.hidden = NO;
-//        }else{
-//            self.videoControl.shareBtn.hidden = YES;
-//            self.videoControl.fullScreenButton.hidden = YES;
-//        }
         
     }
     return self;
@@ -92,7 +52,6 @@ static const CGFloat kVideoPlayerControllerAnimationTimeinterval = 0.3f;
 {
 
     [self.videoControl.indicatorView startAnimating];
-//    self.videoControl.hitLabel.hidden = NO;
     [self stop];
     [super setContentURL:contentURL];
     [self play];
@@ -118,7 +77,7 @@ static const CGFloat kVideoPlayerControllerAnimationTimeinterval = 0.3f;
 
 - (void)showInView:(UIView*)view
 {
-
+    self.videoSuperView = view;
     [view addSubview:self.view];
     self.view.alpha = 0.0;
     [UIView animateWithDuration:kVideoPlayerControllerAnimationTimeinterval animations:^{
@@ -126,30 +85,18 @@ static const CGFloat kVideoPlayerControllerAnimationTimeinterval = 0.3f;
     } completion:^(BOOL finished) {
         
     }];
-//    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
 }
 
 - (void)dismiss
 {
-    
     [KKThredUtils runInMainQueue:^{
         [self stopDurationTimer];
         [self stop];
-//        [self.view removeFromSuperview];
     } delay:0.1];
 
     if (self.dimissCompleteBlock) {
         self.dimissCompleteBlock();
     }
-//    [UIView animateWithDuration:kVideoPlayerControllerAnimationTimeinterval animations:^{
-////        self.view.alpha = 0.0;
-//    } completion:^(BOOL finished) {
-//        [self.view removeFromSuperview];
-//        if (self.dimissCompleteBlock) {
-//            self.dimissCompleteBlock();
-//        }
-//    }];
-//    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
 }
 
 #pragma mark - Private Method
@@ -161,8 +108,6 @@ static const CGFloat kVideoPlayerControllerAnimationTimeinterval = 0.3f;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMPMoviePlayerReadyForDisplayDidChangeNotification) name:MPMoviePlayerReadyForDisplayDidChangeNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMPMovieDurationAvailableNotification) name:MPMovieDurationAvailableNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onMPMoviePlayerPlaybackDidFinishNotification) name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fullScreen) name:@"fullScreen" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shrinkScreen) name:@"shrinkScreen" object:nil];
 }
 
 - (void)cancelObserver
@@ -173,8 +118,6 @@ static const CGFloat kVideoPlayerControllerAnimationTimeinterval = 0.3f;
 - (void)configControlAction
 {
     [self.videoControl.playButton addTarget:self action:@selector(playButtonClick) forControlEvents:UIControlEventTouchUpInside];
-    [self.videoControl.pauseButton addTarget:self action:@selector(pauseButtonClick) forControlEvents:UIControlEventTouchUpInside];
-    [self.videoControl.closeButton addTarget:self action:@selector(closeButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [self.videoControl.fullScreenButton addTarget:self action:@selector(fullScreenButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [self.videoControl.shrinkScreenButton addTarget:self action:@selector(shrinkScreenButtonClick) forControlEvents:UIControlEventTouchUpInside];
     [self.videoControl.progressSlider addTarget:self action:@selector(progressSliderValueChanged:) forControlEvents:UIControlEventValueChanged];
@@ -188,18 +131,14 @@ static const CGFloat kVideoPlayerControllerAnimationTimeinterval = 0.3f;
 - (void)onMPMoviePlayerPlaybackStateDidChangeNotification
 {
     if (self.playbackState == MPMoviePlaybackStatePlaying) {
-        self.videoControl.pauseButton.hidden = NO;
-        self.videoControl.playButton.hidden = YES;
         [self startDurationTimer];
+        self.videoControl.playButton.selected = YES;
         [self.videoControl.indicatorView stopAnimating];
-//         self.videoControl.hitLabel.hidden = YES;
         [self.videoControl autoFadeOutControlBar];
     } else {
-        self.videoControl.pauseButton.hidden = YES;
-        self.videoControl.playButton.hidden = NO;
         [self stopDurationTimer];
         if (self.playbackState == MPMoviePlaybackStateStopped) {
-            [self.videoControl animateShow];
+            [self.videoControl animateHide];
         }
     }
 }
@@ -208,7 +147,6 @@ static const CGFloat kVideoPlayerControllerAnimationTimeinterval = 0.3f;
 {
     if (self.loadState & MPMovieLoadStateStalled) {
         [self.videoControl.indicatorView startAnimating];
-//         self.videoControl.hitLabel.hidden = NO;
     }
 }
 
@@ -228,21 +166,13 @@ static const CGFloat kVideoPlayerControllerAnimationTimeinterval = 0.3f;
 
 - (void)playButtonClick
 {
-    [self play];
-    self.videoControl.playButton.hidden = YES;
-    self.videoControl.pauseButton.hidden = NO;
-}
-
-- (void)pauseButtonClick
-{
-    [self pause];
-    self.videoControl.playButton.hidden = NO;
-    self.videoControl.pauseButton.hidden = YES; 
-}
-
-- (void)closeButtonClick
-{
-    [self dismiss];
+    if (self.videoControl.playButton.selected == YES) {
+        [self pause];
+        self.videoControl.playButton.selected = NO;
+    }else{
+        [self play];
+        self.videoControl.playButton.selected = YES;
+    }
 }
 
 - (void)fullScreenButtonClick
@@ -250,6 +180,8 @@ static const CGFloat kVideoPlayerControllerAnimationTimeinterval = 0.3f;
     if (self.isFullscreenMode) {
         return;
     }
+    [KKNotificationCenter postNotificationName:@"fullScreen" object:nil];
+    [self showInWindow];
     self.originFrame = self.view.frame;
     [UIView animateWithDuration:0.3f animations:^{
         self.frame = [UIScreen mainScreen].bounds;
@@ -265,9 +197,8 @@ static const CGFloat kVideoPlayerControllerAnimationTimeinterval = 0.3f;
     if (!self.isFullscreenMode) {
         return;
     }
-    NSDictionary *dic = @{@"nub":@(self.indexNub)};
-    [KKNotificationCenter postNotificationName:@"UPDATA_ACTION_DESCRIPTION" object:nil userInfo:dic];
-
+    [KKNotificationCenter postNotificationName:@"shrinkScreen" object:nil];
+    [self showInView:self.videoSuperView];
     [UIView animateWithDuration:0.3f animations:^{
         self.frame = self.originFrame;
         
@@ -278,16 +209,10 @@ static const CGFloat kVideoPlayerControllerAnimationTimeinterval = 0.3f;
     }];
 }
 
--(void)shareMV{
-    if (self.shareBlock) {
-        self.shareBlock();
-    }
-}
-
 - (void)setProgressSliderMaxMinValues {
     CGFloat duration = self.duration;
     self.videoControl.progressSlider.minimumValue = 0.f;
-    self.videoControl.progressSlider.maximumValue = duration;
+    self.videoControl.progressSlider.maximumValue = duration-1;
 }
 
 - (void)progressSliderTouchBegan:(UISlider *)slider {
@@ -330,7 +255,7 @@ static const CGFloat kVideoPlayerControllerAnimationTimeinterval = 0.3f;
 
 - (void)startDurationTimer
 {
-    self.durationTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(monitorVideoPlayback) userInfo:nil repeats:YES];
+    self.durationTimer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(monitorVideoPlayback) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:self.durationTimer forMode:NSDefaultRunLoopMode];
 }
 

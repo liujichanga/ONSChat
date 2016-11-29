@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TA的动态" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMM-nf-Xxy">
-                        <rect key="frame" x="8" y="11" width="68" height="20"/>
+                        <rect key="frame" x="8" y="21" width="68" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="68" id="7Ph-hB-cLQ"/>
                             <constraint firstAttribute="height" constant="20" id="apP-Q5-L0V"/>
@@ -29,17 +29,27 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="skip.9" translatesAutoresizingMaskIntoConstraints="NO" id="n6j-Ku-HyR">
-                        <rect key="frame" x="300" y="14" width="12" height="15"/>
+                        <rect key="frame" x="300" y="24" width="12" height="15"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="12" id="Gno-r5-Ghj"/>
                             <constraint firstAttribute="height" constant="15" id="daZ-lE-Fbt"/>
                         </constraints>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZj-qI-0zp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="10"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="Ih8-3t-sTc"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="uMM-nf-Xxy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="Qjb-Ga-iTN"/>
+                    <constraint firstItem="sZj-qI-0zp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="1EV-VO-cDx"/>
+                    <constraint firstItem="uMM-nf-Xxy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="21" id="Qjb-Ga-iTN"/>
+                    <constraint firstAttribute="trailing" secondItem="sZj-qI-0zp" secondAttribute="trailing" id="e4i-fh-22c"/>
                     <constraint firstItem="uMM-nf-Xxy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="edo-Di-Sff"/>
                     <constraint firstAttribute="trailing" secondItem="n6j-Ku-HyR" secondAttribute="trailing" constant="8" id="xEl-Kh-8rW"/>
+                    <constraint firstItem="sZj-qI-0zp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="xT4-9j-3pH"/>
                     <constraint firstItem="n6j-Ku-HyR" firstAttribute="centerY" secondItem="uMM-nf-Xxy" secondAttribute="centerY" id="zKO-gR-lQQ"/>
                 </constraints>
             </tableViewCellContentView>

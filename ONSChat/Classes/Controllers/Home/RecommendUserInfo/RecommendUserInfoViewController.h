@@ -11,5 +11,6 @@
 @interface RecommendUserInfoViewController : KKBaseViewController
 //用户id
 @property (nonatomic, strong) NSString *uid;
+@property (nonatomic, strong) NSString *dynamicsID;
 
 @end
