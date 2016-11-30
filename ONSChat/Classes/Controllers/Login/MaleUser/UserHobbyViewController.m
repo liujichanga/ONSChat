@@ -95,8 +95,8 @@
         
         NSDictionary *dic = (NSDictionary*)responseObject;
         KKLog(@"register:%@",responseObject);
-        BOOL status=[dic boolForKey:@"status" defaultValue:NO];
-        if(status)
+        NSInteger status=[dic integerForKey:@"status" defaultValue:0];
+        if(status==1)
         {
             KKSharedUserManager.tempUser.userId=[dic stringForKey:@"id" defaultValue:@""];
             KKSharedUserManager.tempUser.password=[dic stringForKey:@"password" defaultValue:@""];
@@ -107,8 +107,8 @@
                 
                 NSDictionary *loginDic = (NSDictionary*)responseObject;
                 KKLog(@"login:%@",loginDic);
-                BOOL status1=[loginDic boolForKey:@"status" defaultValue:NO];
-                if(status1)
+                NSInteger status1=[loginDic integerForKey:@"status" defaultValue:0];
+                if(status1==1)
                 {
                     [SVProgressHUD dismiss];
                     

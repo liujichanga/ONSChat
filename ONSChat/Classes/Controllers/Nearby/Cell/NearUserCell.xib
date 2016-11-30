@@ -11,14 +11,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NearUserCell" rowHeight="145" id="KGk-i7-Jjw" customClass="NearUserCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="145"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NearUserCell" rowHeight="170" id="KGk-i7-Jjw" customClass="NearUserCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="144"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="169"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="def_image" translatesAutoresizingMaskIntoConstraints="NO" id="WjY-TE-OpX">
+                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="def_head" translatesAutoresizingMaskIntoConstraints="NO" id="WjY-TE-OpX">
                         <rect key="frame" x="15" y="15" width="45" height="45"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="45" id="DXR-yn-9OM"/>
@@ -61,6 +61,70 @@
                         <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hr-RE-kyM">
+                        <rect key="frame" x="15" y="68" width="290" height="0.0"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2qb-25-BF8" userLabel="bottomview">
+                        <rect key="frame" x="15" y="139" width="290" height="20"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1l-gf-ftp">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="7HC-zh-ATp"/>
+                                    <constraint firstAttribute="height" constant="20" id="98e-oT-02k"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZVQ-hm-7uW">
+                                <rect key="frame" x="166" y="4" width="60" height="12"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="hUk-YF-7b3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="0" image="ic_dynamic_like">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="ic_dynamic_like_sel">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="praiseClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="kni-rn-rUg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJG-Wg-mzX">
+                                <rect key="frame" x="230" y="0.0" width="60" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="uSv-M7-k7o"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="0" image="ic_dynamic_comment">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="commentClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Apk-Cl-8D5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="w1l-gf-ftp" firstAttribute="top" secondItem="2qb-25-BF8" secondAttribute="top" id="1Zb-HH-k46"/>
+                            <constraint firstAttribute="height" constant="20" id="Clw-ur-n8l"/>
+                            <constraint firstAttribute="trailing" secondItem="tJG-Wg-mzX" secondAttribute="trailing" id="JO6-sY-haf"/>
+                            <constraint firstItem="tJG-Wg-mzX" firstAttribute="leading" secondItem="ZVQ-hm-7uW" secondAttribute="trailing" constant="4" id="KND-DK-oir"/>
+                            <constraint firstItem="w1l-gf-ftp" firstAttribute="leading" secondItem="2qb-25-BF8" secondAttribute="leading" id="SDN-zu-zCx"/>
+                            <constraint firstItem="tJG-Wg-mzX" firstAttribute="top" secondItem="2qb-25-BF8" secondAttribute="top" id="TUF-eR-SSK"/>
+                            <constraint firstAttribute="bottom" secondItem="ZVQ-hm-7uW" secondAttribute="bottom" constant="4" id="hIl-P3-6Lt"/>
+                            <constraint firstAttribute="bottom" secondItem="tJG-Wg-mzX" secondAttribute="bottom" id="kjZ-zi-4ea"/>
+                            <constraint firstItem="ZVQ-hm-7uW" firstAttribute="top" secondItem="2qb-25-BF8" secondAttribute="top" constant="4" id="zFi-Si-8m4"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="WjY-TE-OpX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="2Df-mt-OyC"/>
@@ -69,25 +133,38 @@
                     <constraint firstItem="Ymg-KC-Xzi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="Atc-zy-i4Q"/>
                     <constraint firstAttribute="trailing" secondItem="dnh-Lt-SyK" secondAttribute="trailing" constant="80" id="DPp-hb-l9h"/>
                     <constraint firstItem="Ymg-KC-Xzi" firstAttribute="leading" secondItem="zkW-1l-CZm" secondAttribute="trailing" constant="15" id="DyF-J8-vEd"/>
+                    <constraint firstItem="9hr-RE-kyM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="EW1-yc-J9y"/>
                     <constraint firstItem="WjY-TE-OpX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="Gnr-0E-LgD"/>
+                    <constraint firstAttribute="bottom" secondItem="2qb-25-BF8" secondAttribute="bottom" constant="10" id="MXg-2y-Rj5"/>
+                    <constraint firstItem="9hr-RE-kyM" firstAttribute="top" secondItem="WjY-TE-OpX" secondAttribute="bottom" constant="8" id="QYI-Cw-cuh"/>
+                    <constraint firstAttribute="trailing" secondItem="9hr-RE-kyM" secondAttribute="trailing" constant="15" id="Wea-hx-Y9c"/>
                     <constraint firstItem="zkW-1l-CZm" firstAttribute="leading" secondItem="WjY-TE-OpX" secondAttribute="trailing" constant="10" id="ejg-YK-wkC"/>
+                    <constraint firstItem="2qb-25-BF8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="gGd-7t-Q9F"/>
                     <constraint firstItem="zkW-1l-CZm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="h3O-qA-y8Q"/>
                     <constraint firstItem="W11-TV-12m" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="37" id="lLL-UU-J0I"/>
+                    <constraint firstAttribute="trailing" secondItem="2qb-25-BF8" secondAttribute="trailing" constant="15" id="nPj-hY-30f"/>
                     <constraint firstItem="dnh-Lt-SyK" firstAttribute="top" secondItem="zkW-1l-CZm" secondAttribute="bottom" constant="5" id="u1G-3G-Nxd"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="commentButton" destination="tJG-Wg-mzX" id="L4g-0b-6s7"/>
+                <outlet property="dateLabel" destination="w1l-gf-ftp" id="sEr-0L-KNb"/>
                 <outlet property="descLabel" destination="dnh-Lt-SyK" id="izs-Ch-ONh"/>
                 <outlet property="distanceLabel" destination="W11-TV-12m" id="0d4-CG-0mV"/>
+                <outlet property="dynamicText" destination="9hr-RE-kyM" id="U3W-tN-aC4"/>
                 <outlet property="headImageView" destination="WjY-TE-OpX" id="Axg-J0-NN5"/>
                 <outlet property="nickNameLabel" destination="zkW-1l-CZm" id="Jcb-Ic-4RN"/>
+                <outlet property="praiseButton" destination="ZVQ-hm-7uW" id="vyA-iE-ifj"/>
                 <outlet property="vipImageView" destination="Ymg-KC-Xzi" id="rwq-9i-Qg2"/>
             </connections>
-            <point key="canvasLocation" x="-139" y="-137.5"/>
+            <point key="canvasLocation" x="-139" y="-125"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="def_image" width="50" height="50"/>
+        <image name="def_head" width="80" height="98"/>
+        <image name="ic_dynamic_comment" width="14" height="14"/>
+        <image name="ic_dynamic_like" width="14" height="14"/>
+        <image name="ic_dynamic_like_sel" width="14" height="14"/>
         <image name="near_vip" width="79" height="22"/>
     </resources>
 </document>

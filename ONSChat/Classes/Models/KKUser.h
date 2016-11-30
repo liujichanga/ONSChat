@@ -15,6 +15,12 @@ typedef NS_ENUM(NSUInteger, KKSex) {
     KKMale=1 // 男
 };
 
+/** 动态类型 */
+typedef NS_ENUM(NSUInteger, KKDynamicsType) {
+    KKDynamicsTypeImage=1, // 图片
+    KKDynamicsTypeVideo=2 // 视频
+};
+
 
 @interface KKUser : NSObject
 
@@ -87,6 +93,13 @@ typedef NS_ENUM(NSUInteger, KKSex) {
 @property(strong,nonatomic) NSArray *avatarUrlList;//头像相册列表
 @property(strong,nonatomic) NSString *distanceKm;//显示的距离
 @property(strong,nonatomic) NSString *dynamicsId;//动态id
+@property(assign,nonatomic) NSInteger commentNum;//评论数量
+@property(assign,nonatomic) NSInteger praiseNum;//点赞数量
+@property(assign,nonatomic) KKDynamicsType dynamicsType;//动态类型
+@property(strong,nonatomic) NSString *dynamicsUrl;//动态对应的url
+@property(strong,nonatomic) NSString *dynamicText;//动态文本
+
+
 
 //是否为付费过的用户
 -(BOOL)isPayUser;

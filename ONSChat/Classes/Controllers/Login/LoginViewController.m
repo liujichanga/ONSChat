@@ -61,8 +61,8 @@
         
         NSDictionary *loginDic = (NSDictionary*)responseObject;
         KKLog(@"login:%@",loginDic);
-        BOOL status1=[loginDic boolForKey:@"status" defaultValue:NO];
-        if(status1)
+        NSInteger status1=[loginDic integerForKey:@"status" defaultValue:0];
+        if(status1==1)
         {
             [SVProgressHUD dismiss];
             

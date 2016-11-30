@@ -60,8 +60,8 @@
         
         NSDictionary *dic=(NSDictionary*)responseObject;
         KKLog(@"nearby:%@",dic);
-        BOOL status=[dic boolForKey:@"status" defaultValue:NO];
-        if(status)
+        NSInteger status=[dic integerForKey:@"status" defaultValue:0];
+        if(status==1)
         {
             NSArray *arr=[dic objectForKey:@"aaData"];
             if(arr&&[arr isKindOfClass:[NSArray class]])
@@ -112,7 +112,21 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100;
+    if(self.arrDatas.count>indexPath.section)
+    {
+        KKUser *user=self.arrDatas[indexPath.section];
+        CGFloat height = NearUserTopHeight+NearUserBottomHeight+10;
+        CGSize size=[user.dynamicText sizeWithFont:[UIFont systemFontOfSize:15] maxSize:CGSizeMake(KKScreenWidth-NearUserLeftInterval*2, 1000)];
+        height+=size.height;
+        if(user.dynamicsType==KKDynamicsTypeVideo)
+            height+=NearUserVideoHeight;
+        else
+            height+=NearUserImageHeight;
+        
+        return height;
+    }
+    
+    return 200;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -128,6 +142,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NearUserCell *cell=[tableView dequeueReusableCellWithIdentifier:cellNearUserIdentifier forIndexPath:indexPath];
+    
+    if(self.arrDatas.count>indexPath.section)
+    {
+        [cell displayInfo:self.arrDatas[indexPath.section]];
+    }
     
     return  cell;
     
