@@ -13,8 +13,8 @@
 #define NearUserBottomHeight 30
 #define NearUserImageHeight KKScreenWidth*120/320.0
 #define NearUserImageWidth NearUserImageHeight*2/3.0
-#define NearUserVideoHeight KKScreenWidth*170/320.0
-#define NearUserVideoWidth NearUserVideoHeight*16.0/9.0
+#define NearUserVideoWidth KKScreenWidth*180.0/320.0
+#define NearUserVideoHeight NearUserVideoWidth
 
 @interface NearUserCell : UITableViewCell
 
