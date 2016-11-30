@@ -11,21 +11,21 @@
 static const CGFloat kVideoControlBarHeight = 40.0;
 static const CGFloat kVideoControlAnimationTimeinterval = 0.3;
 static const CGFloat kVideoControlTimeLabelFontSize = 15.0;
-static const CGFloat kVideoControlBarAutoFadeOutTimeinterval = 5.0;
+static const CGFloat kVideoControlBarAutoFadeOutTimeinterval = 2.0;
 
 @interface KRVideoPlayerControlView ()
 
 @property (nonatomic, strong) UIView *bottomBar;
 @property (nonatomic, strong) UIButton *playButton;
-@property (nonatomic, strong) UIButton *fullScreenButton;
-@property (nonatomic, strong) UIButton *shrinkScreenButton;
+//@property (nonatomic, strong) UIButton *fullScreenButton;
+//@property (nonatomic, strong) UIButton *shrinkScreenButton;
 @property (nonatomic, strong) UISlider *progressSlider;
 @property (nonatomic, strong) UILabel *endTimeLabel;
 @property (nonatomic, strong) UILabel *startTimeLabel;
 @property (nonatomic, assign) BOOL isBarShowing;
 @property (nonatomic, strong) UIActivityIndicatorView *indicatorView;
-
-
+@property (nonatomic, strong) UIImageView *firstFrameImage;
+@property (nonatomic, strong) UIButton *firstPlayBtn;
 
 @end
 
@@ -37,15 +37,12 @@ static const CGFloat kVideoControlBarAutoFadeOutTimeinterval = 5.0;
     if (self) {
         self.backgroundColor = [UIColor clearColor];
         [self addSubview:self.bottomBar];
-       
+        [self addSubview:self.firstFrameImage];
         [self addSubview:self.playButton];
-        [self.bottomBar addSubview:self.fullScreenButton];
-        [self.bottomBar addSubview:self.shrinkScreenButton];
-        self.shrinkScreenButton.hidden = YES;
         [self.bottomBar addSubview:self.progressSlider];
         [self.bottomBar addSubview:self.endTimeLabel];
         [self.bottomBar addSubview:self.startTimeLabel];
-
+        [self.firstFrameImage addSubview:self.firstPlayBtn];
         [self addSubview:self.indicatorView];
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap:)];
         [self addGestureRecognizer:tapGesture];
@@ -60,13 +57,13 @@ static const CGFloat kVideoControlBarAutoFadeOutTimeinterval = 5.0;
 
     self.bottomBar.frame = CGRectMake(CGRectGetMinX(self.bounds), CGRectGetHeight(self.bounds) - kVideoControlBarHeight, CGRectGetWidth(self.bounds), kVideoControlBarHeight);
     self.playButton.center = CGPointMake(self.center.x, self.center.y);
-   
-    self.fullScreenButton.frame = CGRectMake(CGRectGetWidth(self.bottomBar.bounds) - CGRectGetWidth(self.fullScreenButton.bounds),0, CGRectGetWidth(self.fullScreenButton.bounds), CGRectGetHeight(self.fullScreenButton.bounds));
-    self.shrinkScreenButton.frame = self.fullScreenButton.frame;
-   
+    self.firstFrameImage.frame = self.bounds;
+
+    self.firstPlayBtn.frame = self.firstFrameImage.bounds;
+
     self.startTimeLabel.frame = CGRectMake(30, 0, 50, CGRectGetHeight(self.startTimeLabel.bounds));
 
-    self.endTimeLabel.frame = CGRectMake(CGRectGetMinX(self.fullScreenButton.frame)-60, 0, 50, CGRectGetHeight(self.endTimeLabel.bounds));
+    self.endTimeLabel.frame = CGRectMake(CGRectGetMaxX(self.bottomBar.frame)-90, 0, 50, CGRectGetHeight(self.endTimeLabel.bounds));
     
     self.progressSlider.frame = CGRectMake(CGRectGetMaxX(self.startTimeLabel.frame)+10, CGRectGetHeight(self.bottomBar.bounds)/2 - CGRectGetHeight(self.progressSlider.bounds)/2, CGRectGetMinX(self.endTimeLabel.frame) - CGRectGetMaxX(self.startTimeLabel.frame)-20, CGRectGetHeight(self.progressSlider.bounds));
 
@@ -154,25 +151,25 @@ static const CGFloat kVideoControlBarAutoFadeOutTimeinterval = 5.0;
     return _playButton;
 }
 
-- (UIButton *)fullScreenButton
-{
-    if (!_fullScreenButton) {
-        _fullScreenButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_fullScreenButton setImage:[UIImage imageNamed:@"jc_enlarge"] forState:UIControlStateNormal];
-        _fullScreenButton.bounds = CGRectMake(0, 0, kVideoControlBarHeight, kVideoControlBarHeight);
-    }
-    return _fullScreenButton;
-}
-
-- (UIButton *)shrinkScreenButton
-{
-    if (!_shrinkScreenButton) {
-        _shrinkScreenButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_shrinkScreenButton setImage:[UIImage imageNamed:@"jc_shrink"] forState:UIControlStateNormal];
-        _shrinkScreenButton.bounds = CGRectMake(0, 0, kVideoControlBarHeight, kVideoControlBarHeight);
-    }
-    return _shrinkScreenButton;
-}
+//- (UIButton *)fullScreenButton
+//{
+//    if (!_fullScreenButton) {
+//        _fullScreenButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//        [_fullScreenButton setImage:[UIImage imageNamed:@"jc_enlarge"] forState:UIControlStateNormal];
+//        _fullScreenButton.bounds = CGRectMake(0, 0, kVideoControlBarHeight, kVideoControlBarHeight);
+//    }
+//    return _fullScreenButton;
+//}
+//
+//- (UIButton *)shrinkScreenButton
+//{
+//    if (!_shrinkScreenButton) {
+//        _shrinkScreenButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//        [_shrinkScreenButton setImage:[UIImage imageNamed:@"jc_shrink"] forState:UIControlStateNormal];
+//        _shrinkScreenButton.bounds = CGRectMake(0, 0, kVideoControlBarHeight, kVideoControlBarHeight);
+//    }
+//    return _shrinkScreenButton;
+//}
 
 - (UISlider *)progressSlider
 {
@@ -221,4 +218,23 @@ static const CGFloat kVideoControlBarAutoFadeOutTimeinterval = 5.0;
     return _indicatorView;
 }
 
+-(UIImageView*)firstFrameImage{
+    if (!_firstFrameImage) {
+        _firstFrameImage= [UIImageView new];
+        _firstFrameImage.backgroundColor = [UIColor blackColor];
+        _firstFrameImage.contentMode = UIViewContentModeScaleAspectFit;
+        _firstFrameImage.userInteractionEnabled = YES;
+    }
+    return _firstFrameImage;
+}
+
+-(UIButton*)firstPlayBtn{
+    if (!_firstPlayBtn) {
+        _firstPlayBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        _firstPlayBtn.backgroundColor = [UIColor clearColor];
+        [_firstPlayBtn setImage:[UIImage imageNamed:@"jc_play_normal"] forState:UIControlStateNormal];
+        _firstPlayBtn.bounds = CGRectMake(0, 0, 50, 50);
+    }
+    return _firstPlayBtn;
+}
 @end

@@ -68,10 +68,11 @@
     [self.tableView registerNib:[UINib nibWithNibName:cellCarouselIdentifier bundle:nil] forCellReuseIdentifier:cellCarouselIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:cellVideolIdentifier bundle:nil] forCellReuseIdentifier:cellVideolIdentifier];
     
-    [self loadInfoData];
     if (self.dynamicsID) {
         [self loadVideoData];
     }
+    [self loadInfoData];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -140,7 +141,6 @@
             self.videoDic = respDic;
         }
         
-        [self.tableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [SVProgressHUD dismissWithError:KKErrorInfo(error) afterDelay:1.2];
     }];
@@ -182,7 +182,9 @@
 }
 -(CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section{
     if (section==0) {
-        return 0.1;
+        return 0.0000001;
+    }else if (section==6){
+        return 50;
     }
     return 10;
 }
@@ -229,6 +231,10 @@
         }
         cell.heightBlock = ^(CGFloat height){
             weakself.videoHeight = height;
+        };
+        //跳转 查看动态
+        cell.lookDynamicsBlock =^(){
+            KKLog(@"查看动态");
         };
         return cell;
     }
