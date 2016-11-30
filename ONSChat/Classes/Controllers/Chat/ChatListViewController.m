@@ -8,8 +8,17 @@
 
 #import "ChatListViewController.h"
 #import "ChatViewController.h"
+#import "ChatListCell.h"
+
+
+#define cellChatListIdentifier @"ChatListCell"
 
 @interface ChatListViewController ()
+
+@property (weak, nonatomic) IBOutlet UIView *topView;
+@property (weak, nonatomic) IBOutlet UIImageView *topTipView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 
 @end
 
@@ -18,26 +27,51 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    //设置需要显示哪些类型的会话
-    [self setDisplayConversationTypes:@[@(ConversationType_PRIVATE),
-                                        @(ConversationType_PUSHSERVICE),
-                                        @(ConversationType_SYSTEM)]];
+    
+    [_topTipView.layer setMasksToBounds:YES];
+    [_topTipView.layer setCornerRadius:3.0];
+    _topView.layer.borderWidth=1.0;
+    _topView.layer.borderColor=[UIColor groupTableViewBackgroundColor].CGColor;
+    
+    UITapGestureRecognizer *systemTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(systemTap:)];
+    [self.topView addGestureRecognizer:systemTapGestureRecognizer];
+    
+    //使用registerNib 方法可以从XIB加载控件
+    [self.tableView registerNib:[UINib nibWithNibName:cellChatListIdentifier bundle:nil] forCellReuseIdentifier:cellChatListIdentifier];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)systemTap:(id)sender{
+    
 }
 
-//重写RCConversationListViewController的onSelectedTableRow事件
-- (void)onSelectedTableRow:(RCConversationModelType)conversationModelType
-         conversationModel:(RCConversationModel *)model
-               atIndexPath:(NSIndexPath *)indexPath {
-    ChatViewController *conversationVC = [[ChatViewController alloc]init];
-    conversationVC.conversationType = model.conversationType;
-    conversationVC.targetId = model.targetId;
-    conversationVC.title = @"想显示的会话标题";
-    [self.navigationController pushViewController:conversationVC animated:YES];
+
+#pragma mark - Table view data source
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
 }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 10;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    return 65;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    ChatListCell *cell=[tableView dequeueReusableCellWithIdentifier:cellChatListIdentifier forIndexPath:indexPath];
+
+    [cell displayInfo];
+    
+    return cell;
+}
+
+-(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
+    
+}
+
 
 @end

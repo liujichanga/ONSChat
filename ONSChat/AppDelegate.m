@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import <RongIMKit/RongIMKit.h>
+#import <RongIMLib/RongIMLib.h>
 #import <AMapFoundationKit/AMapFoundationKit.h>
 
 @interface AppDelegate ()
@@ -66,9 +66,9 @@
         
     }
     
-    [[RCIM sharedRCIM] initWithAppKey:@"tdrvipkstmvn5"];
+    [[RCIMClient sharedRCIMClient] initWithAppKey:@"tdrvipkstmvn5"];
     
-    [[RCIM sharedRCIM] connectWithToken:@"DYrZQLqqt9t/62DEaW4l870/q7qZMBWE3fN7edgYT63Dnog1BGpkyD2cFfuo9WvlE4ZesY0QgMUMtb7ko7j2Y0AJpwass/7g" success:^(NSString *userId) {
+    [[RCIMClient sharedRCIMClient] connectWithToken:@"DYrZQLqqt9t/62DEaW4l870/q7qZMBWE3fN7edgYT63Dnog1BGpkyD2cFfuo9WvlE4ZesY0QgMUMtb7ko7j2Y0AJpwass/7g" success:^(NSString *userId) {
         NSLog(@"登陆成功。当前登录的用户ID：%@", userId);
     } error:^(RCConnectErrorCode status) {
         NSLog(@"登陆的错误码为:%zd", status);
