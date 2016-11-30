@@ -67,7 +67,8 @@
             if(arr&&[arr isKindOfClass:[NSArray class]])
             {
                 for (NSDictionary *dic in arr) {
-                    KKUser *user = [[KKUser alloc] initWithDicSimple:dic];
+                    
+                    KKDynamic *user = [[KKDynamic alloc] initWithDic:dic];
                     [self.arrDatas addObject:user];
                 }
                 
@@ -114,11 +115,11 @@
 {
     if(self.arrDatas.count>indexPath.section)
     {
-        KKUser *user=self.arrDatas[indexPath.section];
+        KKDynamic *dynamic=self.arrDatas[indexPath.section];
         CGFloat height = NearUserTopHeight+NearUserBottomHeight+10;
-        CGSize size=[user.dynamicText sizeWithFont:[UIFont systemFontOfSize:15] maxSize:CGSizeMake(KKScreenWidth-NearUserLeftInterval*2, 1000)];
+        CGSize size=[dynamic.dynamicText sizeWithFont:[UIFont systemFontOfSize:15] maxSize:CGSizeMake(KKScreenWidth-NearUserLeftInterval*2, 1000)];
         height+=size.height;
-        if(user.dynamicsType==KKDynamicsTypeVideo)
+        if(dynamic.dynamicsType==KKDynamicsTypeVideo)
             height+=NearUserVideoHeight;
         else
             height+=NearUserImageHeight;
@@ -147,6 +148,24 @@
     {
         [cell displayInfo:self.arrDatas[indexPath.section]];
     }
+    
+    KKWEAKSELF;
+    
+    cell.clickAvatarBlock=^(KKDynamic *dynamic){
+      
+        //点击头像打开个人主页
+        
+    };
+    cell.clickImageBlock=^(KKDynamic *dynamic){
+      
+        //点击打开大图
+        
+    };
+    cell.clickCommentBlock=^(KKDynamic *dynamic){
+      
+        //点击打开评论列表
+        
+    };
     
     return  cell;
     

@@ -55,12 +55,12 @@
 
 -(void)leftTap:(id)sender
 {
-    if(self.clickBlock) self.clickBlock(self.leftUser.userId);
+    if(self.clickBlock) self.clickBlock(self.leftUser);
 }
 
 -(void)rightTap:(id)sender
 {
-    if(self.clickBlock) self.clickBlock(self.rightUser.userId);
+    if(self.clickBlock) self.clickBlock(self.rightUser);
 }
 
 - (IBAction)leftLikeClick:(id)sender {
@@ -116,7 +116,7 @@
         KKImageViewWithUrlstring(_leftImageView, leftimageurl, @"def_head");
     }
     _leftNameLabel.text=leftUser.nickName;
-    _leftAgeLabel.text=KKStringWithFormat(@"%ld岁 %@",leftUser.age,leftUser.address);
+    _leftAgeLabel.text=KKStringWithFormat(@"%ld岁 %@市",leftUser.age,KKSharedGlobalManager.GPSCity);
     _leftLikeButton.selected=leftUser.isliked;
     
     
@@ -127,7 +127,7 @@
         KKImageViewWithUrlstring(_rightImageView, rightimageurl, @"def_head");
     }
     _rightNameLabel.text=rightUser.nickName;
-    _rightAgeLabel.text=KKStringWithFormat(@"%ld岁 %@",rightUser.age,rightUser.address);
+    _rightAgeLabel.text=KKStringWithFormat(@"%ld岁 %@市",rightUser.age,KKSharedGlobalManager.GPSCity);
     _rightLikeButton.selected=rightUser.isliked;
 
 }

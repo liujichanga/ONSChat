@@ -28,25 +28,10 @@
         _address=[dic stringForKey:@"address" defaultValue:@""];
         _age=[dic integerForKey:@"age" defaultValue:0];
         _nickName=[dic stringForKey:@"nickname" defaultValue:@""];
-        _dynamicsId=[dic stringForKey:@"dynamicsId" defaultValue:@""];
-        _dynamicsType=[dic integerForKey:@"dynamicsType" defaultValue:KKDynamicsTypeImage];
-        _commentNum=[dic integerForKey:@"comment" defaultValue:0];
-        _praiseNum=[dic integerForKey:@"praiseNum" defaultValue:0];
-        _distanceKm=[dic stringForKey:@"distanceKm" defaultValue:@""];
         _height=[dic integerForKey:@"height" defaultValue:0];
         
-        NSArray *arr=[dic objectForKey:@"medialist"];
-        if(arr&&[arr isKindOfClass:[NSArray class]]&&arr.count>0)
-        {
-            _dynamicsUrl=arr[0];
-        }
-        
-        NSArray *arrText=[dic objectForKey:@"textlist"];
-        if(arrText&&[arrText isKindOfClass:[NSArray class]]&&arrText.count>0)
-        {
-            _dynamicText=arrText[0];
-        }
-        
+        _dynamicsId=[dic stringForKey:@"dynamicsId" defaultValue:@""];
+
     }
     
     return self;

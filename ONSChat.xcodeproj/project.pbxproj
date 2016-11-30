@@ -37,6 +37,7 @@
 		1C0FF5D81DE5354400DBF4E0 /* OneVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0FF5D61DE5354400DBF4E0 /* OneVideoCell.m */; };
 		1C0FF5D91DE5354400DBF4E0 /* OneVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C0FF5D71DE5354400DBF4E0 /* OneVideoCell.xib */; };
 		1C0FF5DD1DE5A6B700DBF4E0 /* DailyRecommandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0FF5DC1DE5A6B700DBF4E0 /* DailyRecommandViewController.m */; };
+		1C2B9DEA1DEE6B3F0088E2FE /* KKDynamic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2B9DE91DEE6B3F0088E2FE /* KKDynamic.m */; };
 		1C327C5E1DE691E400E9DFB3 /* NearUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C327C5C1DE691E400E9DFB3 /* NearUserCell.m */; };
 		1C327C5F1DE691E400E9DFB3 /* NearUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C327C5D1DE691E400E9DFB3 /* NearUserCell.xib */; };
 		1C5EE2311DEC2879004B6AFB /* MyPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EE2301DEC2879004B6AFB /* MyPhotoViewController.m */; };
@@ -238,6 +239,8 @@
 		1C0FF5D71DE5354400DBF4E0 /* OneVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OneVideoCell.xib; sourceTree = "<group>"; };
 		1C0FF5DB1DE5A6B700DBF4E0 /* DailyRecommandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyRecommandViewController.h; sourceTree = "<group>"; };
 		1C0FF5DC1DE5A6B700DBF4E0 /* DailyRecommandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyRecommandViewController.m; sourceTree = "<group>"; };
+		1C2B9DE81DEE6B3F0088E2FE /* KKDynamic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKDynamic.h; sourceTree = "<group>"; };
+		1C2B9DE91DEE6B3F0088E2FE /* KKDynamic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKDynamic.m; sourceTree = "<group>"; };
 		1C327C5B1DE691E400E9DFB3 /* NearUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearUserCell.h; sourceTree = "<group>"; };
 		1C327C5C1DE691E400E9DFB3 /* NearUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearUserCell.m; sourceTree = "<group>"; };
 		1C327C5D1DE691E400E9DFB3 /* NearUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearUserCell.xib; sourceTree = "<group>"; };
@@ -1162,6 +1165,8 @@
 				569864791DE052560059D484 /* KKModel.h */,
 				569864971DE055D90059D484 /* KKUser.h */,
 				569864981DE055D90059D484 /* KKUser.m */,
+				1C2B9DE81DEE6B3F0088E2FE /* KKDynamic.h */,
+				1C2B9DE91DEE6B3F0088E2FE /* KKDynamic.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1589,6 +1594,7 @@
 				1C327C5E1DE691E400E9DFB3 /* NearUserCell.m in Sources */,
 				5698641B1DE00EAF0059D484 /* MJRefreshHeader.m in Sources */,
 				1CDD6D001DE97771006AAFAB /* VIPPayViewController.m in Sources */,
+				1C2B9DEA1DEE6B3F0088E2FE /* KKDynamic.m in Sources */,
 				9BC32EE91DE5A8CE00CDDAFB /* UserInfoViewController.m in Sources */,
 				9BC32EF81DE6C7F300CDDAFB /* FemaleHeightViewController.m in Sources */,
 				569864171DE00EAF0059D484 /* MJRefreshAutoFooter.m in Sources */,

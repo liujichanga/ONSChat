@@ -159,7 +159,7 @@
     NSInteger val=indexPath.row/3;
     NSInteger mod = indexPath.row%3;
     
-    if(mod==0 || mod==1)
+    if(mod==0)
     {
         TwoPicCell *cell=[tableView dequeueReusableCellWithIdentifier:cellTwoPicIdentifier forIndexPath:indexPath];
         
@@ -169,12 +169,34 @@
         }
         
         KKWEAKSELF
-        cell.clickBlock=^(NSString *userid){
+        cell.clickBlock=^(KKUser *user){
             
             RecommendUserInfoViewController *recommendUser = KKViewControllerOfMainSB(@"RecommendUserInfoViewController");
-            recommendUser.uid = userid;
+            recommendUser.uid = user.userId;
+            recommendUser.dynamicsID=user.dynamicsId;
             [weakself.navigationController pushViewController:recommendUser animated:YES];
 
+        };
+        
+        return cell;
+    }
+    else if(mod==1)
+    {
+        TwoPicCell *cell=[tableView dequeueReusableCellWithIdentifier:cellTwoPicIdentifier forIndexPath:indexPath];
+        
+        if(self.arrDatas.count>(val*PerPageNumber+mod+2))
+        {
+            [cell displayLeftDic:self.arrDatas[val*PerPageNumber+mod+1] rightDic:self.arrDatas[val*PerPageNumber+mod+2]];
+        }
+        
+        KKWEAKSELF
+        cell.clickBlock=^(KKUser *user){
+            
+            RecommendUserInfoViewController *recommendUser = KKViewControllerOfMainSB(@"RecommendUserInfoViewController");
+            recommendUser.uid = user.userId;
+            recommendUser.dynamicsID=user.dynamicsId;
+            [weakself.navigationController pushViewController:recommendUser animated:YES];
+            
         };
         
         return cell;
@@ -183,17 +205,17 @@
     {
         OneVideoCell *cell=[tableView dequeueReusableCellWithIdentifier:cellOneVideoIdentifier forIndexPath:indexPath];
         
-        if(self.arrDatas.count>(val*PerPageNumber+mod))
+        if(self.arrDatas.count>(val*PerPageNumber+mod+2))
         {
-            [cell displayDic:self.arrDatas[val*PerPageNumber+mod]];
+            [cell displayDic:self.arrDatas[val*PerPageNumber+mod+2]];
         }
         
         KKWEAKSELF
-        cell.clickBlock=^(NSString *userid){
+        cell.clickBlock=^(KKUser *user){
             
             RecommendUserInfoViewController *recommendUser = KKViewControllerOfMainSB(@"RecommendUserInfoViewController");
-            recommendUser.uid =userid;
-            recommendUser.dynamicsID = @"796";
+            recommendUser.uid =user.userId;
+            recommendUser.dynamicsID = user.dynamicsId;// @"796";
             [weakself.navigationController pushViewController:recommendUser animated:YES];
             
         };
