@@ -68,7 +68,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:cellCarouselIdentifier bundle:nil] forCellReuseIdentifier:cellCarouselIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:cellVideolIdentifier bundle:nil] forCellReuseIdentifier:cellVideolIdentifier];
     
-    if (self.dynamicsID) {
+    if (self.dynamicsID.length>0) {
         [self loadVideoData];
     }
     [self loadInfoData];

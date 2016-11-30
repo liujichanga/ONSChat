@@ -173,6 +173,7 @@ static const CGFloat kVideoPlayerControllerAnimationTimeinterval = 0.3f;
     [self.videoControl.indicatorView startAnimating];
     self.videoControl.firstFrameImage.hidden = YES;
     [self play];
+
 }
 
 - (void)playButtonClick
