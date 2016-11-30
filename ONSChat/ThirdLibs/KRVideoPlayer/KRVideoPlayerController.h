@@ -16,7 +16,7 @@
 @property (nonatomic, assign) int indexNub;
 @property (nonatomic, copy)  void(^shareBlock)();
 
-- (instancetype)initWithFrame:(CGRect)frame andDataDic:(NSDictionary*)dataDic;
+- (instancetype)initWithFrame:(CGRect)frame andImageURL:(NSString*)imgURL andVideoURL:(NSString*)videoURL;
 
 - (void)showInWindow;
 - (void)showInView:(UIView*)view;

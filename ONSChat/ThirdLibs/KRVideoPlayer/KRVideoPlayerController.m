@@ -29,7 +29,7 @@ static const CGFloat kVideoPlayerControllerAnimationTimeinterval = 0.3f;
     [self cancelObserver];
 }
 
-- (instancetype)initWithFrame:(CGRect)frame andDataDic:(NSDictionary *)dataDic
+- (instancetype)initWithFrame:(CGRect)frame andImageURL:(NSString*)imgURL andVideoURL:(NSString*)videoURL
 {
     self = [super init];
     if (self) {
@@ -39,8 +39,6 @@ static const CGFloat kVideoPlayerControllerAnimationTimeinterval = 0.3f;
         [self.view addSubview:self.videoControl];
         self.videoControl.frame = self.view.bounds;
 
-        NSString *videoURL = [dataDic stringForKey:@"mediaaddress" defaultValue:@""];
-        NSString *imgURL = [dataDic stringForKey:@"imageaddress" defaultValue:@""];
         self.contentURL = [NSURL URLWithString:videoURL];
         KKImageViewWithUrlstring(self.videoControl.firstFrameImage, imgURL, @"");
         [self configObserver];

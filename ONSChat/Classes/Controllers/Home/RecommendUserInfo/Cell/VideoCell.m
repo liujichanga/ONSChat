@@ -12,10 +12,7 @@
 
 @interface VideoCell()
 
-@property (nonatomic, strong) KRVideoPlayerController *videoController;
 @property (nonatomic, strong) UILabel *videoStrLab;
-//@property (nonatomic, strong) UIImageView *dynamicsImgView;
-@property (nonatomic, strong) NSString *videoURL;
 @property (nonatomic, assign) CGFloat height;
 @end
 
@@ -43,16 +40,16 @@
     _dataDic = dataDic;
     
     NSString *videoStr = [dataDic stringForKey:@"textcontent" defaultValue:@""];
-    self.videoURL = [dataDic stringForKey:@"mediaaddress" defaultValue:@""];
+    NSString *videoURL = [dataDic stringForKey:@"mediaaddress" defaultValue:@""];
     NSString *imgURL = [dataDic stringForKey:@"imageaddress" defaultValue:@""];
     
-    //1图片 2视频
-    NSInteger type = [dataDic integerForKey:@"statetype" defaultValue:0];
     
     CGSize strSize = [videoStr sizeWithFont:[UIFont systemFontOfSize:15] maxSize:CGSizeMake(KKScreenWidth-20, 500)];
     self.videoStrLab.text = videoStr;
     self.videoStrLab.frame = CGRectMake(10, 50, KKScreenWidth-20, strSize.height);
-    
+   
+    //1图片 2视频
+    NSInteger type = [dataDic integerForKey:@"statetype" defaultValue:0];
     if (type==1) {
         //图片frame可根据需要修改
         UIImageView *dynamicsImgView = [[UIImageView alloc]initWithFrame:CGRectMake(10, self.videoStrLab.frame.origin.y+self.videoStrLab.frame.size.height+10, KKScreenWidth-20, (KKScreenWidth-20)*(9.0/16.0))];
@@ -65,9 +62,9 @@
 
     }else{
 
-        self.videoController = [[KRVideoPlayerController alloc] initWithFrame:CGRectMake(10, self.videoStrLab.frame.origin.y+self.videoStrLab.frame.size.height+10, KKScreenWidth-20, (KKScreenWidth-20)*(9.0/16.0)) andDataDic:dataDic];
-        self.videoController.repeatMode = MPMovieRepeatModeNone;
-        [self.videoController showInView:self.contentView];
+        KRVideoPlayerController *videoController = [[KRVideoPlayerController alloc] initWithFrame:CGRectMake(10, self.videoStrLab.frame.origin.y+self.videoStrLab.frame.size.height+10, KKScreenWidth-20, (KKScreenWidth-20)*(9.0/16.0)) andImageURL:imgURL andVideoURL:videoURL];
+        videoController.repeatMode = MPMovieRepeatModeNone;
+        [videoController showInView:self.contentView];
         self.height =self.videoStrLab.frame.origin.y+self.videoStrLab.frame.size.height+10+(KKScreenWidth-20)*(9.0/16.0)+10;
     }
     if (self.heightBlock) {
