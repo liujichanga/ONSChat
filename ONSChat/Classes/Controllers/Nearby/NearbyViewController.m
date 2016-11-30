@@ -8,6 +8,7 @@
 
 #import "NearbyViewController.h"
 #import "NearUserCell.h"
+#import "RecommendUserInfoViewController.h"
 
 #define cellNearUserIdentifier @"NearUserCell"
 
@@ -172,7 +173,13 @@
 }
 
 -(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
-    
+    if (self.arrDatas.count>indexPath.row) {
+        KKDynamic *dy = [self.arrDatas objectAtIndex:indexPath.row];
+        RecommendUserInfoViewController *recommendUser = KKViewControllerOfMainSB(@"RecommendUserInfoViewController");
+        recommendUser.uid = dy.userId;
+        recommendUser.dynamicsID=dy.dynamicsId;
+        [self.navigationController pushViewController:recommendUser animated:YES];
+    }
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "RecommendUserInfoViewController.h"
+#import "DynamicListViewController.h"
 #import "BaseInfoCell.h"
 #import "SignCell.h"
 #import "ContactWayCell.h"
@@ -235,6 +236,9 @@
         //跳转 查看动态
         cell.lookDynamicsBlock =^(){
             KKLog(@"查看动态");
+            DynamicListViewController *dynamicList = KKViewControllerOfMainSB(@"DynamicListViewController");
+            dynamicList.uidStr = weakself.uid;
+            [weakself.navigationController pushViewController:dynamicList animated:YES];
         };
         return cell;
     }

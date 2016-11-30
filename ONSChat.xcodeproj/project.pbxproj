@@ -169,6 +169,11 @@
 		9B53D32F1DEBD9FA00913DFC /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B53D32D1DEBD9FA00913DFC /* VideoCell.xib */; };
 		9B53D3351DEC098700913DFC /* KRVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B53D3321DEC098700913DFC /* KRVideoPlayerController.m */; };
 		9B53D3361DEC098700913DFC /* KRVideoPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B53D3341DEC098700913DFC /* KRVideoPlayerControlView.m */; };
+		9BA6B2F21DEECFBF006AD474 /* DynamicListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6B2F11DEECFBF006AD474 /* DynamicListViewController.m */; };
+		9BA6B2F61DEED359006AD474 /* DynamicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6B2F41DEED359006AD474 /* DynamicCell.m */; };
+		9BA6B2F71DEED359006AD474 /* DynamicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BA6B2F51DEED359006AD474 /* DynamicCell.xib */; };
+		9BA6B2FB1DEF02C6006AD474 /* DynamicCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6B2F91DEF02C6006AD474 /* DynamicCommentCell.m */; };
+		9BA6B2FC1DEF02C6006AD474 /* DynamicCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BA6B2FA1DEF02C6006AD474 /* DynamicCommentCell.xib */; };
 		9BC32EE81DE5A8CE00CDDAFB /* UserHobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EE51DE5A8CE00CDDAFB /* UserHobbyViewController.m */; };
 		9BC32EE91DE5A8CE00CDDAFB /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EE71DE5A8CE00CDDAFB /* UserInfoViewController.m */; };
 		9BC32EEC1DE5AE4400CDDAFB /* FemaleNickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EEB1DE5AE4400CDDAFB /* FemaleNickNameViewController.m */; };
@@ -481,6 +486,14 @@
 		9B53D3321DEC098700913DFC /* KRVideoPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRVideoPlayerController.m; sourceTree = "<group>"; };
 		9B53D3331DEC098700913DFC /* KRVideoPlayerControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRVideoPlayerControlView.h; sourceTree = "<group>"; };
 		9B53D3341DEC098700913DFC /* KRVideoPlayerControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRVideoPlayerControlView.m; sourceTree = "<group>"; };
+		9BA6B2F01DEECFBF006AD474 /* DynamicListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicListViewController.h; sourceTree = "<group>"; };
+		9BA6B2F11DEECFBF006AD474 /* DynamicListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicListViewController.m; sourceTree = "<group>"; };
+		9BA6B2F31DEED359006AD474 /* DynamicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicCell.h; sourceTree = "<group>"; };
+		9BA6B2F41DEED359006AD474 /* DynamicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicCell.m; sourceTree = "<group>"; };
+		9BA6B2F51DEED359006AD474 /* DynamicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DynamicCell.xib; sourceTree = "<group>"; };
+		9BA6B2F81DEF02C6006AD474 /* DynamicCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamicCommentCell.h; path = ../DynamicCommentCell.h; sourceTree = "<group>"; };
+		9BA6B2F91DEF02C6006AD474 /* DynamicCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DynamicCommentCell.m; path = ../DynamicCommentCell.m; sourceTree = "<group>"; };
+		9BA6B2FA1DEF02C6006AD474 /* DynamicCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DynamicCommentCell.xib; path = ../DynamicCommentCell.xib; sourceTree = "<group>"; };
 		9BC32EE41DE5A8CE00CDDAFB /* UserHobbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserHobbyViewController.h; sourceTree = "<group>"; };
 		9BC32EE51DE5A8CE00CDDAFB /* UserHobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserHobbyViewController.m; sourceTree = "<group>"; };
 		9BC32EE61DE5A8CE00CDDAFB /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
@@ -622,6 +635,7 @@
 		1C0E779F1DE324880083F9F8 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				9BA6B2EE1DEECC5B006AD474 /* Dynamic */,
 				9BC32F021DE7E03700CDDAFB /* View */,
 				9BFB22C91DE95A4C00DB9BE6 /* RecommendUserInfo */,
 				1C0FF5DA1DE5A6A100DBF4E0 /* DailyRecommand */,
@@ -1302,6 +1316,29 @@
 			path = KRVideoPlayer;
 			sourceTree = "<group>";
 		};
+		9BA6B2EE1DEECC5B006AD474 /* Dynamic */ = {
+			isa = PBXGroup;
+			children = (
+				9BA6B2EF1DEECC5B006AD474 /* Cell */,
+				9BA6B2F01DEECFBF006AD474 /* DynamicListViewController.h */,
+				9BA6B2F11DEECFBF006AD474 /* DynamicListViewController.m */,
+			);
+			path = Dynamic;
+			sourceTree = "<group>";
+		};
+		9BA6B2EF1DEECC5B006AD474 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9BA6B2F81DEF02C6006AD474 /* DynamicCommentCell.h */,
+				9BA6B2F91DEF02C6006AD474 /* DynamicCommentCell.m */,
+				9BA6B2FA1DEF02C6006AD474 /* DynamicCommentCell.xib */,
+				9BA6B2F31DEED359006AD474 /* DynamicCell.h */,
+				9BA6B2F41DEED359006AD474 /* DynamicCell.m */,
+				9BA6B2F51DEED359006AD474 /* DynamicCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		9BC32EE21DE5A88D00CDDAFB /* FemaleUser */ = {
 			isa = PBXGroup;
 			children = (
@@ -1463,12 +1500,14 @@
 				1C6B3A1B1DE3F34C008ACCA8 /* MeInfoCell.xib in Resources */,
 				1C6B3A161DE3F33C008ACCA8 /* VIPCell.xib in Resources */,
 				9BFB22D31DE9709500DB9BE6 /* BaseInfoCell.xib in Resources */,
+				9BA6B2FC1DEF02C6006AD474 /* DynamicCommentCell.xib in Resources */,
 				5698643A1DE00EAF0059D484 /* SVProgressHUD.bundle in Resources */,
 				567F545E1DDFEC5500872A36 /* Assets.xcassets in Resources */,
 				040309121DEAE09C00F516E5 /* CarouselCell.xib in Resources */,
 				1C327C5F1DE691E400E9DFB3 /* NearUserCell.xib in Resources */,
 				9B53D32F1DEBD9FA00913DFC /* VideoCell.xib in Resources */,
 				56C6FFD41DE09E9000BB5C3B /* RongCloudKit.strings in Resources */,
+				9BA6B2F71DEED359006AD474 /* DynamicCell.xib in Resources */,
 				567F545C1DDFEC5500872A36 /* Main.storyboard in Resources */,
 				56C6FFD31DE09E9000BB5C3B /* Emoji.plist in Resources */,
 				56C6FFD51DE09E9000BB5C3B /* RongCloud.bundle in Resources */,
@@ -1597,6 +1636,8 @@
 				1C2B9DEA1DEE6B3F0088E2FE /* KKDynamic.m in Sources */,
 				9BC32EE91DE5A8CE00CDDAFB /* UserInfoViewController.m in Sources */,
 				9BC32EF81DE6C7F300CDDAFB /* FemaleHeightViewController.m in Sources */,
+				9BA6B2F21DEECFBF006AD474 /* DynamicListViewController.m in Sources */,
+				9BA6B2F61DEED359006AD474 /* DynamicCell.m in Sources */,
 				569864171DE00EAF0059D484 /* MJRefreshAutoFooter.m in Sources */,
 				569864021DE00EAF0059D484 /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
 				5698642B1DE00EAF0059D484 /* NSData+ImageContentType.m in Sources */,
@@ -1604,6 +1645,7 @@
 				5698641E1DE00EAF0059D484 /* MJRefreshAutoStateFooter.m in Sources */,
 				5698645A1DE010B40059D484 /* NSObject+Convertor.m in Sources */,
 				569864041DE00EAF0059D484 /* FMDatabaseAdditions.m in Sources */,
+				9BA6B2FB1DEF02C6006AD474 /* DynamicCommentCell.m in Sources */,
 				569864301DE00EAF0059D484 /* SDWebImageDownloaderOperation.m in Sources */,
 				5698641C1DE00EAF0059D484 /* MJRefreshAutoGifFooter.m in Sources */,
 				5698642F1DE00EAF0059D484 /* SDWebImageDownloader.m in Sources */,

@@ -2100,6 +2100,46 @@
             </objects>
             <point key="canvasLocation" x="2092" y="-12958"/>
         </scene>
+        <!--动态列表-->
+        <scene sceneID="Jfx-Us-WwM">
+            <objects>
+                <viewController storyboardIdentifier="DynamicListViewController" title="动态列表" id="EcF-0H-lEb" customClass="DynamicListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5pR-ei-FkM"/>
+                        <viewControllerLayoutGuide type="bottom" id="hIi-FN-dNp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7Re-nm-0lD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Iai-Bm-oHh">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="EcF-0H-lEb" id="1Fj-w1-IiF"/>
+                                    <outlet property="delegate" destination="EcF-0H-lEb" id="e6z-6F-RRA"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Iai-Bm-oHh" secondAttribute="trailing" id="6n1-UI-hzO"/>
+                            <constraint firstItem="Iai-Bm-oHh" firstAttribute="top" secondItem="7Re-nm-0lD" secondAttribute="top" id="bvd-ch-EHs"/>
+                            <constraint firstItem="Iai-Bm-oHh" firstAttribute="leading" secondItem="7Re-nm-0lD" secondAttribute="leading" id="o9t-dZ-pcd"/>
+                            <constraint firstItem="hIi-FN-dNp" firstAttribute="top" secondItem="Iai-Bm-oHh" secondAttribute="bottom" id="pNR-DO-6mD"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Ta的动态" id="1op-6u-dQr">
+                        <barButtonItem key="backBarButtonItem" title="返回" id="0kr-sh-2Kq"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="Iai-Bm-oHh" id="gNq-fe-bQX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J4I-JF-OJg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2742" y="-12960"/>
+        </scene>
     </scenes>
     <resources>
         <image name="def_head" width="80" height="98"/>
