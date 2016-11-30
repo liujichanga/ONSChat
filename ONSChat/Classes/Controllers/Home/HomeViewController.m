@@ -169,10 +169,11 @@
         }
         
         KKWEAKSELF
-        cell.clickBlock=^(NSString *userid){
+        cell.clickBlock=^(KKUser *user){
             
             RecommendUserInfoViewController *recommendUser = KKViewControllerOfMainSB(@"RecommendUserInfoViewController");
-            recommendUser.uid = userid;
+            recommendUser.uid = user.userId;
+            recommendUser.dynamicsID=user.dynamicsId;
             [weakself.navigationController pushViewController:recommendUser animated:YES];
 
         };
@@ -189,11 +190,11 @@
         }
         
         KKWEAKSELF
-        cell.clickBlock=^(NSString *userid){
+        cell.clickBlock=^(KKUser *user){
             
             RecommendUserInfoViewController *recommendUser = KKViewControllerOfMainSB(@"RecommendUserInfoViewController");
-            recommendUser.uid =userid;
-            recommendUser.dynamicsID = @"796";
+            recommendUser.uid =user.userId;
+            recommendUser.dynamicsID = user.dynamicsId;// @"796";
             [weakself.navigationController pushViewController:recommendUser animated:YES];
             
         };

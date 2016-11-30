@@ -40,7 +40,7 @@
 }
 
 -(void)headTap:(id)sender{
-    if(self.clickBlock) self.clickBlock(self.user.userId);
+    if(self.clickBlock) self.clickBlock(self.user);
 }
 
 -(void)displayDic:(KKUser*)user{

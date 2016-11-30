@@ -23,7 +23,7 @@
 @property(weak,nonatomic) UIImageView *dynamicImageView;
 
 
-@property(strong,nonatomic) KKUser *user;
+@property(strong,nonatomic) KKDynamic *dynamic;
 
 @end
 
@@ -58,44 +58,63 @@
 
 - (IBAction)commentClick:(id)sender {
     
-    
+    if(self.clickCommentBlock) self.clickCommentBlock(_dynamic);
 }
 - (IBAction)praiseClick:(id)sender {
     
+    if(!_praiseButton.selected)
+    {
+        //提交接口
+        NSDictionary *params=@{@"fid":self.dynamic.userId};
+        [FSSharedNetWorkingManager POST:ServiceInterfaceLike parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            
+        }];
+        
+        _dynamic.isliked=YES;
+        _praiseButton.selected=YES;
+    }
+    else
+    {
+        [MBProgressHUD showMessag:@"已经喜欢过了" toView:nil];
+    }
     
 }
 
 -(void)headTap:(id)sender{
-    if(self.clickAvatarBlock) self.clickAvatarBlock(_user);
+    if(self.clickAvatarBlock) self.clickAvatarBlock(_dynamic);
 }
 
 -(void)imageTap:(id)sender{
-    if(self.clickImageBlock) self.clickImageBlock(_user);
+    if(self.clickImageBlock) self.clickImageBlock(_dynamic);
 }
 
 
--(void)displayInfo:(KKUser *)user
+-(void)displayInfo:(KKDynamic *)dynamic
 {
-    _user=user;
+    _dynamic=dynamic;
     
     self.dynamicImageView.hidden=YES;
     
-    if(KKStringIsNotBlank(user.avatarUrl))
+    if(KKStringIsNotBlank(dynamic.avatarUrl))
     {
-        KKImageViewWithUrlstring(_headImageView, user.avatarUrl, @"def_head");
+        KKImageViewWithUrlstring(_headImageView, dynamic.avatarUrl, @"def_head");
     }
-    _nickNameLabel.text=user.nickName;
-    _descLabel.text=KKStringWithFormat(@"%zd岁 %zdcm %@市",user.age,user.height,KKSharedGlobalManager.GPSCity);
-    _distanceLabel.text=KKStringWithFormat(@"%@km",user.distanceKm);
-    _dynamicText.text=user.dynamicText;
-    _dateLabel.text=@"11月28日";
-    [_commentButton setTitle:KKStringWithFormat(@"%zd",user.commentNum) forState:UIControlStateNormal];
-    [_praiseButton setTitle:KKStringWithFormat(@"%zd",user.praiseNum) forState:UIControlStateNormal];
+    _nickNameLabel.text=dynamic.nickName;
+    _descLabel.text=KKStringWithFormat(@"%zd岁 %zdcm %@市",dynamic.age,dynamic.height,KKSharedGlobalManager.GPSCity);
+    _distanceLabel.text=KKStringWithFormat(@"%@km",dynamic.distanceKm);
+    _dynamicText.text=dynamic.dynamicText;
+    _dateLabel.text=dynamic.date;
+    [_commentButton setTitle:KKStringWithFormat(@"%zd",dynamic.commentNum) forState:UIControlStateNormal];
+    [_praiseButton setTitle:KKStringWithFormat(@"%zd",dynamic.praiseNum) forState:UIControlStateNormal];
+    _praiseButton.selected=dynamic.isliked;
+
     
-    CGSize size=[user.dynamicText sizeWithFont:[UIFont systemFontOfSize:15] maxSize:CGSizeMake(KKScreenWidth-NearUserLeftInterval*2, 1000)];
+    CGSize size=[dynamic.dynamicText sizeWithFont:[UIFont systemFontOfSize:15] maxSize:CGSizeMake(KKScreenWidth-NearUserLeftInterval*2, 1000)];
     
     CGFloat locationY=NearUserTopHeight+size.height;
-    if(user.dynamicsType==KKDynamicsTypeVideo)
+    if(dynamic.dynamicsType==KKDynamicsTypeVideo)
     {
         
     }
@@ -104,9 +123,9 @@
         self.dynamicImageView.hidden=NO;
         self.dynamicImageView.frame=KKFrameOfOriginY(self.dynamicImageView.frame, locationY);
         self.dynamicImageView.image=[UIImage imageNamed:@"def_head"];
-        if(KKStringIsNotBlank(user.dynamicsUrl))
+        if(KKStringIsNotBlank(dynamic.dynamicUrl))
         {
-            KKImageViewWithUrlstring(self.dynamicImageView, user.dynamicsUrl, @"def_head");
+            KKImageViewWithUrlstring(self.dynamicImageView, dynamic.dynamicUrl, @"def_head");
         }
     }
     

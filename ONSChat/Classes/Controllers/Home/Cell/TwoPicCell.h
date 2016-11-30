@@ -10,7 +10,7 @@
 
 @interface TwoPicCell : UITableViewCell
 
-@property (nonatomic, copy) void(^clickBlock)(NSString *userid);
+@property (nonatomic, copy) void(^clickBlock)(KKUser *user);
 
 -(void)displayLeftDic:(KKUser*)leftUser rightDic:(KKUser*)rightUser;
 

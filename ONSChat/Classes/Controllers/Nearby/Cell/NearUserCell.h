@@ -18,13 +18,13 @@
 
 @interface NearUserCell : UITableViewCell
 
-@property (nonatomic, copy) void(^clickCommentBlock)(KKUser *user);
-@property (nonatomic, copy) void(^clickAvatarBlock)(KKUser *user);
-@property (nonatomic, copy) void(^clickImageBlock)(KKUser *user);
+@property (nonatomic, copy) void(^clickCommentBlock)(KKDynamic *dynamic);
+@property (nonatomic, copy) void(^clickAvatarBlock)(KKDynamic *dynamic);
+@property (nonatomic, copy) void(^clickImageBlock)(KKDynamic *dynamic);
 
 
 
--(void)displayInfo:(KKUser*)user;
+-(void)displayInfo:(KKDynamic*)dynamic;
 
 
 

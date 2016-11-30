@@ -10,5 +10,6 @@
 #define KuaiKuai_KKModel_h
 
 #import "KKUser.h"
+#import "KKDynamic.h"
 
 #endif

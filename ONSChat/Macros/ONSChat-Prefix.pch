@@ -45,7 +45,7 @@
 //
 //#import "KKUMengEvent.h"
 //
-//#import "KKTypeDefine.h"
+#import "KKTypeDefine.h"
 //
 //#import "KKNavigationController.h"
 #import "KKBaseNavigationController.h"

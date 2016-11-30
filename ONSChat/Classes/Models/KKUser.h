@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "KKTypeDefine.h"
+#import "KKDynamic.h"
 
 /** 性别 */
 typedef NS_ENUM(NSUInteger, KKSex) {
@@ -15,11 +16,7 @@ typedef NS_ENUM(NSUInteger, KKSex) {
     KKMale=1 // 男
 };
 
-/** 动态类型 */
-typedef NS_ENUM(NSUInteger, KKDynamicsType) {
-    KKDynamicsTypeImage=1, // 图片
-    KKDynamicsTypeVideo=2 // 视频
-};
+
 
 
 @interface KKUser : NSObject
@@ -87,18 +84,15 @@ typedef NS_ENUM(NSUInteger, KKDynamicsType) {
 
 
 
-//额外信息，在推荐跟附近页面会用到
+//额外信息，在推荐页面会用到
 @property(assign,nonatomic) BOOL isliked;//是否已经喜欢
 @property(assign,nonatomic) BOOL noticedToday;//是否今天已打过招呼
 @property(strong,nonatomic) NSArray *avatarUrlList;//头像相册列表
-@property(strong,nonatomic) NSString *distanceKm;//显示的距离
 @property(strong,nonatomic) NSString *dynamicsId;//动态id
-@property(assign,nonatomic) NSInteger commentNum;//评论数量
-@property(assign,nonatomic) NSInteger praiseNum;//点赞数量
-@property(assign,nonatomic) KKDynamicsType dynamicsType;//动态类型
-@property(strong,nonatomic) NSString *dynamicsUrl;//动态对应的url
-@property(strong,nonatomic) NSString *dynamicText;//动态文本
 
+
+//附近用的动态对象
+@property(strong,nonatomic) KKDynamic *dynamic;
 
 
 //是否为付费过的用户
