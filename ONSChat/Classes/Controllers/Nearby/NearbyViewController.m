@@ -8,6 +8,9 @@
 
 #import "NearbyViewController.h"
 #import "NearUserCell.h"
+#import "RecommendUserInfoViewController.h"
+#import "KKMediaNavigationController.h"
+
 
 #define cellNearUserIdentifier @"NearUserCell"
 
@@ -154,12 +157,21 @@
     cell.clickAvatarBlock=^(KKDynamic *dynamic){
       
         //点击头像打开个人主页
-        
+        RecommendUserInfoViewController *recommendUser = KKViewControllerOfMainSB(@"RecommendUserInfoViewController");
+        recommendUser.uid = dynamic.userId;
+        recommendUser.dynamicsID=dynamic.dynamicsId;
+        [weakself.navigationController pushViewController:recommendUser animated:YES];
     };
     cell.clickImageBlock=^(KKDynamic *dynamic){
       
         //点击打开大图
+        KKMedia *media=[KKMedia mediaThumbnailUrl:KKURLWithString(dynamic.dynamicUrl) url:KKURLWithString(dynamic.dynamicUrl) type:KKMediaTypeImage];
+        NSMutableArray *mediaArray=[NSMutableArray arrayWithObject:media];
+
+        KKMediaNavigationController *mediaVC=[KKMediaNavigationController mediaNavigationControllerWithMedias:mediaArray displayMode:KKMediaDisplayModePreview options:@{KKMediaNavigationControllerStartIndexKey:@(0)}];
+        mediaVC.startIndex=0;
         
+        [weakself.navigationController presentViewController:mediaVC animated:YES completion:nil];
     };
     cell.clickCommentBlock=^(KKDynamic *dynamic){
       

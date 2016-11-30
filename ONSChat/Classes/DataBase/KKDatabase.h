@@ -11,6 +11,7 @@
 
 
 #import "KKBaseDao.h"
+#import "KKDynamicDao.h"
 
 
 #endif
