@@ -12,6 +12,7 @@
 
 @interface VideoCell()
 
+@property (nonatomic, strong) KRVideoPlayerController *videoController;
 @property (nonatomic, strong) UILabel *videoStrLab;
 @property (nonatomic, assign) CGFloat height;
 @end
@@ -62,9 +63,9 @@
 
     }else{
 
-        KRVideoPlayerController *videoController = [[KRVideoPlayerController alloc] initWithFrame:CGRectMake(10, self.videoStrLab.frame.origin.y+self.videoStrLab.frame.size.height+10, KKScreenWidth-20, (KKScreenWidth-20)*(9.0/16.0)) andImageURL:imgURL andVideoURL:videoURL];
-        videoController.repeatMode = MPMovieRepeatModeNone;
-        [videoController showInView:self.contentView];
+        self.videoController = [[KRVideoPlayerController alloc] initWithFrame:CGRectMake(10, self.videoStrLab.frame.origin.y+self.videoStrLab.frame.size.height+10, KKScreenWidth-20, (KKScreenWidth-20)*(9.0/16.0)) andImageURL:imgURL andVideoURL:videoURL];
+        self.videoController.repeatMode = MPMovieRepeatModeNone;
+        [self.videoController showInView:self.contentView];
         self.height =self.videoStrLab.frame.origin.y+self.videoStrLab.frame.size.height+10+(KKScreenWidth-20)*(9.0/16.0)+10;
     }
     if (self.heightBlock) {

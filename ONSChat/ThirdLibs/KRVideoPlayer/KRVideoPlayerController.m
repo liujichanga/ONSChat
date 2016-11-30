@@ -52,10 +52,9 @@ static const CGFloat kVideoPlayerControllerAnimationTimeinterval = 0.3f;
 
 - (void)setContentURL:(NSURL *)contentURL
 {
-
+    [super setContentURL:contentURL];
     [self.videoControl animateHide];
     [self stop];
-    [super setContentURL:contentURL];
 }
 
 #pragma mark - Publick Method
@@ -125,9 +124,10 @@ static const CGFloat kVideoPlayerControllerAnimationTimeinterval = 0.3f;
     [self.videoControl.progressSlider addTarget:self action:@selector(progressSliderTouchBegan:) forControlEvents:UIControlEventTouchDown];
     [self.videoControl.progressSlider addTarget:self action:@selector(progressSliderTouchEnded:) forControlEvents:UIControlEventTouchUpInside];
     [self.videoControl.progressSlider addTarget:self action:@selector(progressSliderTouchEnded:) forControlEvents:UIControlEventTouchUpOutside];
+    [self.videoControl.firstPlayBtn addTarget:self action:@selector(firstPlayBtnClick) forControlEvents:UIControlEventTouchUpInside];
+
     [self setProgressSliderMaxMinValues];
     [self monitorVideoPlayback];
-    [self.videoControl.firstPlayBtn addTarget:self action:@selector(firstPlayBtnClick) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)onMPMoviePlayerPlaybackStateDidChangeNotification
@@ -169,6 +169,7 @@ static const CGFloat kVideoPlayerControllerAnimationTimeinterval = 0.3f;
 }
 
 -(void)firstPlayBtnClick{
+
     [self.videoControl.indicatorView startAnimating];
     self.videoControl.firstFrameImage.hidden = YES;
     [self play];
