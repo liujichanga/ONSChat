@@ -25,6 +25,9 @@
 
 @property(strong,nonatomic) KKDynamic *dynamic;
 
+@property (nonatomic, strong) KRVideoPlayerController *videoController;
+
+
 @end
 
 @implementation NearUserCell
@@ -97,6 +100,8 @@
     
     self.dynamicImageView.hidden=YES;
     
+    [self.videoController.view removeFromSuperview];
+    
     if(KKStringIsNotBlank(dynamic.avatarUrl))
     {
         KKImageViewWithUrlstring(_headImageView, dynamic.avatarUrl, @"def_head");
@@ -116,7 +121,9 @@
     CGFloat locationY=NearUserTopHeight+size.height;
     if(dynamic.dynamicsType==KKDynamicsTypeVideo)
     {
-        
+        self.videoController = [[KRVideoPlayerController alloc] initWithFrame:CGRectMake(NearUserLeftInterval,locationY,NearUserVideoWidth,NearUserVideoHeight) andImageURL:dynamic.avatarUrl andVideoURL:dynamic.dynamicUrl];
+        self.videoController.repeatMode = MPMovieRepeatModeNone;
+        [self.videoController showInView:self.contentView];
     }
     else
     {

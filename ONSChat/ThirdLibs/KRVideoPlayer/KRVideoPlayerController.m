@@ -27,6 +27,8 @@ static const CGFloat kVideoPlayerControllerAnimationTimeinterval = 0.3f;
 - (void)dealloc
 {
     [self cancelObserver];
+    
+    NSLog(@"%@ dealloc",[self class]);
 }
 
 - (instancetype)initWithFrame:(CGRect)frame andImageURL:(NSString*)imgURL andVideoURL:(NSString*)videoURL
@@ -44,6 +46,7 @@ static const CGFloat kVideoPlayerControllerAnimationTimeinterval = 0.3f;
         [self configObserver];
         [self configControlAction];
         
+        NSLog(@"%@ init",[self class]);
     }
     return self;
 }
@@ -98,6 +101,7 @@ static const CGFloat kVideoPlayerControllerAnimationTimeinterval = 0.3f;
         self.dimissCompleteBlock();
     }
 }
+
 
 #pragma mark - Private Method
 
