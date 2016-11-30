@@ -14,9 +14,9 @@
 
 @property (nonatomic, strong) KRVideoPlayerController *videoController;
 @property (nonatomic, strong) UILabel *videoStrLab;
-@property (nonatomic, strong) UIImageView *dynamicsImgView;
-@property (nonatomic, strong) UIButton *playBtn;
+//@property (nonatomic, strong) UIImageView *dynamicsImgView;
 @property (nonatomic, strong) NSString *videoURL;
+@property (nonatomic, assign) CGFloat height;
 @end
 
 @implementation VideoCell
@@ -24,32 +24,12 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    KKWEAKSELF
+
     UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(10, 50, KKScreenWidth-20, 10)];
     lab.font = [UIFont systemFontOfSize:15];
     [self.contentView addSubview:lab];
     self.videoStrLab = lab;
     
-    self.videoController = [[KRVideoPlayerController alloc] initWithFrame:CGRectMake(10, self.videoStrLab.frame.origin.y+self.videoStrLab.frame.size.height+10, KKScreenWidth-20, (KKScreenWidth-20)*(9.0/16.0))];
-    self.videoController.dimissCompleteBlock = ^(){
-        weakself.playBtn.hidden = NO;
-        weakself.dynamicsImgView.hidden = NO;
-    };
-    self.videoController.repeatMode = MPMovieRepeatModeNone;
-   
-    UIImageView *dynamicsImgView = [[UIImageView alloc]initWithFrame:CGRectMake(10, self.videoStrLab.frame.origin.y+self.videoStrLab.frame.size.height+10, KKScreenWidth-20, (KKScreenWidth-20)*(9.0/16.0))];
-    dynamicsImgView.userInteractionEnabled = YES;
-    dynamicsImgView.backgroundColor = [UIColor blackColor];
-    dynamicsImgView.contentMode = UIViewContentModeScaleAspectFit;
-    [self.contentView addSubview:dynamicsImgView];
-    self.dynamicsImgView = dynamicsImgView;
-    
-    UIButton *btn = [[UIButton alloc]initWithFrame:dynamicsImgView.bounds];
-    btn.backgroundColor = [UIColor clearColor];
-    [btn addTarget:self action:@selector(playBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    [btn setImage:[UIImage imageNamed:@"ic_video_play"] forState:UIControlStateNormal];
-    [dynamicsImgView addSubview:btn];
-    self.playBtn = btn;
 
 }
 
@@ -65,33 +45,39 @@
     NSString *videoStr = [dataDic stringForKey:@"textcontent" defaultValue:@""];
     self.videoURL = [dataDic stringForKey:@"mediaaddress" defaultValue:@""];
     NSString *imgURL = [dataDic stringForKey:@"imageaddress" defaultValue:@""];
+    
+    //1图片 2视频
     NSInteger type = [dataDic integerForKey:@"statetype" defaultValue:0];
-    KKImageViewWithUrlstring(self.dynamicsImgView, imgURL, @"");
     
     CGSize strSize = [videoStr sizeWithFont:[UIFont systemFontOfSize:15] maxSize:CGSizeMake(KKScreenWidth-20, 500)];
     self.videoStrLab.text = videoStr;
     self.videoStrLab.frame = CGRectMake(10, 50, KKScreenWidth-20, strSize.height);
+    
     if (type==1) {
-        self.playBtn.hidden = YES;
-        self.dynamicsImgView.frame = CGRectMake(10, self.videoStrLab.frame.origin.y+self.videoStrLab.frame.size.height+10,KKScreenWidth-20, (KKScreenWidth-20)*(9.0/16.0));
+        //图片frame可根据需要修改
+        UIImageView *dynamicsImgView = [[UIImageView alloc]initWithFrame:CGRectMake(10, self.videoStrLab.frame.origin.y+self.videoStrLab.frame.size.height+10, KKScreenWidth-20, (KKScreenWidth-20)*(9.0/16.0))];
+        dynamicsImgView.userInteractionEnabled = YES;
+        KKImageViewWithUrlstring(dynamicsImgView, imgURL, @"");
+        dynamicsImgView.backgroundColor = [UIColor blackColor];
+        dynamicsImgView.contentMode = UIViewContentModeScaleAspectFit;
+        [self.contentView addSubview:dynamicsImgView];
+        self.height = dynamicsImgView.frame.origin.y+dynamicsImgView.frame.size.height+10;
 
     }else{
+
+        self.videoController = [[KRVideoPlayerController alloc] initWithFrame:CGRectMake(10, self.videoStrLab.frame.origin.y+self.videoStrLab.frame.size.height+10, KKScreenWidth-20, (KKScreenWidth-20)*(9.0/16.0)) andDataDic:dataDic];
+        self.videoController.repeatMode = MPMovieRepeatModeNone;
         [self.videoController showInView:self.contentView];
-        [self.contentView bringSubviewToFront:self.dynamicsImgView];
-
-        self.videoController.frame = CGRectMake(10, self.videoStrLab.frame.origin.y+self.videoStrLab.frame.size.height+10,KKScreenWidth-20, (KKScreenWidth-20)*(9.0/16.0));
-        self.dynamicsImgView.frame = CGRectMake(10, self.videoStrLab.frame.origin.y+self.videoStrLab.frame.size.height+10,KKScreenWidth-20, (KKScreenWidth-20)*(9.0/16.0));
+        self.height =self.videoStrLab.frame.origin.y+self.videoStrLab.frame.size.height+10+(KKScreenWidth-20)*(9.0/16.0)+10;
     }
-    
     if (self.heightBlock) {
-        self.heightBlock(self.dynamicsImgView.frame.origin.y+self.dynamicsImgView.frame.size.height+10);
+        self.heightBlock(self.height);
+    }
+}
+- (IBAction)lookDynsmiscClick:(id)sender {
+    if (self.lookDynamicsBlock) {
+        self.lookDynamicsBlock();
     }
 }
 
--(void)playBtnClick{
-    KKLog(@"播放");
-    self.playBtn.hidden = YES;
-    self.dynamicsImgView.hidden = YES;
-    self.videoController.contentURL = [NSURL URLWithString:_videoURL];
-}
 @end

@@ -11,4 +11,5 @@
 @interface VideoCell : UITableViewCell
 @property (nonatomic, copy) void(^heightBlock)(CGFloat height);
 @property (nonatomic, strong) NSDictionary *dataDic;
+@property (nonatomic, copy)  void(^lookDynamicsBlock)();
 @end
