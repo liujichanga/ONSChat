@@ -9,7 +9,7 @@
 #import "NearbyViewController.h"
 #import "NearUserCell.h"
 #import "RecommendUserInfoViewController.h"
-
+#import "KKMediaNavigationController.h"
 
 #import "DynamicDetailViewController.h"
 
