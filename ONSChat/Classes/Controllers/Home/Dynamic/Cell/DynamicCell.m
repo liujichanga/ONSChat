@@ -28,8 +28,10 @@
     // Initialization code
     UILabel *lab = [[UILabel alloc]initWithFrame:CGRectMake(10, 70, KKScreenWidth-20, 10)];
     lab.font = [UIFont systemFontOfSize:15];
+    lab.numberOfLines = 0;
     [self.contentView addSubview:lab];
     self.videoStrLab = lab;
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -40,6 +42,13 @@
 
 -(void)setDynamic:(KKDynamic *)dynamic{
     _dynamic = dynamic;
+    if (self.allowLike==YES) {
+        self.likeBtn.enabled = YES;
+        self.conmentBtn.enabled = YES;
+    }else{
+        self.likeBtn.enabled = NO;
+        self.conmentBtn.enabled = NO;
+    }
     
     KKImageViewWithUrlstring(self.headImageView, dynamic.avatarUrl, @"def_head");
     self.nameLab.text = dynamic.nickName;
@@ -77,11 +86,14 @@
     }
 }
 - (IBAction)likeBtnClick:(UIButton*)sender {
-    sender.selected = !sender.selected;
-    if (sender.selected==YES) {
-        [sender setTitle:[NSString stringWithFormat:@"%zd",_dynamic.praiseNum+1] forState:UIControlStateSelected];
-    }else{
-        [sender setTitle:[NSString stringWithFormat:@"%zd",_dynamic.praiseNum] forState:UIControlStateNormal];
+    sender.selected = YES;
+    [sender setTitle:[NSString stringWithFormat:@"%zd",_dynamic.praiseNum+1] forState:UIControlStateSelected];
+   
+    NSDictionary *userInfo = @{@"pariseNum":@(_dynamic.praiseNum+1)};
+    [KKNotificationCenter postNotificationName:@"updatePraiseNub" object:nil userInfo:userInfo];
+   
+    if (self.praiseBlock) {
+        self.praiseBlock();
     }
 }
 

@@ -9,6 +9,7 @@
 #import "NearbyViewController.h"
 #import "NearUserCell.h"
 #import "RecommendUserInfoViewController.h"
+#import "DynamicDetailViewController.h"
 
 #define cellNearUserIdentifier @"NearUserCell"
 
@@ -155,7 +156,10 @@
     cell.clickAvatarBlock=^(KKDynamic *dynamic){
       
         //点击头像打开个人主页
-        
+        RecommendUserInfoViewController *recommendUser = KKViewControllerOfMainSB(@"RecommendUserInfoViewController");
+        recommendUser.uid = dynamic.userId;
+        recommendUser.dynamicsID=dynamic.dynamicsId;
+        [weakself.navigationController pushViewController:recommendUser animated:YES];
     };
     cell.clickImageBlock=^(KKDynamic *dynamic){
       
@@ -165,6 +169,10 @@
     cell.clickCommentBlock=^(KKDynamic *dynamic){
       
         //点击打开评论列表
+        DynamicDetailViewController *detail = KKViewControllerOfMainSB(@"DynamicDetailViewController");
+        detail.dynamicData = dynamic;
+        [weakself.navigationController pushViewController:detail animated:YES];
+
         
     };
     
@@ -173,13 +181,7 @@
 }
 
 -(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
-    if (self.arrDatas.count>indexPath.row) {
-        KKDynamic *dy = [self.arrDatas objectAtIndex:indexPath.row];
-        RecommendUserInfoViewController *recommendUser = KKViewControllerOfMainSB(@"RecommendUserInfoViewController");
-        recommendUser.uid = dy.userId;
-        recommendUser.dynamicsID=dy.dynamicsId;
-        [self.navigationController pushViewController:recommendUser animated:YES];
-    }
+
 }
 
 @end

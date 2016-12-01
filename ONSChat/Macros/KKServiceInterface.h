@@ -43,8 +43,8 @@
 #define ServiceInterfaceLike KKStringWithFormat(@"%@/%@/like", KKServerDomain, App)
 //动态相关
 #define ServiceInterfaceDynamicsabout KKStringWithFormat(@"%@/%@/user/dynamicsabout", KKServerDomain, App)
-
-
+//点赞
+#define ServiceInterfaceAddpraise KKStringWithFormat(@"%@/%@/addpraise", KKServerDomain, App)
 
 
 #endif

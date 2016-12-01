@@ -12,4 +12,8 @@
 @property (nonatomic, copy) void(^cellHeightBlock)(CGFloat cellH);
 @property (nonatomic, strong) KKDynamic *dynamic;
 @property (nonatomic, copy) void(^conmentBlock)();
+@property (nonatomic, copy) void(^praiseBlock)();
+
+@property (nonatomic, assign) BOOL allowLike;
+
 @end

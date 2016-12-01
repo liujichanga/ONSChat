@@ -12,7 +12,7 @@
 #import "MeInfoCell.h"
 #import "SettingTableViewController.h"
 #import "MyPhotoViewController.h"
-
+#import "DynamicListViewController.h"
 
 #define cellHeadIdentifier @"HeadCell"
 #define cellVIPIdentifier @"VIPCell"
@@ -310,6 +310,11 @@
         else if(indexPath.row==1)
         {
             //我的动态
+            DynamicListViewController *dynamicList = KKViewControllerOfMainSB(@"DynamicListViewController");
+            dynamicList.uidStr = @"0";
+            dynamicList.showRightItem = YES;
+            [self.navigationController pushViewController:dynamicList animated:YES];
+
             
         }
         else if(indexPath.row==2)

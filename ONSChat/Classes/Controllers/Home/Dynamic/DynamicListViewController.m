@@ -7,6 +7,9 @@
 //
 
 #import "DynamicListViewController.h"
+#import "DynamicDetailViewController.h"
+#import "NewDynamicViewController.h"
+
 #import "DynamicCell.h"
 
 #define cellDynamicIdentifier @"DynamicCell"
@@ -17,6 +20,9 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *dataArr;
 @property (nonatomic, assign) NSInteger currentPage;
+//选中动态索引
+@property (nonatomic, assign) NSInteger selectIndex;
+@property (nonatomic, assign) CGFloat cellH;
 @end
 
 @implementation DynamicListViewController
@@ -26,21 +32,25 @@
     // Do any additional setup after loading the view.
     [self.tableView registerNib:[UINib nibWithNibName:cellDynamicIdentifier bundle:nil] forCellReuseIdentifier:cellDynamicIdentifier];
     self.currentPage = 0;
+    self.selectIndex = 0;
     self.dataArr = [NSMutableArray array];
     if (self.showRightItem==YES) {
         self.title = @"我的动态";
         UIBarButtonItem *rightItem=[[UIBarButtonItem alloc] initWithTitle:@"发布" style:UIBarButtonItemStylePlain target:self action:@selector(rightItemClick)];
         self.navigationItem.rightBarButtonItem=rightItem;
     }
+    KKNotificationCenterAddObserverOfSelf(updatePraiseNub:, @"updatePraiseNub", nil);
     //读取数据
     KKWEAKSELF
     MJRefreshNormalHeader *header =[MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [weakself loadDynamicData];
+        [weakself loadNewData];
         
     }];
     self.tableView.header=header;
     [self.tableView.header beginRefreshing];
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -130,7 +140,7 @@
         KKDynamic*dy = [self.dataArr objectAtIndex:indexPath.row];
         NSString *dyStr = dy.dynamicText;
         CGSize size = [dyStr sizeWithFont:[UIFont systemFontOfSize:15] maxSize:CGSizeMake(KKScreenWidth-20, 500)];
-        return (KKScreenWidth-20)*(290/320.0)+size.height;
+        return self.cellH;
     }
     return 0;    
 }
@@ -143,20 +153,43 @@
     return 0.0000001;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    KKWEAKSELF
     DynamicCell *cell = [tableView dequeueReusableCellWithIdentifier:cellDynamicIdentifier forIndexPath:indexPath];
+    cell.cellHeightBlock = ^(CGFloat height){
+        weakself.cellH = height;
+    };
     if (self.dataArr.count>indexPath.row) {
         cell.dynamic = self.dataArr[indexPath.row];
+
     }
 
-    return cell;    
+    return cell;
 }
 -(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
+    if (self.dataArr.count>indexPath.row) {
+        DynamicDetailViewController *detail = KKViewControllerOfMainSB(@"DynamicDetailViewController");
+        detail.dynamicData = self.dataArr[indexPath.row];
+        self.selectIndex = indexPath.row;
+        [self.navigationController pushViewController:detail animated:YES];
+    }
 
 }
 
 #pragma mark - 私有方法
 -(void)rightItemClick{
     KKLog(@"发布");
+    NewDynamicViewController *newDy = KKViewControllerOfMainSB(@"NewDynamicViewController");
+    [self.navigationController pushViewController:newDy animated:YES];
 }
 
+-(void)updatePraiseNub:(NSNotification*)dataDic{
+    NSInteger nub = [dataDic.userInfo integerForKey:@"pariseNum" defaultValue:0];
+    KKDynamic *selDy = [self.dataArr objectAtIndex:self.selectIndex];
+    selDy.praiseNum = nub;
+    [self.tableView reloadData];
+}
+
+-(void)dealloc{
+    KKNotificationCenterRemoveObserverOfSelf;
+}
 @end
