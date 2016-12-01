@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <RongIMKit/RongIMKit.h>
+#import <RongIMLib/RongIMLib.h>
 
-@interface ChatListViewController : RCConversationListViewController
+@interface ChatListViewController : KKBaseViewController
 
 @end

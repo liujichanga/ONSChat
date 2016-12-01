@@ -35,14 +35,14 @@
         <!--私信Nav-->
         <scene sceneID="aAJ-wJ-Bhg">
             <objects>
-                <navigationController title="私信Nav" hidesBottomBarWhenPushed="YES" id="Fr2-z1-nsO" customClass="KKBaseNavigationController" sceneMemberID="viewController">
+                <navigationController title="私信Nav" id="Fr2-z1-nsO" customClass="KKBaseNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="私信" id="Xav-Vb-mgx"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jhJ-e9-b0o">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="K0D-Li-Fe5" kind="relationship" relationship="rootViewController" id="0wW-oH-4Yy"/>
+                        <segue destination="Eui-78-B2g" kind="relationship" relationship="rootViewController" id="DY8-Bd-fPx"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Fm-79-NtV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -50,23 +50,77 @@
             <point key="canvasLocation" x="-73" y="-11482"/>
         </scene>
         <!--私信-->
-        <scene sceneID="kDp-ew-G5c">
+        <scene sceneID="eZr-UU-zgE">
             <objects>
-                <viewController title="私信" hidesBottomBarWhenPushed="YES" id="K0D-Li-Fe5" customClass="ChatListViewController" sceneMemberID="viewController">
+                <viewController id="Eui-78-B2g" customClass="ChatListViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Zlh-NQ-4Df"/>
-                        <viewControllerLayoutGuide type="bottom" id="D5G-Fg-qiI"/>
+                        <viewControllerLayoutGuide type="top" id="u2E-oO-5OG"/>
+                        <viewControllerLayoutGuide type="bottom" id="0Qm-su-kbV"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="gJ8-H5-SIl">
+                    <view key="view" contentMode="scaleToFill" id="a0D-b0-t0D">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aZd-5Q-iId" userLabel="topview">
+                                <rect key="frame" x="-1" y="63" width="377" height="75"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_system_msg" translatesAutoresizingMaskIntoConstraints="NO" id="mf1-rl-5jQ">
+                                        <rect key="frame" x="20" y="8" width="59" height="59"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="mf1-rl-5jQ" secondAttribute="height" multiplier="1:1" id="r5A-so-had"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="系统通知" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7PR-CZ-Bud">
+                                        <rect key="frame" x="99" y="27.5" width="94" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="7uT-WV-dlg"/>
+                                            <constraint firstAttribute="width" constant="94" id="geh-y5-hi0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="mf1-rl-5jQ" secondAttribute="bottom" constant="8" id="0mQ-WG-9F9"/>
+                                    <constraint firstItem="mf1-rl-5jQ" firstAttribute="leading" secondItem="aZd-5Q-iId" secondAttribute="leading" constant="20" id="Ien-PM-779"/>
+                                    <constraint firstItem="7PR-CZ-Bud" firstAttribute="leading" secondItem="mf1-rl-5jQ" secondAttribute="trailing" constant="20" id="e2v-fa-0n4"/>
+                                    <constraint firstItem="mf1-rl-5jQ" firstAttribute="top" secondItem="aZd-5Q-iId" secondAttribute="top" constant="8" id="s5f-aE-yXT"/>
+                                    <constraint firstAttribute="height" constant="75" id="sIU-Gt-7rm"/>
+                                    <constraint firstItem="7PR-CZ-Bud" firstAttribute="centerY" secondItem="aZd-5Q-iId" secondAttribute="centerY" id="whb-SZ-QhM"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qCA-Fq-bV9">
+                                <rect key="frame" x="0.0" y="138" width="375" height="480"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Eui-78-B2g" id="XPb-lc-d5t"/>
+                                    <outlet property="delegate" destination="Eui-78-B2g" id="n6K-fC-PUD"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aZd-5Q-iId" firstAttribute="top" secondItem="u2E-oO-5OG" secondAttribute="bottom" constant="-1" id="3le-sI-rxu"/>
+                            <constraint firstItem="aZd-5Q-iId" firstAttribute="leading" secondItem="a0D-b0-t0D" secondAttribute="leading" constant="-1" id="6aR-tB-jqY"/>
+                            <constraint firstItem="qCA-Fq-bV9" firstAttribute="leading" secondItem="a0D-b0-t0D" secondAttribute="leading" id="Nau-SA-bdu"/>
+                            <constraint firstAttribute="trailing" secondItem="aZd-5Q-iId" secondAttribute="trailing" constant="-1" id="WVc-ze-f3v"/>
+                            <constraint firstAttribute="trailing" secondItem="qCA-Fq-bV9" secondAttribute="trailing" id="fGf-Ra-PZx"/>
+                            <constraint firstItem="0Qm-su-kbV" firstAttribute="top" secondItem="qCA-Fq-bV9" secondAttribute="bottom" id="gT7-Sw-uQL"/>
+                            <constraint firstItem="qCA-Fq-bV9" firstAttribute="top" secondItem="aZd-5Q-iId" secondAttribute="bottom" id="la1-JX-Lhi"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="私信" id="JvB-2g-u8u"/>
+                    <navigationItem key="navigationItem" title="私信" id="mdE-xA-dvv"/>
+                    <connections>
+                        <outlet property="tableView" destination="qCA-Fq-bV9" id="mSx-M4-ICz"/>
+                        <outlet property="topTipView" destination="mf1-rl-5jQ" id="wsh-nK-w1b"/>
+                        <outlet property="topView" destination="aZd-5Q-iId" id="DQb-Gx-ZeD"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jMi-ZG-ft0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rVk-aC-K0Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="809" y="-11483"/>
+            <point key="canvasLocation" x="824.79999999999995" y="-11483.208395802099"/>
         </scene>
         <!--我的-->
         <scene sceneID="sjq-KA-l6F">
@@ -420,7 +474,7 @@
         <!--附近Nav-->
         <scene sceneID="SyG-hz-hAv">
             <objects>
-                <navigationController title="附近Nav" hidesBottomBarWhenPushed="YES" id="Be7-CG-2Lt" customClass="KKBaseNavigationController" sceneMemberID="viewController">
+                <navigationController title="附近Nav" id="Be7-CG-2Lt" customClass="KKBaseNavigationController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="附近" id="aRH-Kh-ChJ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RSq-3S-PqU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -2244,6 +2298,7 @@
         <image name="ic_camera_enhance_black_18dp" width="18" height="18"/>
         <image name="ic_login" width="12" height="14"/>
         <image name="ic_register_bg" width="375" height="667"/>
+        <image name="ic_system_msg" width="49" height="49"/>
         <image name="logo" width="186" height="50"/>
         <image name="nearby_img" width="15" height="24"/>
         <image name="onlineBg" width="68" height="30"/>

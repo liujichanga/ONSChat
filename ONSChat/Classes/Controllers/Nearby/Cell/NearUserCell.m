@@ -68,7 +68,7 @@
     if(!_praiseButton.selected)
     {
         //提交接口
-        NSDictionary *params=@{@"fid":self.dynamic.userId};
+        NSDictionary *params=@{@"userid":self.dynamic.userId,@"dynamicsid":self.dynamic.dynamicsId};
         [FSSharedNetWorkingManager POST:ServiceInterfaceLike parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -77,10 +77,6 @@
         
         _dynamic.isliked=YES;
         _praiseButton.selected=YES;
-    }
-    else
-    {
-        [MBProgressHUD showMessag:@"已经喜欢过了" toView:nil];
     }
     
 }
