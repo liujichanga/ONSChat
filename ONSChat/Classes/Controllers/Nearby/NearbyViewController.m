@@ -9,6 +9,8 @@
 #import "NearbyViewController.h"
 #import "NearUserCell.h"
 #import "RecommendUserInfoViewController.h"
+
+
 #import "DynamicDetailViewController.h"
 
 #define cellNearUserIdentifier @"NearUserCell"
