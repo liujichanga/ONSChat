@@ -174,6 +174,12 @@
 		9B53D32F1DEBD9FA00913DFC /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B53D32D1DEBD9FA00913DFC /* VideoCell.xib */; };
 		9B53D3351DEC098700913DFC /* KRVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B53D3321DEC098700913DFC /* KRVideoPlayerController.m */; };
 		9B53D3361DEC098700913DFC /* KRVideoPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B53D3341DEC098700913DFC /* KRVideoPlayerControlView.m */; };
+		9BA6B2F21DEECFBF006AD474 /* DynamicListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6B2F11DEECFBF006AD474 /* DynamicListViewController.m */; };
+		9BA6B2F61DEED359006AD474 /* DynamicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6B2F41DEED359006AD474 /* DynamicCell.m */; };
+		9BA6B2F71DEED359006AD474 /* DynamicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BA6B2F51DEED359006AD474 /* DynamicCell.xib */; };
+		9BA6B2FF1DEFBACB006AD474 /* DynamicDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6B2FE1DEFBACB006AD474 /* DynamicDetailViewController.m */; };
+		9BA6B3031DF00E7A006AD474 /* CommentPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6B3021DF00E7A006AD474 /* CommentPopView.m */; };
+		9BA6B3051DF00E83006AD474 /* CommentPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BA6B3041DF00E83006AD474 /* CommentPopView.xib */; };
 		9BC32EE81DE5A8CE00CDDAFB /* UserHobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EE51DE5A8CE00CDDAFB /* UserHobbyViewController.m */; };
 		9BC32EE91DE5A8CE00CDDAFB /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EE71DE5A8CE00CDDAFB /* UserInfoViewController.m */; };
 		9BC32EEC1DE5AE4400CDDAFB /* FemaleNickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EEB1DE5AE4400CDDAFB /* FemaleNickNameViewController.m */; };
@@ -189,6 +195,9 @@
 		9BFB22CC1DE95A4C00DB9BE6 /* RecommendUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB22CB1DE95A4C00DB9BE6 /* RecommendUserInfoViewController.m */; };
 		9BFB22D21DE9709500DB9BE6 /* BaseInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB22D01DE9709500DB9BE6 /* BaseInfoCell.m */; };
 		9BFB22D31DE9709500DB9BE6 /* BaseInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BFB22D11DE9709500DB9BE6 /* BaseInfoCell.xib */; };
+		9BFBE33F1DF02F1A009EF3BE /* NewDynamicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFBE33E1DF02F1A009EF3BE /* NewDynamicViewController.m */; };
+		9BFBE3431DF02F40009EF3BE /* DynamicCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFBE3411DF02F40009EF3BE /* DynamicCommentCell.m */; };
+		9BFBE3441DF02F40009EF3BE /* DynamicCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BFBE3421DF02F40009EF3BE /* DynamicCommentCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -498,6 +507,16 @@
 		9B53D3321DEC098700913DFC /* KRVideoPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRVideoPlayerController.m; sourceTree = "<group>"; };
 		9B53D3331DEC098700913DFC /* KRVideoPlayerControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRVideoPlayerControlView.h; sourceTree = "<group>"; };
 		9B53D3341DEC098700913DFC /* KRVideoPlayerControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRVideoPlayerControlView.m; sourceTree = "<group>"; };
+		9BA6B2F01DEECFBF006AD474 /* DynamicListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicListViewController.h; sourceTree = "<group>"; };
+		9BA6B2F11DEECFBF006AD474 /* DynamicListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicListViewController.m; sourceTree = "<group>"; };
+		9BA6B2F31DEED359006AD474 /* DynamicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicCell.h; sourceTree = "<group>"; };
+		9BA6B2F41DEED359006AD474 /* DynamicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicCell.m; sourceTree = "<group>"; };
+		9BA6B2F51DEED359006AD474 /* DynamicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DynamicCell.xib; sourceTree = "<group>"; };
+		9BA6B2FD1DEFBACB006AD474 /* DynamicDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicDetailViewController.h; sourceTree = "<group>"; };
+		9BA6B2FE1DEFBACB006AD474 /* DynamicDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicDetailViewController.m; sourceTree = "<group>"; };
+		9BA6B3011DF00E7A006AD474 /* CommentPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentPopView.h; sourceTree = "<group>"; };
+		9BA6B3021DF00E7A006AD474 /* CommentPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentPopView.m; sourceTree = "<group>"; };
+		9BA6B3041DF00E83006AD474 /* CommentPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentPopView.xib; sourceTree = "<group>"; };
 		9BC32EE41DE5A8CE00CDDAFB /* UserHobbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserHobbyViewController.h; sourceTree = "<group>"; };
 		9BC32EE51DE5A8CE00CDDAFB /* UserHobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserHobbyViewController.m; sourceTree = "<group>"; };
 		9BC32EE61DE5A8CE00CDDAFB /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
@@ -526,6 +545,11 @@
 		9BFB22CF1DE9709500DB9BE6 /* BaseInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseInfoCell.h; sourceTree = "<group>"; };
 		9BFB22D01DE9709500DB9BE6 /* BaseInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseInfoCell.m; sourceTree = "<group>"; };
 		9BFB22D11DE9709500DB9BE6 /* BaseInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BaseInfoCell.xib; sourceTree = "<group>"; };
+		9BFBE33D1DF02F1A009EF3BE /* NewDynamicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewDynamicViewController.h; sourceTree = "<group>"; };
+		9BFBE33E1DF02F1A009EF3BE /* NewDynamicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewDynamicViewController.m; sourceTree = "<group>"; };
+		9BFBE3401DF02F40009EF3BE /* DynamicCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicCommentCell.h; sourceTree = "<group>"; };
+		9BFBE3411DF02F40009EF3BE /* DynamicCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicCommentCell.m; sourceTree = "<group>"; };
+		9BFBE3421DF02F40009EF3BE /* DynamicCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DynamicCommentCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -638,6 +662,7 @@
 		1C0E779F1DE324880083F9F8 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				9BA6B2EE1DEECC5B006AD474 /* Dynamic */,
 				9BC32F021DE7E03700CDDAFB /* View */,
 				9BFB22C91DE95A4C00DB9BE6 /* RecommendUserInfo */,
 				1C0FF5DA1DE5A6A100DBF4E0 /* DailyRecommand */,
@@ -663,6 +688,7 @@
 		1C0E77A91DE325790083F9F8 /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				9BFBE33C1DF02EBE009EF3BE /* MyDynamic */,
 				1C5EE22E1DEC2865004B6AFB /* MyPhoto */,
 				1CDD6D041DE97C20006AAFAB /* Setting */,
 				9BFB22C51DE959ED00DB9BE6 /* BindingPhoneNumber */,
@@ -1339,6 +1365,42 @@
 			path = KRVideoPlayer;
 			sourceTree = "<group>";
 		};
+		9BA6B2EE1DEECC5B006AD474 /* Dynamic */ = {
+			isa = PBXGroup;
+			children = (
+				9BA6B3001DF00E5A006AD474 /* View */,
+				9BA6B2EF1DEECC5B006AD474 /* Cell */,
+				9BA6B2F01DEECFBF006AD474 /* DynamicListViewController.h */,
+				9BA6B2F11DEECFBF006AD474 /* DynamicListViewController.m */,
+				9BA6B2FD1DEFBACB006AD474 /* DynamicDetailViewController.h */,
+				9BA6B2FE1DEFBACB006AD474 /* DynamicDetailViewController.m */,
+			);
+			path = Dynamic;
+			sourceTree = "<group>";
+		};
+		9BA6B2EF1DEECC5B006AD474 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9BFBE3401DF02F40009EF3BE /* DynamicCommentCell.h */,
+				9BFBE3411DF02F40009EF3BE /* DynamicCommentCell.m */,
+				9BFBE3421DF02F40009EF3BE /* DynamicCommentCell.xib */,
+				9BA6B2F31DEED359006AD474 /* DynamicCell.h */,
+				9BA6B2F41DEED359006AD474 /* DynamicCell.m */,
+				9BA6B2F51DEED359006AD474 /* DynamicCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		9BA6B3001DF00E5A006AD474 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9BA6B3011DF00E7A006AD474 /* CommentPopView.h */,
+				9BA6B3021DF00E7A006AD474 /* CommentPopView.m */,
+				9BA6B3041DF00E83006AD474 /* CommentPopView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		9BC32EE21DE5A88D00CDDAFB /* FemaleUser */ = {
 			isa = PBXGroup;
 			children = (
@@ -1435,6 +1497,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		9BFBE33C1DF02EBE009EF3BE /* MyDynamic */ = {
+			isa = PBXGroup;
+			children = (
+				9BFBE33D1DF02F1A009EF3BE /* NewDynamicViewController.h */,
+				9BFBE33E1DF02F1A009EF3BE /* NewDynamicViewController.m */,
+			);
+			path = MyDynamic;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1503,6 +1574,8 @@
 				1C2B9DF31DEED4F70088E2FE /* ChatListCell.xib in Resources */,
 				5698643A1DE00EAF0059D484 /* SVProgressHUD.bundle in Resources */,
 				567F545E1DDFEC5500872A36 /* Assets.xcassets in Resources */,
+				9BFBE3441DF02F40009EF3BE /* DynamicCommentCell.xib in Resources */,
+				9BA6B3051DF00E83006AD474 /* CommentPopView.xib in Resources */,
 				040309121DEAE09C00F516E5 /* CarouselCell.xib in Resources */,
 				1C327C5F1DE691E400E9DFB3 /* NearUserCell.xib in Resources */,
 				9B53D32F1DEBD9FA00913DFC /* VideoCell.xib in Resources */,
@@ -1564,6 +1637,7 @@
 				1C0E77481DE30B380083F9F8 /* LoginViewController.m in Sources */,
 				9BC32EF51DE68EAB00CDDAFB /* FemaleJobViewController.m in Sources */,
 				1C5EE2421DEC4B04004B6AFB /* KKMediaPreviewController.m in Sources */,
+				9BA6B2FF1DEFBACB006AD474 /* DynamicDetailViewController.m in Sources */,
 				569864591DE010B40059D484 /* NSDictionary+JsonDict.m in Sources */,
 				569864291DE00EAF0059D484 /* UIView+MJExtension.m in Sources */,
 				9BC32EF01DE5AE8E00CDDAFB /* TopPageView.m in Sources */,
@@ -1611,6 +1685,7 @@
 				569864051DE00EAF0059D484 /* FMDatabasePool.m in Sources */,
 				569864261DE00EAF0059D484 /* MJRefreshConst.m in Sources */,
 				9BFB22CC1DE95A4C00DB9BE6 /* RecommendUserInfoViewController.m in Sources */,
+				9BA6B3031DF00E7A006AD474 /* CommentPopView.m in Sources */,
 				569864061DE00EAF0059D484 /* FMDatabaseQueue.m in Sources */,
 				1C6B3A1A1DE3F34C008ACCA8 /* MeInfoCell.m in Sources */,
 				1C0E77501DE30F820083F9F8 /* ONSButton.m in Sources */,
@@ -1639,6 +1714,9 @@
 				1C2B9DEA1DEE6B3F0088E2FE /* KKDynamic.m in Sources */,
 				9BC32EE91DE5A8CE00CDDAFB /* UserInfoViewController.m in Sources */,
 				9BC32EF81DE6C7F300CDDAFB /* FemaleHeightViewController.m in Sources */,
+				9BA6B2F21DEECFBF006AD474 /* DynamicListViewController.m in Sources */,
+				9BFBE3431DF02F40009EF3BE /* DynamicCommentCell.m in Sources */,
+				9BA6B2F61DEED359006AD474 /* DynamicCell.m in Sources */,
 				569864171DE00EAF0059D484 /* MJRefreshAutoFooter.m in Sources */,
 				569864021DE00EAF0059D484 /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
 				5698642B1DE00EAF0059D484 /* NSData+ImageContentType.m in Sources */,
@@ -1654,6 +1732,7 @@
 				1CDD6D071DE97CCE006AAFAB /* SettingTableViewController.m in Sources */,
 				5698648E1DE0530D0059D484 /* KKBaseTableViewController.m in Sources */,
 				1CDD6CFC1DE92928006AAFAB /* WCAlertView.m in Sources */,
+				9BFBE33F1DF02F1A009EF3BE /* NewDynamicViewController.m in Sources */,
 				569864141DE00EAF0059D484 /* JSONKit.m in Sources */,
 				9B53D3361DEC098700913DFC /* KRVideoPlayerControlView.m in Sources */,
 				1C0FF5DD1DE5A6B700DBF4E0 /* DailyRecommandViewController.m in Sources */,

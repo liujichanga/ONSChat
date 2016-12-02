@@ -49,4 +49,8 @@
 
 
 
+//点赞
+#define ServiceInterfaceAddpraise KKStringWithFormat(@"%@/%@/addpraise", KKServerDomain, App)
+
+
 #endif

@@ -11,6 +11,7 @@
 #import "RecommendUserInfoViewController.h"
 #import "KKMediaNavigationController.h"
 
+#import "DynamicDetailViewController.h"
 
 #define cellNearUserIdentifier @"NearUserCell"
 
@@ -176,6 +177,10 @@
     cell.clickCommentBlock=^(KKDynamic *dynamic){
       
         //点击打开评论列表
+        DynamicDetailViewController *detail = KKViewControllerOfMainSB(@"DynamicDetailViewController");
+        detail.dynamicData = dynamic;
+        [weakself.navigationController pushViewController:detail animated:YES];
+
         
     };
     
@@ -184,7 +189,7 @@
 }
 
 -(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
-    
+
 }
 
 @end
