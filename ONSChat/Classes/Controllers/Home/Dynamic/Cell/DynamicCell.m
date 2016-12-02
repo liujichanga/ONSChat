@@ -18,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *infoLab;
 @property (weak, nonatomic) IBOutlet UIButton *likeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *conmentBtn;
-
+@property (nonatomic, strong) UIView *bgView;
 @end
 
 @implementation DynamicCell
@@ -64,28 +64,44 @@
     self.videoStrLab.text = videoStr;
     self.videoStrLab.frame = CGRectMake(10, 70, KKScreenWidth-20, strSize.height);
     
+    if (self.bgView) {
+        [self.bgView removeFromSuperview];
+    }
+    
     if (dynamic.dynamicsType ==KKDynamicsTypeImage) {
         //图片frame可根据需要修改
-        UIImageView *dynamicsImgView = [[UIImageView alloc]initWithFrame:CGRectMake(10, self.videoStrLab.frame.origin.y+self.videoStrLab.frame.size.height+10, KKScreenWidth-20, (KKScreenWidth-20)*(9.0/16.0))];
+        self.bgView = [[UIView alloc]initWithFrame:CGRectMake(10, self.videoStrLab.frame.origin.y+self.videoStrLab.frame.size.height+10, KKScreenWidth*0.5, KKScreenWidth*0.5)];
+//        self.bgView.backgroundColor = [UIColor redColor];
+        [self.contentView addSubview:self.bgView];
+        
+        UIImageView *dynamicsImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bgView.frame), CGRectGetHeight(self.bgView.frame))];
         dynamicsImgView.userInteractionEnabled = YES;
         KKImageViewWithUrlstring(dynamicsImgView, dynamicUrl, @"");
-        dynamicsImgView.backgroundColor = [UIColor blackColor];
+        dynamicsImgView.backgroundColor = [UIColor clearColor];
         dynamicsImgView.contentMode = UIViewContentModeScaleAspectFit;
-        [self.contentView addSubview:dynamicsImgView];
-        self.height = dynamicsImgView.frame.origin.y+dynamicsImgView.frame.size.height+45;
+
+        [self.bgView addSubview:dynamicsImgView];
+        self.height = self.bgView.frame.origin.y+self.bgView.frame.size.height+45;
         
     }else{
+        self.bgView = [[UIView alloc]initWithFrame:CGRectMake(10, self.videoStrLab.frame.origin.y+self.videoStrLab.frame.size.height+10, KKScreenWidth-20, (KKScreenWidth-20)*(9.0/16.0))];
+//        self.bgView.backgroundColor = [UIColor redColor];
+        [self.contentView addSubview:self.bgView];
         
-        self.videoController = [[KRVideoPlayerController alloc] initWithFrame:CGRectMake(10, self.videoStrLab.frame.origin.y+self.videoStrLab.frame.size.height+10, KKScreenWidth-20, (KKScreenWidth-20)*(9.0/16.0)) andImageURL:imgURL andVideoURL:dynamicUrl];
+        self.videoController = [[KRVideoPlayerController alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bgView.frame), CGRectGetHeight(self.bgView.frame)) andImageURL:imgURL andVideoURL:dynamicUrl];
         self.videoController.repeatMode = MPMovieRepeatModeNone;
-        [self.videoController showInView:self.contentView];
-        self.height =self.videoStrLab.frame.origin.y+self.videoStrLab.frame.size.height+10+(KKScreenWidth-20)*(9.0/16.0)+45;
+        [self.videoController showInView:self.bgView];
+        self.height = self.bgView.frame.origin.y+self.bgView.frame.size.height+45;
     }
     if (self.cellHeightBlock) {
         self.cellHeightBlock(self.height);
     }
 }
 - (IBAction)likeBtnClick:(UIButton*)sender {
+    
+    if (sender.selected==YES) {
+        return;
+    }
     sender.selected = YES;
     [sender setTitle:[NSString stringWithFormat:@"%zd",_dynamic.praiseNum+1] forState:UIControlStateSelected];
    

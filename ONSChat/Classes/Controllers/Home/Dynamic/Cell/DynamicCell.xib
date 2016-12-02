@@ -97,7 +97,7 @@
                 <outlet property="likeBtn" destination="LZ2-qM-60N" id="hhZ-La-vMV"/>
                 <outlet property="nameLab" destination="Uzg-oL-v6k" id="Be9-nk-1Vd"/>
             </connections>
-            <point key="canvasLocation" x="34" y="182.5"/>
+            <point key="canvasLocation" x="34" y="182"/>
         </tableViewCell>
     </objects>
     <resources>

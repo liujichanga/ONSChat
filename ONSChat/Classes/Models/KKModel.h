@@ -11,5 +11,7 @@
 
 #import "KKUser.h"
 #import "KKDynamic.h"
+#import "KKComment.h"
+
 
 #endif

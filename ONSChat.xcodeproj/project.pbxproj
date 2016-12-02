@@ -189,6 +189,7 @@
 		9BC32EFE1DE6E01900CDDAFB /* FemaleInterestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EFD1DE6E01900CDDAFB /* FemaleInterestViewController.m */; };
 		9BC32F011DE6E05600CDDAFB /* FemalePersonalityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32F001DE6E05600CDDAFB /* FemalePersonalityViewController.m */; };
 		9BC32F0A1DE8200100CDDAFB /* UploadHeadImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32F091DE8200100CDDAFB /* UploadHeadImageViewController.m */; };
+		9BD1DCCE1DF15100002158D6 /* KKComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1DCCD1DF15100002158D6 /* KKComment.m */; };
 		9BFB22C81DE95A1300DB9BE6 /* BindingPhoneNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB22C71DE95A1300DB9BE6 /* BindingPhoneNumberViewController.m */; };
 		9BFB22CC1DE95A4C00DB9BE6 /* RecommendUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB22CB1DE95A4C00DB9BE6 /* RecommendUserInfoViewController.m */; };
 		9BFB22D21DE9709500DB9BE6 /* BaseInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB22D01DE9709500DB9BE6 /* BaseInfoCell.m */; };
@@ -529,6 +530,8 @@
 		9BC32F001DE6E05600CDDAFB /* FemalePersonalityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FemalePersonalityViewController.m; sourceTree = "<group>"; };
 		9BC32F081DE8200100CDDAFB /* UploadHeadImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadHeadImageViewController.h; sourceTree = "<group>"; };
 		9BC32F091DE8200100CDDAFB /* UploadHeadImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadHeadImageViewController.m; sourceTree = "<group>"; };
+		9BD1DCCC1DF15100002158D6 /* KKComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKComment.h; sourceTree = "<group>"; };
+		9BD1DCCD1DF15100002158D6 /* KKComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKComment.m; sourceTree = "<group>"; };
 		9BFB22C61DE95A1300DB9BE6 /* BindingPhoneNumberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BindingPhoneNumberViewController.h; sourceTree = "<group>"; };
 		9BFB22C71DE95A1300DB9BE6 /* BindingPhoneNumberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindingPhoneNumberViewController.m; sourceTree = "<group>"; };
 		9BFB22CA1DE95A4C00DB9BE6 /* RecommendUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendUserInfoViewController.h; sourceTree = "<group>"; };
@@ -1212,6 +1215,8 @@
 				569864981DE055D90059D484 /* KKUser.m */,
 				1C2B9DE81DEE6B3F0088E2FE /* KKDynamic.h */,
 				1C2B9DE91DEE6B3F0088E2FE /* KKDynamic.m */,
+				9BD1DCCC1DF15100002158D6 /* KKComment.h */,
+				9BD1DCCD1DF15100002158D6 /* KKComment.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1676,6 +1681,7 @@
 				1C0E77501DE30F820083F9F8 /* ONSButton.m in Sources */,
 				5698648D1DE0530D0059D484 /* KKBaseNavigationController.m in Sources */,
 				569864371DE00EAF0059D484 /* UIImageView+HighlightedWebCache.m in Sources */,
+				9BD1DCCE1DF15100002158D6 /* KKComment.m in Sources */,
 				1C0E77971DE31FEA0083F9F8 /* FSNetWorking.m in Sources */,
 				569864161DE00EAF0059D484 /* MBProgressHUD.m in Sources */,
 				569864001DE00EAF0059D484 /* FMDatabase+FTS3.m in Sources */,

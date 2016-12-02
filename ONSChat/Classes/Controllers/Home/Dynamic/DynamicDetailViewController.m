@@ -20,6 +20,10 @@
 
 @property (nonatomic, strong) NSMutableArray *dataArr;
 @property (nonatomic, assign) NSInteger currentPage;
+@property (nonatomic, assign) CGFloat cellH;
+@property (nonatomic, assign) CGFloat commentH;
+
+
 
 @end
 
@@ -35,12 +39,84 @@
     [self.tableView registerNib:[UINib nibWithNibName:cellDynamicCommentIdentifier bundle:nil] forCellReuseIdentifier:cellDynamicCommentIdentifier];
     self.currentPage = 0;
     self.dataArr = [NSMutableArray array];
+    
+    //读取数据
+    KKWEAKSELF
+    MJRefreshNormalHeader *header =[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [weakself loadNewData];
+        
+    }];
+    self.tableView.header=header;
+    [self.tableView.header beginRefreshing];
+}
+-(void)loadNewData
+{
+    [self.dataArr removeAllObjects];
+    _currentPage=0;
+    
+    [self loadCommentData];
+}
+-(void)loadMoreData
+{
+    _currentPage+=1;
+    
+    [self loadCommentData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)loadCommentData{
+    
+    NSDictionary *params=@{@"currentPage":@(_currentPage),@"limit":@(PerPageNumber),@"dynamicsid":self.dynamicData.dynamicsId};
+    [FSSharedNetWorkingManager POST:ServiceInterfaceGetCommentList parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *respDic = (NSDictionary*)responseObject;
+        KKLog(@"commnet %@",respDic);
+        NSInteger status=[respDic integerForKey:@"status" defaultValue:0];
+        if(status==1)
+        {
+            NSArray *dataArr = [respDic objectForKey:@"aaData"];
+            if (dataArr&&dataArr.count>0) {
+                for (NSDictionary*dic in dataArr) {
+                    KKComment *comment = [[KKComment alloc]initWithDic:dic];
+                    [self.dataArr addObject:comment];
+                }
+                [self.tableView reloadData];
+                [self.tableView.header endRefreshing];
+            }else{
+                [MBProgressHUD showMessag:@"还没有评论" toView:nil];
+                [self.tableView.header endRefreshing];
+            }
+        }
+        else
+        {
+            [SVProgressHUD showErrorWithStatus:@"读取失败" duration:2.0];
+            [self.tableView.header endRefreshing];
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD showErrorWithStatus:KKErrorInfo(error) duration:2.0];
+    }];
+    
+}
+
+////tableview 重载
+//-(void)tableViewReload:(NSInteger)arrNumber
+//{
+//    [self.tableView reloadData];
+//    [self.tableView.header endRefreshing];
+//    if(arrNumber==PerPageNumber || arrNumber== -1)
+//    {
+//        KKWEAKSELF
+//        //显示加载更多
+//        self.tableView.footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+//            [weakself loadMoreData];
+//        }];
+//    }
+//    else [self.tableView.footer noticeNoMoreData];
+//}
 
 #pragma mark - UITabelViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -50,22 +126,19 @@
     if (section==0) {
         return 1;
     }
-    
-    return 5;
+    return self.dataArr.count;
     
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==0) {
-        NSString *dyStr = self.dynamicData.dynamicText;
-        CGSize size = [dyStr sizeWithFont:[UIFont systemFontOfSize:15] maxSize:CGSizeMake(KKScreenWidth-20, 500)];
-        return (KKScreenWidth-20)*(290/320.0)+size.height;
+        return self.cellH;
     }else{
-        return 200;
+        return self.commentH;
     }
 }
 
 -(CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section{
-    return 0.0000001;
+    return 10;
     
 }
 -(CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section{
@@ -76,13 +149,23 @@
     if (indexPath.section==0) {
         DynamicCell *cell = [tableView dequeueReusableCellWithIdentifier:cellDynamicIdentifier forIndexPath:indexPath];
         cell.allowLike = YES;
+        cell.cellHeightBlock = ^(CGFloat height){
+            weakself.cellH = height;
+        };
         cell.dynamic = self.dynamicData;
+
         cell.praiseBlock = ^(){
             [weakself submitPraise];
         };
         return cell;
     }else{
         DynamicCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:cellDynamicCommentIdentifier forIndexPath:indexPath];
+        cell.cellHeightBlock = ^(CGFloat height){
+            weakself.commentH = height;
+        };
+        if (self.dataArr.count>indexPath.row) {
+            cell.comment = [self.dataArr objectAtIndex:indexPath.row];
+        }
         return cell;
     }
 }
@@ -93,17 +176,36 @@
 #pragma mark - 私有方法
 -(void)rightItemClick{
     KKLog(@"评论");
+    KKWEAKSELF
     CommentPopView *popView = [CommentPopView showCommentPopViewInView:self.view AndFrame:CGRectMake(0, 0, KKScreenWidth, KKScreenHeight)];
-    
+    popView.sendComment = ^(NSString *commentText){
+        [weakself submitCommentWithComment:commentText];
+    };
 }
 //提交点赞
 -(void)submitPraise{
     NSDictionary *param = @{@"userid":self.dynamicData.userId,@"dynamicsid":self.dynamicData.dynamicsId};
-    [FSSharedNetWorkingManager POST:ServiceInterfaceAddpraise parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [FSSharedNetWorkingManager POST:ServiceInterfaceAddPraise parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *respDic = (NSDictionary*)responseObject;
         KKLog(@"praise %@",respDic);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
     }];
 }
+//提交评论
+-(void)submitCommentWithComment:(NSString*)comment{
+    NSDictionary *param = @{@"dynamicsid":self.dynamicData.dynamicsId,@"comment":comment};
+    [FSSharedNetWorkingManager POST:ServiceInterfacePublishComment parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *respDic = (NSDictionary*)responseObject;
+        NSInteger status = [respDic integerForKey:@"status" defaultValue:0];
+        if (status==1) {
+            [MBProgressHUD showMessag:@"评论成功" toView:nil];
+        }
+
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD showErrorWithStatus:KKErrorInfo(error) duration:1.2];
+    }];
+}
+
+
 @end
