@@ -59,6 +59,12 @@
 		1C6B3A1A1DE3F34C008ACCA8 /* MeInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6B3A181DE3F34C008ACCA8 /* MeInfoCell.m */; };
 		1C6B3A1B1DE3F34C008ACCA8 /* MeInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C6B3A191DE3F34C008ACCA8 /* MeInfoCell.xib */; };
 		1C6B3A1F1DE4414C008ACCA8 /* NotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6B3A1E1DE4414C008ACCA8 /* NotificationView.m */; };
+		1C7697201DEFC07000CC2EB8 /* JSBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C76971F1DEFC07000CC2EB8 /* JSBadgeView.m */; };
+		1C7697231DEFF47500CC2EB8 /* ONSChatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7697221DEFF47500CC2EB8 /* ONSChatManager.m */; };
+		1C7697261DEFF57700CC2EB8 /* ONSConversation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7697251DEFF57700CC2EB8 /* ONSConversation.m */; };
+		1C7697291DEFF58A00CC2EB8 /* ONSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C7697281DEFF58A00CC2EB8 /* ONSMessage.m */; };
+		1C76972C1DF04AAB00CC2EB8 /* ONSConversationDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C76972B1DF04AAB00CC2EB8 /* ONSConversationDao.m */; };
+		1C76972F1DF04ABB00CC2EB8 /* ONSMessageDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C76972E1DF04ABB00CC2EB8 /* ONSMessageDao.m */; };
 		1CDD6CF81DE9209E006AAFAB /* ComeBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD6CF71DE9209E006AAFAB /* ComeBackViewController.m */; };
 		1CDD6CFC1DE92928006AAFAB /* WCAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD6CFB1DE92928006AAFAB /* WCAlertView.m */; };
 		1CDD6D001DE97771006AAFAB /* VIPPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD6CFF1DE97771006AAFAB /* VIPPayViewController.m */; };
@@ -161,10 +167,6 @@
 		569864931DE0530D0059D484 /* RootTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5698648C1DE0530D0059D484 /* RootTabBarController.m */; };
 		569864961DE055AE0059D484 /* KKUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 569864951DE055AE0059D484 /* KKUserManager.m */; };
 		569864991DE055D90059D484 /* KKUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 569864981DE055D90059D484 /* KKUser.m */; };
-		56C6FFD31DE09E9000BB5C3B /* Emoji.plist in Resources */ = {isa = PBXBuildFile; fileRef = 56C6FFC91DE09E9000BB5C3B /* Emoji.plist */; };
-		56C6FFD41DE09E9000BB5C3B /* RongCloudKit.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56C6FFCA1DE09E9000BB5C3B /* RongCloudKit.strings */; };
-		56C6FFD51DE09E9000BB5C3B /* RongCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 56C6FFCC1DE09E9000BB5C3B /* RongCloud.bundle */; };
-		56C6FFD61DE09E9000BB5C3B /* RongIMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C6FFCD1DE09E9000BB5C3B /* RongIMKit.framework */; };
 		56C6FFD71DE09E9000BB5C3B /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C6FFD01DE09E9000BB5C3B /* libopencore-amrnb.a */; };
 		56C6FFD81DE09E9000BB5C3B /* RCConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 56C6FFD11DE09E9000BB5C3B /* RCConfig.plist */; };
 		56C6FFD91DE09E9000BB5C3B /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C6FFD21DE09E9000BB5C3B /* RongIMLib.framework */; };
@@ -281,6 +283,18 @@
 		1C6B3A191DE3F34C008ACCA8 /* MeInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeInfoCell.xib; sourceTree = "<group>"; };
 		1C6B3A1D1DE4414C008ACCA8 /* NotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationView.h; sourceTree = "<group>"; };
 		1C6B3A1E1DE4414C008ACCA8 /* NotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationView.m; sourceTree = "<group>"; };
+		1C76971E1DEFC07000CC2EB8 /* JSBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSBadgeView.h; sourceTree = "<group>"; };
+		1C76971F1DEFC07000CC2EB8 /* JSBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSBadgeView.m; sourceTree = "<group>"; };
+		1C7697211DEFF47500CC2EB8 /* ONSChatManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONSChatManager.h; sourceTree = "<group>"; };
+		1C7697221DEFF47500CC2EB8 /* ONSChatManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONSChatManager.m; sourceTree = "<group>"; };
+		1C7697241DEFF57700CC2EB8 /* ONSConversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONSConversation.h; sourceTree = "<group>"; };
+		1C7697251DEFF57700CC2EB8 /* ONSConversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONSConversation.m; sourceTree = "<group>"; };
+		1C7697271DEFF58A00CC2EB8 /* ONSMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONSMessage.h; sourceTree = "<group>"; };
+		1C7697281DEFF58A00CC2EB8 /* ONSMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONSMessage.m; sourceTree = "<group>"; };
+		1C76972A1DF04AAB00CC2EB8 /* ONSConversationDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONSConversationDao.h; sourceTree = "<group>"; };
+		1C76972B1DF04AAB00CC2EB8 /* ONSConversationDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONSConversationDao.m; sourceTree = "<group>"; };
+		1C76972D1DF04ABB00CC2EB8 /* ONSMessageDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONSMessageDao.h; sourceTree = "<group>"; };
+		1C76972E1DF04ABB00CC2EB8 /* ONSMessageDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONSMessageDao.m; sourceTree = "<group>"; };
 		1CDD6CF61DE9209E006AAFAB /* ComeBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComeBackViewController.h; sourceTree = "<group>"; };
 		1CDD6CF71DE9209E006AAFAB /* ComeBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComeBackViewController.m; sourceTree = "<group>"; };
 		1CDD6CFA1DE92928006AAFAB /* WCAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCAlertView.h; sourceTree = "<group>"; };
@@ -474,11 +488,6 @@
 		569864951DE055AE0059D484 /* KKUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKUserManager.m; sourceTree = "<group>"; };
 		569864971DE055D90059D484 /* KKUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKUser.h; sourceTree = "<group>"; };
 		569864981DE055D90059D484 /* KKUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKUser.m; sourceTree = "<group>"; };
-		56C6FFC91DE09E9000BB5C3B /* Emoji.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Emoji.plist; sourceTree = "<group>"; };
-		56C6FFCB1DE09E9000BB5C3B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RongCloudKit.strings; sourceTree = "<group>"; };
-		56C6FFCC1DE09E9000BB5C3B /* RongCloud.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = RongCloud.bundle; sourceTree = "<group>"; };
-		56C6FFCD1DE09E9000BB5C3B /* RongIMKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RongIMKit.framework; sourceTree = "<group>"; };
-		56C6FFCE1DE09E9000BB5C3B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/RongCloudKit.strings"; sourceTree = "<group>"; };
 		56C6FFD01DE09E9000BB5C3B /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
 		56C6FFD11DE09E9000BB5C3B /* RCConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RCConfig.plist; sourceTree = "<group>"; };
 		56C6FFD21DE09E9000BB5C3B /* RongIMLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RongIMLib.framework; sourceTree = "<group>"; };
@@ -553,7 +562,6 @@
 				569864611DE010DB0059D484 /* Foundation.framework in Frameworks */,
 				1C0E779D1DE3222C0083F9F8 /* AMapFoundationKit.framework in Frameworks */,
 				5698643F1DE00F140059D484 /* libsqlite3.tbd in Frameworks */,
-				56C6FFD61DE09E9000BB5C3B /* RongIMKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -778,6 +786,15 @@
 			path = NotifactionView;
 			sourceTree = "<group>";
 		};
+		1C76971D1DEFC07000CC2EB8 /* JSBadgeView */ = {
+			isa = PBXGroup;
+			children = (
+				1C76971E1DEFC07000CC2EB8 /* JSBadgeView.h */,
+				1C76971F1DEFC07000CC2EB8 /* JSBadgeView.m */,
+			);
+			path = JSBadgeView;
+			sourceTree = "<group>";
+		};
 		1CDD6CF91DE92928006AAFAB /* WCAlertView */ = {
 			isa = PBXGroup;
 			children = (
@@ -899,6 +916,7 @@
 		569863671DE00CAA0059D484 /* ThirdLibs */ = {
 			isa = PBXGroup;
 			children = (
+				1C76971D1DEFC07000CC2EB8 /* JSBadgeView */,
 				9B53D3301DEC098700913DFC /* KRVideoPlayer */,
 				1CDD6CF91DE92928006AAFAB /* WCAlertView */,
 				1C0E77541DE31F870083F9F8 /* AFNetworking */,
@@ -1186,6 +1204,10 @@
 				569864981DE055D90059D484 /* KKUser.m */,
 				1C2B9DE81DEE6B3F0088E2FE /* KKDynamic.h */,
 				1C2B9DE91DEE6B3F0088E2FE /* KKDynamic.m */,
+				1C7697241DEFF57700CC2EB8 /* ONSConversation.h */,
+				1C7697251DEFF57700CC2EB8 /* ONSConversation.m */,
+				1C7697271DEFF58A00CC2EB8 /* ONSMessage.h */,
+				1C7697281DEFF58A00CC2EB8 /* ONSMessage.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1202,6 +1224,8 @@
 				569864761DE051FA0059D484 /* KKLocalPlistManager.m */,
 				1C6B3A091DE3DCF3008ACCA8 /* KKGlobalManager.h */,
 				1C6B3A0A1DE3DCF3008ACCA8 /* KKGlobalManager.m */,
+				1C7697211DEFF47500CC2EB8 /* ONSChatManager.h */,
+				1C7697221DEFF47500CC2EB8 /* ONSChatManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1252,6 +1276,10 @@
 				569864681DE0516E0059D484 /* KKBaseDao.m */,
 				1C2B9DEB1DEEC7240088E2FE /* KKDynamicDao.h */,
 				1C2B9DEC1DEEC7240088E2FE /* KKDynamicDao.m */,
+				1C76972A1DF04AAB00CC2EB8 /* ONSConversationDao.h */,
+				1C76972B1DF04AAB00CC2EB8 /* ONSConversationDao.m */,
+				1C76972D1DF04ABB00CC2EB8 /* ONSMessageDao.h */,
+				1C76972E1DF04ABB00CC2EB8 /* ONSMessageDao.m */,
 			);
 			path = DataBase;
 			sourceTree = "<group>";
@@ -1285,21 +1313,9 @@
 		56C6FFC71DE09E6300BB5C3B /* RongCloud */ = {
 			isa = PBXGroup;
 			children = (
-				56C6FFC81DE09E9000BB5C3B /* IMKit */,
 				56C6FFCF1DE09E9000BB5C3B /* IMLib */,
 			);
 			path = RongCloud;
-			sourceTree = "<group>";
-		};
-		56C6FFC81DE09E9000BB5C3B /* IMKit */ = {
-			isa = PBXGroup;
-			children = (
-				56C6FFC91DE09E9000BB5C3B /* Emoji.plist */,
-				56C6FFCA1DE09E9000BB5C3B /* RongCloudKit.strings */,
-				56C6FFCC1DE09E9000BB5C3B /* RongCloud.bundle */,
-				56C6FFCD1DE09E9000BB5C3B /* RongIMKit.framework */,
-			);
-			path = IMKit;
 			sourceTree = "<group>";
 		};
 		56C6FFCF1DE09E9000BB5C3B /* IMLib */ = {
@@ -1490,10 +1506,7 @@
 				040309121DEAE09C00F516E5 /* CarouselCell.xib in Resources */,
 				1C327C5F1DE691E400E9DFB3 /* NearUserCell.xib in Resources */,
 				9B53D32F1DEBD9FA00913DFC /* VideoCell.xib in Resources */,
-				56C6FFD41DE09E9000BB5C3B /* RongCloudKit.strings in Resources */,
 				567F545C1DDFEC5500872A36 /* Main.storyboard in Resources */,
-				56C6FFD31DE09E9000BB5C3B /* Emoji.plist in Resources */,
-				56C6FFD51DE09E9000BB5C3B /* RongCloud.bundle in Resources */,
 				1C6B3A111DE3F314008ACCA8 /* HeadCell.xib in Resources */,
 				9BC32EF21DE5AE9700CDDAFB /* TopPageView.xib in Resources */,
 				040309081DEAD88200F516E5 /* SignCell.xib in Resources */,
@@ -1514,6 +1527,7 @@
 				1C2B9DED1DEEC7240088E2FE /* KKDynamicDao.m in Sources */,
 				569864341DE00EAF0059D484 /* UIImage+GIF.m in Sources */,
 				5698645F1DE010B40059D484 /* UIColor+Hex.m in Sources */,
+				1C7697201DEFC07000CC2EB8 /* JSBadgeView.m in Sources */,
 				1CDD6D031DE9778C006AAFAB /* BaoYuePayViewController.m in Sources */,
 				5698642A1DE00EAF0059D484 /* MKAnnotationView+WebCache.m in Sources */,
 				1C0E774B1DE30B4D0083F9F8 /* RegisterViewController.m in Sources */,
@@ -1534,6 +1548,7 @@
 				1C0FF5D81DE5354400DBF4E0 /* OneVideoCell.m in Sources */,
 				569864741DE051A30059D484 /* KKThredUtils.m in Sources */,
 				569864211DE00EAF0059D484 /* MJRefreshBackStateFooter.m in Sources */,
+				1C7697291DEFF58A00CC2EB8 /* ONSMessage.m in Sources */,
 				569864581DE010B40059D484 /* NSDate+Utils.m in Sources */,
 				5698645C1DE010B40059D484 /* NSString+Digest.m in Sources */,
 				9BC32EFB1DE6D31600CDDAFB /* FemaleIncomeViewController.m in Sources */,
@@ -1573,6 +1588,7 @@
 				1C0E77641DE31F870083F9F8 /* AFSecurityPolicy.m in Sources */,
 				569864231DE00EAF0059D484 /* MJRefreshNormalHeader.m in Sources */,
 				1C0E77631DE31F870083F9F8 /* AFNetworkReachabilityManager.m in Sources */,
+				1C7697261DEFF57700CC2EB8 /* ONSConversation.m in Sources */,
 				1C5EE2481DEC4D07004B6AFB /* KKImageScrollView.m in Sources */,
 				1C5EE2401DEC4B04004B6AFB /* KKMediaNavigationController.m in Sources */,
 				569864381DE00EAF0059D484 /* UIImageView+WebCache.m in Sources */,
@@ -1598,6 +1614,7 @@
 				569864061DE00EAF0059D484 /* FMDatabaseQueue.m in Sources */,
 				1C6B3A1A1DE3F34C008ACCA8 /* MeInfoCell.m in Sources */,
 				1C0E77501DE30F820083F9F8 /* ONSButton.m in Sources */,
+				1C7697231DEFF47500CC2EB8 /* ONSChatManager.m in Sources */,
 				5698648D1DE0530D0059D484 /* KKBaseNavigationController.m in Sources */,
 				569864371DE00EAF0059D484 /* UIImageView+HighlightedWebCache.m in Sources */,
 				1C0E77971DE31FEA0083F9F8 /* FSNetWorking.m in Sources */,
@@ -1614,6 +1631,7 @@
 				1C5EE2441DEC4B04004B6AFB /* KKMediaThumbnailController.m in Sources */,
 				5698645B1DE010B40059D484 /* NSString+Convertor.m in Sources */,
 				1C0E77671DE31F870083F9F8 /* AFURLSessionManager.m in Sources */,
+				1C76972F1DF04ABB00CC2EB8 /* ONSMessageDao.m in Sources */,
 				569864721DE051A30059D484 /* KKBLEUtils.m in Sources */,
 				1C327C5E1DE691E400E9DFB3 /* NearUserCell.m in Sources */,
 				5698641B1DE00EAF0059D484 /* MJRefreshHeader.m in Sources */,
@@ -1631,6 +1649,7 @@
 				569864301DE00EAF0059D484 /* SDWebImageDownloaderOperation.m in Sources */,
 				5698641C1DE00EAF0059D484 /* MJRefreshAutoGifFooter.m in Sources */,
 				5698642F1DE00EAF0059D484 /* SDWebImageDownloader.m in Sources */,
+				1C76972C1DF04AAB00CC2EB8 /* ONSConversationDao.m in Sources */,
 				1C0E77A81DE325680083F9F8 /* NearbyViewController.m in Sources */,
 				1CDD6D071DE97CCE006AAFAB /* SettingTableViewController.m in Sources */,
 				5698648E1DE0530D0059D484 /* KKBaseTableViewController.m in Sources */,
@@ -1652,15 +1671,6 @@
 				569863631DE00A780059D484 /* zh-Hans */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		56C6FFCA1DE09E9000BB5C3B /* RongCloudKit.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				56C6FFCB1DE09E9000BB5C3B /* en */,
-				56C6FFCE1DE09E9000BB5C3B /* zh-Hans */,
-			);
-			name = RongCloudKit.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -9,6 +9,8 @@
 #import "ChatListViewController.h"
 #import "ChatViewController.h"
 #import "ChatListCell.h"
+#import "JSBadgeView.h"
+
 
 
 #define cellChatListIdentifier @"ChatListCell"
@@ -38,6 +40,20 @@
     
     //使用registerNib 方法可以从XIB加载控件
     [self.tableView registerNib:[UINib nibWithNibName:cellChatListIdentifier bundle:nil] forCellReuseIdentifier:cellChatListIdentifier];
+    
+    // 构建消息的内容，这里以文本消息为例。
+    RCTextMessage *testMessage = [RCTextMessage messageWithContent:@"test"];
+    // 调用RCIMClient的sendMessage方法进行发送，结果会通过回调进行反馈。
+    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PRIVATE
+                                      targetId:@"456"
+                                       content:testMessage
+                                   pushContent:nil
+                                      pushData:nil
+                                       success:^(long messageId) {
+                                           NSLog(@"发送成功。当前消息ID：%ld", messageId);
+                                       } error:^(RCErrorCode nErrorCode, long messageId) {
+                                           NSLog(@"发送失败。消息ID：%ld， 错误码：%ld", messageId, nErrorCode);
+                                       }];
     
     // 设置消息接收监听
     [[RCIMClient sharedRCIMClient] setReceiveMessageDelegate:self object:nil];
