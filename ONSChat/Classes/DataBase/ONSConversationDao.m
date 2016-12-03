@@ -36,7 +36,7 @@
 #define InsertRecordSqlArgs @[AllFields]
 
 //更新语句
-#define UpdateRecordSql KKStringWithFormat(@"UPDATE %@ SET %@=?, %@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@ WHERE %@=?",TableName, AllColumns,ColID)
+#define UpdateRecordSql KKStringWithFormat(@"UPDATE %@ SET %@=?, %@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=? WHERE %@=?",TableName, AllColumns,ColID)
 //更新数值
 #define UpdateRecordSqlArgs @[AllFields,@(record.conversationId)]
 

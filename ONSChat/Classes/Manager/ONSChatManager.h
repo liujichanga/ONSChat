@@ -16,6 +16,8 @@
 +(instancetype)sharedChatManager;
 +(void)releaseSingleton;
 
+@property(assign,nonatomic) NSTimeInterval lastTimeInterval;
+
 //接收到融云发来的信息
 -(void)receiveMessage:(NSString *)textMessage;
 

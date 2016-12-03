@@ -44,7 +44,16 @@ static ONSChatManager *instance;
 
 -(void)receiveMessage:(NSString *)textMessage
 {
-    textMessage=@"{\"a\":\"dddwef\nabc\"}";
+    if([[NSDate date] timeIntervalSince1970] - self.lastTimeInterval < 0.5)
+    {
+        //NSLog(@"time:%f",[[NSDate date] timeIntervalSince1970]);
+        [NSThread sleepForTimeInterval:0.5];
+        //NSLog(@"time:%f",[[NSDate date] timeIntervalSince1970]);
+    }
+    self.lastTimeInterval=[[NSDate date] timeIntervalSince1970];
+    
+    //替换消息里面的换行符
+    textMessage = [textMessage stringByReplacingOccurrencesOfString:@"\n" withString:@"\\n"];
     NSDictionary *dic=[textMessage objectFromJSONString];
     if(dic&&[dic isKindOfClass:[NSDictionary class]])
     {
@@ -60,7 +69,66 @@ static ONSChatManager *instance;
             ONSMessage *message=[[ONSMessage alloc] initWithDic:dataDic];
             message.messageDirection=ONSMessageDirection_RECEIVE;
             
+            //添加消息
+            [ONSSharedMessageDao addMessage:message completion:^(BOOL success) {
+                
+                if(success)
+                {
+                    //添加message成功
+                    NSLog(@"add message succeed");
+                    
+                    [ONSSharedConversationDao getConversationByTargetId:conversation.targetId completion:^(id result) {
+                        
+                       if(result)
+                       {
+                           //存在此会话，更新会话
+                           NSLog(@"存在，先添加message，再更新conversation");
+                           ONSConversation *existConversation=(ONSConversation*)result;
+                           
+                           existConversation.unReadCount+=1;
+                           existConversation.avatar=conversation.avatar;
+                           existConversation.address=conversation.address;
+                           existConversation.nickName=conversation.nickName;
+                           existConversation.age=conversation.age;
+                           existConversation.lastMessageId=message.messageId;
+                           
+                           [ONSSharedConversationDao updateConversation:existConversation completion:^(BOOL success) {
+                               
+                               if(success)
+                               {
+                                   //更新conversation成功
+                                   NSLog(@"update conversation succeed");
+                                   
+                               }
+                               else
+                               {
+                                   NSLog(@"update conversation faild");
+                               }
+                               
+                           } inBackground:YES];
+                       }
+                        else
+                        {
+                            //不存在此会话，添加会话
+                        }
+                        
+                        
+                    } inBackground:NO];
+                    
+                    
+                }
+                else
+                {
+                    NSLog(@"add message failed");
+                }
+                
+            } inBackground:NO];
+            
+            
             [ONSSharedConversationDao getConversationByTargetId:conversation.targetId completion:^(id result) {
+                
+                
+                
                 
                 if(result)
                 {
@@ -81,6 +149,7 @@ static ONSChatManager *instance;
                             existConversation.address=conversation.address;
                             existConversation.nickName=conversation.nickName;
                             existConversation.age=conversation.age;
+                            existConversation.lastMessageId=message.messageId;
                             
                             [ONSSharedConversationDao updateConversation:existConversation completion:^(BOOL success) {
                                 
@@ -140,7 +209,7 @@ static ONSChatManager *instance;
                     
                 }
                 
-            } inBackground:YES];
+            } inBackground:NO];
         }
     }
     
