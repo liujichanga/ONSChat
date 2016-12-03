@@ -53,10 +53,10 @@
     NSInteger type = [dataDic integerForKey:@"statetype" defaultValue:0];
     if (type==1) {
         //图片frame可根据需要修改
-        UIImageView *dynamicsImgView = [[UIImageView alloc]initWithFrame:CGRectMake(10, self.videoStrLab.frame.origin.y+self.videoStrLab.frame.size.height+10, KKScreenWidth-20, (KKScreenWidth-20)*(9.0/16.0))];
+        UIImageView *dynamicsImgView = [[UIImageView alloc]initWithFrame:CGRectMake(10, self.videoStrLab.frame.origin.y+self.videoStrLab.frame.size.height+10, KKScreenWidth*0.5, KKScreenWidth*0.5)];
         dynamicsImgView.userInteractionEnabled = YES;
         KKImageViewWithUrlstring(dynamicsImgView, imgURL, @"");
-        dynamicsImgView.backgroundColor = [UIColor blackColor];
+        dynamicsImgView.backgroundColor = [UIColor clearColor];
         dynamicsImgView.contentMode = UIViewContentModeScaleAspectFit;
         [self.contentView addSubview:dynamicsImgView];
         self.height = dynamicsImgView.frame.origin.y+dynamicsImgView.frame.size.height+10;

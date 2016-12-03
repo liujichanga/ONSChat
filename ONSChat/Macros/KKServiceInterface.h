@@ -45,12 +45,10 @@
 #define ServiceInterfaceDynamicsabout KKStringWithFormat(@"%@/%@/user/dynamicsabout", KKServerDomain, App)
 //点赞
 #define ServiceInterfaceAddPraise KKStringWithFormat(@"%@/%@/addpraise", KKServerDomain, App)
-
-
-
-
-//点赞
-#define ServiceInterfaceAddpraise KKStringWithFormat(@"%@/%@/addpraise", KKServerDomain, App)
+//获取评论列表
+#define ServiceInterfaceGetCommentList KKStringWithFormat(@"%@/%@/user/getCommentList", KKServerDomain, App)
+//提交评论
+#define ServiceInterfacePublishComment KKStringWithFormat(@"%@/%@/user/PublishComment", KKServerDomain, App)
 
 
 #endif

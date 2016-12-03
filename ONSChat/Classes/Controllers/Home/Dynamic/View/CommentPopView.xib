@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,13 +16,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xhi-iu-GFU">
-                    <rect key="frame" x="0.0" y="444.5" width="375" height="222.5"/>
+                    <rect key="frame" x="0.0" y="442" width="375" height="225"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WX3-CR-1VI">
-                            <rect key="frame" x="15" y="15" width="345" height="150.5"/>
+                            <rect key="frame" x="15" y="15" width="345" height="153"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="对她感兴趣，写下评论，引起她的注意吧....." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8AC-Qq-5dK">
-                                    <rect key="frame" x="10" y="13" width="325" height="129.5"/>
+                                    <rect key="frame" x="10" y="13" width="325" height="132"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -37,7 +36,7 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kt4-PM-d1V" customClass="ONSButtonPurple">
-                            <rect key="frame" x="291" y="179.5" width="74" height="28"/>
+                            <rect key="frame" x="291" y="182" width="74" height="28"/>
                             <color key="backgroundColor" red="0.82352941180000006" green="0.34509803919999998" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="74" id="2hf-Ec-29u"/>
@@ -59,6 +58,7 @@
                         <constraint firstAttribute="trailing" secondItem="kt4-PM-d1V" secondAttribute="trailing" constant="10" id="meA-Rc-YA9"/>
                         <constraint firstItem="kt4-PM-d1V" firstAttribute="top" secondItem="WX3-CR-1VI" secondAttribute="bottom" constant="14" id="nrJ-Qc-tUB"/>
                         <constraint firstItem="WX3-CR-1VI" firstAttribute="top" secondItem="Xhi-iu-GFU" secondAttribute="top" constant="15" id="unN-pW-e8l"/>
+                        <constraint firstAttribute="height" constant="225" id="x58-HB-1jd"/>
                         <constraint firstItem="WX3-CR-1VI" firstAttribute="leading" secondItem="Xhi-iu-GFU" secondAttribute="leading" constant="15" id="yiA-kT-jL9"/>
                     </constraints>
                 </view>
@@ -66,7 +66,6 @@
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.19030515939597314" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Xhi-iu-GFU" secondAttribute="bottom" id="3U8-ig-58W"/>
-                <constraint firstItem="Xhi-iu-GFU" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="1:3" id="T9N-UX-UoE"/>
                 <constraint firstItem="Xhi-iu-GFU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="XE7-XL-TSF"/>
                 <constraint firstAttribute="trailing" secondItem="Xhi-iu-GFU" secondAttribute="trailing" id="mKM-yH-scI"/>
             </constraints>
@@ -75,7 +74,7 @@
                 <outlet property="bgView" destination="WX3-CR-1VI" id="2vR-BH-HIS"/>
                 <outlet property="commentTextField" destination="8AC-Qq-5dK" id="p3h-Ka-ar1"/>
             </connections>
-            <point key="canvasLocation" x="10" y="-274.5"/>
+            <point key="canvasLocation" x="9.5" y="-274.5"/>
         </view>
     </objects>
 </document>

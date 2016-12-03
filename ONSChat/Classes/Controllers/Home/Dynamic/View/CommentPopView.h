@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CommentPopView : UIView
+
+@property (nonatomic, copy) void(^sendComment)(NSString*commentText);
 +(instancetype)showCommentPopViewInView:(UIView*)view AndFrame:(CGRect)frame;
 @end

@@ -36,21 +36,51 @@
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(close:)];
     [self addGestureRecognizer:tap];
+    
+    //使用NSNotificationCenter 鍵盤出現時
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardWillShowNotification object:nil];
+    //使用NSNotificationCenter 鍵盤隐藏時
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
+    
+}
+
+-(void)close:(UITapGestureRecognizer*)tap{
+    [self.commentTextField resignFirstResponder];
+    [self removeFromSuperview];
+}
+
+//实现当键盘出现的时候计算键盘的高度大小。用于输入框显示位置
+- (void)keyboardWasShown:(NSNotification*)aNotification
+{
+    NSDictionary* info = [aNotification userInfo];
+    //kbSize即為鍵盤尺寸 (有width, height)
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;//得到鍵盤的高度
+    NSLog(@"hight_hitht:%f",kbSize.height);
+    
+    [UIView animateWithDuration:0.4f animations:^{
+        
+        self.frame = CGRectMake(0.0f, -kbSize.height, self.frame.size.width, self.frame.size.height);
+    }];
+}
+
+//当键盘隐藏的时候
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+{
+    [UIView animateWithDuration:0.4f animations:^{
+        self.frame =CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+    }];
+}
+
+- (IBAction)sendCommentBtnClick:(id)sender {
+    KKLog(@"发表 %@",self.commentTextField.text);
+    [self.commentTextField resignFirstResponder];
+    [self removeFromSuperview];
+    if (self.sendComment) {
+        self.sendComment(self.commentTextField.text);
+    }
 }
 
 #pragma mark - UITextFieldDelegate
-//开始编辑输入框的时候，软键盘出现，执行此事件
--(void)textFieldDidBeginEditing:(UITextField *)textField
-{
-    NSTimeInterval animationDuration = 0.30f;
-    [UIView beginAnimations:@"ResizeForKeyboard" context:nil];
-    [UIView setAnimationDuration:animationDuration];
-    //将视图的Y坐标向上移动offset个单位，以使下面腾出地方用于软键盘的显示
-    self.frame = CGRectMake(0.0f, -246, self.frame.size.width, self.frame.size.height);
-    
-    [UIView commitAnimations];
-}
-
 //当用户按下return键或者按回车键，keyboard消失
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -58,23 +88,7 @@
     return YES;
 }
 
-//输入框编辑完成以后，将视图恢复到原始状态
--(void)textFieldDidEndEditing:(UITextField *)textField
-{
-    self.frame =CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+-(void)dealloc{
+    KKNotificationCenterRemoveObserverOfSelf
 }
-
-
--(void)close:(UITapGestureRecognizer*)tap{
-    [self.commentTextField resignFirstResponder];
-    [self removeFromSuperview];
-}
-
-- (IBAction)sendCommentBtnClick:(id)sender {
-    
-    KKLog(@"发表 %@",self.commentTextField.text);
-    [self.commentTextField resignFirstResponder];
-    [self removeFromSuperview];
-}
-
 @end
