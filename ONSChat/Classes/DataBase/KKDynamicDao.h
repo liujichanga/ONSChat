@@ -17,6 +17,9 @@
 
 +(instancetype)sharedDynamicDao;
 
+/*注意注意一定在注销时候调用此方法**/
++(void)releaseSingleton;
+
 //添加动态
 -(void)addDynamic:(KKDynamic *)dynamic completion:(KKDaoUpdateCompletion)completion inBackground:(BOOL)inbackground;
 

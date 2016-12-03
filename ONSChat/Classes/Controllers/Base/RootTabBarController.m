@@ -11,9 +11,9 @@
 #import "DailyRecommandViewController.h"
 #import "BindingPhoneNumberViewController.h"
 #import "VIPPayViewController.h"
+#import <RongIMLib/RongIMLib.h>
 
-
-@interface RootTabBarController ()<UITabBarControllerDelegate>
+@interface RootTabBarController ()<UITabBarControllerDelegate,RCIMClientReceiveMessageDelegate>
 {
     
 }
@@ -47,10 +47,69 @@
     self.tabBar.tintColor = KKColorPurple;
     self.tabBar.translucent=NO;
     
+    //tabbar badge
+    [self initTabBarBadge];
+
+    KKNotificationCenterAddObserverOfSelf(updateTabBarBadge:, @"updateTabBarBadge", nil);
+    
     KKWEAKSELF
     [KKThredUtils runInMainQueue:^{
         [weakself loginCheck];
     } delay:0.2];
+    
+ 
+    // 设置消息接收监听
+    [[RCIMClient sharedRCIMClient] setReceiveMessageDelegate:self object:nil];
+    
+    
+}
+
+#pragma mark - Tabbar Dadge
+-(void)initTabBarBadge
+{
+    UIView *badgeView=[[UIView alloc] initWithFrame:CGRectMake(0.66*KKScreenWidth, 0.05 * self.tabBar.frame.size.height, 18, 18)];
+    badgeView.backgroundColor=KKColorPurple;
+    [badgeView.layer setMasksToBounds:YES];
+    [badgeView.layer setCornerRadius:9.0];
+    badgeView.tag=100;
+    
+    UILabel *badgeLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 17, 17)];
+    badgeLabel.text=@"0";
+    badgeLabel.tag=100;
+    badgeLabel.font=[UIFont systemFontOfSize:13];
+    badgeLabel.adjustsFontSizeToFitWidth=YES;
+    badgeLabel.textAlignment=NSTextAlignmentCenter;
+    badgeLabel.textColor=[UIColor whiteColor];
+    badgeLabel.minimumScaleFactor=0.5;
+    badgeLabel.center=CGPointMake(badgeView.frame.size.width*0.5, badgeView.frame.size.height*0.5);
+    
+    [badgeView addSubview:badgeLabel];
+    
+    [self.tabBar addSubview:badgeView];
+    
+    badgeView.hidden=YES;
+}
+
+-(void)updateTabBarBadge:(NSInteger)num
+{
+   
+    UIView *badgeview=[self.tabBar viewWithTag:100];
+    if(badgeview)
+    {
+        if(num<=0)
+        {
+            badgeview.hidden=YES;
+            return;
+        }
+        
+        badgeview.hidden=NO;
+        UIView *labelview=[badgeview viewWithTag:100];
+        if(labelview)
+        {
+            UILabel *label=(UILabel*)labelview;
+            label.text=KKStringWithFormat(@"%ld",num);
+        }
+    }
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -127,7 +186,14 @@
     
 }
 
-
+#pragma mark - RC
+- (void)onReceived:(RCMessage *)message left:(int)nLeft object:(id)object {
+    if ([message.content isMemberOfClass:[RCTextMessage class]]) {
+        RCTextMessage *testMessage = (RCTextMessage *)message.content;
+        NSLog(@"消息内容：%@", testMessage.content);
+    }
+    
+}
 
 
 #pragma mark - TabBarControllerDelegate
@@ -142,23 +208,6 @@
 {
    
 }
-
-#pragma mark - 屏幕方向
--(BOOL)shouldAutorotate
-{
-    return NO;
-}
-
--(UIInterfaceOrientationMask)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskPortrait;
-}
-
--(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
-{
-    return UIInterfaceOrientationPortrait;
-}
-
 
 
 

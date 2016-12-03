@@ -122,10 +122,11 @@
     
     KKSharedUserManager.autoLoginEnabled=YES;
     
-    //初始化融云
-    [[RCIMClient sharedRCIMClient] initWithAppKey:@"8w7jv4qb7vsoy"];
+    //初始化融云 kk tdrvipkstmvn5 LDpIUJgUlRtOp67IiaTnRb0/q7qZMBWE3fN7edgYT61aHERUomyfJPgvOB84LbqNpd7G4pmzkjwMtb7ko7j2Y0AJpwass/7g
+    [[RCIMClient sharedRCIMClient] initWithAppKey:@"8w7jv4qb7vsoy"];//8w7jv4qb7vsoy [dic stringForKey:@"token" defaultValue:@""]
     
-    [[RCIMClient sharedRCIMClient] connectWithToken:[dic stringForKey:@"token" defaultValue:@""] success:^(NSString *userId) {
+    NSString *tokent=[dic stringForKey:@"token" defaultValue:@""];
+    [[RCIMClient sharedRCIMClient] connectWithToken:tokent success:^(NSString *userId) {
         NSLog(@"登陆成功。当前登录的用户ID：%@", userId);
     } error:^(RCConnectErrorCode status) {
         NSLog(@"登陆的错误码为:%zd", status);

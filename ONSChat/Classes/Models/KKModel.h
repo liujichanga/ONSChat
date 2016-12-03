@@ -11,6 +11,8 @@
 
 #import "KKUser.h"
 #import "KKDynamic.h"
+#import "ONSConversation.h"
+#import "ONSMessage.h"
 #import "KKComment.h"
 
 
