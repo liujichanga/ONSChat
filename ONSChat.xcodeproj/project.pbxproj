@@ -170,6 +170,7 @@
 		56C6FFD71DE09E9000BB5C3B /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C6FFD01DE09E9000BB5C3B /* libopencore-amrnb.a */; };
 		56C6FFD81DE09E9000BB5C3B /* RCConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 56C6FFD11DE09E9000BB5C3B /* RCConfig.plist */; };
 		56C6FFD91DE09E9000BB5C3B /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C6FFD21DE09E9000BB5C3B /* RongIMLib.framework */; };
+		9B526D3B1DF2943900E91B59 /* DynamicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B526D3A1DF2943900E91B59 /* DynamicCell.xib */; };
 		9B53D32E1DEBD9FA00913DFC /* VideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B53D32C1DEBD9FA00913DFC /* VideoCell.m */; };
 		9B53D32F1DEBD9FA00913DFC /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B53D32D1DEBD9FA00913DFC /* VideoCell.xib */; };
 		9B53D3351DEC098700913DFC /* KRVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B53D3321DEC098700913DFC /* KRVideoPlayerController.m */; };
@@ -500,6 +501,7 @@
 		56C6FFD01DE09E9000BB5C3B /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
 		56C6FFD11DE09E9000BB5C3B /* RCConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RCConfig.plist; sourceTree = "<group>"; };
 		56C6FFD21DE09E9000BB5C3B /* RongIMLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RongIMLib.framework; sourceTree = "<group>"; };
+		9B526D3A1DF2943900E91B59 /* DynamicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DynamicCell.xib; sourceTree = "<group>"; };
 		9B53D32B1DEBD9FA00913DFC /* VideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCell.h; sourceTree = "<group>"; };
 		9B53D32C1DEBD9FA00913DFC /* VideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoCell.m; sourceTree = "<group>"; };
 		9B53D32D1DEBD9FA00913DFC /* VideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
@@ -1389,6 +1391,7 @@
 				9BFBE3421DF02F40009EF3BE /* DynamicCommentCell.xib */,
 				9BA6B2F31DEED359006AD474 /* DynamicCell.h */,
 				9BA6B2F41DEED359006AD474 /* DynamicCell.m */,
+				9B526D3A1DF2943900E91B59 /* DynamicCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1579,6 +1582,7 @@
 				9BFBE3441DF02F40009EF3BE /* DynamicCommentCell.xib in Resources */,
 				9BA6B3051DF00E83006AD474 /* CommentPopView.xib in Resources */,
 				040309121DEAE09C00F516E5 /* CarouselCell.xib in Resources */,
+				9B526D3B1DF2943900E91B59 /* DynamicCell.xib in Resources */,
 				1C327C5F1DE691E400E9DFB3 /* NearUserCell.xib in Resources */,
 				9B53D32F1DEBD9FA00913DFC /* VideoCell.xib in Resources */,
 				567F545C1DDFEC5500872A36 /* Main.storyboard in Resources */,
