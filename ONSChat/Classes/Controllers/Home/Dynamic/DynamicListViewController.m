@@ -43,7 +43,7 @@
     //读取数据
     KKWEAKSELF
     MJRefreshNormalHeader *header =[MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [weakself loadNewData];
+        [weakself loadData];
         
     }];
     self.tableView.header=header;
@@ -56,6 +56,18 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)loadData{
+ 
+    if (self.showRightItem==YES) {
+       //读取本地数据库数据
+        KKLog(@"SQL");
+        [self.tableView.header endRefreshing];
+    }else{
+        [self loadNewData];
+    }
+}
+
 -(void)loadNewData
 {
     [self.dataArr removeAllObjects];
@@ -126,6 +138,11 @@
     else [self.tableView.footer noticeNoMoreData];
 }
 
+-(void)loadLocalData{
+    
+}
+
+
 #pragma mark - UITabelViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -136,13 +153,9 @@
     
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (self.dataArr.count>indexPath.row) {
-        KKDynamic*dy = [self.dataArr objectAtIndex:indexPath.row];
-        NSString *dyStr = dy.dynamicText;
-        CGSize size = [dyStr sizeWithFont:[UIFont systemFontOfSize:15] maxSize:CGSizeMake(KKScreenWidth-20, 500)];
-        return self.cellH;
-    }
-    return 0;    
+
+    return self.cellH;
+  
 }
 
 -(CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section{
