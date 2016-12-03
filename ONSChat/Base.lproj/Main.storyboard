@@ -426,7 +426,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7dj-yQ-dfG">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="333.5"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="333.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKz-e4-ahg">
                                         <rect key="frame" x="24" y="233.5" width="80" height="80"/>
@@ -435,20 +435,26 @@
                                             <constraint firstAttribute="height" constant="80" id="ogP-Mg-hje"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="ic_camera_enhance_black_18dp"/>
+                                        <connections>
+                                            <action selector="dyAddImageBtnClick:" destination="wPq-0V-s0m" eventType="touchUpInside" id="KCI-o5-aGe"/>
+                                        </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PFU-Xy-MQT">
-                                        <rect key="frame" x="8" y="25" width="359" height="188.5"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="请输入动态内容" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PFU-Xy-MQT">
+                                        <rect key="frame" x="15" y="25" width="345" height="188.5"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="wPq-0V-s0m" id="Hbu-PW-bTf"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="hKz-e4-ahg" firstAttribute="leading" secondItem="7dj-yQ-dfG" secondAttribute="leading" constant="24" id="2Eq-eo-RCz"/>
-                                    <constraint firstItem="PFU-Xy-MQT" firstAttribute="leading" secondItem="7dj-yQ-dfG" secondAttribute="leading" constant="8" id="4K5-S7-ZYW"/>
+                                    <constraint firstItem="PFU-Xy-MQT" firstAttribute="leading" secondItem="7dj-yQ-dfG" secondAttribute="leading" constant="15" id="4K5-S7-ZYW"/>
                                     <constraint firstItem="PFU-Xy-MQT" firstAttribute="top" secondItem="7dj-yQ-dfG" secondAttribute="top" constant="25" id="Mjq-Go-S64"/>
-                                    <constraint firstAttribute="trailing" secondItem="PFU-Xy-MQT" secondAttribute="trailing" constant="8" id="WBa-LR-v1F"/>
+                                    <constraint firstAttribute="trailing" secondItem="PFU-Xy-MQT" secondAttribute="trailing" constant="15" id="WBa-LR-v1F"/>
                                     <constraint firstItem="hKz-e4-ahg" firstAttribute="top" secondItem="PFU-Xy-MQT" secondAttribute="bottom" constant="20" id="YhM-Hq-45H"/>
                                     <constraint firstAttribute="bottom" secondItem="hKz-e4-ahg" secondAttribute="bottom" constant="20" id="bUL-n6-rRe"/>
                                 </constraints>
@@ -457,8 +463,8 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="7dj-yQ-dfG" firstAttribute="leading" secondItem="38J-TU-cZn" secondAttribute="leading" id="G0v-fl-gae"/>
+                            <constraint firstItem="7dj-yQ-dfG" firstAttribute="top" secondItem="Nuj-m6-5EI" secondAttribute="bottom" id="NOM-V6-TJV"/>
                             <constraint firstAttribute="trailing" secondItem="7dj-yQ-dfG" secondAttribute="trailing" id="SHu-yo-73L"/>
-                            <constraint firstItem="7dj-yQ-dfG" firstAttribute="top" secondItem="38J-TU-cZn" secondAttribute="top" id="eTJ-TV-iSa"/>
                             <constraint firstItem="7dj-yQ-dfG" firstAttribute="height" secondItem="38J-TU-cZn" secondAttribute="height" multiplier="1:2" id="ghQ-Gj-tkB"/>
                         </constraints>
                     </view>
