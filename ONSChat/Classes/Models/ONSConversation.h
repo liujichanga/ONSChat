@@ -15,10 +15,10 @@
 
 //目标id
 @property(strong,nonatomic) NSString *targetId;
-@property(assign,nonatomic) NSInteger age;
 @property(strong,nonatomic) NSString *avatar;
 @property(strong,nonatomic) NSString *nickName;
 @property(strong,nonatomic) NSString *address;
+@property(assign,nonatomic) NSInteger age;
 
 //最后一条信息id
 @property(assign,nonatomic) long long lastMessageId;
@@ -29,7 +29,12 @@
 
 
 //最后一条消息
+//-(ONSMessage*)lastMessage;
+
 @property(strong,nonatomic) ONSMessage *lastMessage;
+
+
+-(instancetype)initWithDic:(NSDictionary*)dic;
 
 
 @end

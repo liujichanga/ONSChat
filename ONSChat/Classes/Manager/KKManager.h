@@ -15,6 +15,7 @@
 #import "KKUserManager.h"
 #import "FSNetWorking.h"
 #import "KKGlobalManager.h"
+#import "ONSChatManager.h"
 
 
 #endif /* KKManager_h */

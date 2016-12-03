@@ -77,7 +77,7 @@ static ONSConversationDao *instance;
 //创建表语句
 -(NSString*)createTableSql
 {
-    return KKStringWithFormat(@"CREATE TABLE %@ (%@ INTEGER PRIMARY KEY AUTOINCREMENT, %@ char(100),%@ char(100),%@ char(100),%@ char(100),%@ INTEGER,%@ INTEGER,%@ INTEGER,%@ INTEGER", TableName, ColID, AllColumns);
+    return KKStringWithFormat(@"CREATE TABLE %@ (%@ INTEGER PRIMARY KEY AUTOINCREMENT, %@ char(100),%@ char(200),%@ char(100),%@ char(100),%@ INTEGER,%@ INTEGER,%@ INTEGER,%@ INTEGER)", TableName, ColID, AllColumns);
 }
 
 
@@ -102,6 +102,8 @@ static ONSConversationDao *instance;
 
 -(void)addConversation:(ONSConversation *)record completion:(KKDaoUpdateCompletion)completion inBackground:(BOOL)inbackground
 {
+    record.time=[[NSDate date] timeIntervalSince1970];
+    
     [self update:^BOOL(FMDatabase *db) {
         BOOL succeed = [db executeUpdate:InsertRecordSql withArgumentsInArray:InsertRecordSqlArgs];
         if(succeed) record.conversationId = db.lastInsertRowId;
@@ -112,6 +114,8 @@ static ONSConversationDao *instance;
 //修改记录
 -(void)updateConversation:(ONSConversation *)record completion:(KKDaoUpdateCompletion)completion inBackground:(BOOL)inbackground
 {
+    record.time=[[NSDate date] timeIntervalSince1970];
+    
     [self update:^BOOL(FMDatabase *db) {
         return [db executeUpdate:UpdateRecordSql withArgumentsInArray:UpdateRecordSqlArgs];
     } completion:completion inBackground:inbackground];

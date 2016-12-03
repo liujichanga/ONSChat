@@ -17,7 +17,7 @@
 +(void)releaseSingleton;
 
 //接收到融云发来的信息
--(void)receiveMessage:(NSDictionary*)dic;
+-(void)receiveMessage:(NSString *)textMessage;
 
 //发送信息
 -(BOOL)sendMessage:(NSDictionary*)dic;

@@ -189,21 +189,15 @@
 #pragma mark - RC
 - (void)onReceived:(RCMessage *)message left:(int)nLeft object:(id)object {
     if ([message.content isMemberOfClass:[RCTextMessage class]]) {
-        RCTextMessage *testMessage = (RCTextMessage *)message.content;
-        NSLog(@"消息内容：%@", testMessage.content);
+        RCTextMessage *textMessage = (RCTextMessage *)message.content;
+        NSLog(@"消息内容：%@", textMessage.content);
+        [KKSharedONSChatManager receiveMessage:textMessage.content];
     }
     
 }
 
 
 #pragma mark - TabBarControllerDelegate
--(BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
-{
-
-    return YES;
-
-}
-
 -(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
    

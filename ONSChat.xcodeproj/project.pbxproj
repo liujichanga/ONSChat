@@ -176,7 +176,6 @@
 		9B53D3361DEC098700913DFC /* KRVideoPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B53D3341DEC098700913DFC /* KRVideoPlayerControlView.m */; };
 		9BA6B2F21DEECFBF006AD474 /* DynamicListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6B2F11DEECFBF006AD474 /* DynamicListViewController.m */; };
 		9BA6B2F61DEED359006AD474 /* DynamicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6B2F41DEED359006AD474 /* DynamicCell.m */; };
-		9BA6B2F71DEED359006AD474 /* DynamicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BA6B2F51DEED359006AD474 /* DynamicCell.xib */; };
 		9BA6B2FF1DEFBACB006AD474 /* DynamicDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6B2FE1DEFBACB006AD474 /* DynamicDetailViewController.m */; };
 		9BA6B3031DF00E7A006AD474 /* CommentPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6B3021DF00E7A006AD474 /* CommentPopView.m */; };
 		9BA6B3051DF00E83006AD474 /* CommentPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BA6B3041DF00E83006AD474 /* CommentPopView.xib */; };
@@ -1865,6 +1864,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ONSChat/OtherLibs/RongCloud/IMLib",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kk.onschat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "66d460c2-6735-4716-9fa0-fc2f83bc7e04";
@@ -1892,6 +1892,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ONSChat/OtherLibs/RongCloud/IMLib",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kk.onschat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "66d460c2-6735-4716-9fa0-fc2f83bc7e04";
