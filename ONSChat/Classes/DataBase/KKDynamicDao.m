@@ -10,7 +10,7 @@
 
 
 //表名
-#define TableName @"KKDynamic"
+#define TableName KKStringWithFormat(@"KKDynamic_%@",KKSharedCurrentUser.userId)
 
 //所有字段
 #define ColID @"dynamicsId"
@@ -42,11 +42,11 @@
 
 @implementation KKDynamicDao
 
+static dispatch_once_t _once;
+static KKDynamicDao *instance;
+
 +(instancetype)sharedDynamicDao
 {
-    static dispatch_once_t _once;
-    static KKDynamicDao *instance;
-    
     dispatch_once(&_once, ^{
         instance = [[self alloc] init];
         [instance checkTable];
@@ -54,6 +54,14 @@
     
     return instance;
 }
+
+/*注意注意一定在注销时候调用此方法**/
++(void)releaseSingleton
+{
+    _once = 0;
+    instance = nil;
+}
+
 
 //检查表
 -(void)checkTable{
