@@ -140,11 +140,11 @@ static ONSConversationDao *instance;
     } completion:completion inBackground:inbackground];
 }
 
-//读取记录列表
+//读取记录列表,不包括系统会话
 -(void)getConversationListCompletion:(KKDaoQueryCompletion)completion inBackground:(BOOL)inbackground
 {
     [self query:^id(FMDatabase *db) {
-        NSString *sql = KKStringWithFormat(@"SELECT * FROM %@ ORDER BY time DESC", TableName);
+        NSString *sql = KKStringWithFormat(@"SELECT * FROM %@ WHERE %@<>'0' ORDER BY %@ DESC", TableName,ColTargetId,ColTime);
         FMResultSet *rs = [db executeQuery:sql withArgumentsInArray:nil];
         
         NSMutableArray *arr = [NSMutableArray array];
@@ -165,5 +165,25 @@ static ONSConversationDao *instance;
         
     } completion:completion inBackground:inbackground];
 }
+
+//读取未读总数
+-(void)getConversationUnReadCountCompletion:(KKDaoQueryCompletion)completion inBackground:(BOOL)inbackground
+{
+    [self query:^id(FMDatabase *db) {
+        NSString *sql = KKStringWithFormat(@"SELECT SUM(%@) FROM %@ ", ColUnReadCount,TableName);
+        FMResultSet *rs = [db executeQuery:sql withArgumentsInArray:nil];
+        if (!rs.next) {
+            return nil;
+        }
+        
+        NSInteger count = [rs intForColumnIndex:0];
+        
+        [rs close];
+        
+        return [NSNumber numberWithInteger:count];
+    } completion:completion inBackground:inbackground];
+
+}
+
 
 @end

@@ -37,9 +37,9 @@
 #define kShadowRadius 1.0f
 
 #define kBadgeHeight 16.0f
-#define kBadgeTextSideMargin 8.0f
+#define kBadgeTextSideMargin 16.0f //8
 
-#define kBadgeCornerRadius 10.0f
+#define kBadgeCornerRadius 8.0f
 
 #define kDefaultBadgeAlignment JSBadgeViewAlignmentTopRight
 
@@ -88,6 +88,8 @@
     {
         self.badgeAlignment = alignment;
         [parentView addSubview:self];
+        
+        //NSLog(@"jsbadgeview init");
     }
     
     return self;
@@ -113,7 +115,7 @@
     CGRect newFrame = self.frame;
     CGRect superviewFrame = CGRectIsEmpty(_frameToPositionInRelationWith) ? self.superview.frame : _frameToPositionInRelationWith;
     
-    CGFloat textWidth = [self sizeOfTextForCurrentSettings].width;
+    CGFloat textWidth =0;// [self sizeOfTextForCurrentSettings].width; //liujichang 
     
     CGFloat viewWidth = textWidth + kBadgeTextSideMargin + (kMarginToDrawInside * 2);
     CGFloat viewHeight = kBadgeHeight + (kMarginToDrawInside * 2);
@@ -168,6 +170,8 @@
     newFrame.origin.y += _badgePositionAdjustment.y;
     
     self.frame = CGRectIntegral(newFrame);
+    
+    NSLog(@"jsdbadefrmae:%@",NSStringFromCGRect(self.frame));
     
     [self setNeedsDisplay];
 }

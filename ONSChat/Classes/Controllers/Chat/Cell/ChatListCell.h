@@ -10,6 +10,6 @@
 
 @interface ChatListCell : UITableViewCell
 
--(void)displayInfo;
+-(void)displayInfo:(ONSConversation*)conversation;
 
 @end

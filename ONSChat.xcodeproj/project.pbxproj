@@ -1860,7 +1860,6 @@
 				DEVELOPMENT_TEAM = 3V85EAW73Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/ONSChat/OtherLibs/RongCloud/IMKit",
 					"$(PROJECT_DIR)/ONSChat/OtherLibs/RongCloud/IMLib",
 					"$(PROJECT_DIR)/ONSChat/OtherLibs/MAMap",
 				);
@@ -1888,7 +1887,6 @@
 				DEVELOPMENT_TEAM = 3V85EAW73Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/ONSChat/OtherLibs/RongCloud/IMKit",
 					"$(PROJECT_DIR)/ONSChat/OtherLibs/RongCloud/IMLib",
 					"$(PROJECT_DIR)/ONSChat/OtherLibs/MAMap",
 				);

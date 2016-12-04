@@ -50,7 +50,10 @@
     //tabbar badge
     [self initTabBarBadge];
 
-    KKNotificationCenterAddObserverOfSelf(updateTabBarBadge:, @"updateTabBarBadge", nil);
+    
+    //未读数量
+    KKNotificationCenterAddObserverOfSelf(unReadCount:, ONSChatManagerNotification_UnReadCount, nil);
+    
     
     KKWEAKSELF
     [KKThredUtils runInMainQueue:^{
@@ -60,7 +63,6 @@
  
     // 设置消息接收监听
     [[RCIMClient sharedRCIMClient] setReceiveMessageDelegate:self object:nil];
-    
     
 }
 
@@ -75,7 +77,7 @@
     
     UILabel *badgeLabel=[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 17, 17)];
     badgeLabel.text=@"0";
-    badgeLabel.tag=100;
+    badgeLabel.tag=101;
     badgeLabel.font=[UIFont systemFontOfSize:13];
     badgeLabel.adjustsFontSizeToFitWidth=YES;
     badgeLabel.textAlignment=NSTextAlignmentCenter;
@@ -90,24 +92,31 @@
     badgeView.hidden=YES;
 }
 
--(void)updateTabBarBadge:(NSInteger)num
+
+#pragma mark - UnReadCount
+-(void)unReadCount:(NSNotification*)notification
 {
-   
-    UIView *badgeview=[self.tabBar viewWithTag:100];
-    if(badgeview)
+    if(notification.object)
     {
-        if(num<=0)
+        NSNumber *num=(NSNumber*)notification.object;
+        NSInteger count = [num integerValue];
+       
+        UIView *badgeview=[self.tabBar viewWithTag:100];
+        if(badgeview)
         {
-            badgeview.hidden=YES;
-            return;
-        }
-        
-        badgeview.hidden=NO;
-        UIView *labelview=[badgeview viewWithTag:100];
-        if(labelview)
-        {
-            UILabel *label=(UILabel*)labelview;
-            label.text=KKStringWithFormat(@"%ld",num);
+            if(count<=0)
+            {
+                badgeview.hidden=YES;
+                return;
+            }
+            
+            badgeview.hidden=NO;
+            UIView *labelview=[badgeview viewWithTag:101];
+            if(labelview)
+            {
+                UILabel *label=(UILabel*)labelview;
+                label.text=KKStringWithFormat(@"%ld",count);
+            }
         }
     }
 }
