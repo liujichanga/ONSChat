@@ -71,7 +71,7 @@
     {
         NSNumber *num=(NSNumber*)notification.object;
         NSInteger count = [num integerValue];
-        UIView *view=[self.view viewWithTag:1000];
+        UIView *view=[self.view viewWithTag:9990];
         if(view)
         {
             if(count>0)
@@ -89,7 +89,7 @@
             if(count>0)
             {
                 NotificationView *notificationView=[[NotificationView alloc] initWithFrame:CGRectMake(10, 74, KKScreenWidth-20, 35)];
-                notificationView.tag=1000;
+                notificationView.tag=9990;
                 [self.view addSubview:notificationView];
                 [notificationView setNotificationNum:count];
             }
