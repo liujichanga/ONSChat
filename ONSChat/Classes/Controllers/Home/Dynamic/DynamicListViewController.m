@@ -40,6 +40,8 @@
         self.navigationItem.rightBarButtonItem=rightItem;
     }
     KKNotificationCenterAddObserverOfSelf(updatePraiseNub:, @"updatePraiseNub", nil);
+    KKNotificationCenterAddObserverOfSelf(loadData, @"updateList", nil);
+
     //读取数据
     KKWEAKSELF
     MJRefreshNormalHeader *header =[MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -62,7 +64,14 @@
     if (self.showRightItem==YES) {
        //读取本地数据库数据
         KKLog(@"SQL");
-        [self.tableView.header endRefreshing];
+        [KKSharedDynamicDao getDynamicListCompletion:^(id result) {
+          
+            self.dataArr = [NSMutableArray arrayWithArray:(NSArray*)result];
+              KKLog(@"%@",self.dataArr);
+            [self tableViewReload:self.dataArr.count];
+
+        } inBackground:NO];
+        
     }else{
         [self loadNewData];
     }
@@ -168,20 +177,35 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     KKWEAKSELF
     DynamicCell *cell = [tableView dequeueReusableCellWithIdentifier:cellDynamicIdentifier forIndexPath:indexPath];
+    cell.local = self.showRightItem;
     cell.cellHeightBlock = ^(CGFloat height){
         weakself.cellH = height;
     };
     if (self.dataArr.count>indexPath.row) {
         cell.dynamic = self.dataArr[indexPath.row];
-
     }
-
+    //删除动态
+    cell.deleteBlock = ^(NSString*dynamicID){
+        [KKSharedDynamicDao deleteDynamic:dynamicID completion:^(BOOL success) {
+            if (success) {
+                [WCAlertView showAlertWithTitle:@"您确定要删除此动态" message:nil customizationBlock:nil completionBlock:^(NSUInteger buttonIndex, WCAlertView *alertView) {
+                    if(buttonIndex == 1)
+                    {
+                        [weakself deleteDynamic:indexPath];
+                    }
+                } cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
+               
+            }
+        } inBackground:YES];
+        
+    };
     return cell;
 }
 -(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
     if (self.dataArr.count>indexPath.row) {
         DynamicDetailViewController *detail = KKViewControllerOfMainSB(@"DynamicDetailViewController");
         detail.dynamicData = self.dataArr[indexPath.row];
+        detail.localData = self.showRightItem;
         self.selectIndex = indexPath.row;
         [self.navigationController pushViewController:detail animated:YES];
     }
@@ -201,6 +225,17 @@
     selDy.praiseNum = nub;
     [self.tableView reloadData];
 }
+
+-(void)deleteDynamic:(NSIndexPath*)indexPath{
+    
+    [self.dataArr removeObjectAtIndex:indexPath.row];
+    [self.tableView beginUpdates];
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView endUpdates];
+    [self.tableView reloadData];
+    [MBProgressHUD showMessag:@"删除成功" toView:nil];
+}
+
 
 -(void)dealloc{
     KKNotificationCenterRemoveObserverOfSelf;

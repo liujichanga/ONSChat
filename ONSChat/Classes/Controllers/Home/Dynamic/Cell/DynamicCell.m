@@ -18,6 +18,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *infoLab;
 @property (weak, nonatomic) IBOutlet UIButton *likeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *conmentBtn;
+@property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
+
+
 @property (nonatomic, strong) UIView *bgView;
 @end
 
@@ -45,9 +48,11 @@
     if (self.allowLike==YES) {
         self.likeBtn.enabled = YES;
         self.conmentBtn.enabled = YES;
+
     }else{
         self.likeBtn.enabled = NO;
         self.conmentBtn.enabled = NO;
+        
     }
     
     KKImageViewWithUrlstring(self.headImageView, dynamic.avatarUrl, @"def_head");
@@ -57,7 +62,27 @@
     [self.conmentBtn setTitle:[NSString stringWithFormat:@"%zd",dynamic.commentNum] forState:UIControlStateNormal];
     
     NSString *videoStr = dynamic.dynamicText;
-    NSString *dynamicUrl = dynamic.dynamicUrl;
+    NSString *dynamicUrl;
+    //我的动态列表 加载本地数据
+    if (self.local==YES) {
+        if (self.allowLike==NO) {
+            //我的动态列表
+            self.deleteBtn.hidden = NO;
+            self.infoLab.hidden = YES;
+
+        }else{
+            //我的动态详情
+            self.infoLab.hidden = NO;
+            self.infoLab.text = [NSString stringWithFormat:@"%zd岁  %zdcm",KKSharedCurrentUser.age,KKSharedCurrentUser.height];
+        }
+        
+        self.nameLab.text = KKSharedCurrentUser.nickName;
+        KKImageViewWithUrlstring(self.headImageView, KKSharedCurrentUser.avatarUrl, @"def_head");
+        dynamicUrl = [NSString stringWithFormat:@"file://%@",dynamic.dynamicUrl];
+
+    }else{
+        dynamicUrl = dynamic.dynamicUrl;
+    }
     NSString *imgURL = dynamic.dynamiVideoThumbnail;
     
     CGSize strSize = [videoStr sizeWithFont:[UIFont systemFontOfSize:15] maxSize:CGSizeMake(KKScreenWidth-20, 500)];
@@ -93,30 +118,40 @@
         [self.videoController showInView:self.bgView];
         self.height = self.bgView.frame.origin.y+self.bgView.frame.size.height+45;
     }
+    
     if (self.cellHeightBlock) {
         self.cellHeightBlock(self.height);
     }
 }
 - (IBAction)likeBtnClick:(UIButton*)sender {
-    
-    if (sender.selected==YES) {
-        return;
-    }
-    sender.selected = YES;
-    [sender setTitle:[NSString stringWithFormat:@"%zd",_dynamic.praiseNum+1] forState:UIControlStateSelected];
-   
-    NSDictionary *userInfo = @{@"pariseNum":@(_dynamic.praiseNum+1)};
-    [KKNotificationCenter postNotificationName:@"updatePraiseNub" object:nil userInfo:userInfo];
-   
-    if (self.praiseBlock) {
-        self.praiseBlock();
+    if (self.local==NO) {
+        if (sender.selected==YES) {
+            return;
+        }
+        sender.selected = YES;
+        [sender setTitle:[NSString stringWithFormat:@"%zd",_dynamic.praiseNum+1] forState:UIControlStateSelected];
+        
+        NSDictionary *userInfo = @{@"pariseNum":@(_dynamic.praiseNum+1)};
+        [KKNotificationCenter postNotificationName:@"updatePraiseNub" object:nil userInfo:userInfo];
+        
+        if (self.praiseBlock) {
+            self.praiseBlock();
+        }
     }
 }
 
 - (IBAction)conmentBtnClick:(id)sender {
-    if (self.conmentBlock) {
-        self.conmentBlock();
+    if (self.local==NO) {
+        if (self.conmentBlock) {
+            self.conmentBlock();
+        }
     }
+}
+- (IBAction)deleteBtnClick:(id)sender {
+    if (self.deleteBlock) {
+        self.deleteBlock(self.dynamic.dynamicsId);
+    }
+    
 }
 
 @end

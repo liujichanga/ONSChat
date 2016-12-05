@@ -75,14 +75,14 @@ static KKDynamicDao *instance;
 //创建表语句
 -(NSString*)createTableSql
 {
-    return KKStringWithFormat(@"CREATE TABLE %@ (%@ INTEGER PRIMARY KEY AUTOINCREMENT,%@ INTEGER,%@ INTEGER,%@ INTEGER,%@ char(100),%@ char(100),%@ TEXT,%@ char(100))", TableName, ColID, AllColumns);
+    return KKStringWithFormat(@"CREATE TABLE %@ (%@ INTEGER PRIMARY KEY AUTOINCREMENT,%@ INTEGER,%@ INTEGER,%@ INTEGER,%@ char(200),%@ char(100),%@ TEXT,%@ char(100))", TableName, ColID, AllColumns);
 }
 
 //序列化实体
 -(KKDynamic *)serializeWithRS:(FMResultSet*)rs
 {
     KKDynamic *dynamic = [[KKDynamic alloc] init];
-    dynamic.userId = KKStringWithFormat(@"%lld",[rs longLongIntForColumn:ColID]);
+    dynamic.dynamicsId = KKStringWithFormat(@"%lld",[rs longLongIntForColumn:ColID]);
     dynamic.commentNum = [rs intForColumn:ColCommentNum];
     dynamic.praiseNum = [rs intForColumn:ColPraiseNum];
     dynamic.dynamicsType = [rs intForColumn:ColType];
