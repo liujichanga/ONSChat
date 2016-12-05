@@ -1860,7 +1860,6 @@
 				DEVELOPMENT_TEAM = 3V85EAW73Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/ONSChat/OtherLibs/RongCloud/IMKit",
 					"$(PROJECT_DIR)/ONSChat/OtherLibs/RongCloud/IMLib",
 					"$(PROJECT_DIR)/ONSChat/OtherLibs/MAMap",
 				);
@@ -1872,6 +1871,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ONSChat/OtherLibs/RongCloud/IMLib",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kk.onschat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "66d460c2-6735-4716-9fa0-fc2f83bc7e04";
@@ -1887,7 +1887,6 @@
 				DEVELOPMENT_TEAM = 3V85EAW73Y;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/ONSChat/OtherLibs/RongCloud/IMKit",
 					"$(PROJECT_DIR)/ONSChat/OtherLibs/RongCloud/IMLib",
 					"$(PROJECT_DIR)/ONSChat/OtherLibs/MAMap",
 				);
@@ -1899,6 +1898,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ONSChat/OtherLibs/RongCloud/IMLib",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kk.onschat;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "66d460c2-6735-4716-9fa0-fc2f83bc7e04";

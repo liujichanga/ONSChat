@@ -28,8 +28,11 @@
 -(void)getConversationByTargetId:(NSString*)targetId completion:(KKDaoQueryCompletion)completion inBackground:(BOOL)inbackground;
 
 
-//读取会话列表
+//读取会话列表，不包括系统会话
 -(void)getConversationListCompletion:(KKDaoQueryCompletion)completion inBackground:(BOOL)inbackground;
+
+//读取未读会话总数
+-(void)getConversationUnReadCountCompletion:(KKDaoQueryCompletion)completion inBackground:(BOOL)inbackground;
 
 
 

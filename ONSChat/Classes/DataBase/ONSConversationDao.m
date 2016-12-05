@@ -36,7 +36,7 @@
 #define InsertRecordSqlArgs @[AllFields]
 
 //更新语句
-#define UpdateRecordSql KKStringWithFormat(@"UPDATE %@ SET %@=?, %@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@ WHERE %@=?",TableName, AllColumns,ColID)
+#define UpdateRecordSql KKStringWithFormat(@"UPDATE %@ SET %@=?, %@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=? WHERE %@=?",TableName, AllColumns,ColID)
 //更新数值
 #define UpdateRecordSqlArgs @[AllFields,@(record.conversationId)]
 
@@ -77,7 +77,7 @@ static ONSConversationDao *instance;
 //创建表语句
 -(NSString*)createTableSql
 {
-    return KKStringWithFormat(@"CREATE TABLE %@ (%@ INTEGER PRIMARY KEY AUTOINCREMENT, %@ char(100),%@ char(100),%@ char(100),%@ char(100),%@ INTEGER,%@ INTEGER,%@ INTEGER,%@ INTEGER", TableName, ColID, AllColumns);
+    return KKStringWithFormat(@"CREATE TABLE %@ (%@ INTEGER PRIMARY KEY AUTOINCREMENT, %@ char(100),%@ char(200),%@ char(100),%@ char(100),%@ INTEGER,%@ INTEGER,%@ INTEGER,%@ INTEGER)", TableName, ColID, AllColumns);
 }
 
 
@@ -102,6 +102,8 @@ static ONSConversationDao *instance;
 
 -(void)addConversation:(ONSConversation *)record completion:(KKDaoUpdateCompletion)completion inBackground:(BOOL)inbackground
 {
+    record.time=[[NSDate date] timeIntervalSince1970];
+    
     [self update:^BOOL(FMDatabase *db) {
         BOOL succeed = [db executeUpdate:InsertRecordSql withArgumentsInArray:InsertRecordSqlArgs];
         if(succeed) record.conversationId = db.lastInsertRowId;
@@ -112,6 +114,8 @@ static ONSConversationDao *instance;
 //修改记录
 -(void)updateConversation:(ONSConversation *)record completion:(KKDaoUpdateCompletion)completion inBackground:(BOOL)inbackground
 {
+    record.time=[[NSDate date] timeIntervalSince1970];
+    
     [self update:^BOOL(FMDatabase *db) {
         return [db executeUpdate:UpdateRecordSql withArgumentsInArray:UpdateRecordSqlArgs];
     } completion:completion inBackground:inbackground];
@@ -136,11 +140,11 @@ static ONSConversationDao *instance;
     } completion:completion inBackground:inbackground];
 }
 
-//读取记录列表
+//读取记录列表,不包括系统会话
 -(void)getConversationListCompletion:(KKDaoQueryCompletion)completion inBackground:(BOOL)inbackground
 {
     [self query:^id(FMDatabase *db) {
-        NSString *sql = KKStringWithFormat(@"SELECT * FROM %@ ORDER BY time DESC", TableName);
+        NSString *sql = KKStringWithFormat(@"SELECT * FROM %@ WHERE %@<>'0' ORDER BY %@ DESC", TableName,ColTargetId,ColTime);
         FMResultSet *rs = [db executeQuery:sql withArgumentsInArray:nil];
         
         NSMutableArray *arr = [NSMutableArray array];
@@ -161,5 +165,25 @@ static ONSConversationDao *instance;
         
     } completion:completion inBackground:inbackground];
 }
+
+//读取未读总数
+-(void)getConversationUnReadCountCompletion:(KKDaoQueryCompletion)completion inBackground:(BOOL)inbackground
+{
+    [self query:^id(FMDatabase *db) {
+        NSString *sql = KKStringWithFormat(@"SELECT SUM(%@) FROM %@ ", ColUnReadCount,TableName);
+        FMResultSet *rs = [db executeQuery:sql withArgumentsInArray:nil];
+        if (!rs.next) {
+            return nil;
+        }
+        
+        NSInteger count = [rs intForColumnIndex:0];
+        
+        [rs close];
+        
+        return [NSNumber numberWithInteger:count];
+    } completion:completion inBackground:inbackground];
+
+}
+
 
 @end

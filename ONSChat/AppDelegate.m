@@ -137,6 +137,10 @@
         NSLog(@"token错误");
     }];
     
+    //初始化数据库
+    ONSSharedConversationDao;
+    ONSSharedMessageDao;
+    
     self.window.rootViewController=KKInitViewControllerOfMainSB;
 }
 

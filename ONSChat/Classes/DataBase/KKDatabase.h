@@ -12,6 +12,8 @@
 
 #import "KKBaseDao.h"
 #import "KKDynamicDao.h"
+#import "ONSConversationDao.h"
+#import "ONSMessageDao.h"
 
 
 #endif

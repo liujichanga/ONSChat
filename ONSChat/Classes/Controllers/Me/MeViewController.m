@@ -36,15 +36,58 @@
     [self.tableView registerNib:[UINib nibWithNibName:cellVIPIdentifier bundle:nil] forCellReuseIdentifier:cellVIPIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:cellMeInfoIdentifier bundle:nil] forCellReuseIdentifier:cellMeInfoIdentifier];
 
-    NotificationView *notificationView=[[NotificationView alloc] initWithFrame:CGRectMake(10, 74, KKScreenWidth-20, 35)];
-    [self.view addSubview:notificationView];
-    [notificationView setNotificationNum:30];
-
+    //未读数量
+    KKNotificationCenterAddObserverOfSelf(unReadCount:, ONSChatManagerNotification_UnReadCount, nil);
+    
+    if(KKSharedONSChatManager.unReadCount>0)
+    {
+        [KKNotificationCenter postNotificationName:ONSChatManagerNotification_UnReadCount object:[NSNumber numberWithInteger:KKSharedONSChatManager.unReadCount]];
+    }
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)dealloc
+{
+    KKNotificationCenterRemoveObserverOfSelf;
+}
+
+#pragma mark - UnReadCount
+-(void)unReadCount:(NSNotification*)notification
+{
+    if(notification.object)
+    {
+        NSNumber *num=(NSNumber*)notification.object;
+        NSInteger count = [num integerValue];
+        UIView *view=[self.view viewWithTag:1000];
+        if(view)
+        {
+            if(count>0)
+            {
+                NotificationView *notificationView=(NotificationView*)view;
+                [notificationView setNotificationNum:count];
+            }
+            else
+            {
+                [view removeFromSuperview];
+            }
+        }
+        else
+        {
+            if(count>0)
+            {
+                NotificationView *notificationView=[[NotificationView alloc] initWithFrame:CGRectMake(10, 74, KKScreenWidth-20, 35)];
+                notificationView.tag=1000;
+                [self.view addSubview:notificationView];
+                [notificationView setNotificationNum:count];
+            }
+        }
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated

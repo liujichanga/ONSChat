@@ -22,4 +22,6 @@
 @property(assign,nonatomic) long long time;//时间戳
 
 
+-(instancetype)initWithDic:(NSDictionary*)dic;
+
 @end
