@@ -147,10 +147,6 @@
     else [self.tableView.footer noticeNoMoreData];
 }
 
--(void)loadLocalData{
-    
-}
-
 
 #pragma mark - UITabelViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

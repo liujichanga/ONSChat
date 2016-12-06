@@ -22,7 +22,8 @@
         _height=[dic integerForKey:@"height" defaultValue:0];
         _distanceKm=[dic stringForKey:@"distanceKm" defaultValue:@""];
         _isliked=[dic boolForKey:@"liked" defaultValue:NO];
-
+        _dynamiVideoThumbnail = [dic stringForKey:@"dynamiVideoThumbnail" defaultValue:@""];
+        
         _dynamicsId=[dic stringForKey:@"dynamicsId" defaultValue:@""];
         _dynamicsType=[dic integerForKey:@"dynamicsType" defaultValue:KKDynamicsTypeImage];
         _commentNum=[dic integerForKey:@"comment" defaultValue:0];

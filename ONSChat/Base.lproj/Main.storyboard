@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A322" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uf8-zw-tJh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A319" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uf8-zw-tJh">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -476,6 +476,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="drQ-ph-xuF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3661.5999999999999" y="-10546.776611694153"/>
+        </scene>
+        <!--视频列表-->
+        <scene sceneID="Pa9-Vt-Zij">
+            <objects>
+                <viewController storyboardIdentifier="VideoListViewController" title="视频列表" id="PCi-AU-ZYy" customClass="VideoListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cUZ-jb-oAf"/>
+                        <viewControllerLayoutGuide type="bottom" id="CoE-sc-ACR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="l9d-pK-rw0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F4Z-hZ-3TV">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="PCi-AU-ZYy" id="HqJ-eO-msB"/>
+                                    <outlet property="delegate" destination="PCi-AU-ZYy" id="VeC-fa-04O"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CoE-sc-ACR" firstAttribute="top" secondItem="F4Z-hZ-3TV" secondAttribute="bottom" id="9oC-r1-FHh"/>
+                            <constraint firstAttribute="trailing" secondItem="F4Z-hZ-3TV" secondAttribute="trailing" id="GfF-QC-aDk"/>
+                            <constraint firstItem="F4Z-hZ-3TV" firstAttribute="top" secondItem="l9d-pK-rw0" secondAttribute="top" id="OZQ-88-ZVv"/>
+                            <constraint firstItem="F4Z-hZ-3TV" firstAttribute="leading" secondItem="l9d-pK-rw0" secondAttribute="leading" id="pqy-12-qWZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="F4Z-hZ-3TV" id="EIr-Dw-jcf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q7B-ez-D8j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4334" y="-10543"/>
         </scene>
         <!--附近Nav-->
         <scene sceneID="SyG-hz-hAv">

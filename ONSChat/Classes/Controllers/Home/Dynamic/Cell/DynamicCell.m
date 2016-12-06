@@ -63,6 +63,7 @@
     
     NSString *videoStr = dynamic.dynamicText;
     NSString *dynamicUrl;
+    NSString *imgURL;
     //我的动态列表 加载本地数据
     if (self.local==YES) {
         if (self.allowLike==NO) {
@@ -79,11 +80,13 @@
         self.nameLab.text = KKSharedCurrentUser.nickName;
         KKImageViewWithUrlstring(self.headImageView, KKSharedCurrentUser.avatarUrl, @"def_head");
         dynamicUrl = [NSString stringWithFormat:@"file://%@",dynamic.dynamicUrl];
+        imgURL = [NSString stringWithFormat:@"file://%@",dynamic.dynamiVideoThumbnail];
 
     }else{
         dynamicUrl = dynamic.dynamicUrl;
+        imgURL = dynamic.dynamiVideoThumbnail;
+
     }
-    NSString *imgURL = dynamic.dynamiVideoThumbnail;
     
     CGSize strSize = [videoStr sizeWithFont:[UIFont systemFontOfSize:15] maxSize:CGSizeMake(KKScreenWidth-20, 500)];
     self.videoStrLab.text = videoStr;
