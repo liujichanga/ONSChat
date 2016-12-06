@@ -52,7 +52,7 @@
     _ageLabel.text=KKStringWithFormat(@"%ld岁・%@市",conversation.age,KKSharedGlobalManager.GPSCity);
     
     NSDate *date=[NSDate dateWithTimeIntervalSince1970:conversation.time];
-    NSLog(@"date:%@,currentdate:%@",date,[NSDate date]);
+    //NSLog(@"date:%@,currentdate:%@",date,[NSDate date]);
     if([date isEqualToDateIgnoringTime:[NSDate date]])
     {
         _datetimeLabel.text=[[NSDate dateWithTimeIntervalSince1970:conversation.time] stringTime];
@@ -82,9 +82,94 @@
             badgeview.hidden=YES;
         }
     }
-        
     
-    _chatInfoLabel.text=@"hi，你好，可以认识你妈";
+    _chatInfoLabel.textColor=[UIColor darkGrayColor];
+    _chatInfoLabel.attributedText=nil;
+    _chatInfoLabel.text=nil;
+    
+    //显示聊天信息
+    [ONSSharedMessageDao getMessageByMessageId:conversation.lastMessageId completion:^(id result) {
+        
+        if(result)
+        {
+            ONSMessage *message=(ONSMessage*)result;
+            NSDictionary *dic=[message.content objectFromJSONString];
+            switch (message.messageType) {
+                case ONSMessageType_Text: // 文字内容
+                case ONSMessageType_System:
+                case ONSMessageType_Choice:
+                case ONSMessageType_Recommand:
+                case ONSMessageType_NearBy:
+                    _chatInfoLabel.text=[dic stringForKey:@"content" defaultValue:@""];
+                    break;
+                    
+                case ONSMessageType_NormImage:
+                case ONSMessageType_LockImage:
+                {
+                    _chatInfoLabel.text=@"[图片]";
+                    _chatInfoLabel.textColor=KKColorPurple;
+                }
+                    break;
+                    
+                case ONSMessageType_Video:
+                {
+                    _chatInfoLabel.text=@"[视频]";
+                    _chatInfoLabel.textColor=KKColorPurple;
+                }
+                    break;
+                    
+                case ONSMessageType_Voice:
+                {
+                    _chatInfoLabel.text=@"[语音]";
+                    _chatInfoLabel.textColor=KKColorPurple;
+                }
+                    break;
+                    
+                case ONSMessageType_WeChat:
+                {
+                    NSString *str=[dic stringForKey:@"content" defaultValue:@""];
+                    NSArray *arr=[str componentsSeparatedByString:@"&-&"];
+                    if(arr.count>1)
+                    {
+                        NSString *strcontent=[arr[0] stringByReplacingOccurrencesOfString:@"icon" withString:@""];
+                        
+                        NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:strcontent];
+                        
+                        UIImage *img = [UIImage imageNamed:@"chat_wx"];
+                        NSTextAttachment *textAttach = [[NSTextAttachment alloc]init];
+                        textAttach.image = img;
+                        
+                        NSAttributedString * strA =[NSAttributedString attributedStringWithAttachment:textAttach];
+                        [attri appendAttributedString:strA];
+                        
+                        _chatInfoLabel.attributedText = attri;
+                    }
+                    
+                    
+                }
+                    break;
+                    
+                case ONSMessageType_Hi:
+                {
+                    NSString *str=[dic stringForKey:@"content" defaultValue:@""];
+                    NSArray *arr=[str componentsSeparatedByString:@"&-&"];
+                    if(arr.count>1)
+                    {
+                        NSString *strcontent=[arr[1] stringByReplacingOccurrencesOfString:@"{c}" withString:KKSharedGlobalManager.GPSCity];
+                        _chatInfoLabel.text=strcontent;
+                    }
+                }
+                    break;
+                    
+                    
+                default:
+                    break;
+            }
+        }
+        
+    } inBackground:YES];
+    
+
 }
 
 @end

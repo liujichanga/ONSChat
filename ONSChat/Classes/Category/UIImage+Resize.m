@@ -60,6 +60,12 @@
     return [image stretchableImageWithLeftCapWidth:image.size.width * 0.5 topCapHeight:image.size.height * 0.5];
 }
 
++(UIImage *)resizableImage:(NSString *)imageName leftCap:(CGFloat)left topCap:(CGFloat)top
+{
+    UIImage *image = [UIImage imageNamed:imageName];
+    return [image stretchableImageWithLeftCapWidth:left topCapHeight:top];
+}
+
 /** 缩小图片，添加圆角效果 */
 - (UIImage *)scaleWithSize:(CGSize)size radius:(CGFloat)radius {
     return [UIImage scaleImage:self forSize:size radius:radius];

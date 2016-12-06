@@ -20,6 +20,10 @@
 /** 得到一张可拉伸的图片 */
 + (UIImage *)resizableImageByCenter:(NSString *)imageName;
 
+/** 得到一张可拉伸的图片，按照底部*/
++ (UIImage *)resizableImage:(NSString *)imageName leftCap:(CGFloat)left topCap:(CGFloat)top;
+
+
 /** 缩小图片，添加圆角效果 */
 - (UIImage *)scaleWithSize:(CGSize)size radius:(CGFloat)radius;
 

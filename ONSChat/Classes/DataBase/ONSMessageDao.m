@@ -140,7 +140,7 @@ static ONSMessageDao *instance;
 -(void)getMessageListByTargetId:(NSString*)targetId Completion:(KKDaoQueryCompletion)completion inBackground:(BOOL)inbackground
 {
     [self query:^id(FMDatabase *db) {
-        NSString *sql = KKStringWithFormat(@"SELECT * FROM %@ WHERE %@=？ ORDER BY time DESC", TableName,ColTargetId);
+        NSString *sql = KKStringWithFormat(@"SELECT * FROM %@ WHERE %@=? ORDER BY time DESC", TableName,ColTargetId);
         FMResultSet *rs = [db executeQuery:sql withArgumentsInArray:@[targetId]];
         
         NSMutableArray *arr = [NSMutableArray array];
