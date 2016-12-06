@@ -10,6 +10,7 @@
 #import "ChatViewController.h"
 #import "ChatListCell.h"
 #import "JSBadgeView.h"
+#import "ChatViewController.h"
 
 
 
@@ -171,6 +172,16 @@
 }
 
 -(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
+    
+    if(self.conversationList.count>indexPath.row)
+    {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+        ONSConversation *conversation=self.conversationList[indexPath.row];
+        ChatViewController *chatVC=KKViewControllerOfMainSB(@"ChatViewController");
+        chatVC.targetId=conversation.targetId;
+        [self.navigationController pushViewController:chatVC animated:YES];
+    }
     
 }
 

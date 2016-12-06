@@ -29,6 +29,9 @@
 //程序定位的城市
 @property(strong,nonatomic) NSString *GPSCity;
 
+//表情数组
+@property(strong,nonatomic) NSArray *emoticons;
+
 //职业范围
 @property(strong,nonatomic) NSArray *jobArr;
 //身高范围
@@ -39,4 +42,8 @@
 @property (nonatomic, strong) NSArray *interestArr;
 //个人特点
 @property (nonatomic, strong) NSArray *personalityArr;
+
+
+
+
 @end

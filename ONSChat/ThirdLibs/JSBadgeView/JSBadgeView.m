@@ -171,7 +171,7 @@
     
     self.frame = CGRectIntegral(newFrame);
     
-    NSLog(@"jsdbadefrmae:%@",NSStringFromCGRect(self.frame));
+    //NSLog(@"jsdbadefrmae:%@",NSStringFromCGRect(self.frame));
     
     [self setNeedsDisplay];
 }

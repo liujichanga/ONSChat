@@ -109,7 +109,7 @@
     KKSharedCurrentUser.sex=[dic integerForKey:@"gender" defaultValue:0];
     KKSharedCurrentUser.isVIP=[dic boolForKey:@"isVIP" defaultValue:NO];
     KKSharedCurrentUser.isBaoYue=[dic boolForKey:@"isMonth" defaultValue:NO];
-    KKSharedCurrentUser.phone=[dic stringForKey:@"phone" defaultValue:@""];
+    KKSharedCurrentUser.phone=@"1223";//[dic stringForKey:@"phone" defaultValue:@""];
     KKSharedCurrentUser.dayFirst=[dic boolForKey:@"dayfirst" defaultValue:NO];
     
     

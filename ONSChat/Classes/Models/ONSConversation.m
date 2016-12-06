@@ -35,20 +35,20 @@
 {
     _lastMessageId=lastMessageId;
     
-    KKWEAKSELF;
-    [ONSSharedMessageDao getMessageByMessageId:lastMessageId completion:^(id result) {
-
-        if(result)
-        {
-            ONSMessage *message=(ONSMessage*)result;
-            weakself.lastMessage=message;
-        }
-        else
-        {
-            weakself.lastMessage=nil;
-        }
-        
-    } inBackground:YES];
+//    KKWEAKSELF;
+//    [ONSSharedMessageDao getMessageByMessageId:lastMessageId completion:^(id result) {
+//
+//        if(result)
+//        {
+//            ONSMessage *message=(ONSMessage*)result;
+//            weakself.lastMessage=message;
+//        }
+//        else
+//        {
+//            weakself.lastMessage=nil;
+//        }
+//        
+//    } inBackground:YES];
     
 }
 

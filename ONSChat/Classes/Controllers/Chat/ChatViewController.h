@@ -10,4 +10,7 @@
 
 @interface ChatViewController : KKBaseViewController
 
+//聊天用户的targeid
+@property(strong,nonatomic) NSString *targetId;
+
 @end

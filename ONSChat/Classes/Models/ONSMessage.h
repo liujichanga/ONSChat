@@ -10,6 +10,10 @@
 #import "KKTypeDefine.h"
 
 
+#define MessageInterval 20.0
+#define MessageFont [UIFont systemFontOfSize:16]
+
+
 @interface ONSMessage : NSObject
 
 @property(assign,nonatomic) long long messageId;
@@ -23,5 +27,31 @@
 
 
 -(instancetype)initWithDic:(NSDictionary*)dic;
+
+
+//跟视图相关的信息
+@property(assign,nonatomic) CGRect topViewFrame;
+@property(assign,nonatomic) CGRect headButtonFrame;
+@property(assign,nonatomic) CGRect backGroundButtonFrame;
+
+//视图的高度
+@property(assign,nonatomic) CGFloat cellHeight;
+
+//文字大小
+-(CGSize)textSize;
+//图片大小
+-(CGSize)imageSize;
+//视频大小
+-(CGSize)videoSize;
+//微信大小
+-(CGSize)wechatSize;
+//声音大小
+-(CGSize)voiceSize;
+
+
+/***计算布局****/
+-(void)calLayout;
+
+
 
 @end

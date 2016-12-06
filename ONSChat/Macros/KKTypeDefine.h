@@ -55,4 +55,12 @@ typedef NS_ENUM(NSUInteger, ONSReplyType) {
     
 };
 
+/** 输入状态 */
+typedef enum {
+    ONSInputViewStateOther,
+    ONSInputViewStateText,
+    ONSInputViewStateVoice,
+    ONSInputViewStateEmotion
+}  ONSInputViewState;
+
 #endif /* KKTypeDefine_h */
