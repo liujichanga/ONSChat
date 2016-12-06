@@ -32,8 +32,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    UIBarButtonItem *rightItem=[[UIBarButtonItem alloc] initWithTitle:@"评论" style:UIBarButtonItemStylePlain target:self action:@selector(rightItemClick)];
-    self.navigationItem.rightBarButtonItem=rightItem;
+    if (self.localData==YES) {
+        UIBarButtonItem *rightItem=[[UIBarButtonItem alloc] initWithTitle:@"删除" style:UIBarButtonItemStylePlain target:self action:@selector(rightItemClick)];
+        self.navigationItem.rightBarButtonItem=rightItem;
+    }else{
+        UIBarButtonItem *rightItem=[[UIBarButtonItem alloc] initWithTitle:@"评论" style:UIBarButtonItemStylePlain target:self action:@selector(rightItemClick)];
+        self.navigationItem.rightBarButtonItem=rightItem;
+    }
 
     [self.tableView registerNib:[UINib nibWithNibName:cellDynamicIdentifier bundle:nil] forCellReuseIdentifier:cellDynamicIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:cellDynamicCommentIdentifier bundle:nil] forCellReuseIdentifier:cellDynamicCommentIdentifier];
@@ -43,12 +48,25 @@
     //读取数据
     KKWEAKSELF
     MJRefreshNormalHeader *header =[MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [weakself loadNewData];
+        [weakself loadData];
         
     }];
     self.tableView.header=header;
     [self.tableView.header beginRefreshing];
 }
+
+-(void)loadData{
+    
+    if (self.localData==YES) {
+
+        [self.tableView reloadData];
+        [self.tableView.header endRefreshing];
+
+    }else{
+        [self loadNewData];
+    }
+}
+
 -(void)loadNewData
 {
     [self.dataArr removeAllObjects];
@@ -148,7 +166,9 @@
     KKWEAKSELF
     if (indexPath.section==0) {
         DynamicCell *cell = [tableView dequeueReusableCellWithIdentifier:cellDynamicIdentifier forIndexPath:indexPath];
+    
         cell.allowLike = YES;
+        cell.local = self.localData;
         cell.cellHeightBlock = ^(CGFloat height){
             weakself.cellH = height;
         };
@@ -175,12 +195,28 @@
 
 #pragma mark - 私有方法
 -(void)rightItemClick{
-    KKLog(@"评论");
-    KKWEAKSELF
-    CommentPopView *popView = [CommentPopView showCommentPopViewInView:self.view AndFrame:CGRectMake(0, 0, KKScreenWidth, KKScreenHeight)];
-    popView.sendComment = ^(NSString *commentText){
-        [weakself submitCommentWithComment:commentText];
-    };
+    if (self.localData==YES) {
+        KKWEAKSELF
+        [KKSharedDynamicDao deleteDynamic:self.dynamicData.dynamicsId completion:^(BOOL success) {
+            if (success) {
+                [MBProgressHUD showMessag:@"删除成功" toView:nil];
+                [KKNotificationCenter postNotificationName:@"updateList" object:nil];
+                [weakself performSelector:@selector(backList) withObject:nil afterDelay:1.5];
+            }
+        } inBackground:YES];
+        
+    }else{
+        KKLog(@"评论");
+        KKWEAKSELF
+        CommentPopView *popView = [CommentPopView showCommentPopViewInView:self.view AndFrame:CGRectMake(0, 0, KKScreenWidth, KKScreenHeight)];
+        popView.sendComment = ^(NSString *commentText){
+            [weakself submitCommentWithComment:commentText];
+        };
+    }
+}
+
+-(void)backList{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 //提交点赞
 -(void)submitPraise{
