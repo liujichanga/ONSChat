@@ -10,5 +10,6 @@
 
 @interface DynamicDetailViewController : KKBaseViewController
 @property (nonatomic, strong) KKDynamic *dynamicData;
+//是否加载本地数据
 @property (nonatomic, assign) BOOL localData;
 @end

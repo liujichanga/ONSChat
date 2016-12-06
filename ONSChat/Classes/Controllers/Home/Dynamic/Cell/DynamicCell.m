@@ -45,47 +45,53 @@
 
 -(void)setDynamic:(KKDynamic *)dynamic{
     _dynamic = dynamic;
-    if (self.allowLike==YES) {
-        self.likeBtn.enabled = YES;
-        self.conmentBtn.enabled = YES;
-
-    }else{
-        self.likeBtn.enabled = NO;
-        self.conmentBtn.enabled = NO;
-        
-    }
-    
-    KKImageViewWithUrlstring(self.headImageView, dynamic.avatarUrl, @"def_head");
-    self.nameLab.text = dynamic.nickName;
-    self.infoLab.text = [NSString stringWithFormat:@"%zd岁  %zdcm",dynamic.age,dynamic.height];
-    [self.likeBtn setTitle:[NSString stringWithFormat:@"%zd",dynamic.praiseNum] forState:UIControlStateNormal];
-    [self.conmentBtn setTitle:[NSString stringWithFormat:@"%zd",dynamic.commentNum] forState:UIControlStateNormal];
     
     NSString *videoStr = dynamic.dynamicText;
     NSString *dynamicUrl;
     NSString *imgURL;
-    //我的动态列表 加载本地数据
+
     if (self.local==YES) {
+        //我的动态列表 加载本地数据
+        //点赞 评论不可用
+        self.likeBtn.enabled = NO;
+        self.conmentBtn.enabled = NO;
         if (self.allowLike==NO) {
             //我的动态列表
             self.deleteBtn.hidden = NO;
             self.infoLab.hidden = YES;
-
         }else{
             //我的动态详情
             self.infoLab.hidden = NO;
             self.infoLab.text = [NSString stringWithFormat:@"%zd岁  %zdcm",KKSharedCurrentUser.age,KKSharedCurrentUser.height];
         }
-        
         self.nameLab.text = KKSharedCurrentUser.nickName;
         KKImageViewWithUrlstring(self.headImageView, KKSharedCurrentUser.avatarUrl, @"def_head");
         dynamicUrl = [NSString stringWithFormat:@"file://%@",dynamic.dynamicUrl];
         imgURL = [NSString stringWithFormat:@"file://%@",dynamic.dynamiVideoThumbnail];
 
     }else{
+        //他人动态列表 服务器数据
+        if (self.allowLike==YES) {
+            //动态详情
+            self.likeBtn.enabled = YES;
+            self.conmentBtn.enabled = YES;
+        }else{
+            //动态列表
+            self.likeBtn.enabled = NO;
+            self.conmentBtn.enabled = NO;
+        }
+        //删除按钮隐藏
+        self.deleteBtn.hidden = YES;
+        self.infoLab.hidden = NO;
+        self.infoLab.text = [NSString stringWithFormat:@"%zd岁  %zdcm",dynamic.age,dynamic.height];
+
+        self.nameLab.text = dynamic.nickName;
+        KKImageViewWithUrlstring(self.headImageView, dynamic.avatarUrl, @"def_head");
         dynamicUrl = dynamic.dynamicUrl;
         imgURL = dynamic.dynamiVideoThumbnail;
-
+        
+        [self.likeBtn setTitle:[NSString stringWithFormat:@"%zd",dynamic.praiseNum] forState:UIControlStateNormal];
+        [self.conmentBtn setTitle:[NSString stringWithFormat:@"%zd",dynamic.commentNum] forState:UIControlStateNormal];
     }
     
     CGSize strSize = [videoStr sizeWithFont:[UIFont systemFontOfSize:15] maxSize:CGSizeMake(KKScreenWidth-20, 500)];
@@ -126,6 +132,8 @@
         self.cellHeightBlock(self.height);
     }
 }
+
+//点赞按钮
 - (IBAction)likeBtnClick:(UIButton*)sender {
     if (self.local==NO) {
         if (sender.selected==YES) {
@@ -142,7 +150,7 @@
         }
     }
 }
-
+//评论按钮
 - (IBAction)conmentBtnClick:(id)sender {
     if (self.local==NO) {
         if (self.conmentBlock) {
@@ -150,6 +158,8 @@
         }
     }
 }
+
+//删除按钮
 - (IBAction)deleteBtnClick:(id)sender {
     if (self.deleteBlock) {
         self.deleteBlock(self.dynamic.dynamicsId);
