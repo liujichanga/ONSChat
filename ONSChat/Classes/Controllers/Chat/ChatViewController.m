@@ -11,10 +11,12 @@
 #import "WZMRecordView.h"
 #import "ONSEmoticonView.h"
 #import "MessageCell.h"
+#import "VideoListViewController.h"
+#import <Photos/Photos.h>
 
 
 
-@interface ChatViewController ()<UITableViewDelegate,UITableViewDataSource,ONSInputViewDelegate,WZMRecordViewDelegate,ONSEmoticonViewDelegate,MessageCellDelegate>
+@interface ChatViewController ()<UITableViewDelegate,UITableViewDataSource,ONSInputViewDelegate,WZMRecordViewDelegate,ONSEmoticonViewDelegate,MessageCellDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (weak, nonatomic) UITableView *tableView;
 
@@ -43,9 +45,11 @@
     
     _messages=[NSMutableArray array];
     
+    self.navigationItem.title=self.targetNickName;
+    
     //UITableView
     UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
-    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    //tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     tableView.backgroundColor = KKColorFromRGB(0xF2F2F2);
     tableView.delegate = self;
@@ -127,6 +131,98 @@
         if (_emotionView) [self showOrHiddenEmotionView:YES moveInputView:YES];
     }
 }
+
+/**点击选择视频**/
+-(void)inputViewClickVideo
+{
+    KKWEAKSELF
+    VideoListViewController *videoList = KKViewControllerOfMainSB(@"VideoListViewController");
+    videoList.selectBlock = ^(PHAsset *asset){
+        [weakself selectVideo:asset];
+    };
+    UINavigationController *navController=[[UINavigationController alloc] initWithRootViewController:videoList];
+    [self presentViewController:navController animated:YES completion:nil];
+
+}
+
+/**点击选择图片**/
+-(void)inputViewClickPhoto
+{
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    [picker setValue:@(UIStatusBarStyleLightContent) forKey:@"_previousStatusBarStyle"];
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    [self presentViewController:picker animated:YES completion:nil];
+}
+
+//显示本地视频列表
+-(void)showVideoList{
+    
+    KKWEAKSELF
+    VideoListViewController *videoList = KKViewControllerOfMainSB(@"VideoListViewController");
+    videoList.selectBlock = ^(PHAsset *asset){
+        [weakself selectVideo:asset];
+    };
+    UINavigationController *navController=[[UINavigationController alloc] initWithRootViewController:videoList];
+    [self presentViewController:navController animated:YES completion:nil];
+}
+
+//处理所选视频
+-(void)selectVideo:(PHAsset*)asset{
+    KKWEAKSELF
+    PHImageManager *imgManager = [PHImageManager defaultManager];
+    PHVideoRequestOptions *options = [[PHVideoRequestOptions alloc]init];
+    PHImageRequestOptions *imgOp = [[PHImageRequestOptions alloc]init];
+       //获取视频
+    [imgManager requestAVAssetForVideo:asset options:options resultHandler:^(AVAsset * _Nullable asset, AVAudioMix * _Nullable audioMix, NSDictionary * _Nullable info) {
+        KKLog(@"%@",asset);
+        AVURLAsset *videoAsset = (AVURLAsset*)asset;
+        
+        long long int timestamp = [NSDate date].timeIntervalSince1970 * 1000 + arc4random()%1000;
+        NSString *imagename=KKStringWithFormat(@"%lld.mp4",timestamp);
+        NSString *path = [CacheUserPath stringByAppendingPathComponent:imagename];
+        
+        NSURL *videoURL = videoAsset.URL;
+        NSData *videoData = [NSData dataWithContentsOfURL:videoURL];
+        
+        BOOL result = [videoData writeToFile:path atomically:path];
+        
+        if(result)
+        {
+            weakself.dynamicURL=path;
+        }
+    }];
+}
+
+#pragma mark - UIImagePickDelegate
+/** 获取到图片后进入这里 */
+-(void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    // 关闭Picker
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    // 原图
+    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
+    
+    long long int timestamp = [NSDate date].timeIntervalSince1970 * 1000 + arc4random()%1000;
+    NSString *imagename=KKStringWithFormat(@"%lld.jpg",timestamp);
+    NSString *path = [CacheUserPath stringByAppendingPathComponent:imagename];
+    
+    NSData *imagedata=UIImageJPEGRepresentation(image, 0.75);
+    
+    BOOL result = [imagedata writeToFile:path atomically:path];
+    
+    if(result)
+    {
+        [CacheUserPath stringByAppendingPathComponent:imagename];
+    }
+    
+}
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 #pragma mark - 键盘处理
 - (void)dealKeyboard:(NSNotification *)note {
@@ -287,6 +383,12 @@
     //_onsInputView.textView.attributedText=[self showFace:_onsInputView.textView.text];
 }
 
+#pragma mark - MessageCellDelegate
+-(void)messageCellTapHead:(ONSMessage *)message
+{
+    
+}
+
 #pragma mark - ViewController lifecycle
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -330,7 +432,11 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if(_messages.count>indexPath.row)
+    {
+        ONSMessage *message=_messages[indexPath.row];
+        return  message.cellHeight;
+    }
     return 65;
 }
 
@@ -338,7 +444,7 @@
     
     if(_messages.count>indexPath.row)
     {
-        return [MessageCell cellWithTableView:tableView message:_messages[indexPath.row] delegate:self];
+        return [MessageCell cellWithTableView:tableView message:_messages[indexPath.row] avaterUrl:_targetIdAvaterUrl delegate:self];
     }
     return nil;
 }

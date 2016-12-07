@@ -288,7 +288,7 @@
     //录音设置
     NSMutableDictionary *recordSetting = [[NSMutableDictionary alloc] init];
     //设置录音格式  AVFormatIDKey==kAudioFormatLinearPCM
-    [recordSetting setValue:[NSNumber numberWithInt:kAudioFormatMPEG4AAC] forKey:AVFormatIDKey];
+    [recordSetting setValue:[NSNumber numberWithInt:kAudioFormatMPEGLayer3] forKey:AVFormatIDKey];
     //设置录音采样率(Hz) 如：AVSampleRateKey==8000/44100/96000（影响音频的质量）
     [recordSetting setValue:[NSNumber numberWithFloat:44100] forKey:AVSampleRateKey];
     //录音通道数  1 或 2
@@ -299,7 +299,7 @@
     [recordSetting setValue:[NSNumber numberWithInt:AVAudioQualityMedium] forKey:AVEncoderAudioQualityKey];
     
     long long int timestamp = [NSDate date].timeIntervalSince1970 * 1000 + arc4random()%1000;
-    NSString *voicename=KKStringWithFormat(@"%lld.aac",timestamp);
+    NSString *voicename=KKStringWithFormat(@"%lld.mp3",timestamp);
     _voiceFilePath = [CacheUserPath stringByAppendingPathComponent:voicename];
     NSLog(@"voicepath:%@",_voiceFilePath);
     

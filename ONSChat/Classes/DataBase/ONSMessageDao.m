@@ -85,11 +85,24 @@ static ONSMessageDao *instance;
     ONSMessage *record = [[ONSMessage alloc] init];
     record.messageId = [rs longLongIntForColumn:ColID];
     record.targetId=[rs stringForColumn:ColTargetId];
-    record.content=[rs stringForColumn:ColContent];
+    record.content=[[rs stringForColumn:ColContent] stringByReplacingOccurrencesOfString:@"{c}" withString:KKSharedGlobalManager.GPSCity];
+    record.contentJson=[record.content objectFromJSONString];
     record.messageType=[rs intForColumn:ColMessageType];
     record.replyType=[rs intForColumn:ColReplyType];
     record.messageDirection=[rs intForColumn:ColMessageDirection];
     record.time=[rs longLongIntForColumn:ColTime];
+    
+    if(record.messageType==ONSMessageType_Hi)
+    {
+        NSMutableString  *a = [[NSMutableString alloc ] initWithString :record.content];
+        if(a.length>13)
+        {
+            [a insertString:@"[招呼信息]：" atIndex:12];
+            record.content=a;
+            
+            record.contentJson=[record.content objectFromJSONString];
+        }      
+    }
     
     return record;
 }
@@ -140,7 +153,7 @@ static ONSMessageDao *instance;
 -(void)getMessageListByTargetId:(NSString*)targetId Completion:(KKDaoQueryCompletion)completion inBackground:(BOOL)inbackground
 {
     [self query:^id(FMDatabase *db) {
-        NSString *sql = KKStringWithFormat(@"SELECT * FROM %@ WHERE %@=? ORDER BY time DESC", TableName,ColTargetId);
+        NSString *sql = KKStringWithFormat(@"SELECT * FROM %@ WHERE %@=? ORDER BY time ASC", TableName,ColTargetId);
         FMResultSet *rs = [db executeQuery:sql withArgumentsInArray:@[targetId]];
         
         NSMutableArray *arr = [NSMutableArray array];

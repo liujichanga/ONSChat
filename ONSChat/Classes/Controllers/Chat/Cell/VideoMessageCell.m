@@ -8,14 +8,39 @@
 
 #import "VideoMessageCell.h"
 
+@interface VideoMessageCell()
+
+@property (nonatomic, strong) KRVideoPlayerController *videoController;
+
+
+@end
+
 @implementation VideoMessageCell
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (instancetype)initWithStyle:(UITableViewCellStyle)style
+              reuseIdentifier:(NSString *)reuseIdentifier {
+    
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        
+        
+        
+    }
+    return self;
 }
-*/
+
+- (void)setMessage:(ONSMessage *)message {
+    [super setMessage:message];
+    
+    NSString *url=[message.contentJson stringForKey:@"content" defaultValue:@""];
+    if(KKStringIsNotBlank(url))
+    {
+        self.videoController = [[KRVideoPlayerController alloc] initWithFrame:CGRectMake(5 ,5,message.videoSize.width,message.videoSize.height) andImageURL:nil andVideoURL:url];
+        self.videoController.repeatMode = MPMovieRepeatModeNone;
+        [self.videoController showInView:self.backgroundButton];
+
+    }
+    
+    
+}
 
 @end

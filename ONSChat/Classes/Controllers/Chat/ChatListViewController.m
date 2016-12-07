@@ -180,6 +180,8 @@
         ONSConversation *conversation=self.conversationList[indexPath.row];
         ChatViewController *chatVC=KKViewControllerOfMainSB(@"ChatViewController");
         chatVC.targetId=conversation.targetId;
+        chatVC.targetNickName=conversation.nickName;
+        chatVC.targetIdAvaterUrl=conversation.avatar;
         [self.navigationController pushViewController:chatVC animated:YES];
     }
     

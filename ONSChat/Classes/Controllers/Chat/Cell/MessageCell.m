@@ -21,7 +21,7 @@
 
 @implementation MessageCell
 
-+(MessageCell *)cellWithTableView:(UITableView *)tableView message:(ONSMessage *)message delegate:(id<MessageCellDelegate>)delegate
++(MessageCell *)cellWithTableView:(UITableView *)tableView message:(ONSMessage *)message avaterUrl:(NSString *)avaterurl  delegate:(id<MessageCellDelegate>)delegate
 {
     Class cellClass = nil;
     switch (message.messageType) {
@@ -75,6 +75,7 @@
         cell.delegate = delegate;
     }
     
+    cell.avaterUrl=avaterurl;
     cell.message = message;
     return cell;
 }
@@ -95,33 +96,71 @@
         
         // 头像
         UIButton *headPortraitButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        headPortraitButton.userInteractionEnabled = NO;
+        headPortraitButton.userInteractionEnabled = YES;
         [headPortraitButton setBackgroundImage:[UIImage imageNamed:@"def_head"] forState:UIControlStateNormal];
         self.headButton = headPortraitButton;
+        [self.headButton addTarget:self action:@selector(headTap:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:headPortraitButton];
         
         // 内容背景
         UIButton *backgroundButton = [UIButton buttonWithType:UIButtonTypeCustom];
         //backgroundButton.adjustsImageWhenHighlighted = NO;
-        backgroundButton.userInteractionEnabled = NO;
+        backgroundButton.userInteractionEnabled = YES;
         self.backgroundButton = backgroundButton;
         [self.contentView addSubview:backgroundButton];
         
       
-        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        //self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.backgroundColor = [UIColor clearColor];
     }
     return self;
+}
+
+-(void)headTap:(id)sender{
+    if(_delegate) [_delegate messageCellTapHead:_message];
 }
 
 -(void)setMessage:(ONSMessage *)message
 {
     _message=message;
     
+    self.dateLabel.frame=message.dateLabelFrame;
+    NSDate *date=[NSDate dateWithTimeIntervalSince1970:message.time];
+    if([date isEqualToDateIgnoringTime:[NSDate date]])
+    {
+        _dateLabel.text=[[NSDate dateWithTimeIntervalSince1970:message.time] stringTime];
+    }
+    else
+    {
+        _dateLabel.text=[[NSDate dateWithTimeIntervalSince1970:message.time] stringYearMonthDayHourMinuteSecond];
+    }
     
-    self.backgroundButton.frame = message.backGroundButtonFrame;
 
-    self.headButton.frame=message.headButtonFrame;
+    if (message.messageDirection==ONSMessageDirection_RECEIVE) {
+        //头像
+        if(KKStringIsNotBlank(self.avaterUrl))
+        {
+            [self.headButton sd_setBackgroundImageWithURL:[NSURL URLWithString:self.avaterUrl] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"def_head"]];
+        }
+        self.headButton.frame=message.receiveHeadButtonFrame;
+
+        //背景
+        [self.backgroundButton setBackgroundImage:[UIImage resizableImage:@"chatfrom_bg_normal.9" leftCap:15 topCap:25] forState:UIControlStateNormal];
+        self.backgroundButton.frame = message.receiveBackGroundButtonFrame;
+        
+    } else {
+        //头像
+        if(KKStringIsNotBlank(KKSharedCurrentUser.avatarUrl))
+        {
+            [self.headButton sd_setBackgroundImageWithURL:[NSURL fileURLWithPath:KKSharedCurrentUser.avatarUrl] forState:UIControlStateNormal];
+        }
+        self.headButton.frame=message.sendHeadButtonFrame;
+        
+        //背景
+        [self.backgroundButton setBackgroundImage:[UIImage resizableImage:@"chatto_bg_normal.9" leftCap:15 topCap:25] forState:UIControlStateNormal];
+        self.backgroundButton.frame =message.sendBackGroundButtonFrame;
+    }
+    
 }
 
 @end

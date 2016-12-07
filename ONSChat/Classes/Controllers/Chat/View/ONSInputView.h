@@ -21,6 +21,11 @@
 /** 输入状态发生改变 */
 - (void)inputView:(ONSInputView *)inputView stateChanged:(ONSInputViewState)state;
 
+//点击选择视频
+-(void)inputViewClickVideo;
+//点击选择图片
+-(void)inputViewClickPhoto;
+
 @end
 
 
