@@ -160,7 +160,7 @@
     
     NSData *imagedata=UIImageJPEGRepresentation(image, 0.75);
     
-    BOOL result = [imagedata writeToFile:path atomically:path];
+    BOOL result = [imagedata writeToFile:path atomically:YES];
     
     if(result)
     {

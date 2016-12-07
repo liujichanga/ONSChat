@@ -20,4 +20,7 @@
 //聊天用户的昵称
 @property(strong,nonatomic) NSString *targetNickName;
 
+//聊天用户的年龄
+@property(assign,nonatomic) NSInteger targetAge;
+
 @end

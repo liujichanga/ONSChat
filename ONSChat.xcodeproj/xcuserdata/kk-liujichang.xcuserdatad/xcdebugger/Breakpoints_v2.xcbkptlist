@@ -9,13 +9,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ONSChat/Classes/Controllers/Chat/Cell/ImageMessageCell.m"
-            timestampString = "502778328.55963"
+            filePath = "ONSChat/Classes/Controllers/Chat/ChatViewController.m"
+            timestampString = "502799452.46787"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "-setMessage:"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
+            landmarkName = "-inputView:didChangedHeigth:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ONSChat/Classes/Controllers/Chat/ChatViewController.m"
+            timestampString = "502799452.46787"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
+            landmarkName = "-inputView:stateChanged:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

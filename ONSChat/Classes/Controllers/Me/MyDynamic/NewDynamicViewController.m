@@ -102,7 +102,7 @@
     
     NSData *imagedata=UIImageJPEGRepresentation(image, 0.75);
     
-    BOOL result = [imagedata writeToFile:path atomically:path];
+    BOOL result = [imagedata writeToFile:path atomically:YES];
     
     if(result)
     {
@@ -197,7 +197,7 @@
         NSString *path = [CacheUserPath stringByAppendingPathComponent:imagename];
         
         NSData *imagedata=UIImageJPEGRepresentation(img, 0.75);
-        BOOL writeResult = [imagedata writeToFile:path atomically:path];
+        BOOL writeResult = [imagedata writeToFile:path atomically:YES];
         if(writeResult)
         {
             weakself.dynamiVideoThumbnail=path;
@@ -215,7 +215,7 @@
         NSURL *videoURL = videoAsset.URL;
         NSData *videoData = [NSData dataWithContentsOfURL:videoURL];
 
-        BOOL result = [videoData writeToFile:path atomically:path];
+        BOOL result = [videoData writeToFile:path atomically:YES];
         
         if(result)
         {

@@ -88,7 +88,7 @@
         self.textContentLabel.frame = CGRectMake(10, 10, message.textSize.width, message.textSize.height);
         
 
-        self.hiBackgroundButton.frame = CGRectMake(KKScreenWidth-MessageBackgoundInterval-message.receiveBackGroundButtonFrame.size.width, 10, size.width+20, size.height+20);
+        self.hiBackgroundButton.frame = CGRectMake(KKScreenWidth-MessageBackgoundInterval-size.width-20, 10, size.width+20, size.height+20);
     }
     
 }

@@ -174,11 +174,11 @@
 }
 //微信大小
 -(CGSize)wechatSize{
-    return CGSizeMake(MessageContentMaxWidth-50, 30);
+    return CGSizeMake(MessageContentMaxWidth-30, 30);
 }
 //声音大小
 -(CGSize)voiceSize{
-    return CGSizeMake(MessageContentMaxWidth-150, 30);
+    return CGSizeMake(MessageContentMaxWidth-130, 30);
 }
 
 

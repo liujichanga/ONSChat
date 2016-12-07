@@ -34,7 +34,11 @@
     NSString *url=[message.contentJson stringForKey:@"content" defaultValue:@""];
     if(KKStringIsNotBlank(url))
     {
-        self.videoController = [[KRVideoPlayerController alloc] initWithFrame:CGRectMake(5 ,5,message.videoSize.width,message.videoSize.height) andImageURL:nil andVideoURL:url];
+        if(![url hasPrefix:@"http"])
+        {
+            url = KKStringWithFormat(@"file://%@",url);
+        }
+        self.videoController = [[KRVideoPlayerController alloc] initWithFrame:CGRectMake(2 ,5,message.videoSize.width,message.videoSize.height) andImageURL:nil andVideoURL:url];
         self.videoController.repeatMode = MPMovieRepeatModeNone;
         [self.videoController showInView:self.backgroundButton];
 

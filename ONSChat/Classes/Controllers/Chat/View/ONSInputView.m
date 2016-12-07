@@ -111,11 +111,11 @@
 }
 
 -(void)VideoClick:(id)sender{
-    
+    if(_delegate) [_delegate inputViewClickVideo];
 }
 
 -(void)ImageClick:(id)sender{
-    
+    if(_delegate) [_delegate inputViewClickPhoto];
 }
 
 

@@ -14,6 +14,7 @@
 #define ONSChatManagerNotification_AddConversation @"ONSChatManagerNotification_AddConversation"
 #define ONSChatManagerNotification_UpdateConversation @"ONSChatManagerNotification_UpdateConversation"
 #define ONSChatManagerNotification_UnReadCount @"ONSChatManagerNotification_UnReadCount"
+#define ONSChatManagerNotification_AddMessage @"ONSChatManagerNotification_AddMessage"
 
 
 
@@ -33,7 +34,7 @@
 -(void)receiveMessage:(NSString *)textMessage;
 
 //发送信息
--(BOOL)sendMessage:(NSDictionary*)dic;
+-(void)sendMessage:(NSDictionary*)dic;
 
 //读取未读总数
 -(void)getUnReadCount;

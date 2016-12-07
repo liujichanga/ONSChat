@@ -110,7 +110,7 @@
         [self.contentView addSubview:backgroundButton];
         
       
-        //self.selectionStyle = UITableViewCellSelectionStyleNone;
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.backgroundColor = [UIColor clearColor];
     }
     return self;
@@ -142,6 +142,10 @@
         {
             [self.headButton sd_setBackgroundImageWithURL:[NSURL URLWithString:self.avaterUrl] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"def_head"]];
         }
+        else if(message.messageType==ONSMessageType_System){
+            [self.headButton setBackgroundImage:[UIImage imageNamed:@"ic_kefu"] forState:UIControlStateNormal];
+        }
+            
         self.headButton.frame=message.receiveHeadButtonFrame;
 
         //背景

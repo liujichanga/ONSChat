@@ -13,7 +13,7 @@
 #import "MessageCell.h"
 #import "VideoListViewController.h"
 #import <Photos/Photos.h>
-
+#import "ONSWaitReplyView.h"
 
 
 @interface ChatViewController ()<UITableViewDelegate,UITableViewDataSource,ONSInputViewDelegate,WZMRecordViewDelegate,ONSEmoticonViewDelegate,MessageCellDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
@@ -26,6 +26,8 @@
 @property (weak, nonatomic) WZMRecordView *recordView;
 /** 表情面板 */
 @property (weak, nonatomic) ONSEmoticonView *emotionView;
+/**等待回复**/
+@property(weak,nonatomic) ONSWaitReplyView *waitReplyView;
 
 /** 是否正在退出当前界面 */
 @property (assign, nonatomic) BOOL quiting;
@@ -57,6 +59,42 @@
     self.tableView = tableView;
     [self.view addSubview:tableView];
     
+    // 输入组件
+    ONSInputView *toolView = [[ONSInputView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-90, KKScreenWidth, 90)];
+    toolView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+    toolView.delegate = self;
+    _onsInputView = toolView;
+    _onsInputView.hidden=YES;
+    [self.view addSubview:_onsInputView];
+    [self setTableViewBottomInset:0.0];
+
+    //等待回复
+    ONSWaitReplyView *waitreply=[[ONSWaitReplyView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-40, KKScreenWidth, 40)];
+    self.waitReplyView=waitreply;
+    _waitReplyView.hidden=YES;
+    [self.view addSubview:self.waitReplyView];
+    
+    
+    // 单击TableView隐藏键盘
+    [self.tableView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)]];
+    [self.tableView.panGestureRecognizer addTarget:self action:@selector(dismissKeyboard)];
+    // 监听键盘
+    KKNotificationCenterAddObserverOfSelf(dealKeyboard:, UIKeyboardWillChangeFrameNotification, nil)
+    
+    
+    KKNotificationCenterAddObserverOfSelf(loadMessages, ONSChatManagerNotification_AddMessage, nil);
+
+    [self loadMessages];
+
+
+}
+
+#pragma mark - Private
+-(void)loadMessages{
+    
+    _onsInputView.hidden=YES;
+    _waitReplyView.hidden=YES;
+    [_messages removeAllObjects];
     KKWEAKSELF;
     [ONSSharedMessageDao getMessageListByTargetId:self.targetId Completion:^(id result) {
         
@@ -67,43 +105,67 @@
                 [message calLayout];
             }
             [weakself.messages addObjectsFromArray:arr];
-            [weakself.tableView reloadData];
+            [weakself reloadDataAndScrollToBottom:YES];
+            
+            ONSMessage *lastMessage=(ONSMessage*)weakself.messages.lastObject;
+            if(lastMessage.messageType==ONSMessageType_System)
+            {
+                return;
+            }
+            else if(lastMessage.replyType!=ONSReplyType_Normal)
+            {
+                //显示等待回复
+                _waitReplyView.hidden=NO;
+            }
+            else
+            {
+                _onsInputView.hidden=NO;
+                [self setTableViewBottomInset:0.0];
+            }
         }
         
     } inBackground:YES];
-    
-    // 输入组件
-    ONSInputView *toolView = [[ONSInputView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-90, KKScreenWidth, 90)];
-    toolView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
-    toolView.delegate = self;
-    _onsInputView = toolView;
-    [self.view addSubview:_onsInputView];
-    [self setTableViewBottomInset:0.0];
-    
-    // 单击TableView隐藏键盘
-    [self.tableView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)]];
-    [self.tableView.panGestureRecognizer addTarget:self action:@selector(dismissKeyboard)];
-    // 监听键盘
-    KKNotificationCenterAddObserverOfSelf(dealKeyboard:, UIKeyboardWillChangeFrameNotification, nil)
-    
 }
 
-#pragma mark - Private
 /** 设置TableView的底部内边距 */
 - (void)setTableViewBottomInset:(CGFloat)bottomInset {
     UIEdgeInsets inset = self.tableView.contentInset;
     //    if ([UINavigationBar appearance].isTranslucent) {
     inset.top = CGRectGetMaxY(self.navigationController.navigationBar.frame);
     //    }
-    inset.bottom = _onsInputView.frame.size.height + bottomInset;
+    inset.bottom=bottomInset;
+    if(!_onsInputView.hidden)
+    {
+        inset.bottom+=_onsInputView.frame.size.height;
+    }
+    //inset.bottom = _onsInputView.frame.size.height + bottomInset;
     self.tableView.contentInset = inset;
     self.tableView.scrollIndicatorInsets = inset;
+    NSLog(@"isnert:%@",NSStringFromUIEdgeInsets(inset));
+    [self scrollToBottom:YES];
 }
+/** 刷新TableView&滚动到底部 */
+- (void)reloadDataAndScrollToBottom:(BOOL)animated {
+    [self.tableView reloadData];
+    [self scrollToBottom:animated];
+}
+
+/** 使TableView滚动到底部 */
+- (void)scrollToBottom:(BOOL)animated {
+    if(_messages.count) {
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:_messages.count - 1 inSection:0]
+                              atScrollPosition:UITableViewScrollPositionBottom animated:animated];
+    }
+}
+
 
 #pragma mark - WZMInputView delegate
 /** 文本内容输入完成 */
 - (void)inputView:(ONSInputView *)inputView didEndEditingText:(NSString *)text {
-    //[SharedMessageCenter sendTextMesage:text receiverId:_buddy.userIdStirng];
+    NSDictionary *med=@{@"content":text};
+    NSDictionary *dic=@{@"fromid":self.targetId,@"avatar":self.targetIdAvaterUrl,@"nickname":self.targetNickName,@"age":@(self.targetAge),@"msgtype":@(ONSMessageType_Text),@"replytype":@(ONSReplyType_Normal),@"medirlist":med};
+    
+    [KKSharedONSChatManager sendMessage:dic];
 }
 
 /** InputView高度发成变化 */
@@ -170,11 +232,10 @@
 
 //处理所选视频
 -(void)selectVideo:(PHAsset*)asset{
-    KKWEAKSELF
+    
     PHImageManager *imgManager = [PHImageManager defaultManager];
     PHVideoRequestOptions *options = [[PHVideoRequestOptions alloc]init];
-    PHImageRequestOptions *imgOp = [[PHImageRequestOptions alloc]init];
-       //获取视频
+    //获取视频
     [imgManager requestAVAssetForVideo:asset options:options resultHandler:^(AVAsset * _Nullable asset, AVAudioMix * _Nullable audioMix, NSDictionary * _Nullable info) {
         KKLog(@"%@",asset);
         AVURLAsset *videoAsset = (AVURLAsset*)asset;
@@ -186,11 +247,14 @@
         NSURL *videoURL = videoAsset.URL;
         NSData *videoData = [NSData dataWithContentsOfURL:videoURL];
         
-        BOOL result = [videoData writeToFile:path atomically:path];
+        BOOL result = [videoData writeToFile:path atomically:YES];
         
         if(result)
         {
-            weakself.dynamicURL=path;
+            NSDictionary *med=@{@"content":path};
+            NSDictionary *dic=@{@"fromid":self.targetId,@"avatar":self.targetIdAvaterUrl,@"nickname":self.targetNickName,@"age":@(self.targetAge),@"msgtype":@(ONSMessageType_Video),@"replytype":@(ONSReplyType_Normal),@"medirlist":med};
+            
+            [KKSharedONSChatManager sendMessage:dic];
         }
     }];
 }
@@ -211,11 +275,15 @@
     
     NSData *imagedata=UIImageJPEGRepresentation(image, 0.75);
     
-    BOOL result = [imagedata writeToFile:path atomically:path];
+    BOOL result = [imagedata writeToFile:path atomically:YES];
     
     if(result)
     {
-        [CacheUserPath stringByAppendingPathComponent:imagename];
+        NSDictionary *med=@{@"content":path};
+        NSDictionary *dic=@{@"fromid":self.targetId,@"avatar":self.targetIdAvaterUrl,@"nickname":self.targetNickName,@"age":@(self.targetAge),@"msgtype":@(ONSMessageType_NormImage),@"replytype":@(ONSReplyType_Normal),@"medirlist":med};
+        
+        [KKSharedONSChatManager sendMessage:dic];
+        
     }
     
 }
@@ -370,6 +438,10 @@
 -(void)recordView:(WZMRecordView *)recordView sendVoiceMessage:(NSString *)voicePath
 {
     NSLog(@"voicepath delegate:%@",voicePath);
+    NSDictionary *med=@{@"content":voicePath};
+    NSDictionary *dic=@{@"fromid":self.targetId,@"avatar":self.targetIdAvaterUrl,@"nickname":self.targetNickName,@"age":@(self.targetAge),@"msgtype":@(ONSMessageType_Voice),@"replytype":@(ONSReplyType_Normal),@"medirlist":med};
+    
+    [KKSharedONSChatManager sendMessage:dic];
 }
 
 #pragma mark - EmoticonViewDelegate
@@ -451,94 +523,8 @@
 
 -(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
     
-   
-    
 }
 
-
-
-//显示表情,用属性字符串显示表情
--(NSMutableAttributedString *)showFace:(NSString *)str
-{
-    if (str != nil) {
-        //获取plist中的数据
-        NSArray *face =KKSharedGlobalManager.emoticons;
-        
-        //创建一个可变的属性字符串
-        NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:str];
-        
-        UIFont *baseFont = [UIFont systemFontOfSize:17];
-        [attributeString addAttribute:NSFontAttributeName value:baseFont range:NSMakeRange(0, str.length)];
-        
-        //正则匹配要替换的文字的范围
-        //正则表达式
-        NSString * pattern = @"\\[[a-zA-Z0-9\\u4e00-\\u9fa5]+\\]";
-        NSError *error = nil;
-        NSRegularExpression * re = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:&error];
-        
-        if (!re) {
-            NSLog(@"err %@", [error localizedDescription]);
-        }
-        
-        //通过正则表达式来匹配字符串
-        NSArray *resultArray = [re matchesInString:str options:0 range:NSMakeRange(0, str.length)];
-        
-        //用来存放字典，字典中存储的是图片和图片对应的位置
-        NSMutableArray *imageArray = [NSMutableArray arrayWithCapacity:resultArray.count];
-        
-        //根据匹配范围来用图片进行相应的替换
-        for(NSTextCheckingResult *match in resultArray) {
-            //获取数组元素中得到range
-            NSRange range = [match range];
-            
-            //获取原字符串中对应的值
-            NSString *subStr = [str substringWithRange:range];
-            
-            for (int i = 0; i < face.count; i ++)
-            {
-                if ([face[i][@"chs"] isEqualToString:subStr])
-                {
-                    //新建文字附件来存放我们的图片
-                    NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
-                    
-                    //给附件添加图片
-                    textAttachment.image = [UIImage imageNamed:face[i][@"png"]];
-                    
-                    //把附件转换成可变字符串，用于替换掉源字符串中的表情文字
-                    NSAttributedString *imageStr = [NSAttributedString attributedStringWithAttachment:textAttachment];
-                    
-                    //把图片和图片对应的位置存入字典中
-                    NSMutableDictionary *imageDic = [NSMutableDictionary dictionaryWithCapacity:2];
-                    [imageDic setObject:imageStr forKey:@"image"];
-                    [imageDic setObject:[NSValue valueWithRange:range] forKey:@"range"];
-                    
-                    //把字典存入数组中
-                    [imageArray addObject:imageDic];
-                    
-                }
-            }
-        }
-        
-        if (imageArray.count > 0) {
-            //从后往前替换
-            for (int i = (int)imageArray.count -1; i >= 0; i--)
-            {
-                NSRange range;
-                [imageArray[i][@"range"] getValue:&range];
-                //进行替换
-                [attributeString replaceCharactersInRange:range withAttributedString:imageArray[i][@"image"]];
-                
-            }
-            
-        }
-        NSLog(@"face attr:%@",attributeString);
-        return  attributeString;
-        
-    }
-    
-    return nil;
-    
-}
 
 
 @end

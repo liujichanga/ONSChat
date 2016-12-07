@@ -37,10 +37,17 @@
     NSString *url=[message.contentJson stringForKey:@"content" defaultValue:@""];
     if(KKStringIsNotBlank(url))
     {
-        KKImageViewWithUrlstring(_bigImageView, url, @"def_head");
+        if([url hasPrefix:@"http"])
+        {
+            KKImageViewWithUrlstring(_bigImageView, url, @"def_head");
+        }
+        else
+        {
+            [_bigImageView sd_setImageWithURL:[NSURL fileURLWithPath:url] placeholderImage:[UIImage imageNamed:@"def_head"]];
+        }
     }
     
-    self.bigImageView.frame=CGRectMake(10, 5, message.imageSize.width, message.imageSize.height);
+    self.bigImageView.frame=CGRectMake(2, 5, message.imageSize.width, message.imageSize.height);
 
 }
 

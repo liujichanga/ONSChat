@@ -62,7 +62,7 @@
     else
     {
         _animationImageview.image=[UIImage imageNamed:@"chatto_voice_playing"];
-        _animationImageview.frame=CGRectMake(message.sendBackGroundButtonFrame.size.width-30, 5, 14, 17);
+        _animationImageview.frame=CGRectMake(message.sendBackGroundButtonFrame.size.width-30, 10, 14, 17);
         
         self.activityIndicatorView.frame=CGRectMake(-60, 8, 30, 30);
     }
@@ -106,9 +106,24 @@
         AVAudioSession *audioSession = [AVAudioSession sharedInstance];
         [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
         
-        NSString *voiceUrlMd5 = KKStringWithFormat(@"%@.mp3",[url md5]);
-        [self.activityIndicatorView startAnimating];
+
+        if(![url hasPrefix:@"http"])
+        {
+            //本地音频
+            NSError *err;
+            self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:url] error:&err];
+            KKLog(@"player error:%@",[err description]);
+            
+            [self.player play];
+            [self playAnimation];
+            
+            self.timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(timerForPlay) userInfo:nil repeats:YES];
+            return;
+        }
         
+        [self.activityIndicatorView startAnimating];
+
+        NSString *voiceUrlMd5 = KKStringWithFormat(@"%@.mp3",[url md5]);
         NSString *savepath=[CacheUserPath stringByAppendingPathComponent:voiceUrlMd5];
         NSLog(@"voicepath:%@",savepath);
         
@@ -131,8 +146,8 @@
             //设置下载完成操作
             // filePath就是你下载文件的位置，你可以解压，也可以直接拿来使用
             NSError *err;
-            self.player = [[AVAudioPlayer alloc] initWithData:[NSData dataWithContentsOfFile:savepath] error:&err];
-            KKLog(@"player error:%@",[error description]);
+            self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:filePath error:&err];
+            KKLog(@"player error:%@",[err description]);
             
             [self.player play];
             [self playAnimation];

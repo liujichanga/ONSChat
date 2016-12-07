@@ -26,8 +26,13 @@
         textContentLabel.numberOfLines = 0;
         textContentLabel.font = MessageFont;
         textContentLabel.textColor = [UIColor blackColor];
+        textContentLabel.minimumScaleFactor=0.5;
+        textContentLabel.adjustsFontSizeToFitWidth=YES;
         self.textContentLabel = textContentLabel;
         [self.backgroundButton addSubview:textContentLabel];
+        
+        [self.backgroundButton addTarget:self action:@selector(wxClick:) forControlEvents:UIControlEventTouchUpInside];
+
     }
     return self;
 }
@@ -53,8 +58,19 @@
         self.textContentLabel.attributedText=attri;
         self.textContentLabel.frame = CGRectMake(10, 5, message.wechatSize.width, message.wechatSize.height);
     }
-    // 文字
     
+}
+
+-(void)wxClick:(id)sender{
+    
+    
+    NSString *str=[self.message.contentJson stringForKey:@"content" defaultValue:@""];
+    NSArray *arr=[str componentsSeparatedByString:@"&-&"];
+    if(arr.count>1)
+    {
+        self.textContentLabel.text=arr[1];
+    }
+
 }
 
 @end

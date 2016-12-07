@@ -28,6 +28,8 @@
         textContentLabel.textColor = [UIColor blackColor];
         self.textContentLabel = textContentLabel;
         [self.backgroundButton addSubview:textContentLabel];
+        
+
     }
     return self;
 }
@@ -37,9 +39,11 @@
     
     
     // 文字
-    self.textContentLabel.text=[message.contentJson stringForKey:@"content" defaultValue:@""];
+    self.textContentLabel.attributedText=[NSString showFace:[message.contentJson stringForKey:@"content" defaultValue:@""]];
 
     self.textContentLabel.frame = CGRectMake(10, 10, message.textSize.width, message.textSize.height);
 }
+
+
 
 @end

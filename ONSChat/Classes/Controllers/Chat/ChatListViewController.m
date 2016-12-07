@@ -59,23 +59,6 @@
     //添加会话，更新会话通知
     KKNotificationCenterAddObserverOfSelf(addConversation, ONSChatManagerNotification_AddConversation, nil);
     KKNotificationCenterAddObserverOfSelf(updateConversation, ONSChatManagerNotification_UpdateConversation, nil);
-    
-    /*
-    // 构建消息的内容，这里以文本消息为例。
-    RCTextMessage *testMessage = [RCTextMessage messageWithContent:@"test"];
-    // 调用RCIMClient的sendMessage方法进行发送，结果会通过回调进行反馈。
-    [[RCIMClient sharedRCIMClient] sendMessage:ConversationType_PRIVATE
-                                      targetId:@"456"
-                                       content:testMessage
-                                   pushContent:nil
-                                      pushData:nil
-                                       success:^(long messageId) {
-                                           NSLog(@"发送成功。当前消息ID：%ld", messageId);
-                                       } error:^(RCErrorCode nErrorCode, long messageId) {
-                                           NSLog(@"发送失败。消息ID：%ld， 错误码：%ld", messageId, nErrorCode);
-                                       }];
-    */
-    
 
     [self getConversations];
    
@@ -83,6 +66,11 @@
 
 -(void)systemTap:(id)sender{
     
+    ChatViewController *chatVC=KKViewControllerOfMainSB(@"ChatViewController");
+    chatVC.targetId=@"0";
+    chatVC.targetNickName=@"系统通知";
+    [self.navigationController pushViewController:chatVC animated:YES];
+
 }
 
 #pragma mark - ConversationNotification

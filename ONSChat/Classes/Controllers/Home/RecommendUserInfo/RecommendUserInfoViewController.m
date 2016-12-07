@@ -13,6 +13,7 @@
 #import "ContactWayCell.h"
 #import "CarouselCell.h"
 #import "VideoCell.h"
+#import "ChatViewController.h"
 
 
 #define cellVideolIdentifier @"VideoCell"
@@ -47,6 +48,10 @@
 @property (nonatomic, assign) CGFloat videoHeight;
 //视频数据
 @property (nonatomic, strong) NSDictionary *videoDic;
+
+//user
+@property(strong,nonatomic) KKUser *currentUser;
+
 @end
 
 @implementation RecommendUserInfoViewController
@@ -90,7 +95,8 @@
         if (respDic&&respDic.count>0) {
             [SVProgressHUD dismiss];
             
-            KKUser*user = [[KKUser alloc]initWithDicFull:respDic];
+            KKUser *user = [[KKUser alloc]initWithDicFull:respDic];
+            self.currentUser=user;
             
             NSString *hasCar;
             if (user.hasCar==YES) {
@@ -297,6 +303,26 @@
 -(void)noticeBtnClick{
     if (self.noticeBtn.selected == YES) {
         //去聊天
+        NSDictionary *param=@{@"userid":KKSharedCurrentUser.userId,@"toid":self.uid,@"type":@(1)};
+        [FSSharedNetWorkingManager GET:ServiceInterfaceSeduce parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSDictionary *respDic = (NSDictionary*)responseObject;
+            KKLog(@"seduce %@",respDic);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            
+        }];
+        //发一条本地信息
+        NSArray *arr=@[@"你好，看了你的资料感觉你就是我要找的那个",@"咱们可以聊聊不",@"你好啊!交个朋友好吗?"];
+        int value = arc4random() % (3);
+        NSDictionary *med=@{@"content":arr[value]};
+        NSDictionary *dic=@{@"fromid":self.currentUser.userId,@"avatar":self.currentUser.avatarUrl,@"nickname":self.currentUser.nickName,@"age":@(self.currentUser.age),@"msgtype":@(ONSMessageType_Text),@"replytype":@(ONSReplyType_Contact),@"medirlist":med};
+        
+        [KKSharedONSChatManager sendMessage:dic];
+        
+        ChatViewController *chatVC=KKViewControllerOfMainSB(@"ChatViewController");
+        chatVC.targetId=self.currentUser.userId;
+        chatVC.targetNickName=self.currentUser.nickName;
+        chatVC.targetIdAvaterUrl=self.currentUser.avatarUrl;
+        [self.navigationController pushViewController:chatVC animated:YES];
         
     }else{
         //打招呼
