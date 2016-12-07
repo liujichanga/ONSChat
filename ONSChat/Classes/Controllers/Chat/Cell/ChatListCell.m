@@ -155,8 +155,7 @@
                     NSArray *arr=[str componentsSeparatedByString:@"&-&"];
                     if(arr.count>1)
                     {
-                        NSString *strcontent=[arr[1] stringByReplacingOccurrencesOfString:@"{c}" withString:KKSharedGlobalManager.GPSCity];
-                        _chatInfoLabel.text=strcontent;
+                        _chatInfoLabel.text=arr[1];
                     }
                 }
                     break;

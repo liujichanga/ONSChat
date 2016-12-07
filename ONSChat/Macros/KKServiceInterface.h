@@ -29,6 +29,9 @@
 #define ServiceInterfaceRandomNickName KKStringWithFormat(@"%@/%@/getnickname", KKServerDomain, App)
 //打招呼
 #define ServiceInterfaceGreet KKStringWithFormat(@"%@/%@/greet", KKServerDomain, App)
+//去聊天
+#define ServiceInterfaceSeduce KKStringWithFormat(@"%@/%@/seduce", KKServerDomain, App)
+
 //获取资料
 #define ServiceInterfaceUserInfo KKStringWithFormat(@"%@/%@/user/info", KKServerDomain, App)
 //绑定手机号

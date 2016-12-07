@@ -22,6 +22,7 @@
 
 @interface MessageCell : UITableViewCell
 
+@property(strong,nonatomic) NSString *avaterUrl;
 @property (strong, nonatomic) ONSMessage *message;
 @property (weak, nonatomic) id<MessageCellDelegate> delegate;
 
@@ -36,7 +37,7 @@
 @property (weak, nonatomic) UIButton *backgroundButton;
 
 
-+(MessageCell*)cellWithTableView:(UITableView*)tableView message:(ONSMessage*)message delegate:(id<MessageCellDelegate>)delegate;
++(MessageCell*)cellWithTableView:(UITableView*)tableView message:(ONSMessage*)message avaterUrl:(NSString*)avaterurl delegate:(id<MessageCellDelegate>)delegate;
 
 
 

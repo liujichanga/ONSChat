@@ -12,6 +12,8 @@
 
 #define MessageInterval 20.0
 #define MessageFont [UIFont systemFontOfSize:16]
+#define MessageContentMaxWidth KKScreenWidth-130
+#define MessageBackgoundInterval 70
 
 
 @interface ONSMessage : NSObject
@@ -25,20 +27,28 @@
 @property(strong,nonatomic) NSString *content;
 @property(assign,nonatomic) long long time;//时间戳
 
+//从数据库取出来的json数据
+@property(strong,nonatomic) NSDictionary *contentJson;
 
 -(instancetype)initWithDic:(NSDictionary*)dic;
 
 
 //跟视图相关的信息
 @property(assign,nonatomic) CGRect topViewFrame;
-@property(assign,nonatomic) CGRect headButtonFrame;
-@property(assign,nonatomic) CGRect backGroundButtonFrame;
+@property(assign,nonatomic) CGRect dateLabelFrame;
+
+@property(assign,nonatomic) CGRect receiveHeadButtonFrame;
+@property(assign,nonatomic) CGRect receiveBackGroundButtonFrame;
+@property(assign,nonatomic) CGRect sendHeadButtonFrame;
+@property(assign,nonatomic) CGRect sendBackGroundButtonFrame;
+
+//换成文字的size
+@property(assign,nonatomic) CGSize textSize;
 
 //视图的高度
 @property(assign,nonatomic) CGFloat cellHeight;
 
-//文字大小
--(CGSize)textSize;
+
 //图片大小
 -(CGSize)imageSize;
 //视频大小
@@ -52,6 +62,8 @@
 /***计算布局****/
 -(void)calLayout;
 
+//文字大小
+-(CGSize)calTextContentSize;
 
 
 @end

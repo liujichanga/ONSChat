@@ -37,6 +37,8 @@
 		1C0FF5D81DE5354400DBF4E0 /* OneVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0FF5D61DE5354400DBF4E0 /* OneVideoCell.m */; };
 		1C0FF5D91DE5354400DBF4E0 /* OneVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C0FF5D71DE5354400DBF4E0 /* OneVideoCell.xib */; };
 		1C0FF5DD1DE5A6B700DBF4E0 /* DailyRecommandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0FF5DC1DE5A6B700DBF4E0 /* DailyRecommandViewController.m */; };
+		1C1BD8701DF810F00017FA3A /* ONSWaitReplyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1BD86F1DF810F00017FA3A /* ONSWaitReplyView.m */; };
+		1C1BD8731DF81E1F0017FA3A /* AnswerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C1BD8721DF81E1F0017FA3A /* AnswerView.m */; };
 		1C20F79E1DF696A200099832 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C20F79D1DF696A200099832 /* MessageCell.m */; };
 		1C20F7A11DF6990A00099832 /* TextMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C20F7A01DF6990A00099832 /* TextMessageCell.m */; };
 		1C20F7A41DF6ACB000099832 /* ChoiceMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C20F7A31DF6ACB000099832 /* ChoiceMessageCell.m */; };
@@ -419,6 +421,10 @@
 		1C0FF5D71DE5354400DBF4E0 /* OneVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OneVideoCell.xib; sourceTree = "<group>"; };
 		1C0FF5DB1DE5A6B700DBF4E0 /* DailyRecommandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyRecommandViewController.h; sourceTree = "<group>"; };
 		1C0FF5DC1DE5A6B700DBF4E0 /* DailyRecommandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyRecommandViewController.m; sourceTree = "<group>"; };
+		1C1BD86E1DF810F00017FA3A /* ONSWaitReplyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONSWaitReplyView.h; sourceTree = "<group>"; };
+		1C1BD86F1DF810F00017FA3A /* ONSWaitReplyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ONSWaitReplyView.m; sourceTree = "<group>"; };
+		1C1BD8711DF81E1F0017FA3A /* AnswerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerView.h; sourceTree = "<group>"; };
+		1C1BD8721DF81E1F0017FA3A /* AnswerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerView.m; sourceTree = "<group>"; };
 		1C20F79C1DF696A200099832 /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
 		1C20F79D1DF696A200099832 /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
 		1C20F79F1DF6990A00099832 /* TextMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextMessageCell.h; sourceTree = "<group>"; };
@@ -1206,6 +1212,10 @@
 				1C89E5501DF5565A00949973 /* WZMRecordView.xib */,
 				1C89E5531DF5579600949973 /* ONSEmoticonView.h */,
 				1C89E5541DF5579600949973 /* ONSEmoticonView.m */,
+				1C1BD86E1DF810F00017FA3A /* ONSWaitReplyView.h */,
+				1C1BD86F1DF810F00017FA3A /* ONSWaitReplyView.m */,
+				1C1BD8711DF81E1F0017FA3A /* AnswerView.h */,
+				1C1BD8721DF81E1F0017FA3A /* AnswerView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2367,6 +2377,7 @@
 				569864211DE00EAF0059D484 /* MJRefreshBackStateFooter.m in Sources */,
 				1C7697291DEFF58A00CC2EB8 /* ONSMessage.m in Sources */,
 				569864581DE010B40059D484 /* NSDate+Utils.m in Sources */,
+				1C1BD8701DF810F00017FA3A /* ONSWaitReplyView.m in Sources */,
 				5698645C1DE010B40059D484 /* NSString+Digest.m in Sources */,
 				9BC32EFB1DE6D31600CDDAFB /* FemaleIncomeViewController.m in Sources */,
 				569864271DE00EAF0059D484 /* UIScrollView+MJExtension.m in Sources */,
@@ -2424,6 +2435,7 @@
 				569864331DE00EAF0059D484 /* UIButton+WebCache.m in Sources */,
 				569864221DE00EAF0059D484 /* MJRefreshGifHeader.m in Sources */,
 				5698642C1DE00EAF0059D484 /* SDImageCache.m in Sources */,
+				1C1BD8731DF81E1F0017FA3A /* AnswerView.m in Sources */,
 				1C2B9DF21DEED4F70088E2FE /* ChatListCell.m in Sources */,
 				1C20F7B01DF6AD0300099832 /* WeChatMessageCell.m in Sources */,
 				5698642D1DE00EAF0059D484 /* SDWebImageCompat.m in Sources */,

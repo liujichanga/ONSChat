@@ -43,7 +43,7 @@ typedef NS_ENUM(NSUInteger, ONSMessageType) {
     ONSMessageType_WeChat=8, // 微信消息
     ONSMessageType_Hi=9, // 招呼消息
     ONSMessageType_Recommand=10, // 系统推荐
-    ONSMessageType_NearBy=11 // 附近
+    ONSMessageType_NearBy=11, // 附近
 
 };
 

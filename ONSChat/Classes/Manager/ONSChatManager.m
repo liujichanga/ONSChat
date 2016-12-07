@@ -76,6 +76,7 @@ static ONSChatManager *instance;
                 {
                     //添加message成功
                     NSLog(@"add message succeed");
+                    [KKNotificationCenter postNotificationName:ONSChatManagerNotification_AddMessage object:nil];
                     
                     [ONSSharedConversationDao getConversationByTargetId:conversation.targetId completion:^(id result) {
                         
@@ -149,16 +150,93 @@ static ONSChatManager *instance;
             
         }
     }
-    
    
 }
 
--(BOOL)sendMessage:(NSDictionary *)dic
+-(void)sendMessage:(NSDictionary *)dic
 {
+    ONSConversation *conversation=[[ONSConversation alloc] initWithDic:dic];
+    ONSMessage *message=[[ONSMessage alloc] initWithDic:dic];
+    message.messageDirection=ONSMessageDirection_SEND;
     
-    
-    
-    return NO;
+    //添加消息
+    [ONSSharedMessageDao addMessage:message completion:^(BOOL success) {
+        
+        if(success)
+        {
+            //添加message成功
+            NSLog(@"add message succeed");
+            [KKNotificationCenter postNotificationName:ONSChatManagerNotification_AddMessage object:nil];
+
+            [ONSSharedConversationDao getConversationByTargetId:conversation.targetId completion:^(id result) {
+                
+                if(result)
+                {
+                    //存在此会话，更新会话
+                    NSLog(@"存在此会话,更新conversation");
+                    ONSConversation *existConversation=(ONSConversation*)result;
+                    
+                    existConversation.avatar=conversation.avatar;
+                    existConversation.address=conversation.address;
+                    existConversation.nickName=conversation.nickName;
+                    existConversation.age=conversation.age;
+                    existConversation.lastMessageId=message.messageId;
+                    
+                    [ONSSharedConversationDao updateConversation:existConversation completion:^(BOOL success) {
+                        
+                        if(success)
+                        {
+                            //更新conversation成功
+                            NSLog(@"update conversation succeed");
+                            [KKNotificationCenter postNotificationName:ONSChatManagerNotification_UpdateConversation object:nil];
+                            
+                            //更新未读数量
+                            [self getUnReadCount];
+                        }
+                        else
+                        {
+                            NSLog(@"update conversation faild");
+                        }
+                        
+                    } inBackground:YES];
+                }
+                else
+                {
+                    //不存在此会话，添加会话
+                    NSLog(@"不存在此会话，添加conversation");
+                    
+                    conversation.lastMessageId=message.messageId;
+                    conversation.unReadCount=0;
+                    
+                    [ONSSharedConversationDao addConversation:conversation completion:^(BOOL success) {
+                        
+                        if(success)
+                        {
+                            //添加conversation成功
+                            NSLog(@"add conversation succeed");
+                            [KKNotificationCenter postNotificationName:ONSChatManagerNotification_AddConversation object:nil];
+                            
+                            //更新未读数量
+                            [self getUnReadCount];
+                        }
+                        else
+                        {
+                            NSLog(@"add conversation failed");
+                        }
+                        
+                    } inBackground:YES];
+                }
+                
+                
+            } inBackground:NO];
+        }
+        else
+        {
+            NSLog(@"add message failed");
+        }
+        
+    } inBackground:YES];
+
 }
 
 -(void)getUnReadCount

@@ -8,14 +8,48 @@
 
 #import "ImageMessageCell.h"
 
+@interface ImageMessageCell()
+
+@property(weak,nonatomic) UIImageView *bigImageView;
+
+@end
+
 @implementation ImageMessageCell
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (instancetype)initWithStyle:(UITableViewCellStyle)style
+              reuseIdentifier:(NSString *)reuseIdentifier {
+    
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        
+        UIImageView *imageview=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"def_head"]];
+        imageview.contentMode=UIViewContentModeScaleAspectFill;
+        imageview.clipsToBounds=YES;
+        self.bigImageView=imageview;
+        [self.backgroundButton addSubview:imageview];
+        
+    }
+    return self;
 }
-*/
+
+- (void)setMessage:(ONSMessage *)message {
+    [super setMessage:message];
+    
+    NSString *url=[message.contentJson stringForKey:@"content" defaultValue:@""];
+    if(KKStringIsNotBlank(url))
+    {
+        if([url hasPrefix:@"http"])
+        {
+            KKImageViewWithUrlstring(_bigImageView, url, @"def_head");
+        }
+        else
+        {
+            [_bigImageView sd_setImageWithURL:[NSURL fileURLWithPath:url] placeholderImage:[UIImage imageNamed:@"def_head"]];
+        }
+    }
+    
+    self.bigImageView.frame=CGRectMake(2, 5, message.imageSize.width, message.imageSize.height);
+
+}
+
 
 @end
