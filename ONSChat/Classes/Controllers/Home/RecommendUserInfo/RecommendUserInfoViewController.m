@@ -33,15 +33,10 @@
 @property (nonatomic, strong) NSArray *baseInfoA1;
 @property (nonatomic, strong) NSArray *baseInfoA2;
 @property (nonatomic, strong) NSArray *TABaseInfoA;
-//内心独白
-@property (nonatomic, strong) NSString *signStr;
+//内心独白高度
 @property (nonatomic, assign) CGFloat signHeight;
 //联系方式
 @property (nonatomic, strong) NSArray *contactWayArr;
-//图片轮播
-@property (nonatomic, strong) NSArray *avatarArray;
-//年龄
-@property (nonatomic, assign) NSInteger age;
 //打招呼按钮 
 @property (nonatomic, strong) ONSButtonPurple *noticeBtn;
 //视频cell高度
@@ -66,7 +61,6 @@
     self.baseInfoA1 = [NSArray array];
     self.baseInfoA2 = [NSArray array];
     self.TABaseInfoA = [NSArray array];
-    self.avatarArray = [NSArray array];
  
     [self.tableView registerNib:[UINib nibWithNibName:cellBaseInfoIdentifier bundle:nil] forCellReuseIdentifier:cellBaseInfoIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:cellSignIdentifier bundle:nil] forCellReuseIdentifier:cellSignIdentifier];
@@ -108,19 +102,24 @@
             self.baseInfoA2 = [NSArray arrayWithObjects:user.pos,user.lovetype,user.distanceLove,user.child,user.livetog,user.withparent,user.hobby,user.personality, nil];
             self.TABaseInfoA = [NSArray arrayWithObjects:user.ta_address,user.ta_age,user.ta_income,user.ta_height,user.ta_graduate,nil];
             
-            self.signStr = user.sign;
-            self.avatarArray = user.avatarUrlList;
-            self.age = user.age;
-            
             self.title =user.nickName;
             if (user.noticedToday == YES) {
-                ONSButtonPurple *btn = [ONSButtonPurple ONSButtonWithTitle:@"已打招呼，去聊天" frame:CGRectMake(0, KKScreenHeight-50, KKScreenWidth, 50)];
-                btn.layer.cornerRadius = 0;
-                [btn addTarget:self action:@selector(noticeBtnClick) forControlEvents:UIControlEventTouchUpInside];
-                [self.view addSubview:btn];
-                [self.view bringSubviewToFront:btn];
-                self.noticeBtn = btn;
-
+                
+                if (user.noticedToday == YES) {
+                    ONSButtonPurple *btn = [ONSButtonPurple ONSButtonWithTitle:@"去聊天" frame:CGRectMake(0, KKScreenHeight-50, KKScreenWidth, 50)];
+                    btn.layer.cornerRadius = 0;
+                    [btn addTarget:self action:@selector(noticeBtnClick) forControlEvents:UIControlEventTouchUpInside];
+                    [self.view addSubview:btn];
+                    [self.view bringSubviewToFront:btn];
+                    self.noticeBtn = btn;
+                }else{
+                    ONSButtonPurple *btn = [ONSButtonPurple ONSButtonWithTitle:@"已打招呼，去聊天" frame:CGRectMake(0, KKScreenHeight-50, KKScreenWidth, 50)];
+                    btn.layer.cornerRadius = 0;
+                    [btn addTarget:self action:@selector(noticeBtnClick) forControlEvents:UIControlEventTouchUpInside];
+                    [self.view addSubview:btn];
+                    [self.view bringSubviewToFront:btn];
+                    self.noticeBtn = btn;
+                }
             }else{
                 ONSButtonPurple *btn = [ONSButtonPurple ONSButtonWithTitle:@"打招呼" frame:CGRectMake(0, KKScreenHeight-50, KKScreenWidth, 50)];
                 btn.layer.cornerRadius = 0;
@@ -225,8 +224,8 @@
     KKWEAKSELF
     if (indexPath.section==0) {
         CarouselCell *cell=[tableView dequeueReusableCellWithIdentifier:cellCarouselIdentifier forIndexPath:indexPath];
-        cell.avatarArray = self.avatarArray;
-        cell.age = self.age;
+        cell.avatarArray = self.currentUser.avatarUrlList;
+        cell.age = self.currentUser.age;
         return cell;
     }
     else if (indexPath.section==1){
@@ -251,8 +250,8 @@
     
     else if (indexPath.section==2){
         SignCell *cell=[tableView dequeueReusableCellWithIdentifier:cellSignIdentifier forIndexPath:indexPath];
-        if (self.signStr.length>0) {
-            cell.signStr = self.signStr;
+        if (self.currentUser.sign.length>0) {
+            cell.signStr = self.currentUser.sign;
         }
         cell.signHeightBlock = ^(CGFloat height){
             weakself.signHeight = height;
@@ -301,7 +300,9 @@
 
 //打招呼按钮
 -(void)noticeBtnClick{
-    if (self.noticeBtn.selected == YES) {
+    //已经打过招呼
+    if (self.currentUser.noticedToday == YES || self.currentUser.noticedToday == YES) {
+        
         //去聊天
         NSDictionary *param=@{@"userid":KKSharedCurrentUser.userId,@"toid":self.uid,@"type":@(1)};
         [FSSharedNetWorkingManager GET:ServiceInterfaceSeduce parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -313,7 +314,8 @@
         //发一条本地信息
         NSArray *arr=@[@"你好，看了你的资料感觉你就是我要找的那个",@"咱们可以聊聊不",@"你好啊!交个朋友好吗?"];
         int value = arc4random() % (3);
-        NSDictionary *med=@{@"content":arr[value]};
+        
+        NSDictionary *med=@{@"content":KKStringWithFormat(@"[招呼信息]：%@",arr[value])};
         NSDictionary *dic=@{@"fromid":self.currentUser.userId,@"avatar":self.currentUser.avatarUrl,@"nickname":self.currentUser.nickName,@"age":@(self.currentUser.age),@"msgtype":@(ONSMessageType_Text),@"replytype":@(ONSReplyType_Contact),@"medirlist":med};
         
         [KKSharedONSChatManager sendMessage:dic];
@@ -332,9 +334,10 @@
             KKLog(@"greet %@",respDic);
             NSInteger status = [respDic integerForKey:@"status" defaultValue:0];
             if (status==1) {
-                self.noticeBtn.selected = YES;
-                [self.noticeBtn setTitle:@"已打招呼，去聊天" forState:UIControlStateSelected];
-                [self.noticeBtn setTitle:@"已打招呼，去聊天" forState:UIControlStateNormal];
+//                self.noticeBtn.selected = YES;
+//                [self.noticeBtn setTitle:@"已打招呼，去聊天" forState:UIControlStateSelected];
+//                [self.noticeBtn setTitle:@"已打招呼，去聊天" forState:UIControlStateNormal];
+                
                 
             }
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
