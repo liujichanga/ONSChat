@@ -46,8 +46,8 @@
         NSDictionary *userDic = [dic objectForKey:@"user"];
         self.avatarUrlList = [dic objectForKey:@"avatarlist"];
 
-        _userId=[dic stringForKey:@"id" defaultValue:@""];
-        _avatarUrl=[dic stringForKey:@"avatar" defaultValue:@""];
+        _userId=[userDic stringForKey:@"id" defaultValue:@""];
+        _avatarUrl=[userDic stringForKey:@"avatar" defaultValue:@""];
 
         self.job = [userDic stringForKey:@"job" defaultValue:@""];
         self.income = [userDic stringForKey:@"income" defaultValue:@""];

@@ -94,10 +94,12 @@
     
     _onsInputView.hidden=YES;
     _waitReplyView.hidden=YES;
-    [_messages removeAllObjects];
+    KKLog(@"targetid:%@",self.targetId);
     KKWEAKSELF;
     [ONSSharedMessageDao getMessageListByTargetId:self.targetId Completion:^(id result) {
         
+        [_messages removeAllObjects];
+        NSLog(@"messagelist");
         if(result)
         {
             NSArray *arr=(NSArray*)result;
@@ -513,7 +515,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    NSLog(@"messagecount:%ld",_messages.count);
     if(_messages.count>indexPath.row)
     {
         return [MessageCell cellWithTableView:tableView message:_messages[indexPath.row] avaterUrl:_targetIdAvaterUrl delegate:self];
