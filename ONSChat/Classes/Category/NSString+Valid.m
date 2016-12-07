@@ -206,7 +206,7 @@
             }
             
         }
-        NSLog(@"face attr:%@",attributeString);
+        //NSLog(@"face attr:%@",attributeString);
         return  attributeString;
         
     }

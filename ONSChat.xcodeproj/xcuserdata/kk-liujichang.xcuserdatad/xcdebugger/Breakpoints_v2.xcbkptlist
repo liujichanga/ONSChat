@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ONSChat/Classes/Controllers/Chat/ChatViewController.m"
-            timestampString = "502799452.46787"
+            timestampString = "502806236.191829"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
             landmarkName = "-inputView:didChangedHeigth:"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ONSChat/Classes/Controllers/Chat/ChatViewController.m"
-            timestampString = "502799452.46787"
+            timestampString = "502806236.191829"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "179"
-            endingLineNumber = "179"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
             landmarkName = "-inputView:stateChanged:"
             landmarkType = "7">
          </BreakpointContent>
