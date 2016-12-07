@@ -15,9 +15,9 @@
 @property (nonatomic, copy) void(^praiseBlock)();
 @property (nonatomic, copy) void(^deleteBlock)(NSString*dynamicID);
 
-//列表页面使用 =NO列表 详情可以点赞
+//是否允许点赞（列表页面使用） 列表=NO 详情可以点赞=yes
 @property (nonatomic, assign) BOOL allowLike;
-//我的动态列表使用
+//是否是本地数据（我的动态列表使用）
 @property (nonatomic, assign) BOOL local;
 
 @end

@@ -189,21 +189,18 @@
         return cell;
     }
 }
--(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
-    
-}
 
 #pragma mark - 私有方法
+//右键点击事件 评论或删除
 -(void)rightItemClick{
     if (self.localData==YES) {
         KKWEAKSELF
-        [KKSharedDynamicDao deleteDynamic:self.dynamicData.dynamicsId completion:^(BOOL success) {
-            if (success) {
-                [MBProgressHUD showMessag:@"删除成功" toView:nil];
-                [KKNotificationCenter postNotificationName:@"updateList" object:nil];
-                [weakself performSelector:@selector(backList) withObject:nil afterDelay:1.5];
+        [WCAlertView showAlertWithTitle:@"您确定要删除此动态" message:nil customizationBlock:nil completionBlock:^(NSUInteger buttonIndex, WCAlertView *alertView) {
+            if(buttonIndex == 1)
+            {
+                [weakself deleteDy];
             }
-        } inBackground:YES];
+        } cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
         
     }else{
         KKLog(@"评论");
@@ -215,9 +212,20 @@
     }
 }
 
--(void)backList{
-    [self.navigationController popViewControllerAnimated:YES];
+//删除后返回列表
+-(void)deleteDy{
+    KKWEAKSELF
+    [KKSharedDynamicDao deleteDynamic:self.dynamicData.dynamicsId completion:^(BOOL success) {
+        if (success) {
+            [KKNotificationCenter postNotificationName:@"updateList" object:nil];
+            [weakself.navigationController popViewControllerAnimated:YES];
+
+        }else{
+            [MBProgressHUD showMessag:@"删除失败" toView:nil];
+        }
+    } inBackground:YES];
 }
+
 //提交点赞
 -(void)submitPraise{
     NSDictionary *param = @{@"userid":self.dynamicData.userId,@"dynamicsid":self.dynamicData.dynamicsId};

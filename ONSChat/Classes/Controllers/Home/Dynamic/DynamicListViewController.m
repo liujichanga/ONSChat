@@ -147,10 +147,6 @@
     else [self.tableView.footer noticeNoMoreData];
 }
 
--(void)loadLocalData{
-    
-}
-
 
 #pragma mark - UITabelViewDelegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -186,18 +182,12 @@
     }
     //删除动态
     cell.deleteBlock = ^(NSString*dynamicID){
-        [KKSharedDynamicDao deleteDynamic:dynamicID completion:^(BOOL success) {
-            if (success) {
-                [WCAlertView showAlertWithTitle:@"您确定要删除此动态" message:nil customizationBlock:nil completionBlock:^(NSUInteger buttonIndex, WCAlertView *alertView) {
-                    if(buttonIndex == 1)
-                    {
-                        [weakself deleteDynamic:indexPath];
-                    }
-                } cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
-               
+        [WCAlertView showAlertWithTitle:@"您确定要删除此动态" message:nil customizationBlock:nil completionBlock:^(NSUInteger buttonIndex, WCAlertView *alertView) {
+            if(buttonIndex == 1)
+            {
+                [weakself deleteDynamic:dynamicID AndIndexPath:indexPath];
             }
-        } inBackground:YES];
-        
+        } cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];    
     };
     return cell;
 }
@@ -209,7 +199,6 @@
         self.selectIndex = indexPath.row;
         [self.navigationController pushViewController:detail animated:YES];
     }
-
 }
 
 #pragma mark - 私有方法
@@ -219,6 +208,7 @@
     [self.navigationController pushViewController:newDy animated:YES];
 }
 
+//更新点赞数
 -(void)updatePraiseNub:(NSNotification*)dataDic{
     NSInteger nub = [dataDic.userInfo integerForKey:@"pariseNum" defaultValue:0];
     KKDynamic *selDy = [self.dataArr objectAtIndex:self.selectIndex];
@@ -226,14 +216,20 @@
     [self.tableView reloadData];
 }
 
--(void)deleteDynamic:(NSIndexPath*)indexPath{
-    
-    [self.dataArr removeObjectAtIndex:indexPath.row];
-    [self.tableView beginUpdates];
-    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-    [self.tableView endUpdates];
-    [self.tableView reloadData];
-    [MBProgressHUD showMessag:@"删除成功" toView:nil];
+//删除我的动态
+-(void)deleteDynamic:(NSString*)dynamicID AndIndexPath:(NSIndexPath*)indexPath{
+    KKWEAKSELF
+    [KKSharedDynamicDao deleteDynamic:dynamicID completion:^(BOOL success) {
+        if (success) {
+            [weakself.dataArr removeObjectAtIndex:indexPath.row];
+            [weakself.tableView beginUpdates];
+            [weakself.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [weakself.tableView endUpdates];
+            [weakself.tableView reloadData];
+            [MBProgressHUD showMessag:@"删除成功" toView:nil];
+        }
+    } inBackground:YES];
+
 }
 
 
