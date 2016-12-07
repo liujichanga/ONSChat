@@ -13,6 +13,7 @@
 #import "SettingTableViewController.h"
 #import "MyPhotoViewController.h"
 #import "DynamicListViewController.h"
+#import "MyInfoViewController.h"
 
 #define cellHeadIdentifier @"HeadCell"
 #define cellVIPIdentifier @"VIPCell"
@@ -349,6 +350,8 @@
         if(indexPath.row==0)
         {
             //我的资料
+            MyInfoViewController *myInfo = KKViewControllerOfMainSB(@"MyInfoViewController");
+            [self.navigationController pushViewController:myInfo animated:YES];
         }
         else if(indexPath.row==1)
         {

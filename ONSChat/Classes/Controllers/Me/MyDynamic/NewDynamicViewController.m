@@ -209,8 +209,8 @@
         AVURLAsset *videoAsset = (AVURLAsset*)asset;
         
         long long int timestamp = [NSDate date].timeIntervalSince1970 * 1000 + arc4random()%1000;
-        NSString *imagename=KKStringWithFormat(@"%lld.mp4",timestamp);
-        NSString *path = [CacheUserPath stringByAppendingPathComponent:imagename];
+        NSString *videoName=KKStringWithFormat(@"%lld.mp4",timestamp);
+        NSString *path = [CacheUserPath stringByAppendingPathComponent:videoName];
         
         NSURL *videoURL = videoAsset.URL;
         NSData *videoData = [NSData dataWithContentsOfURL:videoURL];

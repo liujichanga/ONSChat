@@ -71,7 +71,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="系统通知" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7PR-CZ-Bud">
-                                        <rect key="frame" x="95" y="27.5" width="94" height="21"/>
+                                        <rect key="frame" x="95" y="28" width="94" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="7uT-WV-dlg"/>
                                             <constraint firstAttribute="width" constant="94" id="geh-y5-hi0"/>
@@ -192,6 +192,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Htf-Vs-Y5U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="793" y="-9851"/>
+        </scene>
+        <!--我的资料-->
+        <scene sceneID="MW7-bq-RB0">
+            <objects>
+                <viewController storyboardIdentifier="MyInfoViewController" title="我的资料" hidesBottomBarWhenPushed="YES" id="v1h-ky-dnb" customClass="MyInfoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IqR-c5-net"/>
+                        <viewControllerLayoutGuide type="bottom" id="3jO-fS-0S7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2Hm-Ml-v7j">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="RRp-bo-hM6">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="v1h-ky-dnb" id="YLS-kK-RJg"/>
+                                    <outlet property="delegate" destination="v1h-ky-dnb" id="3KO-Kk-fna"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t2L-Da-H39" customClass="ONSButtonPurple">
+                                <rect key="frame" x="15" y="622" width="345" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="jvB-dA-jnA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="保存"/>
+                                <connections>
+                                    <action selector="saveInfoBtnClick:" destination="v1h-ky-dnb" eventType="touchUpInside" id="hCn-ug-KCg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="t2L-Da-H39" secondAttribute="trailing" constant="15" id="0zQ-nB-uY9"/>
+                            <constraint firstAttribute="bottom" secondItem="RRp-bo-hM6" secondAttribute="bottom" constant="50" id="2bg-7t-SZL"/>
+                            <constraint firstItem="RRp-bo-hM6" firstAttribute="top" secondItem="2Hm-Ml-v7j" secondAttribute="top" id="7xP-cb-FH3"/>
+                            <constraint firstItem="3jO-fS-0S7" firstAttribute="top" secondItem="t2L-Da-H39" secondAttribute="bottom" constant="5" id="ArL-xz-UC5"/>
+                            <constraint firstItem="t2L-Da-H39" firstAttribute="leading" secondItem="2Hm-Ml-v7j" secondAttribute="leading" constant="15" id="Gml-jw-TT5"/>
+                            <constraint firstItem="RRp-bo-hM6" firstAttribute="leading" secondItem="2Hm-Ml-v7j" secondAttribute="leading" id="INr-kr-tx0"/>
+                            <constraint firstItem="t2L-Da-H39" firstAttribute="top" secondItem="RRp-bo-hM6" secondAttribute="bottom" constant="5" id="bzd-De-bOX"/>
+                            <constraint firstAttribute="trailing" secondItem="RRp-bo-hM6" secondAttribute="trailing" id="tqz-Hi-0tc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="saveInfoBtn" destination="t2L-Da-H39" id="dYe-GZ-GOO"/>
+                        <outlet property="tableView" destination="RRp-bo-hM6" id="wgY-F1-OGU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jCo-tY-syN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1476" y="-9873.0134932533747"/>
         </scene>
         <!--用户中心-->
         <scene sceneID="YTU-VD-bmD">
@@ -444,10 +497,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7dj-yQ-dfG">
-                                <rect key="frame" x="0.0" y="20" width="375" height="333.5"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="334"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKz-e4-ahg">
-                                        <rect key="frame" x="24" y="233.5" width="80" height="80"/>
+                                        <rect key="frame" x="24" y="234" width="80" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="WYc-CA-9B6"/>
                                             <constraint firstAttribute="height" constant="80" id="ogP-Mg-hje"/>
@@ -458,7 +511,7 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="请输入动态内容" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PFU-Xy-MQT">
-                                        <rect key="frame" x="15" y="25" width="345" height="188.5"/>
+                                        <rect key="frame" x="15" y="25" width="345" height="189"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -1618,13 +1671,13 @@
                                 <rect key="frame" x="8" y="90" width="359" height="417"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xBZ-Pp-cPE">
-                                        <rect key="frame" x="0.0" y="0.0" width="84" height="133.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="84" height="134"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="def_head" translatesAutoresizingMaskIntoConstraints="NO" id="sXf-dC-nxR">
-                                                <rect key="frame" x="0.0" y="0.0" width="84" height="133.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="84" height="134"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onlineBg" translatesAutoresizingMaskIntoConstraints="NO" id="5ow-gt-SOh">
-                                                <rect key="frame" x="42" y="0.0" width="42" height="18.5"/>
+                                                <rect key="frame" x="42" y="0.0" width="42" height="19"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="5ow-gt-SOh" secondAttribute="height" multiplier="34:15" id="NtL-dE-tZc"/>
                                                 </constraints>
@@ -1641,13 +1694,13 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="COr-3u-dJA">
-                                        <rect key="frame" x="92" y="0.0" width="83.5" height="133.5"/>
+                                        <rect key="frame" x="92" y="0.0" width="84" height="134"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="def_head" translatesAutoresizingMaskIntoConstraints="NO" id="x2L-ha-fgQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="83.5" height="133.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="84" height="134"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onlineBg" translatesAutoresizingMaskIntoConstraints="NO" id="14u-Jf-fQK">
-                                                <rect key="frame" x="40.5" y="0.0" width="43" height="19"/>
+                                                <rect key="frame" x="41" y="0.0" width="43" height="19"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="14u-Jf-fQK" secondAttribute="height" multiplier="34:15" id="0uL-AJ-5cw"/>
                                                 </constraints>
@@ -1664,10 +1717,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T99-qn-Bch">
-                                        <rect key="frame" x="183.5" y="0.0" width="84" height="133.5"/>
+                                        <rect key="frame" x="184" y="0.0" width="84" height="134"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="def_head" translatesAutoresizingMaskIntoConstraints="NO" id="G7y-mc-Uvc">
-                                                <rect key="frame" x="0.0" y="0.0" width="84" height="133.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="84" height="134"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onlineBg" translatesAutoresizingMaskIntoConstraints="NO" id="ZLS-XM-zG9">
                                                 <rect key="frame" x="41" y="0.0" width="43" height="19"/>
@@ -1687,13 +1740,13 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NfT-fJ-8pv">
-                                        <rect key="frame" x="275.5" y="0.0" width="83.5" height="133.5"/>
+                                        <rect key="frame" x="276" y="0.0" width="83" height="134"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="def_head" translatesAutoresizingMaskIntoConstraints="NO" id="DCd-Rm-Ffn">
-                                                <rect key="frame" x="0.0" y="0.0" width="83.5" height="133.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="83" height="134"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onlineBg" translatesAutoresizingMaskIntoConstraints="NO" id="BZm-MM-vmf">
-                                                <rect key="frame" x="41" y="0.0" width="42.5" height="18.5"/>
+                                                <rect key="frame" x="41" y="0.0" width="42" height="19"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="BZm-MM-vmf" secondAttribute="height" multiplier="34:15" id="JvE-JD-6Cr"/>
                                                 </constraints>
@@ -1710,13 +1763,13 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sQQ-l5-8mD">
-                                        <rect key="frame" x="0.0" y="141.5" width="84" height="134"/>
+                                        <rect key="frame" x="0.0" y="142" width="84" height="134"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="def_head" translatesAutoresizingMaskIntoConstraints="NO" id="PNb-RS-pOw">
                                                 <rect key="frame" x="0.0" y="0.0" width="84" height="134"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onlineBg" translatesAutoresizingMaskIntoConstraints="NO" id="DWG-Eg-PRR">
-                                                <rect key="frame" x="42" y="0.0" width="42" height="18.5"/>
+                                                <rect key="frame" x="42" y="0.0" width="42" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="DWG-Eg-PRR" secondAttribute="height" multiplier="34:15" id="Ic2-ct-jiL"/>
                                                 </constraints>
@@ -1733,7 +1786,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vhy-ah-LP4">
-                                        <rect key="frame" x="183.5" y="141.5" width="84" height="134"/>
+                                        <rect key="frame" x="184" y="142" width="84" height="134"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="def_head" translatesAutoresizingMaskIntoConstraints="NO" id="K9j-XB-fzx">
                                                 <rect key="frame" x="0.0" y="0.0" width="84" height="134"/>
@@ -1756,13 +1809,13 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T1T-iu-AxW">
-                                        <rect key="frame" x="275.5" y="141.5" width="83.5" height="134"/>
+                                        <rect key="frame" x="276" y="142" width="83" height="134"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="def_head" translatesAutoresizingMaskIntoConstraints="NO" id="umw-NT-RAa">
-                                                <rect key="frame" x="0.0" y="0.0" width="83.5" height="134"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="83" height="134"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onlineBg" translatesAutoresizingMaskIntoConstraints="NO" id="uSd-nS-WQx">
-                                                <rect key="frame" x="41" y="0.0" width="42.5" height="19"/>
+                                                <rect key="frame" x="41" y="0.0" width="42" height="19"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="uSd-nS-WQx" secondAttribute="height" multiplier="34:15" id="CvW-1e-trf"/>
                                                 </constraints>
@@ -1779,10 +1832,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Zd-J4-pul">
-                                        <rect key="frame" x="0.0" y="283.5" width="84" height="133.5"/>
+                                        <rect key="frame" x="0.0" y="284" width="84" height="133"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="def_head" translatesAutoresizingMaskIntoConstraints="NO" id="YyU-LZ-zSS">
-                                                <rect key="frame" x="0.0" y="0.0" width="84" height="133.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="84" height="133"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onlineBg" translatesAutoresizingMaskIntoConstraints="NO" id="au7-yj-Cpn">
                                                 <rect key="frame" x="41" y="0.0" width="43" height="19"/>
@@ -1802,13 +1855,13 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mZS-SW-aKq">
-                                        <rect key="frame" x="92" y="283.5" width="83.5" height="133.5"/>
+                                        <rect key="frame" x="92" y="284" width="84" height="133"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="def_head" translatesAutoresizingMaskIntoConstraints="NO" id="wie-0E-wVO">
-                                                <rect key="frame" x="0.0" y="0.0" width="83.5" height="133.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="84" height="133"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onlineBg" translatesAutoresizingMaskIntoConstraints="NO" id="zfO-QM-q4t">
-                                                <rect key="frame" x="40.5" y="0.0" width="43" height="19"/>
+                                                <rect key="frame" x="41" y="0.0" width="43" height="19"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="zfO-QM-q4t" secondAttribute="height" multiplier="34:15" id="LSK-X1-DHk"/>
                                                 </constraints>
@@ -1825,10 +1878,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hrg-yo-GCe">
-                                        <rect key="frame" x="183.5" y="283.5" width="84" height="133.5"/>
+                                        <rect key="frame" x="184" y="284" width="84" height="133"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="def_head" translatesAutoresizingMaskIntoConstraints="NO" id="21g-mo-nl4">
-                                                <rect key="frame" x="0.0" y="0.0" width="84" height="133.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="84" height="133"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onlineBg" translatesAutoresizingMaskIntoConstraints="NO" id="bir-d8-k8B">
                                                 <rect key="frame" x="41" y="0.0" width="43" height="19"/>
@@ -1848,13 +1901,13 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8vp-2F-Qlp">
-                                        <rect key="frame" x="275.5" y="283.5" width="83.5" height="133.5"/>
+                                        <rect key="frame" x="276" y="284" width="83" height="133"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="def_head" translatesAutoresizingMaskIntoConstraints="NO" id="TTa-dH-29o">
-                                                <rect key="frame" x="0.0" y="0.0" width="83.5" height="133.5"/>
+                                                <rect key="frame" x="1" y="0.0" width="83" height="133"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onlineBg" translatesAutoresizingMaskIntoConstraints="NO" id="SIH-pf-Bna">
-                                                <rect key="frame" x="41" y="0.0" width="42.5" height="18.5"/>
+                                                <rect key="frame" x="42" y="0.0" width="42" height="18"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="SIH-pf-Bna" secondAttribute="height" multiplier="34:15" id="LAc-3N-aAY"/>
                                                 </constraints>
@@ -1871,13 +1924,13 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TAt-2d-5WF">
-                                        <rect key="frame" x="92" y="141.5" width="83.5" height="134"/>
+                                        <rect key="frame" x="92" y="142" width="84" height="134"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="def_head" translatesAutoresizingMaskIntoConstraints="NO" id="06L-eG-Syv">
-                                                <rect key="frame" x="0.0" y="0.0" width="83.5" height="134"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="84" height="134"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onlineBg" translatesAutoresizingMaskIntoConstraints="NO" id="fsd-V5-PgP">
-                                                <rect key="frame" x="40.5" y="0.0" width="43" height="19"/>
+                                                <rect key="frame" x="41" y="0.0" width="43" height="19"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="fsd-V5-PgP" secondAttribute="height" multiplier="34:15" id="jdv-tl-Tq7"/>
                                                 </constraints>
@@ -2027,7 +2080,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yge-8b-AoO" customClass="ONSButtonPurple">
-                                <rect key="frame" x="20" y="426" width="152.5" height="50"/>
+                                <rect key="frame" x="20" y="426" width="153" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="PTG-eA-w4h"/>
                                 </constraints>
@@ -2038,7 +2091,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ho2-MN-CPG" customClass="ONSButton">
-                                <rect key="frame" x="202.5" y="426" width="152.5" height="50"/>
+                                <rect key="frame" x="203" y="426" width="152" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="相册上传"/>
                                 <connections>

@@ -337,6 +337,14 @@
 		9BAFFC771DF6A39C000747E1 /* VideoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BAFFC761DF6A39C000747E1 /* VideoListViewController.m */; };
 		9BAFFC7C1DF6A725000747E1 /* VideoThumbnailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BAFFC7A1DF6A725000747E1 /* VideoThumbnailCell.m */; };
 		9BAFFC7D1DF6A725000747E1 /* VideoThumbnailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BAFFC7B1DF6A725000747E1 /* VideoThumbnailCell.xib */; };
+		9BAFFC831DF7EDE3000747E1 /* MyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BAFFC821DF7EDE3000747E1 /* MyInfoViewController.m */; };
+		9BAFFC861DF7F7A0000747E1 /* OptionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BAFFC851DF7F7A0000747E1 /* OptionsView.m */; };
+		9BAFFC8A1DF7FF11000747E1 /* MyHobbyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BAFFC881DF7FF11000747E1 /* MyHobbyCell.m */; };
+		9BAFFC8B1DF7FF11000747E1 /* MyHobbyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BAFFC891DF7FF11000747E1 /* MyHobbyCell.xib */; };
+		9BAFFC941DF81481000747E1 /* ContactInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BAFFC921DF81481000747E1 /* ContactInfoCell.m */; };
+		9BAFFC951DF81481000747E1 /* ContactInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BAFFC931DF81481000747E1 /* ContactInfoCell.xib */; };
+		9BAFFC991DF81953000747E1 /* MySignCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BAFFC971DF81953000747E1 /* MySignCell.m */; };
+		9BAFFC9A1DF81953000747E1 /* MySignCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BAFFC981DF81953000747E1 /* MySignCell.xib */; };
 		9BC32EE81DE5A8CE00CDDAFB /* UserHobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EE51DE5A8CE00CDDAFB /* UserHobbyViewController.m */; };
 		9BC32EE91DE5A8CE00CDDAFB /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EE71DE5A8CE00CDDAFB /* UserInfoViewController.m */; };
 		9BC32EEC1DE5AE4400CDDAFB /* FemaleNickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EEB1DE5AE4400CDDAFB /* FemaleNickNameViewController.m */; };
@@ -847,6 +855,19 @@
 		9BAFFC791DF6A725000747E1 /* VideoThumbnailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoThumbnailCell.h; sourceTree = "<group>"; };
 		9BAFFC7A1DF6A725000747E1 /* VideoThumbnailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoThumbnailCell.m; sourceTree = "<group>"; };
 		9BAFFC7B1DF6A725000747E1 /* VideoThumbnailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoThumbnailCell.xib; sourceTree = "<group>"; };
+		9BAFFC811DF7EDE3000747E1 /* MyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInfoViewController.h; sourceTree = "<group>"; };
+		9BAFFC821DF7EDE3000747E1 /* MyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInfoViewController.m; sourceTree = "<group>"; };
+		9BAFFC841DF7F7A0000747E1 /* OptionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsView.h; sourceTree = "<group>"; };
+		9BAFFC851DF7F7A0000747E1 /* OptionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsView.m; sourceTree = "<group>"; };
+		9BAFFC871DF7FF11000747E1 /* MyHobbyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyHobbyCell.h; sourceTree = "<group>"; };
+		9BAFFC881DF7FF11000747E1 /* MyHobbyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyHobbyCell.m; sourceTree = "<group>"; };
+		9BAFFC891DF7FF11000747E1 /* MyHobbyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyHobbyCell.xib; sourceTree = "<group>"; };
+		9BAFFC911DF81481000747E1 /* ContactInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactInfoCell.h; sourceTree = "<group>"; };
+		9BAFFC921DF81481000747E1 /* ContactInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactInfoCell.m; sourceTree = "<group>"; };
+		9BAFFC931DF81481000747E1 /* ContactInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactInfoCell.xib; sourceTree = "<group>"; };
+		9BAFFC961DF81953000747E1 /* MySignCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySignCell.h; sourceTree = "<group>"; };
+		9BAFFC971DF81953000747E1 /* MySignCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySignCell.m; sourceTree = "<group>"; };
+		9BAFFC981DF81953000747E1 /* MySignCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MySignCell.xib; sourceTree = "<group>"; };
 		9BC32EE41DE5A8CE00CDDAFB /* UserHobbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserHobbyViewController.h; sourceTree = "<group>"; };
 		9BC32EE51DE5A8CE00CDDAFB /* UserHobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserHobbyViewController.m; sourceTree = "<group>"; };
 		9BC32EE61DE5A8CE00CDDAFB /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
@@ -1020,6 +1041,7 @@
 		1C0E77A91DE325790083F9F8 /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				9BAFFC7E1DF7EDC7000747E1 /* MyInfo */,
 				9BFBE33C1DF02EBE009EF3BE /* MyDynamic */,
 				1C5EE22E1DEC2865004B6AFB /* MyPhoto */,
 				1CDD6D041DE97C20006AAFAB /* Setting */,
@@ -1936,6 +1958,42 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		9BAFFC7E1DF7EDC7000747E1 /* MyInfo */ = {
+			isa = PBXGroup;
+			children = (
+				9BAFFC7F1DF7EDC7000747E1 /* Cell */,
+				9BAFFC801DF7EDC7000747E1 /* View */,
+				9BAFFC811DF7EDE3000747E1 /* MyInfoViewController.h */,
+				9BAFFC821DF7EDE3000747E1 /* MyInfoViewController.m */,
+			);
+			path = MyInfo;
+			sourceTree = "<group>";
+		};
+		9BAFFC7F1DF7EDC7000747E1 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9BAFFC871DF7FF11000747E1 /* MyHobbyCell.h */,
+				9BAFFC881DF7FF11000747E1 /* MyHobbyCell.m */,
+				9BAFFC891DF7FF11000747E1 /* MyHobbyCell.xib */,
+				9BAFFC911DF81481000747E1 /* ContactInfoCell.h */,
+				9BAFFC921DF81481000747E1 /* ContactInfoCell.m */,
+				9BAFFC931DF81481000747E1 /* ContactInfoCell.xib */,
+				9BAFFC961DF81953000747E1 /* MySignCell.h */,
+				9BAFFC971DF81953000747E1 /* MySignCell.m */,
+				9BAFFC981DF81953000747E1 /* MySignCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		9BAFFC801DF7EDC7000747E1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9BAFFC841DF7F7A0000747E1 /* OptionsView.h */,
+				9BAFFC851DF7F7A0000747E1 /* OptionsView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		9BC32EE21DE5A88D00CDDAFB /* FemaleUser */ = {
 			isa = PBXGroup;
 			children = (
@@ -2120,6 +2178,7 @@
 				1C89E9201DF5984800949973 /* 041@2x.png in Resources */,
 				1C89E9031DF5984800949973 /* 027.png in Resources */,
 				1C89E9191DF5984800949973 /* 038.png in Resources */,
+				9BAFFC951DF81481000747E1 /* ContactInfoCell.xib in Resources */,
 				1C89E91C1DF5984800949973 /* 039@2x.png in Resources */,
 				1C89E8EF1DF5984800949973 /* 017.png in Resources */,
 				1C89E93E1DF5984900949973 /* 056@2x.png in Resources */,
@@ -2220,6 +2279,7 @@
 				1C89E9171DF5984800949973 /* 037.png in Resources */,
 				1C89E8F91DF5984800949973 /* 022.png in Resources */,
 				1C89E91D1DF5984800949973 /* 040.png in Resources */,
+				9BAFFC9A1DF81953000747E1 /* MySignCell.xib in Resources */,
 				1C89E8FC1DF5984800949973 /* 023@2x.png in Resources */,
 				9BC32EF21DE5AE9700CDDAFB /* TopPageView.xib in Resources */,
 				040309081DEAD88200F516E5 /* SignCell.xib in Resources */,
@@ -2228,6 +2288,7 @@
 				1C89E92F1DF5984900949973 /* 049.png in Resources */,
 				1C89E8DF1DF5984800949973 /* 009.png in Resources */,
 				1C89E9461DF5984900949973 /* 060@2x.png in Resources */,
+				9BAFFC8B1DF7FF11000747E1 /* MyHobbyCell.xib in Resources */,
 				1C89E9391DF5984900949973 /* 054.png in Resources */,
 				1C89E9131DF5984800949973 /* 035.png in Resources */,
 				1C89E9441DF5984900949973 /* 059@2x.png in Resources */,
@@ -2282,6 +2343,7 @@
 				569864341DE00EAF0059D484 /* UIImage+GIF.m in Sources */,
 				5698645F1DE010B40059D484 /* UIColor+Hex.m in Sources */,
 				1C7697201DEFC07000CC2EB8 /* JSBadgeView.m in Sources */,
+				9BAFFC941DF81481000747E1 /* ContactInfoCell.m in Sources */,
 				1CDD6D031DE9778C006AAFAB /* BaoYuePayViewController.m in Sources */,
 				5698642A1DE00EAF0059D484 /* MKAnnotationView+WebCache.m in Sources */,
 				1C0E774B1DE30B4D0083F9F8 /* RegisterViewController.m in Sources */,
@@ -2291,6 +2353,7 @@
 				1C5EE23F1DEC4B04004B6AFB /* KKMedia.m in Sources */,
 				569864311DE00EAF0059D484 /* SDWebImageManager.m in Sources */,
 				1C5EE2311DEC2879004B6AFB /* MyPhotoViewController.m in Sources */,
+				9BAFFC991DF81953000747E1 /* MySignCell.m in Sources */,
 				1C5EE2411DEC4B04004B6AFB /* KKMediaPlayerController.m in Sources */,
 				1C6B3A101DE3F314008ACCA8 /* HeadCell.m in Sources */,
 				5698646A1DE0516E0059D484 /* KKBaseDao.m in Sources */,
@@ -2380,6 +2443,7 @@
 				9BFB22CC1DE95A4C00DB9BE6 /* RecommendUserInfoViewController.m in Sources */,
 				9BA6B3031DF00E7A006AD474 /* CommentPopView.m in Sources */,
 				569864061DE00EAF0059D484 /* FMDatabaseQueue.m in Sources */,
+				9BAFFC8A1DF7FF11000747E1 /* MyHobbyCell.m in Sources */,
 				1C6B3A1A1DE3F34C008ACCA8 /* MeInfoCell.m in Sources */,
 				1C0E77501DE30F820083F9F8 /* ONSButton.m in Sources */,
 				1C7697231DEFF47500CC2EB8 /* ONSChatManager.m in Sources */,
@@ -2415,6 +2479,7 @@
 				9BFBE3431DF02F40009EF3BE /* DynamicCommentCell.m in Sources */,
 				9BA6B2F61DEED359006AD474 /* DynamicCell.m in Sources */,
 				569864171DE00EAF0059D484 /* MJRefreshAutoFooter.m in Sources */,
+				9BAFFC861DF7F7A0000747E1 /* OptionsView.m in Sources */,
 				569864021DE00EAF0059D484 /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
 				5698642B1DE00EAF0059D484 /* NSData+ImageContentType.m in Sources */,
 				5698645D1DE010B40059D484 /* NSString+Size.m in Sources */,
@@ -2428,6 +2493,7 @@
 				1C0E77A81DE325680083F9F8 /* NearbyViewController.m in Sources */,
 				1CDD6D071DE97CCE006AAFAB /* SettingTableViewController.m in Sources */,
 				5698648E1DE0530D0059D484 /* KKBaseTableViewController.m in Sources */,
+				9BAFFC831DF7EDE3000747E1 /* MyInfoViewController.m in Sources */,
 				1CDD6CFC1DE92928006AAFAB /* WCAlertView.m in Sources */,
 				9BFBE33F1DF02F1A009EF3BE /* NewDynamicViewController.m in Sources */,
 				569864141DE00EAF0059D484 /* JSONKit.m in Sources */,

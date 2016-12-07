@@ -49,6 +49,10 @@
 #define ServiceInterfaceGetCommentList KKStringWithFormat(@"%@/%@/user/getCommentList", KKServerDomain, App)
 //提交评论
 #define ServiceInterfacePublishComment KKStringWithFormat(@"%@/%@/user/PublishComment", KKServerDomain, App)
+//我的资料选项
+#define ServiceInterfaceConstAll KKStringWithFormat(@"%@/%@/const/all", KKServerDomain, App)
+//我的资料修改提交
+#define ServiceInterfaceUserEdit KKStringWithFormat(@"%@/%@/user/edit", KKServerDomain, App)
 
 
 #endif
