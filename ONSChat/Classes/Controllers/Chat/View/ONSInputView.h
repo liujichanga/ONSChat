@@ -26,6 +26,11 @@
 //点击选择图片
 -(void)inputViewClickPhoto;
 
+//开通短信包月
+-(void)gotoBaoYue;
+//开通vip
+-(void)gotoVIP;
+
 @end
 
 

@@ -14,9 +14,13 @@
 #import "VideoListViewController.h"
 #import <Photos/Photos.h>
 #import "ONSWaitReplyView.h"
+#import "AnswerView.h"
+#import "VIPPayViewController.h"
+#import "BaoYuePayViewController.h"
+#import "RecommendUserInfoViewController.h"
 
 
-@interface ChatViewController ()<UITableViewDelegate,UITableViewDataSource,ONSInputViewDelegate,WZMRecordViewDelegate,ONSEmoticonViewDelegate,MessageCellDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface ChatViewController ()<UITableViewDelegate,UITableViewDataSource,ONSInputViewDelegate,WZMRecordViewDelegate,ONSEmoticonViewDelegate,MessageCellDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,AnswerViewDelegate>
 
 @property (weak, nonatomic) UITableView *tableView;
 
@@ -51,7 +55,7 @@
     
     //UITableView
     UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
-    //tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     tableView.backgroundColor = KKColorFromRGB(0xF2F2F2);
     tableView.delegate = self;
@@ -69,7 +73,7 @@
     [self setTableViewBottomInset:0.0];
 
     //等待回复
-    ONSWaitReplyView *waitreply=[[ONSWaitReplyView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-40, KKScreenWidth, 40)];
+    ONSWaitReplyView *waitreply=[[ONSWaitReplyView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height-50, KKScreenWidth, 50)];
     self.waitReplyView=waitreply;
     _waitReplyView.hidden=YES;
     [self.view addSubview:self.waitReplyView];
@@ -86,7 +90,6 @@
 
     [self loadMessages];
 
-
 }
 
 #pragma mark - Private
@@ -99,7 +102,6 @@
     [ONSSharedMessageDao getMessageListByTargetId:self.targetId Completion:^(id result) {
         
         [_messages removeAllObjects];
-        NSLog(@"messagelist");
         if(result)
         {
             NSArray *arr=(NSArray*)result;
@@ -114,15 +116,23 @@
             {
                 return;
             }
-            else if(lastMessage.replyType!=ONSReplyType_Normal)
+            else if(lastMessage.messageType==ONSMessageType_Choice)
+            {
+                AnswerView *answerview=[[AnswerView alloc] initWithAnswer:lastMessage.contentJson];
+                [weakself.view addSubview:answerview];
+                answerview.delegate=self;
+            }
+            
+            if(lastMessage.replyType!=ONSReplyType_Normal)
             {
                 //显示等待回复
                 _waitReplyView.hidden=NO;
+                [weakself setTableViewBottomInset:0.0];
             }
             else
             {
                 _onsInputView.hidden=NO;
-                [self setTableViewBottomInset:0.0];
+                [weakself setTableViewBottomInset:0.0];
             }
         }
         
@@ -139,6 +149,10 @@
     if(!_onsInputView.hidden)
     {
         inset.bottom+=_onsInputView.frame.size.height;
+    }
+    if(!_waitReplyView.hidden)
+    {
+        inset.bottom+=_waitReplyView.frame.size.height;
     }
     //inset.bottom = _onsInputView.frame.size.height + bottomInset;
     self.tableView.contentInset = inset;
@@ -164,10 +178,30 @@
 #pragma mark - WZMInputView delegate
 /** 文本内容输入完成 */
 - (void)inputView:(ONSInputView *)inputView didEndEditingText:(NSString *)text {
-    NSDictionary *med=@{@"content":text};
-    NSDictionary *dic=@{@"fromid":self.targetId,@"avatar":self.targetIdAvaterUrl,@"nickname":self.targetNickName,@"age":@(self.targetAge),@"msgtype":@(ONSMessageType_Text),@"replytype":@(ONSReplyType_Normal),@"medirlist":med};
     
-    [KKSharedONSChatManager sendMessage:dic];
+    //去接口判断
+    NSDictionary *param=@{@"toId":self.targetId,@"content":text,@"type":@(1)};
+    [FSSharedNetWorkingManager POST:ServiceInterfaceMessageSend parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *respDic=(NSDictionary*)responseObject;
+        NSLog(@"send:%@",respDic);
+        NSInteger status=[respDic integerForKey:@"status" defaultValue:0];
+        if(status==1)
+        {
+            //可以发送
+            NSDictionary *med=@{@"content":text};
+            NSDictionary *dic=@{@"fromid":self.targetId,@"avatar":self.targetIdAvaterUrl,@"nickname":self.targetNickName,@"age":@(self.targetAge),@"msgtype":@(ONSMessageType_Text),@"replytype":@(ONSReplyType_Normal),@"medirlist":med};
+            
+            [KKSharedONSChatManager sendMessage:dic];
+        }
+        else
+        {
+            //去购买
+            [self gotoBaoYue];
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
 }
 
 /** InputView高度发成变化 */
@@ -218,6 +252,20 @@
     picker.delegate = self;
     picker.allowsEditing = YES;
     [self presentViewController:picker animated:YES completion:nil];
+}
+
+/** 去开通包月**/
+-(void)gotoBaoYue
+{
+    BaoYuePayViewController *baoyueVC=KKViewControllerOfMainSB(@"BaoYuePayViewController");
+    [self.navigationController pushViewController:baoyueVC animated:YES];
+}
+
+/** 去开通vip**/
+-(void)gotoVIP
+{
+    VIPPayViewController *vipVC=KKViewControllerOfMainSB(@"VIPPayViewController");
+    [self.navigationController pushViewController:vipVC animated:YES];
 }
 
 //显示本地视频列表
@@ -291,6 +339,35 @@
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - AnswerViewDelegate
+-(void)answerViewTap:(NSString *)answer
+{
+    //去接口判断
+    NSDictionary *param=@{@"toId":self.targetId,@"content":answer,@"type":@(3)};
+    [FSSharedNetWorkingManager POST:ServiceInterfaceMessageSend parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *respDic=(NSDictionary*)responseObject;
+        NSLog(@"send:%@",respDic);
+        NSInteger status=[respDic integerForKey:@"status" defaultValue:0];
+        if(status==1)
+        {
+            //可以发送
+            NSDictionary *med=@{@"content":answer};
+            NSDictionary *dic=@{@"fromid":self.targetId,@"avatar":self.targetIdAvaterUrl,@"nickname":self.targetNickName,@"age":@(self.targetAge),@"msgtype":@(ONSMessageType_Text),@"replytype":@(ONSReplyType_Contact),@"medirlist":med};
+            
+            [KKSharedONSChatManager sendMessage:dic];
+        }
+        else
+        {
+            //去购买
+            [self gotoBaoYue];
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+    
 }
 
 
@@ -460,17 +537,19 @@
 #pragma mark - MessageCellDelegate
 -(void)messageCellTapHead:(ONSMessage *)message
 {
-    
+    if(message.messageType!=ONSMessageType_System && message.messageDirection!=ONSMessageDirection_SEND)
+    {
+        RecommendUserInfoViewController *recommendUser = KKViewControllerOfMainSB(@"RecommendUserInfoViewController");
+        recommendUser.uid =message.targetId;
+        [self.navigationController pushViewController:recommendUser animated:YES];
+    }
 }
 
 #pragma mark - ViewController lifecycle
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    // 在返回按钮上显示未读消息数
-//    [WZMThredUtils runInMainQueue:^{
-//        [self displayUnreadCount];
-//    } delay:0.5];
+    KKLog(@"view vill appear");
+
     _quiting = NO;
 }
 
@@ -482,6 +561,16 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     //[self stopPlayingVoiceOrCancelRecord];
+    KKLog(@"view will disappear");
+    
+    //更新未读数量
+    [ONSSharedConversationDao updateNoUnReadCountByTargetId:self.targetId completion:^(BOOL success) {
+        
+        //读取新会话
+        [KKNotificationCenter postNotificationName:ONSChatManagerNotification_UpdateConversation object:nil];
+        
+    } inBackground:YES];
+    
     _quiting = YES;
 }
 
@@ -492,6 +581,7 @@
 
 - (void)dealloc {
     KKNotificationCenterRemoveObserverOfSelf;
+    
     KKLog(@"%s", __func__);
 }
 
@@ -515,7 +605,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"messagecount:%ld",_messages.count);
     if(_messages.count>indexPath.row)
     {
         return [MessageCell cellWithTableView:tableView message:_messages[indexPath.row] avaterUrl:_targetIdAvaterUrl delegate:self];

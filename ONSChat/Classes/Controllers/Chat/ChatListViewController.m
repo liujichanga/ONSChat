@@ -64,6 +64,11 @@
    
 }
 
+-(void)dealloc
+{
+    KKNotificationCenterRemoveObserverOfSelf;
+}
+
 -(void)systemTap:(id)sender{
     
     ChatViewController *chatVC=KKViewControllerOfMainSB(@"ChatViewController");
@@ -71,6 +76,9 @@
     chatVC.targetNickName=@"系统通知";
     [self.navigationController pushViewController:chatVC animated:YES];
 
+    //更新未读数量
+    _systemConversation.unReadCount=0;
+    [ONSSharedConversationDao updateNoUnReadCountByTargetId:_systemConversation.targetId completion:nil inBackground:YES];
 }
 
 #pragma mark - ConversationNotification
@@ -130,6 +138,9 @@
         
         
     } inBackground:YES];
+    
+    //读取系统未读总数
+    [KKSharedONSChatManager getUnReadCount];
 }
 
 #pragma mark - Table view data source
@@ -166,11 +177,16 @@
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         
         ONSConversation *conversation=self.conversationList[indexPath.row];
+        
         ChatViewController *chatVC=KKViewControllerOfMainSB(@"ChatViewController");
         chatVC.targetId=conversation.targetId;
         chatVC.targetNickName=conversation.nickName;
         chatVC.targetIdAvaterUrl=conversation.avatar;
         [self.navigationController pushViewController:chatVC animated:YES];
+        
+        //更新未读数量
+        conversation.unReadCount=0;
+        [ONSSharedConversationDao updateNoUnReadCountByTargetId:conversation.targetId completion:nil inBackground:YES];
     }
     
 }

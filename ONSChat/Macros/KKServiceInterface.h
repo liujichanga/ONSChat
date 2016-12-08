@@ -31,6 +31,11 @@
 #define ServiceInterfaceGreet KKStringWithFormat(@"%@/%@/greet", KKServerDomain, App)
 //去聊天
 #define ServiceInterfaceSeduce KKStringWithFormat(@"%@/%@/seduce", KKServerDomain, App)
+//发送聊天消息
+#define ServiceInterfaceMessageSend KKStringWithFormat(@"%@/%@/chat/msg/send", KKServerDomain, App)
+//接收到聊天消息
+#define ServiceInterfaceMessageSendback KKStringWithFormat(@"%@/%@/chat/msg/sendback", KKServerDomain, App)
+
 
 //获取资料
 #define ServiceInterfaceUserInfo KKStringWithFormat(@"%@/%@/user/info", KKServerDomain, App)
@@ -58,5 +63,12 @@
 #define ServiceInterfaceUserEdit KKStringWithFormat(@"%@/%@/user/edit", KKServerDomain, App)
 //获取手机号 QQ号 微信号
 #define ServiceInterfaceGetVipphone KKStringWithFormat(@"%@/%@/getVipphone", KKServerDomain, App)
+//获取客服电话
+#define ServiceInterfaceSPhone KKStringWithFormat(@"%@/%@/const/sphone", KKServerDomain, App)
+//读取商品列表
+#define ServiceInterfaceGoodList KKStringWithFormat(@"%@/%@/goods/list", KKServerDomain, App)
+
+
+
 
 #endif

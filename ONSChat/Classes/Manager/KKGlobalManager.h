@@ -29,6 +29,11 @@
 //程序定位的城市
 @property(strong,nonatomic) NSString *GPSCity;
 
+//读取客服电话
+-(void)getSPhone;
+//客服电话
+@property(strong,nonatomic) NSString *SPhone;
+
 //表情数组
 @property(strong,nonatomic) NSArray *emoticons;
 

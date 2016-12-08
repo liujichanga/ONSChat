@@ -39,6 +39,7 @@ static KKUserManager *instance;
 
 + (void)releaseSingleton {
     
+    KKLog(@"usermanager release");
     
     instance.autoLoginEnabled = NO;
     instance.lastChannelId=@"";
@@ -48,6 +49,9 @@ static KKUserManager *instance;
     instance = nil;
     KKApplication.applicationIconBadgeNumber = 0;
     
+    [KKDynamicDao releaseSingleton];
+    [ONSConversationDao releaseSingleton];
+    [ONSMessageDao releaseSingleton];
     
 }
 

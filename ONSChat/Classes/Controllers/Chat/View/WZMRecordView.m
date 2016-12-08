@@ -387,7 +387,7 @@
     BOOL listen = NO;
     if (CGRectContainsPoint(_deleteButton.frame, location)) { // 取消发送
         [self cancelRecordingWithCompletion:nil];
-    } else if (_duration < 0.5) {
+    } else if (_duration < 1.0) {
         [MBProgressHUD showMessag:@"录音时间太短" toView:self.superview];
         [self cancelRecordingWithCompletion:nil];
     } else if (CGRectContainsPoint(_listenButton.frame, location)) { // 试听

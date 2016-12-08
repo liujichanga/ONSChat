@@ -34,6 +34,8 @@
 //读取未读会话总数
 -(void)getConversationUnReadCountCompletion:(KKDaoQueryCompletion)completion inBackground:(BOOL)inbackground;
 
+//更新未读数量为0
+-(void)updateNoUnReadCountByTargetId:(NSString*)targetId completion:(KKDaoUpdateCompletion)completion inBackground:(BOOL)inbackground;
 
 
 @end
