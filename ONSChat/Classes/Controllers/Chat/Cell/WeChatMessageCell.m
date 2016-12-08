@@ -63,12 +63,18 @@
 
 -(void)wxClick:(id)sender{
     
-    
-    NSString *str=[self.message.contentJson stringForKey:@"content" defaultValue:@""];
-    NSArray *arr=[str componentsSeparatedByString:@"&-&"];
-    if(arr.count>1)
+    if(KKSharedCurrentUser.isVIP)
     {
-        self.textContentLabel.text=arr[1];
+        NSString *str=[self.message.contentJson stringForKey:@"content" defaultValue:@""];
+        NSArray *arr=[str componentsSeparatedByString:@"&-&"];
+        if(arr.count>1)
+        {
+            self.textContentLabel.text=arr[1];
+        }
+    }
+    else
+    {
+        
     }
 
 }

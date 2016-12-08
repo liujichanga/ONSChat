@@ -7,6 +7,7 @@
 //
 
 #import "SettingTableViewController.h"
+#import <RongIMLib/RongIMLib.h>
 
 @interface SettingTableViewController ()
 
@@ -119,10 +120,18 @@
         if(indexPath.row==0)
         {
             //退出账号
+            //融云退出
+            [[RCIMClient sharedRCIMClient] logout];
+            
+            //清除聊天信息
+            [ONSChatManager releaseSingleton];
             //清除当前用户信息
             [KKUserManager releaseSingleton];
             //plist数据清除
             [KKLocalPlistManager releaseSingleton];
+            //网络
+            [FSNetWorking releaseSingleton];
+
             
             self.view.window.rootViewController = KKViewControllerOfMainSB(@"LoginNavigationController");
             

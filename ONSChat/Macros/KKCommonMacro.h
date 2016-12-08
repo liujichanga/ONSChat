@@ -146,9 +146,9 @@ placeholderImage:[UIImage imageNamed:placeholder]]
 //首页背景的颜色
 #define KKColorHomeOrange  [UIColor colorWithHexString:@"#ff6000"]//f84d02
 
+/**暗灰色背景的颜色*/
+#define KKColorGray [UIColor colorWithHexString:@"#d9d9d9"]
 
-/**边框线的颜色*/
-#define KKColorBorder [UIColor colorWithHexString:@"#d9d9d9"]
 /**标题颜色 黑色*/
 #define KKColorTitleBlack [UIColor colorWithHexString:@"#000000"]
 /**输入框颜色 列表项颜色 淡黑*/

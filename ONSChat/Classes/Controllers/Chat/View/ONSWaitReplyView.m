@@ -14,13 +14,14 @@
 {
     if(self=[super initWithFrame:frame])
     {
-        self.backgroundColor=[UIColor darkGrayColor];
+        self.backgroundColor=KKColorGray;
         
         UILabel *textContentLabel = [[UILabel alloc] init];
         textContentLabel.numberOfLines = 1;
-        textContentLabel.textColor = [UIColor darkTextColor];
+        textContentLabel.textColor = [UIColor darkGrayColor];
         textContentLabel.textAlignment=NSTextAlignmentCenter;
         textContentLabel.text=@"<<请耐心等待TA的回答>>";
+        textContentLabel.frame=self.bounds;
         [self addSubview:textContentLabel];
     }
     

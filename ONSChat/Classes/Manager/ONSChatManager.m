@@ -35,7 +35,7 @@ static ONSChatManager *instance;
 {
     if(self=[super init])
     {
-        
+        _unReadCount=0;
         
     }
     
@@ -68,6 +68,15 @@ static ONSChatManager *instance;
             
             ONSMessage *message=[[ONSMessage alloc] initWithDic:dataDic];
             message.messageDirection=ONSMessageDirection_RECEIVE;
+            
+            //接收到消息callback
+            NSDictionary *callDic=@{@"fromId":message.targetId,@"toId":KKSharedCurrentUser.userId,@"taskid":[dic stringForKey:@"taskid" defaultValue:@""],@"indexid":[dic stringForKey:@"indexid" defaultValue:@""],@"content":message.content,@"type":@(message.messageType)};
+            [FSSharedNetWorkingManager POST:ServiceInterfaceMessageSendback parameters:callDic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                NSDictionary *respDic=(NSDictionary*)responseObject;
+                KKLog(@"sendback:%@",respDic);
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                
+            }];
             
             //添加消息
             [ONSSharedMessageDao addMessage:message completion:^(BOOL success) {

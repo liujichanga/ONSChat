@@ -13,6 +13,9 @@
 #import "SettingTableViewController.h"
 #import "MyPhotoViewController.h"
 #import "DynamicListViewController.h"
+#import "VIPPayViewController.h"
+#import "BaoYuePayViewController.h"
+
 
 #define cellHeadIdentifier @"HeadCell"
 #define cellVIPIdentifier @"VIPCell"
@@ -103,9 +106,9 @@
         if(status)
         {
             NSTimeInterval baoyue=[dic longlongForKey:@"baoyueendtime" defaultValue:0]/1000.0;
-            KKSharedCurrentUser.baoyueEndTime=[[NSDate dateWithTimeIntervalSince1970:baoyue] string];
+            KKSharedCurrentUser.baoyueEndTime=[[NSDate dateWithTimeIntervalSince1970:baoyue] stringYearMonthDay];
             NSTimeInterval vip=[dic longlongForKey:@"vipendtime" defaultValue:0]/1000.0;
-            KKSharedCurrentUser.vipEndTime=[[NSDate dateWithTimeIntervalSince1970:vip] string];
+            KKSharedCurrentUser.vipEndTime=[[NSDate dateWithTimeIntervalSince1970:vip] stringYearMonthDay];
             
             KKSharedCurrentUser.beannum=[dic integerForKey:@"beannum" defaultValue:0];
             KKSharedCurrentUser.isVIP=[dic boolForKey:@"vip" defaultValue:NO];
@@ -116,7 +119,7 @@
             KKSharedCurrentUser.melikeNum=[dic integerForKey:@"likenum" defaultValue:0];
             KKSharedCurrentUser.visitNum=[dic integerForKey:@"visitnum" defaultValue:0];
             
-            KKSharedCurrentUser.nickName=[dic stringForKey:@"nickname" defaultValue:@""]; //stringByReplacingPercentEscapesUsingEncoding:NSUnicodeStringEncoding];
+            KKSharedCurrentUser.nickName=[dic stringForKey:@"nickname" defaultValue:@""];
             
             [self.tableView reloadData];
         }
@@ -233,6 +236,27 @@
             [weakself presentViewController:alertController animated:YES completion:nil];
             
         };
+        
+        cell.getBeanBlock=^{
+            
+        };
+        cell.vipBlock=^{
+            VIPPayViewController *vipVC=KKViewControllerOfMainSB(@"VIPPayViewController");
+            [weakself.navigationController pushViewController:vipVC animated:YES];
+        };
+        cell.baoyueBlock=^{
+            
+        };
+        cell.likemeBlock=^{
+            
+        };
+        cell.melikeBlock=^{
+            
+        };
+        cell.visitBlock=^{
+            
+        };
+        
         return cell;
     }
     else if(indexPath.section == 1)
@@ -328,6 +352,8 @@
 
 -(void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     if(indexPath.section==1)
     {
         if(indexPath.row==0)

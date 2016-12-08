@@ -55,7 +55,15 @@
     UITapGestureRecognizer *headGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(headTap:)];
     [self.headImageView addGestureRecognizer:headGestureRecognizer];
 
-
+    UITapGestureRecognizer *likemeGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(likemeTap:)];
+    [self.likeMeLabel addGestureRecognizer:likemeGestureRecognizer];
+    
+    UITapGestureRecognizer *melikeGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(melikeTap:)];
+    [self.meLikeLabel addGestureRecognizer:melikeGestureRecognizer];
+    
+    UITapGestureRecognizer *visitGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(visitTap:)];
+    [self.lastVisterLabel addGestureRecognizer:visitGestureRecognizer];
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -68,6 +76,10 @@
 {
     _nickNameLabel.text=KKSharedCurrentUser.nickName;
     _myRedLabel.text=KKStringWithFormat(@"我的红豆：%ld颗",(long)KKSharedCurrentUser.beannum);
+    if(KKSharedCurrentUser.beannum>0)
+    {
+        _getRedButton.hidden=YES;
+    }
     if(KKStringIsNotBlank(KKSharedCurrentUser.avatarUrl))
     {
         UIImage *image=[[UIImage alloc] initWithContentsOfFile:KKSharedCurrentUser.avatarUrl];
@@ -81,19 +93,19 @@
     
     if(KKSharedCurrentUser.isVIP)
     {
-        [_VIPButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        [_VIPButton setBackgroundColor:[UIColor colorWithHexString:@"56D658"]];
     }
     if(KKSharedCurrentUser.isBaoYue)
     {
-        [_MonthButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        [_MonthButton setBackgroundColor:[UIColor colorWithHexString:@"56D658"]];
     }
     if(KKSharedCurrentUser.isPhone)
     {
-        [_PhoneAuthButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        [_PhoneAuthButton setBackgroundColor:[UIColor colorWithHexString:@"56D658"]];
     }
     if(KKSharedCurrentUser.isIdentity)
     {
-        [_idAuthButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        [_idAuthButton setBackgroundColor:[UIColor colorWithHexString:@"56D658"]];
     }
     
 }
@@ -101,6 +113,25 @@
 -(void)headTap:(id)sender
 {
     if(self.changeHeadImage) self.changeHeadImage();
+}
+-(void)likemeTap:(id)sender{
+    if(self.likemeBlock) self.likemeBlock();
+}
+-(void)melikeTap:(id)sender{
+    if(self.melikeBlock) self.melikeBlock();
+}
+-(void)visitTap:(id)sender{
+    if(self.visitBlock) self.visitBlock();
+}
+
+- (IBAction)getBeanClick:(id)sender {
+    if(self.getBeanBlock) self.getBeanBlock();
+}
+- (IBAction)VIPClick:(id)sender {
+    if(self.vipBlock) self.vipBlock();
+}
+- (IBAction)BaoYueClick:(id)sender {
+    if(self.baoyueBlock) self.baoyueBlock();
 }
 
 @end

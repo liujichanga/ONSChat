@@ -11,6 +11,12 @@
 @interface HeadCell : UITableViewCell
 
 @property (nonatomic, copy) void(^changeHeadImage)();
+@property (nonatomic, copy) void(^getBeanBlock)();
+@property (nonatomic, copy) void(^vipBlock)();
+@property (nonatomic, copy) void(^baoyueBlock)();
+@property (nonatomic, copy) void(^likemeBlock)();
+@property (nonatomic, copy) void(^melikeBlock)();
+@property (nonatomic, copy) void(^visitBlock)();
 
 
 -(void)displayInfo;

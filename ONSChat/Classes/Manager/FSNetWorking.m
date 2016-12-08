@@ -156,4 +156,71 @@ static FSNetWorking *instance;
     }];
 }
 
+- (void)downloadFileURL:(NSString *)aUrl savePath:(NSString *)aSavePath tag:(NSInteger)aTag success:(void (^)(NSInteger))success failure:(void (^)(NSInteger, NSError *))failure
+{
+    //KKLog(@"aSavePath:%@",aSavePath);
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    //检查附件是否存在
+    if ([fileManager fileExistsAtPath:aSavePath])
+    {
+        if(success) success(aTag);
+        //KKLog(@"downloadFileURL success: 文件存在");
+    }
+    else
+    {
+        BOOL isDir = NO;
+        NSString *foldDir=[aSavePath stringByDeletingLastPathComponent];
+        BOOL dirExist=[fileManager fileExistsAtPath:foldDir isDirectory:&isDir];
+        if(!(dirExist&&isDir))
+        {
+            //文件夹不存在，创建文件夹
+            NSError *error;
+            BOOL bCreateDir = [fileManager createDirectoryAtPath:foldDir withIntermediateDirectories:YES attributes:nil error:&error];
+            if(bCreateDir)
+            {
+                KKLog(@"create folder succeed");
+            }
+            else
+            {
+                KKLog(@"create folder fail");
+                if(failure) failure(aTag,error);
+            }
+        }
+        
+        //下载附件
+        NSString *filename=[[aSavePath lastPathComponent] stringByDeletingPathExtension];//不带扩展名的文件名
+        NSString *fileext=[aSavePath pathExtension];//扩展名
+        //临时存储文件名
+        NSString *tempSavePath=[NSString stringWithFormat:@"%@/%@-d.%@",[aSavePath stringByDeletingLastPathComponent],filename,fileext];
+        
+        aUrl = [aUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        //远程地址
+        NSURL *URL = [NSURL URLWithString:aUrl];
+        //请求
+        NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+        //下载Task操作
+        NSURLSessionDownloadTask *downloadTask = [_sessionManager downloadTaskWithRequest:request progress:nil destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
+            return [NSURL fileURLWithPath:tempSavePath];
+        } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+            
+            if(!error)
+            {
+                //下载成功,改名
+                [fileManager moveItemAtPath:tempSavePath toPath:aSavePath error:nil];
+                
+                if(success) success(aTag);
+            }
+            else
+            {
+                if(failure) failure(aTag,error);
+            }
+            
+        }];
+        
+        [downloadTask resume];
+    }    
+}
+
+
 @end

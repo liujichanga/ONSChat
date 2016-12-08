@@ -145,4 +145,14 @@ static KKGlobalManager *instance;
 
 }
 
+-(void)getSPhone
+{
+    [FSSharedNetWorkingManager GET:ServiceInterfaceSPhone parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSDictionary *dic=(NSDictionary*)responseObject;
+        self.SPhone=[dic stringForKey:@"sphone" defaultValue:@""];
+        
+    } failure:nil];
+}
+
 @end

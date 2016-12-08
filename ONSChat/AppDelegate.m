@@ -101,9 +101,9 @@
 -(void)loginSucceed:(NSDictionary *)dic
 {
     NSTimeInterval baoyue=[dic longlongForKey:@"baoyueendtime" defaultValue:0]/1000.0;
-    KKSharedCurrentUser.baoyueEndTime=[[NSDate dateWithTimeIntervalSince1970:baoyue] string];
+    KKSharedCurrentUser.baoyueEndTime=[[NSDate dateWithTimeIntervalSince1970:baoyue] stringYearMonthDay];
     NSTimeInterval vip=[dic longlongForKey:@"vipendtime" defaultValue:0]/1000.0;
-    KKSharedCurrentUser.vipEndTime=[[NSDate dateWithTimeIntervalSince1970:vip] string];
+    KKSharedCurrentUser.vipEndTime=[[NSDate dateWithTimeIntervalSince1970:vip] stringYearMonthDay];
 
     KKSharedCurrentUser.beannum=[dic integerForKey:@"beanCount" defaultValue:0];
     KKSharedCurrentUser.sex=[dic integerForKey:@"gender" defaultValue:0];

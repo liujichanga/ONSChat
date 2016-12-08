@@ -74,14 +74,17 @@
     // 点击了发送按钮
     if(KKStringIsNotBlank(self.textView.text))
     {
-        CGRect selfFrame = KKFrameOfSizeH(self.frame, 90);
-        selfFrame.origin.y = self.frame.origin.y + (self.bounds.size.height - 90.0);
-        self.frame = selfFrame;
-        
-        self.textView.frame = KKFrameOfSizeH(self.textView.frame, 37.0);
-        [_delegate inputView:self didEndEditingText:self.textView.text];
-        [_delegate inputView:self didChangedHeigth:90.0];
-        _textView.text = nil;
+        if([self isVIP])
+        {
+            CGRect selfFrame = KKFrameOfSizeH(self.frame, 90);
+            selfFrame.origin.y = self.frame.origin.y + (self.bounds.size.height - 90.0);
+            self.frame = selfFrame;
+            
+            self.textView.frame = KKFrameOfSizeH(self.textView.frame, 37.0);
+            [_delegate inputView:self didEndEditingText:self.textView.text];
+            [_delegate inputView:self didChangedHeigth:90.0];
+            _textView.text = nil;
+        }
     }
     
 }
@@ -99,23 +102,35 @@
 }
 
 -(void)VoiceClick:(UIButton *)sender{
-    sender.selected = !sender.selected;
-    _emoticonBtn.selected = NO;
     
-    if (sender.selected) // 录音
-        _state = ONSInputViewStateVoice;
-    else // 文字
-        _state = ONSInputViewStateText;
-    
-    [self notifiDelegate];
+   if([self isBaoYue])
+   {
+       sender.selected = !sender.selected;
+       _emoticonBtn.selected = NO;
+       
+       if (sender.selected) // 录音
+           _state = ONSInputViewStateVoice;
+       else // 文字
+           _state = ONSInputViewStateText;
+       
+       [self notifiDelegate];
+   }
 }
 
 -(void)VideoClick:(id)sender{
-    if(_delegate) [_delegate inputViewClickVideo];
+    if([self isBaoYue])
+    {
+        if(_delegate) [_delegate inputViewClickVideo];
+
+    }
 }
 
 -(void)ImageClick:(id)sender{
-    if(_delegate) [_delegate inputViewClickPhoto];
+    if([self isBaoYue])
+    {
+        if(_delegate) [_delegate inputViewClickPhoto];
+
+    }
 }
 
 
@@ -183,6 +198,52 @@
     self.frame = selfFrame;
     
     [_delegate inputView:self didChangedHeigth:selfHeight];
+}
+
+-(BOOL)isBaoYue
+{
+    if(!KKSharedCurrentUser.isBaoYue)
+    {
+        NSString *str=@"您还没有开通包月写信功能哦，快去开通吧，很多美女都在等待你的回信呢!";
+        [WCAlertView  showAlertWithTitle:@"温馨提示" message:str customizationBlock:nil completionBlock:^(NSUInteger buttonIndex, WCAlertView *alertView) {
+            
+            if(buttonIndex==1)
+            {
+                //去开通
+                if(_delegate) [_delegate gotoBaoYue];
+            }
+            
+        } cancelButtonTitle:@"下次再说" otherButtonTitles:@"开通", nil];
+        return NO;
+    }
+    return YES;
+}
+
+-(BOOL)isVIP
+{
+    if(!KKSharedCurrentUser.isVIP)
+    {
+        NSArray *arr=@[@"干",@"草",@"约",@"炮",@"泡",@"日",@"爱爱",@"啪",@"床", @"飞机",@"视频",@"自慰", @"操",@"逼",@"脱",@"奶",@"做爱",@"开房",@"插",@"JB",@"鸡巴",@"一夜情",@"微信",@"V信",@"QQ",@"Q",@"电话",@"号码",@"VX",@"扣扣"];
+        
+        for (NSString *str in arr) {
+            if([[self.textView.text uppercaseString] containsString:str])
+            {
+                NSString *msg=@"哥，升级VIP您就随便了";
+                [WCAlertView  showAlertWithTitle:@"温馨提示" message:msg customizationBlock:nil completionBlock:^(NSUInteger buttonIndex, WCAlertView *alertView) {
+                    
+                    if(buttonIndex==1)
+                    {
+                        //去开通vip
+                        if(_delegate) [_delegate gotoVIP];
+                    }
+                    
+                } cancelButtonTitle:@"继续忍着" otherButtonTitles:@"升级VIP", nil];
+                return NO;
+            }
+        }
+        
+    }
+    return YES;
 }
 
 @end

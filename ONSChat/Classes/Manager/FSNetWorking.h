@@ -44,6 +44,10 @@ NS_ASSUME_NONNULL_BEGIN
                                 success:(nullable void (^)(NSURLSessionDataTask *task, id _Nullable responseObject))success
                                 failure:(nullable void (^)(NSURLSessionDataTask * _Nullable task, NSError *error))failure;
 
+//下载文件
+- (void)downloadFileURL:(NSString *)aUrl savePath:(NSString *)aSavePath tag:(NSInteger)aTag success:(void (^)(NSInteger tag))success failure:(void (^)(NSInteger tag ,NSError *error))failure;
+
+
 
 
 NS_ASSUME_NONNULL_END

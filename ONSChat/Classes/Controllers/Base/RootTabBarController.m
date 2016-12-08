@@ -64,6 +64,8 @@
     // 设置消息接收监听
     [[RCIMClient sharedRCIMClient] setReceiveMessageDelegate:self object:nil];
     
+    //读取客服电话
+    [KKSharedGlobalManager getSPhone];
 }
 
 #pragma mark - Tabbar Dadge
@@ -131,6 +133,8 @@
 
 -(void)dealloc
 {
+    [[RCIMClient sharedRCIMClient] setReceiveMessageDelegate:nil object:nil];
+    
     KKNotificationCenterRemoveObserverOfSelf;
     self.viewControllers = nil;
     KKLog(@"tabbar dealloc");

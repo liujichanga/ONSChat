@@ -123,30 +123,16 @@
         
         [self.activityIndicatorView startAnimating];
 
-        NSString *voiceUrlMd5 = KKStringWithFormat(@"%@.mp3",[url md5]);
+        
+        NSString *voiceUrlMd5 = KKStringWithFormat(@"%@.%@",[url md5],[url pathExtension]);
         NSString *savepath=[CacheUserPath stringByAppendingPathComponent:voiceUrlMd5];
         NSLog(@"voicepath:%@",savepath);
         
-        //远程地址
-        NSURL *URL = [NSURL URLWithString:url];
-        //默认配置
-        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-        //AFN3.0+基于封住URLSession的句柄
-        AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-        //请求
-        NSURLRequest *request = [NSURLRequest requestWithURL:URL];
-        //下载Task操作
-        NSURLSessionDownloadTask *downloadTask=[manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
-            
-        } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
-            
-            NSLog(@"taregtpath:%@",targetPath);
-            return [NSURL fileURLWithPath:savepath];
-        } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
+        [FSSharedNetWorkingManager downloadFileURL:url savePath:savepath tag:0 success:^(NSInteger tag) {
             //设置下载完成操作
             // filePath就是你下载文件的位置，你可以解压，也可以直接拿来使用
             NSError *err;
-            self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:filePath error:&err];
+            self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:savepath] error:&err];
             KKLog(@"player error:%@",[err description]);
             
             [self.player play];
@@ -155,10 +141,10 @@
             [self.activityIndicatorView stopAnimating];
             
             self.timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(timerForPlay) userInfo:nil repeats:YES];
+
+        } failure:^(NSInteger tag, NSError * _Nonnull error) {
             
         }];
-        
-        [downloadTask resume];
     }
     
     

@@ -185,5 +185,14 @@ static ONSConversationDao *instance;
 
 }
 
+//更新未读总数为0
+-(void)updateNoUnReadCountByTargetId:(NSString *)targetId completion:(KKDaoUpdateCompletion)completion inBackground:(BOOL)inbackground
+{
+    [self update:^BOOL(FMDatabase *db) {
+        NSString *sql = KKStringWithFormat(@"UPDATE %@ SET %@=? WHERE %@=? ", TableName,ColUnReadCount,ColTargetId);
+
+        return [db executeUpdate:sql withArgumentsInArray:@[@(0),targetId]];
+    } completion:completion inBackground:inbackground];
+}
 
 @end
