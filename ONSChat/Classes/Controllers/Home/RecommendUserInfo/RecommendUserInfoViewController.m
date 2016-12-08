@@ -43,10 +43,10 @@
 @property (nonatomic, assign) CGFloat videoHeight;
 //视频数据
 @property (nonatomic, strong) NSDictionary *videoDic;
-
 //user
 @property(strong,nonatomic) KKUser *currentUser;
-
+//是否有过对话
+@property (nonatomic, assign) BOOL hasConversation;
 @end
 
 @implementation RecommendUserInfoViewController
@@ -92,6 +92,7 @@
             [self.view addSubview:btn];
             [self.view bringSubviewToFront:btn];
             self.noticeBtn = btn;
+            self.hasConversation = YES;
         }
     } inBackground:YES];
 
@@ -353,10 +354,16 @@
 
 //打招呼按钮
 -(void)noticeBtnClick{
-    //已经打过招呼
-    if (self.currentUser.noticedToday == YES || self.noticeBtn.selected==YES) {
+    //已有过对话
+    if (self.hasConversation==YES) {
+        KKLog(@"聊天");
+
         
-        //去聊天
+    }
+    //已打过招呼 没对话
+    else if (self.currentUser.noticedToday == YES || self.noticeBtn.selected == YES) {
+        KKLog(@"已打招呼");
+       
         NSDictionary *param=@{@"userid":KKSharedCurrentUser.userId,@"toid":self.uid,@"type":@(1)};
         [FSSharedNetWorkingManager GET:ServiceInterfaceSeduce parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NSDictionary *respDic = (NSDictionary*)responseObject;
@@ -389,8 +396,8 @@
         [self.navigationController pushViewController:chatVC animated:YES];
         
     }else{
-        
-        //打招呼
+        KKLog(@"招呼");
+
         NSDictionary *param = @{@"uid":self.uid};
         [FSSharedNetWorkingManager POST:ServiceInterfaceGreet parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NSDictionary *respDic = (NSDictionary*)responseObject;
