@@ -373,6 +373,15 @@
         
         [KKSharedONSChatManager sendMessage:dic];
         
+        //是从聊天过来的，返回聊天
+        for (UIViewController *viewController in self.navigationController.viewControllers) {
+            if([viewController isKindOfClass:[ChatViewController class]])
+            {
+                [self.navigationController popToViewController:viewController animated:YES];
+                return;
+            }
+        }
+        
         ChatViewController *chatVC=KKViewControllerOfMainSB(@"ChatViewController");
         chatVC.targetId=self.currentUser.userId;
         chatVC.targetNickName=self.currentUser.nickName;
