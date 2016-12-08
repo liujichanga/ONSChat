@@ -347,6 +347,8 @@
 		9BAFFC951DF81481000747E1 /* ContactInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BAFFC931DF81481000747E1 /* ContactInfoCell.xib */; };
 		9BAFFC991DF81953000747E1 /* MySignCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BAFFC971DF81953000747E1 /* MySignCell.m */; };
 		9BAFFC9A1DF81953000747E1 /* MySignCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BAFFC981DF81953000747E1 /* MySignCell.xib */; };
+		9BAFFC9E1DF83DD0000747E1 /* MyPersonalityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BAFFC9C1DF83DD0000747E1 /* MyPersonalityCell.m */; };
+		9BAFFC9F1DF83DD0000747E1 /* MyPersonalityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BAFFC9D1DF83DD0000747E1 /* MyPersonalityCell.xib */; };
 		9BC32EE81DE5A8CE00CDDAFB /* UserHobbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EE51DE5A8CE00CDDAFB /* UserHobbyViewController.m */; };
 		9BC32EE91DE5A8CE00CDDAFB /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EE71DE5A8CE00CDDAFB /* UserInfoViewController.m */; };
 		9BC32EEC1DE5AE4400CDDAFB /* FemaleNickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC32EEB1DE5AE4400CDDAFB /* FemaleNickNameViewController.m */; };
@@ -874,6 +876,9 @@
 		9BAFFC961DF81953000747E1 /* MySignCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MySignCell.h; sourceTree = "<group>"; };
 		9BAFFC971DF81953000747E1 /* MySignCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MySignCell.m; sourceTree = "<group>"; };
 		9BAFFC981DF81953000747E1 /* MySignCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MySignCell.xib; sourceTree = "<group>"; };
+		9BAFFC9B1DF83DD0000747E1 /* MyPersonalityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPersonalityCell.h; sourceTree = "<group>"; };
+		9BAFFC9C1DF83DD0000747E1 /* MyPersonalityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPersonalityCell.m; sourceTree = "<group>"; };
+		9BAFFC9D1DF83DD0000747E1 /* MyPersonalityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPersonalityCell.xib; sourceTree = "<group>"; };
 		9BC32EE41DE5A8CE00CDDAFB /* UserHobbyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserHobbyViewController.h; sourceTree = "<group>"; };
 		9BC32EE51DE5A8CE00CDDAFB /* UserHobbyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserHobbyViewController.m; sourceTree = "<group>"; };
 		9BC32EE61DE5A8CE00CDDAFB /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
@@ -1991,6 +1996,9 @@
 				9BAFFC961DF81953000747E1 /* MySignCell.h */,
 				9BAFFC971DF81953000747E1 /* MySignCell.m */,
 				9BAFFC981DF81953000747E1 /* MySignCell.xib */,
+				9BAFFC9B1DF83DD0000747E1 /* MyPersonalityCell.h */,
+				9BAFFC9C1DF83DD0000747E1 /* MyPersonalityCell.m */,
+				9BAFFC9D1DF83DD0000747E1 /* MyPersonalityCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -2338,6 +2346,7 @@
 				1C89E9531DF5984900949973 /* 067.png in Resources */,
 				1C89E8E11DF5984800949973 /* 010.png in Resources */,
 				1C89E9681DF5984900949973 /* 077@2x.png in Resources */,
+				9BAFFC9F1DF83DD0000747E1 /* MyPersonalityCell.xib in Resources */,
 				1C89E8F11DF5984800949973 /* 018.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2395,6 +2404,7 @@
 				9BC32EFE1DE6E01900CDDAFB /* FemaleInterestViewController.m in Sources */,
 				1C20F7A71DF6ACC700099832 /* ImageMessageCell.m in Sources */,
 				1C0E77481DE30B380083F9F8 /* LoginViewController.m in Sources */,
+				9BAFFC9E1DF83DD0000747E1 /* MyPersonalityCell.m in Sources */,
 				9BC32EF51DE68EAB00CDDAFB /* FemaleJobViewController.m in Sources */,
 				1C5EE2421DEC4B04004B6AFB /* KKMediaPreviewController.m in Sources */,
 				9BA6B2FF1DEFBACB006AD474 /* DynamicDetailViewController.m in Sources */,

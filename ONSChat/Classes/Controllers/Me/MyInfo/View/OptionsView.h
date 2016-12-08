@@ -9,8 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface OptionsView : UIView
-//+(instancetype)createOptionViewWithData:(NSArray*)optionArray andFrame:(CGRect)frame;
 -(instancetype)initWithFrame:(CGRect)frame andData:(NSArray*)optionArray;
 
-
+@property (nonatomic, strong) NSMutableArray *optionBtnArr;
 @end

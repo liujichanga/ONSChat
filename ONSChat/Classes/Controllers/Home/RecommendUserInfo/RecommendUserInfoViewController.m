@@ -22,7 +22,7 @@
 #define cellContactWayIdentifier @"ContactWayCell"
 #define cellCarouselIdentifier @"CarouselCell"
 
-@interface RecommendUserInfoViewController ()
+@interface RecommendUserInfoViewController ()<UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 //选项
@@ -67,11 +67,33 @@
     [self.tableView registerNib:[UINib nibWithNibName:cellContactWayIdentifier bundle:nil] forCellReuseIdentifier:cellContactWayIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:cellCarouselIdentifier bundle:nil] forCellReuseIdentifier:cellCarouselIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:cellVideolIdentifier bundle:nil] forCellReuseIdentifier:cellVideolIdentifier];
+    //举报功能
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"more"] style:UIBarButtonItemStylePlain target:self action:@selector(rightItemClick)];
+    self.navigationItem.rightBarButtonItem = rightItem;
     
     if (self.dynamicsID.length>0) {
         [self loadVideoData];
     }
     [self loadInfoData];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+
+    //先判断是否有过对话
+    [ONSSharedConversationDao getConversationByTargetId:self.uid completion:^(id result) {
+        if (result) {
+            if (self.noticeBtn) {
+                [self.noticeBtn removeFromSuperview];
+            }
+            ONSButtonPurple *btn = [ONSButtonPurple ONSButtonWithTitle:@"去聊天" frame:CGRectMake(0, KKScreenHeight-50, KKScreenWidth, 50)];
+            btn.layer.cornerRadius = 0;
+            [btn addTarget:self action:@selector(noticeBtnClick) forControlEvents:UIControlEventTouchUpInside];
+            [self.view addSubview:btn];
+            [self.view bringSubviewToFront:btn];
+            self.noticeBtn = btn;
+        }
+    } inBackground:YES];
 
 }
 
@@ -80,6 +102,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+//请求基本信息数据
 -(void)loadInfoData{
     [SVProgressHUD show];
     NSDictionary *param = @{@"uid":self.uid};
@@ -103,16 +126,10 @@
             self.TABaseInfoA = [NSArray arrayWithObjects:user.ta_address,user.ta_age,user.ta_income,user.ta_height,user.ta_graduate,nil];
             
             self.title =user.nickName;
-            if (user.noticedToday == YES) {
-                
+            if (!self.noticeBtn) {
+                //如果已打过招呼
                 if (user.noticedToday == YES) {
-                    ONSButtonPurple *btn = [ONSButtonPurple ONSButtonWithTitle:@"去聊天" frame:CGRectMake(0, KKScreenHeight-50, KKScreenWidth, 50)];
-                    btn.layer.cornerRadius = 0;
-                    [btn addTarget:self action:@selector(noticeBtnClick) forControlEvents:UIControlEventTouchUpInside];
-                    [self.view addSubview:btn];
-                    [self.view bringSubviewToFront:btn];
-                    self.noticeBtn = btn;
-                }else{
+                    
                     ONSButtonPurple *btn = [ONSButtonPurple ONSButtonWithTitle:@"已打招呼，去聊天" frame:CGRectMake(0, KKScreenHeight-50, KKScreenWidth, 50)];
                     btn.layer.cornerRadius = 0;
                     [btn addTarget:self action:@selector(noticeBtnClick) forControlEvents:UIControlEventTouchUpInside];
@@ -120,13 +137,15 @@
                     [self.view bringSubviewToFront:btn];
                     self.noticeBtn = btn;
                 }
-            }else{
-                ONSButtonPurple *btn = [ONSButtonPurple ONSButtonWithTitle:@"打招呼" frame:CGRectMake(0, KKScreenHeight-50, KKScreenWidth, 50)];
-                btn.layer.cornerRadius = 0;
-                [btn addTarget:self action:@selector(noticeBtnClick) forControlEvents:UIControlEventTouchUpInside];
-                [self.view addSubview:btn];
-                [self.view bringSubviewToFront:btn];
-                self.noticeBtn = btn;
+                //没打过招呼
+                else{
+                    ONSButtonPurple *btn = [ONSButtonPurple ONSButtonWithTitle:@"打招呼" frame:CGRectMake(0, KKScreenHeight-50, KKScreenWidth, 50)];
+                    btn.layer.cornerRadius = 0;
+                    [btn addTarget:self action:@selector(noticeBtnClick) forControlEvents:UIControlEventTouchUpInside];
+                    [self.view addSubview:btn];
+                    [self.view bringSubviewToFront:btn];
+                    self.noticeBtn = btn;
+                }
             }
             
             [self.tableView reloadData];
@@ -136,6 +155,8 @@
     }];
     
 }
+
+//请求小视频数据
 -(void)loadVideoData{
     
     NSDictionary *param = @{@"userid":self.uid,@"dynamicsId":self.dynamicsID};
@@ -263,13 +284,13 @@
         if (self.contactWayArr.count>indexPath.row) {
             cell.contactStr = [self.contactWayArr objectAtIndex:indexPath.row];
         }
-        cell.lookBlock = ^(){
-            KKLog(@"立即查看");
+        cell.lookBlock = ^(NSString*contactStr){
             //如果是VIP
             if (KKSharedCurrentUser.isVIP==YES) {
-                
+                [weakself loadContactDataWith:contactStr];
             }else{
-                
+                //跳转付费页面
+                [weakself loadContactDataWith:contactStr];
             }
         };
         return cell;
@@ -297,11 +318,43 @@
     }
     return nil;
 }
+#pragma mark - 私有方法
+//查看qq号 微信号 手机号
+-(void)loadContactDataWith:(NSString*)contactStr{
+    KKLog(@"%@",contactStr);
+    NSInteger typeNub;
+    if ([contactStr hasPrefix:@"QQ"]) {
+        KKLog(@"QQ");
+        typeNub = 1;
+    }else if ([contactStr hasPrefix:@"微信"]){
+        KKLog(@"微信");
+        typeNub = 3;
+    }else{
+        KKLog(@"手机");
+        typeNub = 2;
+    }
+    NSDictionary *param = @{@"userid":self.uid,@"type":@(typeNub)};
+    [FSSharedNetWorkingManager GET:ServiceInterfaceGetVipphone parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *respDic = (NSDictionary*)responseObject;
+        KKLog(@"%@",respDic);
+        NSInteger status = [respDic integerForKey:@"status" defaultValue:0];
+        if (status==1) {
+            NSString *contact = [respDic stringForKey:@"vipphone" defaultValue:@""];
+            if (contact.length>0) {
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:contact delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                [alert show];
+            }
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+}
+
 
 //打招呼按钮
 -(void)noticeBtnClick{
     //已经打过招呼
-    if (self.currentUser.noticedToday == YES || self.currentUser.noticedToday == YES) {
+    if (self.currentUser.noticedToday == YES || self.noticeBtn.selected==YES) {
         
         //去聊天
         NSDictionary *param=@{@"userid":KKSharedCurrentUser.userId,@"toid":self.uid,@"type":@(1)};
@@ -327,6 +380,7 @@
         [self.navigationController pushViewController:chatVC animated:YES];
         
     }else{
+        
         //打招呼
         NSDictionary *param = @{@"uid":self.uid};
         [FSSharedNetWorkingManager POST:ServiceInterfaceGreet parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -334,15 +388,28 @@
             KKLog(@"greet %@",respDic);
             NSInteger status = [respDic integerForKey:@"status" defaultValue:0];
             if (status==1) {
-//                self.noticeBtn.selected = YES;
-//                [self.noticeBtn setTitle:@"已打招呼，去聊天" forState:UIControlStateSelected];
-//                [self.noticeBtn setTitle:@"已打招呼，去聊天" forState:UIControlStateNormal];
-                
-                
+                self.noticeBtn.selected = YES;
+                [self.noticeBtn setTitle:@"已打招呼，去聊天" forState:UIControlStateSelected];
+                [self.noticeBtn setTitle:@"已打招呼，去聊天" forState:UIControlStateNormal];
             }
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         }];
     }
 }
 
+-(void)rightItemClick{
+    
+    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                       delegate:self
+                                              cancelButtonTitle:@"取消"
+                                         destructiveButtonTitle:nil
+                                              otherButtonTitles:@"举报", nil];
+    [sheet showInView:self.view];
+}
+#pragma mark - Delegate
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex{
+    if (buttonIndex==0) {
+        [SVProgressHUD showSuccessWithStatus:@"举报成功"];
+    }
+}
 @end

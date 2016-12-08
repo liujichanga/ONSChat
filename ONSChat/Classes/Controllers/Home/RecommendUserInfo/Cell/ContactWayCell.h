@@ -10,5 +10,5 @@
 
 @interface ContactWayCell : UITableViewCell
 @property (nonatomic, strong) NSString *contactStr;
-@property (nonatomic, copy) void(^lookBlock)();
+@property (nonatomic, copy) void(^lookBlock)(NSString*contactStr);
 @end

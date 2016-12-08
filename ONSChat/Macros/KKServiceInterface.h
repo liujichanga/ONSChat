@@ -56,6 +56,7 @@
 #define ServiceInterfaceConstAll KKStringWithFormat(@"%@/%@/const/all", KKServerDomain, App)
 //我的资料修改提交
 #define ServiceInterfaceUserEdit KKStringWithFormat(@"%@/%@/user/edit", KKServerDomain, App)
-
+//获取手机号 QQ号 微信号
+#define ServiceInterfaceGetVipphone KKStringWithFormat(@"%@/%@/getVipphone", KKServerDomain, App)
 
 #endif

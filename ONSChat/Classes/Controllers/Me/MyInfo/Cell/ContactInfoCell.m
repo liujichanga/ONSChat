@@ -27,8 +27,8 @@
 
     // Configure the view for the selected state
 }
-- (IBAction)publicBtnClick:(id)sender {
-    
+- (IBAction)publicBtnClick:(UIButton*)sender {
+    sender.selected = !sender.selected;
 }
 
 @end

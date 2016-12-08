@@ -8,12 +8,15 @@
 
 #import "MyInfoViewController.h"
 #import "MyHobbyCell.h"
+#import "MyPersonalityCell.h"
 #import "ContactInfoCell.h"
 #import "MySignCell.h"
 
 #define cellHobbyIdentifier @"MyHobbyCell"
 #define cellContactInfoIdentifier @"ContactInfoCell"
 #define cellMySignIdentifier @"MySignCell"
+#define cellMyPersonalityIdentifier @"MyPersonalityCell"
+
 
 @interface MyInfoViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -21,6 +24,8 @@
 @property (nonatomic, strong) NSArray *hobbyArr;
 @property (nonatomic, strong) NSArray *personalityArr;
 @property (nonatomic, assign) CGFloat hobbyCellH;
+@property (nonatomic, assign) CGFloat personalityCellH;
+
 @end
 
 @implementation MyInfoViewController
@@ -32,10 +37,12 @@
     self.hobbyArr = [NSArray array];
     self.personalityArr = [NSArray array];
     self.hobbyCellH = 0.0;
+    self.personalityCellH = 0.0;
     
     [self.tableView registerNib:[UINib nibWithNibName:cellHobbyIdentifier bundle:nil] forCellReuseIdentifier:cellHobbyIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:cellContactInfoIdentifier bundle:nil] forCellReuseIdentifier:cellContactInfoIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:cellMySignIdentifier bundle:nil] forCellReuseIdentifier:cellMySignIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:cellMyPersonalityIdentifier bundle:nil] forCellReuseIdentifier:cellMyPersonalityIdentifier];
     
     [self loadAllConst];
     
@@ -49,6 +56,7 @@
 -(void)loadAllConst{
     [FSSharedNetWorkingManager GET:ServiceInterfaceConstAll parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *respDic = (NSDictionary*)responseObject;
+        KKLog(@"const %@",respDic);
         if (respDic&&respDic.count>0) {
             NSDictionary *dataDic = [respDic objectForKey:@"data"];
             if (dataDic&&dataDic.count>0) {
@@ -76,9 +84,16 @@
     
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section==0) {
+        return self.hobbyCellH;
 
-    return self.hobbyCellH;
-    
+    }else if (indexPath.section==1){
+        return self.personalityCellH;
+    }else if (indexPath.section==2){
+        return 132;
+    }else{
+        return 166;
+    }
 }
 
 -(CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section{
@@ -95,15 +110,13 @@
         cell.cellHeight = ^(CGFloat height){
             weakself.hobbyCellH = height;
         };
-        cell.titleLab.text = @"兴趣爱好";
         cell.dataArr = self.hobbyArr;
         return cell;
     }else if (indexPath.section==1){
-        MyHobbyCell *cell = [tableView dequeueReusableCellWithIdentifier:cellHobbyIdentifier forIndexPath:indexPath];
+        MyPersonalityCell *cell = [tableView dequeueReusableCellWithIdentifier:cellMyPersonalityIdentifier forIndexPath:indexPath];
         cell.cellHeight = ^(CGFloat height){
-            weakself.hobbyCellH = height;
+            weakself.personalityCellH = height;
         };
-        cell.titleLab.text = @"个性特征";
         cell.dataArr = self.personalityArr;
         return cell;
     }else if (indexPath.section==2){

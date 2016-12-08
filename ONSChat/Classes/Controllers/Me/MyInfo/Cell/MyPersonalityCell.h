@@ -1,5 +1,5 @@
 //
-//  MyHobbyCell.h
+//  MyPersonalityCell.h
 //  ONSChat
 //
 //  Created by 王磊 on 2016/12/7.
@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyHobbyCell : UITableViewCell
-
+@interface MyPersonalityCell : UITableViewCell
 @property (nonatomic, strong) NSArray *dataArr;
 @property (nonatomic, copy) void(^cellHeight)(CGFloat height);
 @end

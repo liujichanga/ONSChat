@@ -13,7 +13,7 @@
 #define BtnH 30
 @interface OptionsView()
 
-@property (nonatomic, strong) NSMutableArray *optionBtnArr;
+
 
 @end
 
@@ -45,6 +45,7 @@
             [optionBtn setBackgroundColor:[UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0]];
             [optionBtn addTarget:self action:@selector(optionBtnClick:) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:optionBtn];
+            [self.optionBtnArr addObject:optionBtn];
         }
     }
     return self;

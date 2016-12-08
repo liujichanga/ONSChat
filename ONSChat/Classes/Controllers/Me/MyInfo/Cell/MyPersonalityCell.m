@@ -1,24 +1,19 @@
 //
-//  MyHobbyCell.m
+//  MyPersonalityCell.m
 //  ONSChat
 //
 //  Created by 王磊 on 2016/12/7.
 //  Copyright © 2016年 LiuJichang. All rights reserved.
 //
 
-#import "MyHobbyCell.h"
+#import "MyPersonalityCell.h"
 #import "OptionsView.h"
 
-@interface MyHobbyCell()
-
-@end
-
-@implementation MyHobbyCell
+@implementation MyPersonalityCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -44,6 +39,5 @@
         self.cellHeight(viewH+45);
     }
 }
-
 
 @end

@@ -33,7 +33,7 @@
 
 - (IBAction)lookBtnClick:(id)sender {
     if (self.lookBlock) {
-        self.lookBlock();
+        self.lookBlock(self.contactStr);
     }
 }
 
