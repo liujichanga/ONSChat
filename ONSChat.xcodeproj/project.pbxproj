@@ -13,6 +13,12 @@
 		0403090D1DEADBCA00F516E5 /* ContactWayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0403090B1DEADBCA00F516E5 /* ContactWayCell.xib */; };
 		040309111DEAE09C00F516E5 /* CarouselCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403090F1DEAE09C00F516E5 /* CarouselCell.m */; };
 		040309121DEAE09C00F516E5 /* CarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040309101DEAE09C00F516E5 /* CarouselCell.xib */; };
+		1C08B67D1DF96CBE006820FE /* VIPHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C08B67B1DF96CBE006820FE /* VIPHeadCell.m */; };
+		1C08B67E1DF96CBE006820FE /* VIPHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C08B67C1DF96CBE006820FE /* VIPHeadCell.xib */; };
+		1C08B6821DF96CD6006820FE /* VIPProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C08B6801DF96CD6006820FE /* VIPProductCell.m */; };
+		1C08B6831DF96CD6006820FE /* VIPProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C08B6811DF96CD6006820FE /* VIPProductCell.xib */; };
+		1C08B6871DF96CE6006820FE /* VIPBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C08B6851DF96CE6006820FE /* VIPBottomCell.m */; };
+		1C08B6881DF96CE6006820FE /* VIPBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C08B6861DF96CE6006820FE /* VIPBottomCell.xib */; };
 		1C0E77481DE30B380083F9F8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0E77471DE30B380083F9F8 /* LoginViewController.m */; };
 		1C0E774B1DE30B4D0083F9F8 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0E774A1DE30B4D0083F9F8 /* RegisterViewController.m */; };
 		1C0E77501DE30F820083F9F8 /* ONSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0E774F1DE30F820083F9F8 /* ONSButton.m */; };
@@ -380,6 +386,15 @@
 		0403090E1DEAE09C00F516E5 /* CarouselCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarouselCell.h; sourceTree = "<group>"; };
 		0403090F1DEAE09C00F516E5 /* CarouselCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarouselCell.m; sourceTree = "<group>"; };
 		040309101DEAE09C00F516E5 /* CarouselCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarouselCell.xib; sourceTree = "<group>"; };
+		1C08B67A1DF96CBE006820FE /* VIPHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIPHeadCell.h; sourceTree = "<group>"; };
+		1C08B67B1DF96CBE006820FE /* VIPHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPHeadCell.m; sourceTree = "<group>"; };
+		1C08B67C1DF96CBE006820FE /* VIPHeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VIPHeadCell.xib; sourceTree = "<group>"; };
+		1C08B67F1DF96CD6006820FE /* VIPProductCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIPProductCell.h; sourceTree = "<group>"; };
+		1C08B6801DF96CD6006820FE /* VIPProductCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPProductCell.m; sourceTree = "<group>"; };
+		1C08B6811DF96CD6006820FE /* VIPProductCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VIPProductCell.xib; sourceTree = "<group>"; };
+		1C08B6841DF96CE6006820FE /* VIPBottomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIPBottomCell.h; sourceTree = "<group>"; };
+		1C08B6851DF96CE6006820FE /* VIPBottomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIPBottomCell.m; sourceTree = "<group>"; };
+		1C08B6861DF96CE6006820FE /* VIPBottomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VIPBottomCell.xib; sourceTree = "<group>"; };
 		1C0E77461DE30B380083F9F8 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		1C0E77471DE30B380083F9F8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		1C0E77491DE30B4D0083F9F8 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
@@ -956,6 +971,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C08B6791DF96CA1006820FE /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1C08B67A1DF96CBE006820FE /* VIPHeadCell.h */,
+				1C08B67B1DF96CBE006820FE /* VIPHeadCell.m */,
+				1C08B67C1DF96CBE006820FE /* VIPHeadCell.xib */,
+				1C08B67F1DF96CD6006820FE /* VIPProductCell.h */,
+				1C08B6801DF96CD6006820FE /* VIPProductCell.m */,
+				1C08B6811DF96CD6006820FE /* VIPProductCell.xib */,
+				1C08B6841DF96CE6006820FE /* VIPBottomCell.h */,
+				1C08B6851DF96CE6006820FE /* VIPBottomCell.m */,
+				1C08B6861DF96CE6006820FE /* VIPBottomCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		1C0E77451DE30B0E0083F9F8 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -1391,6 +1422,7 @@
 		1CDD6CFD1DE9774A006AAFAB /* Pay */ = {
 			isa = PBXGroup;
 			children = (
+				1C08B6791DF96CA1006820FE /* Cell */,
 				1CDD6CFE1DE97771006AAFAB /* VIPPayViewController.h */,
 				1CDD6CFF1DE97771006AAFAB /* VIPPayViewController.m */,
 				1CDD6D011DE9778C006AAFAB /* BaoYuePayViewController.h */,
@@ -2214,6 +2246,7 @@
 				1C89E90F1DF5984800949973 /* 033.png in Resources */,
 				1C89E9561DF5984900949973 /* 068@2x.png in Resources */,
 				1C6B3A161DE3F33C008ACCA8 /* VIPCell.xib in Resources */,
+				1C08B6881DF96CE6006820FE /* VIPBottomCell.xib in Resources */,
 				1C89E9021DF5984800949973 /* 026@2x.png in Resources */,
 				1C89E8E41DF5984800949973 /* 011@2x.png in Resources */,
 				1C89E9161DF5984800949973 /* 036@2x.png in Resources */,
@@ -2225,6 +2258,7 @@
 				1C89E8F01DF5984800949973 /* 017@2x.png in Resources */,
 				1C89E9371DF5984900949973 /* 053.png in Resources */,
 				1C89E94F1DF5984900949973 /* 065.png in Resources */,
+				1C08B67E1DF96CBE006820FE /* VIPHeadCell.xib in Resources */,
 				9BFB22D31DE9709500DB9BE6 /* BaseInfoCell.xib in Resources */,
 				1C89E8F81DF5984800949973 /* 021@2x.png in Resources */,
 				1C89E93B1DF5984900949973 /* 055.png in Resources */,
@@ -2264,6 +2298,7 @@
 				1C89E9221DF5984800949973 /* 042@2x.png in Resources */,
 				040309121DEAE09C00F516E5 /* CarouselCell.xib in Resources */,
 				1C89E9141DF5984800949973 /* 035@2x.png in Resources */,
+				1C08B6831DF96CD6006820FE /* VIPProductCell.xib in Resources */,
 				1C89E9121DF5984800949973 /* 034@2x.png in Resources */,
 				1C89E9091DF5984800949973 /* 030.png in Resources */,
 				1C89E9081DF5984800949973 /* 029@2x.png in Resources */,
@@ -2389,6 +2424,7 @@
 				1C1BD8701DF810F00017FA3A /* ONSWaitReplyView.m in Sources */,
 				5698645C1DE010B40059D484 /* NSString+Digest.m in Sources */,
 				9BC32EFB1DE6D31600CDDAFB /* FemaleIncomeViewController.m in Sources */,
+				1C08B6821DF96CD6006820FE /* VIPProductCell.m in Sources */,
 				569864271DE00EAF0059D484 /* UIScrollView+MJExtension.m in Sources */,
 				1CF680FC1DE82A5D0046F34D /* ONSButtonPurple.m in Sources */,
 				1C20F7B91DF6AD3E00099832 /* NearByMessageCell.m in Sources */,
@@ -2442,6 +2478,7 @@
 				1C5EE2401DEC4B04004B6AFB /* KKMediaNavigationController.m in Sources */,
 				569864381DE00EAF0059D484 /* UIImageView+WebCache.m in Sources */,
 				1C0E77621DE31F870083F9F8 /* AFHTTPSessionManager.m in Sources */,
+				1C08B6871DF96CE6006820FE /* VIPBottomCell.m in Sources */,
 				569864331DE00EAF0059D484 /* UIButton+WebCache.m in Sources */,
 				569864221DE00EAF0059D484 /* MJRefreshGifHeader.m in Sources */,
 				5698642C1DE00EAF0059D484 /* SDImageCache.m in Sources */,
@@ -2467,6 +2504,7 @@
 				569864061DE00EAF0059D484 /* FMDatabaseQueue.m in Sources */,
 				9BAFFC8A1DF7FF11000747E1 /* MyHobbyCell.m in Sources */,
 				1C6B3A1A1DE3F34C008ACCA8 /* MeInfoCell.m in Sources */,
+				1C08B67D1DF96CBE006820FE /* VIPHeadCell.m in Sources */,
 				1C0E77501DE30F820083F9F8 /* ONSButton.m in Sources */,
 				1C7697231DEFF47500CC2EB8 /* ONSChatManager.m in Sources */,
 				5698648D1DE0530D0059D484 /* KKBaseNavigationController.m in Sources */,
