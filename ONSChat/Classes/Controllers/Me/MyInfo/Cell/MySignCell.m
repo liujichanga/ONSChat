@@ -8,7 +8,7 @@
 
 #import "MySignCell.h"
 
-@interface MySignCell()
+@interface MySignCell()<UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *signText;
 
@@ -19,6 +19,9 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    _signText.delegate = self;
+    _signText.layer.borderWidth = 0.5;
+    _signText.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
