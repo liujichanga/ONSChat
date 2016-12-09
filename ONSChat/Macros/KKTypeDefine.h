@@ -63,4 +63,21 @@ typedef enum {
     ONSInputViewStateEmotion
 }  ONSInputViewState;
 
+//资料类型
+typedef NS_ENUM(NSUInteger, MyInfoType){
+   
+    MyInfoType_Birthday=1, //生日
+    MyInfoType_Address=2, //居住地
+    MyInfoType_Height=3, //身高
+    MyInfoType_Weight=4, //体重
+    MyInfoType_Blood=5, //血型
+    MyInfoType_Graduate=6, //学历
+    MyInfoType_Job=7, //职业
+    MyInfoType_Income=8, //收入
+    MyInfoType_HasHouse=9, //是否有房
+    MyInfoType_HasCar=10 //是否有车
+    
+};
+
+
 #endif /* KKTypeDefine_h */

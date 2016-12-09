@@ -47,8 +47,10 @@
 @property (nonatomic, strong) NSArray *interestArr;
 //个人特点
 @property (nonatomic, strong) NSArray *personalityArr;
-
-
+//体重范围
+@property (nonatomic, strong) NSArray *weightArr;
+//血型
+@property (nonatomic, strong) NSArray *bloodArr;
 
 
 @end

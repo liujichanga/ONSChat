@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="166"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="166"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="165"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="内心独白：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="40V-Ug-Jvy">
@@ -28,25 +28,25 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="bezel" placeholder="请输入内心独白，不低于15个字" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FXS-Bn-WoN">
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PGI-yS-Hlb">
                         <rect key="frame" x="15" y="44" width="290" height="107"/>
-                        <color key="backgroundColor" red="1" green="0.78823529410000004" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <textInputTraits key="textInputTraits"/>
-                    </textField>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="FXS-Bn-WoN" secondAttribute="bottom" constant="15" id="5ut-mD-iQz"/>
-                    <constraint firstItem="FXS-Bn-WoN" firstAttribute="top" secondItem="40V-Ug-Jvy" secondAttribute="bottom" constant="8" id="H4j-Hq-eAb"/>
+                    <constraint firstItem="PGI-yS-Hlb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="3PO-1n-KBs"/>
+                    <constraint firstItem="PGI-yS-Hlb" firstAttribute="leading" secondItem="40V-Ug-Jvy" secondAttribute="leading" id="7Ki-82-pml"/>
+                    <constraint firstItem="PGI-yS-Hlb" firstAttribute="top" secondItem="40V-Ug-Jvy" secondAttribute="bottom" constant="8" id="IJB-lj-BcA"/>
                     <constraint firstItem="40V-Ug-Jvy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="NFH-UL-p4O"/>
-                    <constraint firstItem="FXS-Bn-WoN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="e4P-Xc-sHv"/>
-                    <constraint firstAttribute="trailing" secondItem="FXS-Bn-WoN" secondAttribute="trailing" constant="15" id="fpU-ii-Y99"/>
+                    <constraint firstAttribute="bottom" secondItem="PGI-yS-Hlb" secondAttribute="bottom" constant="15" id="dmW-pl-Ngn"/>
+                    <constraint firstAttribute="trailing" secondItem="PGI-yS-Hlb" secondAttribute="trailing" constant="15" id="oeC-ng-Rxx"/>
                     <constraint firstItem="40V-Ug-Jvy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="v7u-TO-xWV"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="signText" destination="FXS-Bn-WoN" id="WGJ-c9-I2M"/>
+                <outlet property="signText" destination="PGI-yS-Hlb" id="7YS-X7-e0Q"/>
             </connections>
             <point key="canvasLocation" x="108" y="115"/>
         </tableViewCell>

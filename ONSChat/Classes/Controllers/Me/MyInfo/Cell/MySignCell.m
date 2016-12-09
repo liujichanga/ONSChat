@@ -8,9 +8,10 @@
 
 #import "MySignCell.h"
 
-@interface MySignCell()<UITextFieldDelegate>
+@interface MySignCell()<UITextViewDelegate>
+@property (weak, nonatomic) IBOutlet UITextView *signText;
 
-@property (weak, nonatomic) IBOutlet UITextField *signText;
+
 
 @end
 
@@ -22,6 +23,7 @@
     _signText.delegate = self;
     _signText.layer.borderWidth = 0.5;
     _signText.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
+    _signText.text = KKSharedCurrentUser.sign;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -30,4 +32,9 @@
     // Configure the view for the selected state
 }
 
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
 @end

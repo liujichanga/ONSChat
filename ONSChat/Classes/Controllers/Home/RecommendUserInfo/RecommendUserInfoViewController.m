@@ -395,8 +395,9 @@
         chatVC.targetIdAvaterUrl=self.currentUser.avatarUrl;
         [self.navigationController pushViewController:chatVC animated:YES];
         
-    }else{
-        KKLog(@"招呼");
+    }
+    //打招呼
+    else{
 
         NSDictionary *param = @{@"uid":self.uid};
         [FSSharedNetWorkingManager POST:ServiceInterfaceGreet parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {

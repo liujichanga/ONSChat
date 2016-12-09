@@ -55,8 +55,13 @@ static KKGlobalManager *instance;
         _incomeArr = @[@"小于2000元",@"2000-5000元",@"5000-10000元",@"10000-20000元",@"20000元以上"];
         _interestArr = @[@"上网",@"研究汽车",@"养小动物",@"摄影",@"看电影",@"听音乐",@"写作",@"购物",@"做手工艺"];
         _personalityArr =@[@"孝顺",@"小资",@"贤惠",@"理智",@"多愁善感",@"善良",@"好强",@"冷静",@"温柔"];
-        
-        
+        NSMutableArray *weightArray = [NSMutableArray array];
+        for (int i = 35; i <= 120; ++i) {
+            NSString *weightStr = [NSString stringWithFormat:@"%d",i];
+            [weightArray addObject:weightStr];
+        }
+        _weightArr = [NSArray arrayWithArray:weightArray];
+        _bloodArr = @[@"O",@"A",@"B",@"AB"];
         //加载表情数组
         [KKThredUtils runInGlobalQueue:^{
             NSString *path = KKPathOfMainBundle(@"emoticons", @"plist");
