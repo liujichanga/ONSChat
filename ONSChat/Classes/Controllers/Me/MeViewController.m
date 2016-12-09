@@ -106,14 +106,20 @@
         BOOL status=[dic boolForKey:@"status" defaultValue:NO];
         if(status)
         {
-            NSTimeInterval baoyue=[dic longlongForKey:@"baoyueendtime" defaultValue:0]/1000.0;
-            KKSharedCurrentUser.baoyueEndTime=[[NSDate dateWithTimeIntervalSince1970:baoyue] stringYearMonthDay];
-            NSTimeInterval vip=[dic longlongForKey:@"vipendtime" defaultValue:0]/1000.0;
-            KKSharedCurrentUser.vipEndTime=[[NSDate dateWithTimeIntervalSince1970:vip] stringYearMonthDay];
+            //如果不是IAP，加载服务器数据
+            if(!KKSharedGlobalManager.isIAP)
+            {
+                NSTimeInterval baoyue=[dic longlongForKey:@"baoyueendtime" defaultValue:0]/1000.0;
+                KKSharedCurrentUser.baoyueEndTime=[[NSDate dateWithTimeIntervalSince1970:baoyue] stringYearMonthDay];
+                NSTimeInterval vip=[dic longlongForKey:@"vipendtime" defaultValue:0]/1000.0;
+                KKSharedCurrentUser.vipEndTime=[[NSDate dateWithTimeIntervalSince1970:vip] stringYearMonthDay];
+                
+                KKSharedCurrentUser.beannum=[dic integerForKey:@"beannum" defaultValue:0];
+                KKSharedCurrentUser.isVIP=[dic boolForKey:@"vip" defaultValue:NO];
+                KKSharedCurrentUser.isBaoYue=[dic boolForKey:@"msg" defaultValue:NO];
+            }
             
-            KKSharedCurrentUser.beannum=[dic integerForKey:@"beannum" defaultValue:0];
-            KKSharedCurrentUser.isVIP=[dic boolForKey:@"vip" defaultValue:NO];
-            KKSharedCurrentUser.isBaoYue=[dic boolForKey:@"msg" defaultValue:NO];
+            
             KKSharedCurrentUser.isPhone=[dic boolForKey:@"hasPhone" defaultValue:NO];
             
             KKSharedCurrentUser.likedmeNum=[dic integerForKey:@"likednum" defaultValue:0];

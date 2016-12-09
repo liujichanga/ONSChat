@@ -67,6 +67,10 @@
 #define ServiceInterfaceSPhone KKStringWithFormat(@"%@/%@/const/sphone", KKServerDomain, App)
 //读取商品列表
 #define ServiceInterfaceGoodList KKStringWithFormat(@"%@/%@/goods/list", KKServerDomain, App)
+//支付
+#define ServiceInterfacePay KKStringWithFormat(@"%@/%@/pay", KKServerDomain, App)
+//支付回调
+#define ServiceInterfacePayCallBack KKStringWithFormat(@"%@/%@/payEco/callback", KKServerDomain, App)
 
 
 

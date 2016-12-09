@@ -357,7 +357,20 @@
     //已有过对话
     if (self.hasConversation==YES) {
         KKLog(@"聊天");
-
+        //是从聊天过来的，返回聊天
+        for (UIViewController *viewController in self.navigationController.viewControllers) {
+            if([viewController isKindOfClass:[ChatViewController class]])
+            {
+                [self.navigationController popToViewController:viewController animated:YES];
+                return;
+            }
+        }
+        
+        ChatViewController *chatVC=KKViewControllerOfMainSB(@"ChatViewController");
+        chatVC.targetId=self.currentUser.userId;
+        chatVC.targetNickName=self.currentUser.nickName;
+        chatVC.targetIdAvaterUrl=self.currentUser.avatarUrl;
+        [self.navigationController pushViewController:chatVC animated:YES];
         
     }
     //已打过招呼 没对话

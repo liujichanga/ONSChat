@@ -14,6 +14,7 @@
 #import "ONSConversation.h"
 #import "ONSMessage.h"
 #import "KKComment.h"
+#import "FSStore.h"
 
 
 #endif

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A319" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="VIPHeadCell" rowHeight="132" id="KGk-i7-Jjw" customClass="VIPHeadCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="132"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="131"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VIP会员功能特权" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vm4-Fx-5dt">
+                        <rect key="frame" x="15" y="8" width="248" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="W9s-S3-0El"/>
+                            <constraint firstAttribute="width" constant="248" id="mO9-2J-XDY"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_vip_phone" translatesAutoresizingMaskIntoConstraints="NO" id="JH5-kC-t9P">
+                        <rect key="frame" x="25" y="54" width="37" height="37"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="37" id="GxX-0A-am8"/>
+                            <constraint firstAttribute="height" constant="37" id="a78-z1-dnh"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="查看对方手机号" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Cl0-kk-f2k">
+                        <rect key="frame" x="10" y="99" width="110" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="zEB-MP-tUs"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SeD-cC-iwJ" userLabel="line1">
+                        <rect key="frame" x="125" y="35" width="1" height="86.5"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="fGX-Wz-lQd"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rIk-RH-zNq" userLabel="line2">
+                        <rect key="frame" x="206" y="35" width="1" height="86.5"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="GqJ-jZ-BWm"/>
+                        </constraints>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_vip_qq" translatesAutoresizingMaskIntoConstraints="NO" id="HMX-eQ-DZn">
+                        <rect key="frame" x="134" y="54" width="37" height="37"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="37" id="afG-5f-Iqk"/>
+                            <constraint firstAttribute="height" constant="37" id="wd5-qK-9aU"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="查看对方QQ号" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sJN-es-kQ0">
+                        <rect key="frame" x="131" y="99" width="70" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="WLa-g5-ePL"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_vip_wx" translatesAutoresizingMaskIntoConstraints="NO" id="tR2-WH-UWI">
+                        <rect key="frame" x="222" y="54" width="37" height="37"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="37" id="cLx-iU-HNt"/>
+                            <constraint firstAttribute="height" constant="37" id="nHa-kj-k3J"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="查看对方微信" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="HXb-St-XlR">
+                        <rect key="frame" x="212" y="99" width="98" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="YY7-Ll-MG5"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="SeD-cC-iwJ" secondAttribute="bottom" constant="10" id="2g6-kH-L3I"/>
+                    <constraint firstItem="HXb-St-XlR" firstAttribute="leading" secondItem="rIk-RH-zNq" secondAttribute="trailing" constant="5" id="84m-8B-T5N"/>
+                    <constraint firstItem="Cl0-kk-f2k" firstAttribute="top" secondItem="JH5-kC-t9P" secondAttribute="bottom" constant="8" id="BbV-tF-NR5"/>
+                    <constraint firstItem="vm4-Fx-5dt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="FMQ-Yd-Pez"/>
+                    <constraint firstItem="sJN-es-kQ0" firstAttribute="leading" secondItem="SeD-cC-iwJ" secondAttribute="trailing" constant="5" id="Fhw-Yf-d9b"/>
+                    <constraint firstItem="SeD-cC-iwJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="125" id="HAT-0k-Qfi"/>
+                    <constraint firstItem="SeD-cC-iwJ" firstAttribute="leading" secondItem="Cl0-kk-f2k" secondAttribute="trailing" constant="5" id="LWY-iJ-G0n"/>
+                    <constraint firstItem="Cl0-kk-f2k" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Odd-Ue-bJa"/>
+                    <constraint firstItem="HMX-eQ-DZn" firstAttribute="leading" secondItem="SeD-cC-iwJ" secondAttribute="trailing" constant="8" id="TBX-cp-aPa"/>
+                    <constraint firstItem="HXb-St-XlR" firstAttribute="top" secondItem="tR2-WH-UWI" secondAttribute="bottom" constant="8" id="Uck-nC-ZLM"/>
+                    <constraint firstAttribute="bottom" secondItem="rIk-RH-zNq" secondAttribute="bottom" constant="10" id="Xws-o9-K07"/>
+                    <constraint firstItem="HMX-eQ-DZn" firstAttribute="top" secondItem="vm4-Fx-5dt" secondAttribute="bottom" constant="25" id="cDL-BB-wYx"/>
+                    <constraint firstItem="JH5-kC-t9P" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="cvt-vr-Chj"/>
+                    <constraint firstItem="vm4-Fx-5dt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="ebZ-VB-cAw"/>
+                    <constraint firstItem="rIk-RH-zNq" firstAttribute="leading" secondItem="sJN-es-kQ0" secondAttribute="trailing" constant="5" id="f0U-fL-5mV"/>
+                    <constraint firstItem="tR2-WH-UWI" firstAttribute="leading" secondItem="rIk-RH-zNq" secondAttribute="trailing" constant="15" id="jXo-dM-pw8"/>
+                    <constraint firstAttribute="trailing" secondItem="HXb-St-XlR" secondAttribute="trailing" constant="10" id="jsO-EM-Wb9"/>
+                    <constraint firstItem="tR2-WH-UWI" firstAttribute="top" secondItem="vm4-Fx-5dt" secondAttribute="bottom" constant="25" id="leb-PF-hUe"/>
+                    <constraint firstItem="sJN-es-kQ0" firstAttribute="top" secondItem="HMX-eQ-DZn" secondAttribute="bottom" constant="8" id="nd4-Ov-FEC"/>
+                    <constraint firstItem="SeD-cC-iwJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="35" id="vb3-hD-eMT"/>
+                    <constraint firstItem="rIk-RH-zNq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="35" id="vca-d6-JNx"/>
+                    <constraint firstItem="JH5-kC-t9P" firstAttribute="top" secondItem="vm4-Fx-5dt" secondAttribute="bottom" constant="25" id="xNj-Fk-Hbw"/>
+                    <constraint firstItem="rIk-RH-zNq" firstAttribute="leading" secondItem="SeD-cC-iwJ" secondAttribute="trailing" constant="80" id="zSk-72-WF3"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="line1LeftConstraint" destination="HAT-0k-Qfi" id="gR3-gH-ou2"/>
+                <outlet property="line2LeftConstraint" destination="zSk-72-WF3" id="XKW-SF-lps"/>
+                <outlet property="phoneImageViewLeftConstraint" destination="cvt-vr-Chj" id="VcV-Bz-JSj"/>
+                <outlet property="qqImageViewLeftConstraint" destination="TBX-cp-aPa" id="lXC-46-aiW"/>
+                <outlet property="vipTitleLabel" destination="vm4-Fx-5dt" id="BXD-Lf-jGq"/>
+                <outlet property="wxImageViewLeftConstraint" destination="jXo-dM-pw8" id="OQ6-1Q-on9"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="98"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_vip_phone" width="37" height="37"/>
+        <image name="ic_vip_qq" width="37" height="37"/>
+        <image name="ic_vip_wx" width="37" height="37"/>
+    </resources>
+</document>
