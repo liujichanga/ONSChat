@@ -10,4 +10,8 @@
 
 @interface VIPProductCell : UITableViewCell
 
+@property (nonatomic, copy) void(^buyProduct)(NSInteger index);
+
+-(void)showInfo:(NSArray*)arr;
+
 @end

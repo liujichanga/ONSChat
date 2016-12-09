@@ -34,6 +34,11 @@
 //客服电话
 @property(strong,nonatomic) NSString *SPhone;
 
+//读取支付方式，是否使用IAP
+-(void)getIAP;
+//iap
+@property(assign,nonatomic) BOOL isIAP;
+
 //表情数组
 @property(strong,nonatomic) NSArray *emoticons;
 

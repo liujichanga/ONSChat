@@ -36,12 +36,25 @@
 
     self.arrDatas=[NSMutableArray array];
     
+    if(KKSharedGlobalManager.isIAP)
+    {
+        [self.arrDatas addObjectsFromArray:@[@{@"name":@"318元，立即享受1年帝王待遇",@"id":@"VIP003"},@{@"name":@"108元，立即享受90天帝王待遇",@"id":@"VIP002"},@{@"name":@"50元，立即享受30天帝王待遇",@"id":@"VIP001"}]];
+        
+        [self.tableView reloadData];
+        return;
+    }
+    
     NSDictionary *dic=@{@"type":@(3),@"gender":@(KKSharedCurrentUser.sex)};
     [FSSharedNetWorkingManager GET:ServiceInterfaceGoodList parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
        
         NSDictionary *respDic=(NSDictionary*)responseObject;
         NSLog(@"goodlist:%@",respDic);
-        
+        NSArray *arr=[respDic objectForKey:@"aaData"];
+        if(arr)
+        {
+            [self.arrDatas addObjectsFromArray:arr];
+            [self.tableView reloadData];
+        }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
@@ -74,16 +87,35 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row==0) return KKScreenWidth/320.0*140.0;
-    else if(indexPath.row==1) return 120;
-    else return 120;
+    if(indexPath.row==0) return KKScreenWidth/320.0*110.0;
+    else if(indexPath.row==1) return 80+self.arrDatas.count*60;
+    else return 260;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    VIPHeadCell *cell=[tableView dequeueReusableCellWithIdentifier:cellVIPHeadIdentifier forIndexPath:indexPath];
-    
-    return cell;
+    if(indexPath.row==0)
+    {
+        VIPHeadCell *cell=[tableView dequeueReusableCellWithIdentifier:cellVIPHeadIdentifier forIndexPath:indexPath];
+        
+        return cell;
+
+    }
+    else if(indexPath.row==1)
+    {
+        VIPProductCell *cell=[tableView dequeueReusableCellWithIdentifier:cellVIPProductIdentifier forIndexPath:indexPath];
+        [cell showInfo:self.arrDatas];
+        cell.buyProduct=^(NSInteger index){
+          
+            
+        };
+        return cell;
+    }
+    else
+    {
+        VIPBottomCell *cell=[tableView dequeueReusableCellWithIdentifier:cellVIPBottomIdentifier forIndexPath:indexPath];
+        return cell;
+    }
     
 }
 

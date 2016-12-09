@@ -66,6 +66,9 @@
     
     //读取客服电话
     [KKSharedGlobalManager getSPhone];
+    
+    //读取是否IAP
+    [KKSharedGlobalManager getIAP];
 }
 
 #pragma mark - Tabbar Dadge

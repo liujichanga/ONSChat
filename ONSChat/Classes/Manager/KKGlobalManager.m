@@ -155,4 +155,31 @@ static KKGlobalManager *instance;
     } failure:nil];
 }
 
+-(void)getIAP
+{
+    
+    //如果是用iap的方式
+    self.isIAP=YES;
+    
+    NSInteger beannum = [KKSharedLocalPlistManager kkIntergerForKey:Plist_Key_BeanNum];
+    KKSharedCurrentUser.beannum=beannum;
+    //vip
+    long long viptime=[KKSharedLocalPlistManager kkLongForKey:Plist_Key_VIPEndTime];
+    KKSharedCurrentUser.vipEndTime=[[NSDate dateWithTimeIntervalSince1970:viptime] stringYearMonthDay];
+    if(viptime>[[NSDate date] timeIntervalSince1970])
+    {
+        KKSharedCurrentUser.isVIP=YES;
+    }
+    else KKSharedCurrentUser.isVIP=NO;
+    //baoyue
+    long long baoyuetime=[KKSharedLocalPlistManager kkLongForKey:Plist_Key_BaoYueEndTime];
+    KKSharedCurrentUser.baoyueEndTime=[[NSDate dateWithTimeIntervalSince1970:baoyuetime] stringYearMonthDay];
+    if(baoyuetime>[[NSDate date] timeIntervalSince1970])
+    {
+        KKSharedCurrentUser.isBaoYue=YES;
+    }
+    else KKSharedCurrentUser.isBaoYue=NO;
+    
+}
+
 @end

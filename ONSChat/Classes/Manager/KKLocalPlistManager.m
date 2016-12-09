@@ -102,6 +102,22 @@ static KKLocalPlistManager *instance;
      return [_plistDataDic valueForKey:key];
 }
 
+-(NSString*)kkStringForKey:(NSString*)key
+{
+    return [_plistDataDic stringForKey:key defaultValue:@""];
+}
+
+-(NSInteger)kkIntergerForKey:(NSString*)key{
+    return [_plistDataDic integerForKey:key defaultValue:0];
+}
+
+-(long long)kkLongForKey:(NSString*)key{
+    return [_plistDataDic longlongForKey:key defaultValue:0];
+}
+
+-(BOOL)kkBoolForKey:(NSString*)key{
+    return [_plistDataDic boolForKey:key defaultValue:NO];
+}
 
 
 -(void)savePlist

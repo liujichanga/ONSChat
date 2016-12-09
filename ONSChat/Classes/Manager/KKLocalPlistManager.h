@@ -20,6 +20,12 @@
 #define Plist_Key_Photo2 @"Plist_Key_Photo2" //相册1
 #define Plist_Key_Photo3 @"Plist_Key_Photo3" //相册1
 
+//iap相关的
+#define Plist_Key_BeanNum @"Plist_Key_BeanNum" //红豆数量
+#define Plist_Key_VIPEndTime @"Plist_Key_VIPEndTime" //红豆数量
+#define Plist_Key_BaoYueEndTime @"Plist_Key_BaoYueEndTime" //红豆数量
+
+
 
 
 +(instancetype)sharedLocalPlistManager;
@@ -35,5 +41,14 @@
 
 //读取数据
 -(id)kkValueForKey:(NSString*)key;
+
+-(NSString*)kkStringForKey:(NSString*)key;
+
+-(NSInteger)kkIntergerForKey:(NSString*)key;
+
+-(long long)kkLongForKey:(NSString*)key;
+
+-(BOOL)kkBoolForKey:(NSString*)key;
+
 
 @end

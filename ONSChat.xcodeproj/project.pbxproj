@@ -55,6 +55,7 @@
 		1C20F7B31DF6AD1300099832 /* HiMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C20F7B21DF6AD1300099832 /* HiMessageCell.m */; };
 		1C20F7B61DF6AD3000099832 /* RecommandMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C20F7B51DF6AD3000099832 /* RecommandMessageCell.m */; };
 		1C20F7B91DF6AD3E00099832 /* NearByMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C20F7B81DF6AD3E00099832 /* NearByMessageCell.m */; };
+		1C216FB61DFA8575009A5BC8 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C216FB51DFA8575009A5BC8 /* StoreKit.framework */; };
 		1C2B9DEA1DEE6B3F0088E2FE /* KKDynamic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2B9DE91DEE6B3F0088E2FE /* KKDynamic.m */; };
 		1C2B9DED1DEEC7240088E2FE /* KKDynamicDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2B9DEC1DEEC7240088E2FE /* KKDynamicDao.m */; };
 		1C2B9DF21DEED4F70088E2FE /* ChatListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2B9DF01DEED4F70088E2FE /* ChatListCell.m */; };
@@ -462,6 +463,7 @@
 		1C20F7B51DF6AD3000099832 /* RecommandMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommandMessageCell.m; sourceTree = "<group>"; };
 		1C20F7B71DF6AD3E00099832 /* NearByMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearByMessageCell.h; sourceTree = "<group>"; };
 		1C20F7B81DF6AD3E00099832 /* NearByMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearByMessageCell.m; sourceTree = "<group>"; };
+		1C216FB51DFA8575009A5BC8 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		1C2B9DE81DEE6B3F0088E2FE /* KKDynamic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKDynamic.h; sourceTree = "<group>"; };
 		1C2B9DE91DEE6B3F0088E2FE /* KKDynamic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKDynamic.m; sourceTree = "<group>"; };
 		1C2B9DEB1DEEC7240088E2FE /* KKDynamicDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKDynamicDao.h; sourceTree = "<group>"; };
@@ -936,6 +938,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C216FB61DFA8575009A5BC8 /* StoreKit.framework in Frameworks */,
 				563AD36E1DE14BA2006945BD /* Photos.framework in Frameworks */,
 				1C0E77A41DE3250E0083F9F8 /* JavaScriptCore.framework in Frameworks */,
 				1C0E779E1DE3222C0083F9F8 /* AMapLocationKit.framework in Frameworks */,
@@ -1771,6 +1774,7 @@
 		5698643D1DE00F130059D484 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1C216FB51DFA8575009A5BC8 /* StoreKit.framework */,
 				1C0E77A31DE3250E0083F9F8 /* JavaScriptCore.framework */,
 				563AD36D1DE14BA2006945BD /* Photos.framework */,
 				563AD36B1DE14B9A006945BD /* UIKit.framework */,
@@ -2183,7 +2187,7 @@
 				TargetAttributes = {
 					567F544D1DDFEC5500872A36 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 3V85EAW73Y;
+						DevelopmentTeam = DZ9S7RKJ4V;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -2673,7 +2677,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = 3V85EAW73Y;
+				DEVELOPMENT_TEAM = DZ9S7RKJ4V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ONSChat/OtherLibs/RongCloud/IMLib",
@@ -2688,10 +2692,10 @@
 					"$(PROJECT_DIR)/ONSChat/OtherLibs/RongCloud/IMLib",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kk.onschat;
+				PRODUCT_BUNDLE_IDENTIFIER = DatingAPPNew;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "66d460c2-6735-4716-9fa0-fc2f83bc7e04";
-				PROVISIONING_PROFILE_SPECIFIER = ledong_onschat_dev;
+				PROVISIONING_PROFILE = "ad270b2f-447c-4301-8b0b-9f9678c9fcc4";
+				PROVISIONING_PROFILE_SPECIFIER = onschat_dev;
 			};
 			name = Debug;
 		};
@@ -2700,7 +2704,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = 3V85EAW73Y;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = DZ9S7RKJ4V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ONSChat/OtherLibs/RongCloud/IMLib",
@@ -2715,10 +2720,10 @@
 					"$(PROJECT_DIR)/ONSChat/OtherLibs/RongCloud/IMLib",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kk.onschat;
+				PRODUCT_BUNDLE_IDENTIFIER = DatingAPPNew;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "66d460c2-6735-4716-9fa0-fc2f83bc7e04";
-				PROVISIONING_PROFILE_SPECIFIER = ledong_onschat_dev;
+				PROVISIONING_PROFILE = "a56b6d73-3840-4574-a026-346209a7a408";
+				PROVISIONING_PROFILE_SPECIFIER = onschat_distr;
 			};
 			name = Release;
 		};
