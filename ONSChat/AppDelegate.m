@@ -9,8 +9,11 @@
 #import "AppDelegate.h"
 #import <RongIMLib/RongIMLib.h>
 #import <AMapFoundationKit/AMapFoundationKit.h>
+#import "WXApi.h"
+#import <AlipaySDK/AlipaySDK.h>
 
-@interface AppDelegate ()
+
+@interface AppDelegate ()<WXApiDelegate>
 
 @end
 
@@ -38,6 +41,9 @@
 
     //network init
     FSSharedNetWorkingManager;
+    
+    //微信appid
+    [WXApi registerApp:@"wx18755d15c1b89107"];
 
     
     //最后一个登录用户
@@ -96,6 +102,59 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    KKLog(@"sourcebundleid:%@,url:%@,annotaion:%@",sourceApplication,url,annotation);
+    
+    if([sourceApplication hasPrefix:@"com.alipay"])
+    {
+        if ([url.host isEqualToString:@"safepay"]) {
+            //跳转支付宝钱包进行支付，处理支付结果
+            [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+                NSLog(@"alipayresult = %@，%@",resultDic,[resultDic stringForKey:@"memo" defaultValue:@""]);
+                if([[resultDic stringForKey:@"resultStatus" defaultValue:@""] isEqualToString:@"9000"])
+                {
+                    [KKNotificationCenter postNotificationName:@"buySucceed" object:nil];
+                }
+                else
+                {
+                    [KKNotificationCenter postNotificationName:@"buyFail" object:nil];
+                }
+            }];
+        }
+    }
+    else if([sourceApplication hasPrefix:@"com.tencent.wx"])
+    {
+        //com.tencent.wx.xxxxx
+        return [WXApi handleOpenURL:url delegate:self];
+    }
+    
+    return YES;
+}
+
+#pragma mark -Weixin Delegate
+//微信返回的调用
+-(void)onResp:(BaseResp *)resp
+{
+    KKLog(@"onresp:%@",resp);
+    
+    if([resp isKindOfClass:[PayResp class]]){
+        //支付返回结果，实际支付结果需要去微信服务器端查询
+        PayResp *response=(PayResp*)resp;
+        KKLog(@"payresp:%@",response.returnKey);
+        switch (resp.errCode) {
+            case WXSuccess:
+                [KKNotificationCenter postNotificationName:@"buySucceed" object:nil];
+                break;
+                
+            default:
+                [KKNotificationCenter postNotificationName:@"buyFail" object:nil];
+                break;
+        }
+    }
+   
 }
 
 -(void)loginSucceed:(NSDictionary *)dic

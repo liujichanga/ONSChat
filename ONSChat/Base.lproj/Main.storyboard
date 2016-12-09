@@ -264,6 +264,43 @@
             </objects>
             <point key="canvasLocation" x="1476" y="-9873.0134932533747"/>
         </scene>
+        <!--支付-->
+        <scene sceneID="yMq-dP-oKZ">
+            <objects>
+                <viewController storyboardIdentifier="PayViewController" title="支付" id="FfT-A7-wkM" customClass="PayViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Gtx-bK-ED7"/>
+                        <viewControllerLayoutGuide type="bottom" id="1i0-ge-ueT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rSa-TH-OD4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ubg-vx-Alx">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="FfT-A7-wkM" id="suv-2K-7sm"/>
+                                    <outlet property="delegate" destination="FfT-A7-wkM" id="02a-Re-stu"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ubg-vx-Alx" firstAttribute="leading" secondItem="rSa-TH-OD4" secondAttribute="leading" id="SCl-P9-9Op"/>
+                            <constraint firstAttribute="bottom" secondItem="ubg-vx-Alx" secondAttribute="bottom" id="Xtq-ed-Rbb"/>
+                            <constraint firstItem="ubg-vx-Alx" firstAttribute="top" secondItem="rSa-TH-OD4" secondAttribute="top" id="bjg-hV-L8T"/>
+                            <constraint firstAttribute="trailing" secondItem="ubg-vx-Alx" secondAttribute="trailing" id="duc-Ex-YmY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="ubg-vx-Alx" id="7xH-uG-wZt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q0U-bf-cOh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2190" y="-9877"/>
+        </scene>
         <!--用户中心-->
         <scene sceneID="YTU-VD-bmD">
             <objects>

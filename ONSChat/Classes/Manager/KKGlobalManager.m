@@ -159,7 +159,7 @@ static KKGlobalManager *instance;
 {
     
     //如果是用iap的方式
-    self.isIAP=YES;
+    self.isIAP=NO;
     
     NSInteger beannum = [KKSharedLocalPlistManager kkIntergerForKey:Plist_Key_BeanNum];
     KKSharedCurrentUser.beannum=beannum;
