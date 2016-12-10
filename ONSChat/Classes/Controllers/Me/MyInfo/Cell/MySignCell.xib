@@ -32,10 +32,10 @@
                         <rect key="frame" x="15" y="44" width="290" height="107"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                     </textView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请输入内心独白，不低于15个字" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpN-Zb-D9J">
-                        <rect key="frame" x="15" y="44" width="290" height="18"/>
+                        <rect key="frame" x="30" y="54" width="275" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -43,9 +43,9 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="PGI-yS-Hlb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="3PO-1n-KBs"/>
-                    <constraint firstItem="dpN-Zb-D9J" firstAttribute="top" secondItem="PGI-yS-Hlb" secondAttribute="top" id="6kA-CO-YhL"/>
+                    <constraint firstItem="dpN-Zb-D9J" firstAttribute="top" secondItem="PGI-yS-Hlb" secondAttribute="top" constant="10" id="6kA-CO-YhL"/>
                     <constraint firstItem="PGI-yS-Hlb" firstAttribute="leading" secondItem="40V-Ug-Jvy" secondAttribute="leading" id="7Ki-82-pml"/>
-                    <constraint firstItem="dpN-Zb-D9J" firstAttribute="leading" secondItem="PGI-yS-Hlb" secondAttribute="leading" id="HPU-C5-6PZ"/>
+                    <constraint firstItem="dpN-Zb-D9J" firstAttribute="leading" secondItem="PGI-yS-Hlb" secondAttribute="leading" constant="15" id="HPU-C5-6PZ"/>
                     <constraint firstItem="PGI-yS-Hlb" firstAttribute="top" secondItem="40V-Ug-Jvy" secondAttribute="bottom" constant="8" id="IJB-lj-BcA"/>
                     <constraint firstItem="40V-Ug-Jvy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="NFH-UL-p4O"/>
                     <constraint firstAttribute="bottom" secondItem="PGI-yS-Hlb" secondAttribute="bottom" constant="15" id="dmW-pl-Ngn"/>
