@@ -67,4 +67,7 @@
 //判断用户基本信息是否齐全
 - (BOOL)testUserInformationIsComplete;
 
+//判断用户是否付费过
+-(BOOL)isPayUser;
+
 @end

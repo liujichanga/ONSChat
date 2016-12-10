@@ -11,12 +11,6 @@
 @implementation KKUser
 
 
--(BOOL)isPayUser
-{
-    if(KKSharedCurrentUser.isBaoYue||KKSharedCurrentUser.isVIP||KKSharedCurrentUser.beannum>0)
-        return YES;
-    else return NO;
-}
 
 -(instancetype)initWithDicSimple:(NSDictionary *)dic
 {
@@ -82,6 +76,10 @@
     return self;
 }
 
+-(void)dealloc
+{
+    KKLog(@"user dealloc");
+}
 
 
 @end

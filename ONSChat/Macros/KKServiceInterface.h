@@ -17,6 +17,9 @@
 // Application
 #define App @"sp-api/mobile"
 
+#define AppPre @"sp-api"
+#define AppMobile @"mobile"
+
 //登陆
 #define ServiceInterfaceLogin KKStringWithFormat(@"%@/%@/login", KKServerDomain, App)
 //注册
@@ -70,7 +73,7 @@
 //支付
 #define ServiceInterfacePay KKStringWithFormat(@"%@/%@/pay", KKServerDomain, App)
 //支付回调
-#define ServiceInterfacePayCallBack KKStringWithFormat(@"%@/%@/payEco/callback", KKServerDomain, App)
+#define ServiceInterfacePayCallBack KKStringWithFormat(@"%@/%@/payEco/callback", KKServerDomain, AppPre)
 
 
 

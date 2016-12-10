@@ -9,6 +9,8 @@
 #import "BindingPhoneNumberViewController.h"
 #import "UploadHeadImageViewController.h"
 #import "DailyRecommandViewController.h"
+#import "VIPPayViewController.h"
+
 
 // 重新获取验证码的等待时间
 #define WaitSecond 60
@@ -94,7 +96,7 @@
                 {
                     //男性用户，可能是应用内付费的，需要pop，
                     //或者登陆验证的，需要继续后面流程，或者dismiss
-                    if(self.isDismiss)
+                    if([self.navigationController.viewControllers.firstObject isKindOfClass:[VIPPayViewController class]] || [self.navigationController.viewControllers.firstObject isKindOfClass:[BindingPhoneNumberViewController class]])
                     {
                         //如果头像没有上传
                         if(KKStringIsBlank(KKSharedCurrentUser.avatarUrl))
@@ -116,7 +118,8 @@
                     }
                     else
                     {
-                        [self.navigationController popToRootViewControllerAnimated:YES];
+                        //回退
+                        [KKSharedGlobalManager payBackCheck:self.navigationController];
                     }
                 }
 

@@ -95,8 +95,6 @@ typedef NS_ENUM(NSUInteger, KKSex) {
 @property(strong,nonatomic) KKDynamic *dynamic;
 
 
-//是否为付费过的用户
--(BOOL)isPayUser;
 
 /******************** 持久化模型 **********************/
 //推荐，附近 列表用的简单的
