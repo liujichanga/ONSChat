@@ -7,6 +7,9 @@
 //
 
 #import "KKGlobalManager.h"
+#import "ChatViewController.h"
+#import "RecommendUserInfoViewController.h"
+
 
 @interface KKGlobalManager()
 
@@ -185,6 +188,18 @@ static KKGlobalManager *instance;
     }
     else KKSharedCurrentUser.isBaoYue=NO;
     
+}
+
+-(void)payBackCheck:(UINavigationController *)navController
+{
+    for (UIViewController *viewController in navController.viewControllers) {
+        if([viewController isKindOfClass:[ChatViewController class]] || [viewController isKindOfClass:[RecommendUserInfoViewController class]])
+        {
+            [navController popToViewController:viewController animated:YES];
+            return;
+        }
+    }
+    [navController popToRootViewControllerAnimated:YES];
 }
 
 @end

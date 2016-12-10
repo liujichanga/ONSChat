@@ -9,6 +9,8 @@
 #import "BindingPhoneNumberViewController.h"
 #import "UploadHeadImageViewController.h"
 #import "DailyRecommandViewController.h"
+#import "VIPPayViewController.h"
+
 
 // 重新获取验证码的等待时间
 #define WaitSecond 60
@@ -81,7 +83,16 @@
                 if(KKSharedCurrentUser.sex==KKFemale)
                 {
                     //女性用户绑定完就消失了
-                    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+                    if([self.navigationController.viewControllers.firstObject isKindOfClass:[VIPPayViewController class]] || [self.navigationController.viewControllers.firstObject isKindOfClass:[BindingPhoneNumberViewController class]])
+                    {
+                        //是首页弹出来的
+                        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+                    }
+                    else
+                    {
+                        //回退
+                        [KKSharedGlobalManager payBackCheck:self.navigationController];
+                    }
                 }
                 else
                 {

@@ -69,6 +69,8 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
     }];
+    
+    NSLog(@"controllers:%@,%@",self.navigationController.viewControllers,self.navigationController.viewControllers.firstObject);
 }
 
 - (void)didReceiveMemoryWarning {

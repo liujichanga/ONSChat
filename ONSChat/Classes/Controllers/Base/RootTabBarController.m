@@ -150,7 +150,6 @@
         //女性用户
         if(![KKSharedCurrentUser isPayUser])
         {
-            return;
             //没有付费，先付费
             VIPPayViewController *vipVC=KKViewControllerOfMainSB(@"VIPPayViewController");
             vipVC.isDismiss=YES;

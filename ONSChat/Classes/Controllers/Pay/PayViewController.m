@@ -10,6 +10,10 @@
 #import "PayCell.h"
 #import "WXApi.h"
 #import <AlipaySDK/AlipaySDK.h>
+#import "ChatViewController.h"
+#import "RecommendUserInfoViewController.h"
+#import "BindingPhoneNumberViewController.h"
+
 
 
 #define WX_APP_ID @"wx86ad26d7a2f37c7d"
@@ -34,11 +38,18 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:cellPayIdentifier bundle:nil] forCellReuseIdentifier:cellPayIdentifier];
 
+    KKNotificationCenterAddObserverOfSelf(buySucceed, @"buySucceed", nil);
+    KKNotificationCenterAddObserverOfSelf(buyFail, @"buyFail", nil);
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)dealloc
+{
+    KKNotificationCenterRemoveObserverOfSelf;
 }
 
 #pragma mark - Table view data source
@@ -165,17 +176,70 @@
             NSLog(@"ailipay h5 order reslut = %@,memo=%@",resultDic,[resultDic stringForKey:@"memo" defaultValue:@""]);
             if([[resultDic stringForKey:@"resultStatus" defaultValue:@""] isEqualToString:@"9000"])
             {
-                //[self buySucceed];
+                [self buySucceed];
             }
             else
             {
-                //[self buyFail];
+                [self buyFail];
             }
         }];
         
     } delay:0.25];
     
 }
+
+#pragma mark - 购买成功通知
+-(void)buySucceed
+{
+    //检查一下支付信息
+    [KKThredUtils runInMainQueue:^{
+        
+        [FSSharedNetWorkingManager GET:ServiceInterfaceUserCenter parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            
+            NSDictionary *dic = (NSDictionary*)responseObject;
+            KKLog(@"paycheck:%@",dic);
+            BOOL status=[dic boolForKey:@"status" defaultValue:NO];
+            if(status)
+            {
+                NSTimeInterval baoyue=[dic longlongForKey:@"baoyueendtime" defaultValue:0]/1000.0;
+                KKSharedCurrentUser.baoyueEndTime=[[NSDate dateWithTimeIntervalSince1970:baoyue] stringYearMonthDay];
+                NSTimeInterval vip=[dic longlongForKey:@"vipendtime" defaultValue:0]/1000.0;
+                KKSharedCurrentUser.vipEndTime=[[NSDate dateWithTimeIntervalSince1970:vip] stringYearMonthDay];
+                
+                KKSharedCurrentUser.beannum=[dic integerForKey:@"beannum" defaultValue:0];
+                KKSharedCurrentUser.isVIP=[dic boolForKey:@"vip" defaultValue:NO];
+                KKSharedCurrentUser.isBaoYue=[dic boolForKey:@"msg" defaultValue:NO];
+                
+                KKSharedCurrentUser.isPhone=[dic boolForKey:@"hasPhone" defaultValue:NO];
+            }
+            
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            
+        }];
+        
+    } delay:2.0];
+    
+    //检测手机号，如果没有绑定，进到绑定手机号
+    if(KKSharedCurrentUser.isPhone)
+    {
+        BindingPhoneNumberViewController *bindVC = KKViewControllerOfMainSB(@"BindingPhoneNumberViewController");
+        bindVC.paySucceed=YES;
+        [self.navigationController pushViewController:bindVC animated:YES];
+    }
+    else
+    {
+        //回退到的界面
+        [KKSharedGlobalManager payBackCheck:self.navigationController];
+    }
+    
+}
+
+-(void)buyFail
+{
+    [SVProgressHUD showErrorWithStatus:@"未完成支付" duration:1.5];
+
+}
+
 
 
 @end
