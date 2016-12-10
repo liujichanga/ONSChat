@@ -11,6 +11,7 @@
 @interface MySignCell()<UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *signText;
 
+@property (weak, nonatomic) IBOutlet UILabel *placeLabel;
 
 
 @end
@@ -32,9 +33,15 @@
     // Configure the view for the selected state
 }
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [textField resignFirstResponder];
-    return YES;
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    _placeLabel.hidden = YES;
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView{
+    if([textView.text isEqualToString:@""]){
+        _placeLabel.hidden = NO;
+    }else {
+        _placeLabel.hidden = YES;
+    }
 }
 @end

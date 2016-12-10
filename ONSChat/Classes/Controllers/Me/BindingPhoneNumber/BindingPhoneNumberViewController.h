@@ -9,8 +9,8 @@
 #import "KKBaseViewController.h"
 
 @interface BindingPhoneNumberViewController : KKBaseViewController
-
-
+//是否显示顶部文案
+@property (nonatomic, assign) BOOL showText;
 //是否最后dismiss
 @property(nonatomic,assign) BOOL isDismiss;
 

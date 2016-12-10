@@ -14,7 +14,7 @@
 #import "CarouselCell.h"
 #import "VideoCell.h"
 #import "ChatViewController.h"
-
+#import "VIPPayViewController.h"
 
 #define cellVideolIdentifier @"VideoCell"
 #define cellBaseInfoIdentifier @"BaseInfoCell"
@@ -291,8 +291,8 @@
                 [weakself loadContactDataWith:contactStr];
             }else{
                 //跳转付费页面
-                [weakself loadContactDataWith:contactStr];
-            }
+                VIPPayViewController *vipVC=KKViewControllerOfMainSB(@"VIPPayViewController");
+                [self.navigationController pushViewController:vipVC animated:YES];            }
         };
         return cell;
     }

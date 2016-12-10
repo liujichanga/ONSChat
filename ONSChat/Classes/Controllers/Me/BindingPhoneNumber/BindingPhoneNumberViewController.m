@@ -26,6 +26,8 @@
 @property (strong, nonatomic) NSTimer *timer;
 //倒计时秒数
 @property (assign, nonatomic) int second;
+//顶部文案
+@property (weak, nonatomic) IBOutlet UILabel *textLabel;
 
 @end
 
@@ -47,6 +49,11 @@
     [self.getCodeBtn.layer setBorderWidth:1.0];
     [self.getCodeBtn.layer setBorderColor:KKColorPurple.CGColor];
     
+    if (self.showText==YES) {
+        self.textLabel.hidden = NO;
+    }else{
+        self.textLabel.hidden = YES;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
