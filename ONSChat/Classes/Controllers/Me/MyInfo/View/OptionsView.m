@@ -42,7 +42,7 @@
             [optionBtn setImage:[UIImage imageNamed:@"abc_btn_check_to_on_mtrl_000"] forState:UIControlStateNormal];
             [optionBtn setImage:[UIImage imageNamed:@"abc_btn_check_to_on_mtrl_015"] forState:UIControlStateSelected];
             optionBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-            [optionBtn setBackgroundColor:[UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0]];
+//            [optionBtn setBackgroundColor:[UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0]];
             [optionBtn addTarget:self action:@selector(optionBtnClick:) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:optionBtn];
             [self.optionBtnArr addObject:optionBtn];

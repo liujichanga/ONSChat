@@ -8,12 +8,17 @@
 
 #import "MyPersonalityCell.h"
 #import "OptionsView.h"
+@interface MyPersonalityCell()
+@property (nonatomic, strong) OptionsView *opView;
+
+@end
 
 @implementation MyPersonalityCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    KKNotificationCenterAddObserverOfSelf(saveInfo, @"saveInfo", nil);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -35,9 +40,18 @@
     
     OptionsView *opView = [[OptionsView alloc]initWithFrame:CGRectMake(0, 40, KKScreenWidth, viewH) andData:dataArr];
     [self.contentView addSubview:opView];
+    self.opView = opView;
     if (self.cellHeight) {
         self.cellHeight(viewH+45);
     }
 }
 
+-(void)saveInfo{
+    
+    KKLog(@"个性");
+}
+
+-(void)dealloc{
+    KKNotificationCenterRemoveObserverOfSelf
+}
 @end

@@ -75,8 +75,14 @@ typedef NS_ENUM(NSUInteger, MyInfoType){
     MyInfoType_Job=7, //职业
     MyInfoType_Income=8, //收入
     MyInfoType_HasHouse=9, //是否有房
-    MyInfoType_HasCar=10 //是否有车
-    
+    MyInfoType_HasCar=10, //是否有车
+    MyInfoType_Marry=11, //婚姻状况
+    MyInfoType_Child=12, //是否想要小孩
+    MyInfoType_DistanceLove=13, //是否接受异地恋
+    MyInfoType_LoveType=14, //喜欢的异性类型
+    MyInfoType_LiveTog=15, //是否接受婚前性行为
+    MyInfoType_WithParent=16, //愿意跟父母同住
+    MyInfoType_Pos=17 //魅力部位
 };
 
 

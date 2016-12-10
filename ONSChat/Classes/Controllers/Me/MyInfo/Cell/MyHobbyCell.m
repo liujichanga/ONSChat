@@ -10,7 +10,7 @@
 #import "OptionsView.h"
 
 @interface MyHobbyCell()
-
+@property (nonatomic, strong) OptionsView *opView;
 @end
 
 @implementation MyHobbyCell
@@ -18,7 +18,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    
+    KKNotificationCenterAddObserverOfSelf(saveInfo, @"saveInfo", nil);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -39,11 +39,19 @@
     }
     
     OptionsView *opView = [[OptionsView alloc]initWithFrame:CGRectMake(0, 40, KKScreenWidth, viewH) andData:dataArr];
+    self.opView = opView;
     [self.contentView addSubview:opView];
     if (self.cellHeight) {
         self.cellHeight(viewH+45);
     }
 }
 
+-(void)saveInfo{
+    
+    KKLog(@"兴趣");
+}
 
+-(void)dealloc{
+    KKNotificationCenterRemoveObserverOfSelf
+}
 @end

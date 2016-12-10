@@ -578,24 +578,36 @@
                                             <action selector="dyAddImageBtnClick:" destination="wPq-0V-s0m" eventType="touchUpInside" id="KCI-o5-aGe"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="请输入动态内容" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PFU-Xy-MQT">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ykQ-dh-3Vh">
                                         <rect key="frame" x="15" y="25" width="345" height="189"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <connections>
-                                            <outlet property="delegate" destination="wPq-0V-s0m" id="Hbu-PW-bTf"/>
+                                            <outlet property="delegate" destination="wPq-0V-s0m" id="wdc-Y9-qlD"/>
                                         </connections>
-                                    </textField>
+                                    </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="对她感兴趣，写下评论，引起她的注意吧....." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4IM-Zx-hZX">
+                                        <rect key="frame" x="15" y="25" width="345" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="IKI-Cr-OCX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="hKz-e4-ahg" firstAttribute="leading" secondItem="7dj-yQ-dfG" secondAttribute="leading" constant="24" id="2Eq-eo-RCz"/>
-                                    <constraint firstItem="PFU-Xy-MQT" firstAttribute="leading" secondItem="7dj-yQ-dfG" secondAttribute="leading" constant="15" id="4K5-S7-ZYW"/>
-                                    <constraint firstItem="PFU-Xy-MQT" firstAttribute="top" secondItem="7dj-yQ-dfG" secondAttribute="top" constant="25" id="Mjq-Go-S64"/>
-                                    <constraint firstAttribute="trailing" secondItem="PFU-Xy-MQT" secondAttribute="trailing" constant="15" id="WBa-LR-v1F"/>
-                                    <constraint firstItem="hKz-e4-ahg" firstAttribute="top" secondItem="PFU-Xy-MQT" secondAttribute="bottom" constant="20" id="YhM-Hq-45H"/>
+                                    <constraint firstItem="4IM-Zx-hZX" firstAttribute="trailing" secondItem="ykQ-dh-3Vh" secondAttribute="trailing" id="Etj-eP-cn1"/>
+                                    <constraint firstItem="ykQ-dh-3Vh" firstAttribute="leading" secondItem="7dj-yQ-dfG" secondAttribute="leading" constant="15" id="Rew-QY-z3B"/>
+                                    <constraint firstItem="4IM-Zx-hZX" firstAttribute="top" secondItem="ykQ-dh-3Vh" secondAttribute="top" id="UdE-Cj-pMI"/>
                                     <constraint firstAttribute="bottom" secondItem="hKz-e4-ahg" secondAttribute="bottom" constant="20" id="bUL-n6-rRe"/>
+                                    <constraint firstAttribute="trailing" secondItem="ykQ-dh-3Vh" secondAttribute="trailing" constant="15" id="hb0-Tn-fqm"/>
+                                    <constraint firstItem="hKz-e4-ahg" firstAttribute="top" secondItem="ykQ-dh-3Vh" secondAttribute="bottom" constant="20" id="lPA-8J-He2"/>
+                                    <constraint firstItem="ykQ-dh-3Vh" firstAttribute="top" secondItem="7dj-yQ-dfG" secondAttribute="top" constant="25" id="nKJ-T1-JGB"/>
+                                    <constraint firstItem="4IM-Zx-hZX" firstAttribute="leading" secondItem="ykQ-dh-3Vh" secondAttribute="leading" id="xQX-lU-u8f"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -609,7 +621,8 @@
                     </view>
                     <connections>
                         <outlet property="dyAddImageBtn" destination="hKz-e4-ahg" id="ofg-p8-coR"/>
-                        <outlet property="dyTextField" destination="PFU-Xy-MQT" id="hwQ-iy-QBp"/>
+                        <outlet property="dyTextView" destination="ykQ-dh-3Vh" id="27i-lA-1Vq"/>
+                        <outlet property="placeLabel" destination="4IM-Zx-hZX" id="ZN4-xf-YDz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="drQ-ph-xuF" userLabel="First Responder" sceneMemberID="firstResponder"/>

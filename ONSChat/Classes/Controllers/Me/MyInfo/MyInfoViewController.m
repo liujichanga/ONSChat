@@ -57,7 +57,7 @@
     
     MyInfoPickerView *infoPicker = [MyInfoPickerView createMyInfoPickerViewFrame:self.view.bounds inView:self.view];
     self.infoPickerView = infoPicker;
-    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -101,7 +101,7 @@
         return 705;
     }
     else if (indexPath.section==1) {
-        return 55;
+        return 441;
     }
     else if (indexPath.section==2) {
         return self.hobbyCellH;
@@ -125,19 +125,18 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     KKWEAKSELF
     if (indexPath.section==0) {
-        if (indexPath.row==0) {
-            MyBaseInfo1Cell *cell = [tableView dequeueReusableCellWithIdentifier:cellMyBaseInfo1Identifier forIndexPath:indexPath];
-            cell.infoTypeBlock=^(MyInfoType type){
-
-                [weakself.infoPickerView showInfoPickerViewWithType:type];
-            };
-            return cell;
-        }else{
-            MyBaseInfo2Cell *cell = [tableView dequeueReusableCellWithIdentifier:cellMyBaseInfo2Identifier forIndexPath:indexPath];
-            return cell;
-        }
+        MyBaseInfo1Cell *cell = [tableView dequeueReusableCellWithIdentifier:cellMyBaseInfo1Identifier forIndexPath:indexPath];
+        cell.infoTypeBlock=^(MyInfoType type){
+            
+            [weakself.infoPickerView showInfoPickerViewWithType:type];
+        };
+        return cell;
     }else if (indexPath.section==1) {
         MyBaseInfo2Cell *cell = [tableView dequeueReusableCellWithIdentifier:cellMyBaseInfo2Identifier forIndexPath:indexPath];
+        cell.infoTypeBlock=^(MyInfoType type){
+            
+            [weakself.infoPickerView showInfoPickerViewWithType:type];
+        };
         return cell;
     }else if (indexPath.section==2) {
         MyHobbyCell *cell = [tableView dequeueReusableCellWithIdentifier:cellHobbyIdentifier forIndexPath:indexPath];
@@ -168,7 +167,7 @@
 
 - (IBAction)saveInfoBtnClick:(id)sender {
    
-    
+    [KKNotificationCenter postNotificationName:@"saveInfo" object:nil];
 }
 
 @end

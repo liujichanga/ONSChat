@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MyBaseInfo2Cell : UITableViewCell
+@property (nonatomic, copy) void(^infoTypeBlock)(MyInfoType type);
 
 @end

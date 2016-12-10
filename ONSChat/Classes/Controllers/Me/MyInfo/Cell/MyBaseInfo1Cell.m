@@ -67,7 +67,8 @@
         btn.layer.cornerRadius=8.0;
         btn.layer.masksToBounds = YES;
     }
-    KKNotificationCenterAddObserverOfSelf(showSelcetedInfo:, @"showSelcetedInfo", nil);
+    KKNotificationCenterAddObserverOfSelf(showSelcetedInfo:, @"showSelcetedInfo1", nil);
+    KKNotificationCenterAddObserverOfSelf(saveInfo, @"saveInfo", nil);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -88,11 +89,21 @@
     NSString *infoStr = [dataDic stringForKey:@"infoStr" defaultValue:@""];
     UILabel *lab = [self.labs objectAtIndex:self.selectTag-1];
     lab.text = infoStr;
-    
 }
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
     return YES;
+}
+
+
+-(void)saveInfo{
+    
+    KKLog(@"基本信息1");
+}
+
+-(void)dealloc{
+    KKNotificationCenterRemoveObserverOfSelf
 }
 @end

@@ -20,6 +20,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    KKNotificationCenterAddObserverOfSelf(saveInfo, @"saveInfo", nil);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -31,4 +32,12 @@
     sender.selected = !sender.selected;
 }
 
+-(void)saveInfo{
+    
+    KKLog(@"联系方式");
+}
+
+-(void)dealloc{
+    KKNotificationCenterRemoveObserverOfSelf
+}
 @end

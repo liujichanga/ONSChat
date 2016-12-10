@@ -10,9 +10,9 @@
 
 #import "VideoListViewController.h"
 
-@interface NewDynamicViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate>
+@interface NewDynamicViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextViewDelegate>
 //文字输入
-@property (weak, nonatomic) IBOutlet UITextField *dyTextField;
+@property (weak, nonatomic) IBOutlet UITextView *dyTextView;
 //添加媒体按钮
 @property (weak, nonatomic) IBOutlet UIButton *dyAddImageBtn;
 //视频或图片 url
@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSString *dynamiVideoThumbnail;
 //媒体类型
 @property(assign,nonatomic) KKDynamicsType dynamicsType;
+@property (weak, nonatomic) IBOutlet UILabel *placeLabel;
 
 @end
 
@@ -41,7 +42,7 @@
 //添加图片
 - (IBAction)dyAddImageBtnClick:(id)sender {
     
-    [self.dyTextField resignFirstResponder];
+    [self.dyTextView resignFirstResponder];
     UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:nil
                                                        delegate:self
                                               cancelButtonTitle:@"取消"
@@ -110,18 +111,23 @@
     }
 }
 
-//当用户按下return键或者按回车键，keyboard消失
--(BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [textField resignFirstResponder];
-    return YES;
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    _placeLabel.hidden = YES;
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView{
+    if([textView.text isEqualToString:@""]){
+        _placeLabel.hidden = NO;
+    }else {
+        _placeLabel.hidden = YES;
+    }
 }
 
 #pragma mark - 私有方法
 //发布动态
 -(void)rightItemClick{
     
-    if (KKStringIsBlank(self.dyTextField.text)){
+    if (KKStringIsBlank(self.dyTextView.text)){
         [MBProgressHUD showMessag:@"请输入发布内容" toView:nil];
         return;
     }else if (KKStringIsBlank(self.dynamicURL)) {
@@ -152,7 +158,7 @@
     dynamic.commentNum=0;
     dynamic.dynamicsType = self.dynamicsType;
     dynamic.dynamicUrl = self.dynamicURL;
-    dynamic.dynamicText = self.dyTextField.text;
+    dynamic.dynamicText = self.dyTextView.text;
     dynamic.dynamiVideoThumbnail = self.dynamiVideoThumbnail.length>0?self.dynamiVideoThumbnail:@"";
     //随机一个最近两天的日期
     int value = arc4random() % (2);

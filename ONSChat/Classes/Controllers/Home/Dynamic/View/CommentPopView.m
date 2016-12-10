@@ -8,9 +8,10 @@
 
 #import "CommentPopView.h"
 
-@interface CommentPopView()<UITextFieldDelegate>
+@interface CommentPopView()<UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *bgView;
-@property (weak, nonatomic) IBOutlet UITextField *commentTextField;
+@property (weak, nonatomic) IBOutlet UITextView *commentTextView;
+@property (weak, nonatomic) IBOutlet UILabel *placeLabel;
 
 @end
 
@@ -32,7 +33,7 @@
     self.bgView.layer.masksToBounds = YES;
     self.bgView.layer.borderWidth = 1.0;
     self.bgView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    self.commentTextField.delegate = self;
+    self.commentTextView.delegate = self;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(close:)];
     [self addGestureRecognizer:tap];
@@ -40,26 +41,31 @@
 }
 
 -(void)close:(UITapGestureRecognizer*)tap{
-    [self.commentTextField resignFirstResponder];
+    [self.commentTextView resignFirstResponder];
     [self removeFromSuperview];
 }
 
 
 - (IBAction)sendCommentBtnClick:(id)sender {
-    KKLog(@"发表 %@",self.commentTextField.text);
-    [self.commentTextField resignFirstResponder];
+    KKLog(@"发表 %@",self.commentTextView.text);
+    [self.commentTextView resignFirstResponder];
     [self removeFromSuperview];
     if (self.sendComment) {
-        self.sendComment(self.commentTextField.text);
+        self.sendComment(self.commentTextView.text);
     }
 }
 
-#pragma mark - UITextFieldDelegate
-//当用户按下return键或者按回车键，keyboard消失
--(BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [textField resignFirstResponder];
-    return YES;
+#pragma mark - UITextViewDelegate
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    _placeLabel.hidden = YES;
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView{
+    if([textView.text isEqualToString:@""]){
+        _placeLabel.hidden = NO;
+    }else {
+        _placeLabel.hidden = YES;
+    }
 }
 
 -(void)dealloc{

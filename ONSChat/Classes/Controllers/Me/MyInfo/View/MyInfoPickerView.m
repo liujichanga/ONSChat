@@ -21,6 +21,8 @@
 @property (nonatomic, strong) NSArray *infoDataArray;
 //选中信息数据 用于cell显示
 @property (nonatomic, strong) NSString *infoStr;
+//用于区分调用的cell 传递不同的信息 =1基本资料1 =2基本资料2
+@property (nonatomic, assign) NSInteger cellType;
 @end
 
 @implementation MyInfoPickerView
@@ -44,7 +46,7 @@
         [self addGestureRecognizer:tap];
     }
     self.infoPicker.delegate = self;
-
+    
 }
 
 -(void)setDataDic:(NSDictionary *)dataDic{
@@ -67,52 +69,102 @@
         case MyInfoType_Birthday:{
             self.infoPicker.hidden = YES;
             self.birthDayPicker.hidden = NO;
+            self.cellType=1;
             break;
         }
         case MyInfoType_Address:{
-            
             NSString *path = KKPathOfMainBundle(@"city",@"plist");
             self.provinceArray = [NSArray arrayWithContentsOfFile:path];
             NSDictionary *dic = [self.provinceArray objectAtIndex:0];
             self.cityArray = [dic objectForKey:@"city"];
+            self.cellType=1;
             break;
         }
         case MyInfoType_Height:
             self.infoDataArray = [NSArray arrayWithArray:KKSharedGlobalManager.heightArr];
+            self.cellType=1;
             break;
         case MyInfoType_Weight:
             self.infoDataArray = [NSArray arrayWithArray:KKSharedGlobalManager.weightArr];
+            self.cellType=1;
             break;
         case MyInfoType_Blood:
             self.infoDataArray = [NSArray arrayWithArray:KKSharedGlobalManager.bloodArr];
+            self.cellType=1;
             break;
         case MyInfoType_Graduate:{
             NSString *graduateStr = [self.dataDic stringForKey:@"graduate" defaultValue:@""];
             self.infoDataArray = [graduateStr componentsSeparatedByString:@","];
-        }
+            self.cellType=1;
             break;
+        }
         case MyInfoType_Job:{
             NSString *jobStr = [self.dataDic stringForKey:@"job" defaultValue:@""];
             self.infoDataArray = [jobStr componentsSeparatedByString:@","];
-        }
+            self.cellType=1;
             break;
+        }
         case MyInfoType_Income:{
             NSString *incomeStr = [self.dataDic stringForKey:@"income" defaultValue:@""];
             self.infoDataArray = [incomeStr componentsSeparatedByString:@","];
-        }
+            self.cellType=1;
             break;
+        }
         case MyInfoType_HasCar:{
             NSString *carStr = [self.dataDic stringForKey:@"car" defaultValue:@""];
             self.infoDataArray = [carStr componentsSeparatedByString:@","];
-
-        }
+            self.cellType=1;
             break;
+        }
         case MyInfoType_HasHouse:{
             NSString *houseStr = [self.dataDic stringForKey:@"house" defaultValue:@""];
             self.infoDataArray = [houseStr componentsSeparatedByString:@","];
-
-        }
+            self.cellType=1;
             break;
+        }
+        case MyInfoType_Marry:{
+            NSString *marryStr = [self.dataDic stringForKey:@"marry" defaultValue:@""];
+            self.infoDataArray = [marryStr componentsSeparatedByString:@","];
+            self.cellType=2;
+            break;
+        }
+        case MyInfoType_Child:{
+            NSString *childStr = [self.dataDic stringForKey:@"child" defaultValue:@""];
+            self.infoDataArray = [childStr componentsSeparatedByString:@","];
+            self.cellType=2;
+            break;
+        }
+        case MyInfoType_DistanceLove:{
+            NSString *distanceStr = [self.dataDic stringForKey:@"distance" defaultValue:@""];
+            self.infoDataArray = [distanceStr componentsSeparatedByString:@","];
+            self.cellType=2;
+            break;
+        }
+        case MyInfoType_LoveType:{
+            NSString *lovetypeStr = [self.dataDic stringForKey:@"lovetype" defaultValue:@""];
+            self.infoDataArray = [lovetypeStr componentsSeparatedByString:@","];
+            self.cellType=2;
+            break;
+        }
+        case MyInfoType_LiveTog:{
+            NSString *livetogStr = [self.dataDic stringForKey:@"livetog" defaultValue:@""];
+            self.infoDataArray = [livetogStr componentsSeparatedByString:@","];
+            self.cellType=2;
+            break;
+        }
+        case MyInfoType_WithParent:{
+            NSString *parentStr = [self.dataDic stringForKey:@"withparent" defaultValue:@""];
+            self.infoDataArray = [parentStr componentsSeparatedByString:@","];
+            self.cellType=2;
+            break;
+        }
+        case MyInfoType_Pos:{
+            NSString *posStr = [self.dataDic stringForKey:@"pos" defaultValue:@""];
+            self.infoDataArray = [posStr componentsSeparatedByString:@","];
+            self.cellType=2;
+            break;
+        }
+            
         default:
             break;
     }
@@ -154,7 +206,12 @@
     }
     self.hidden = YES;
     NSDictionary *notDic = @{@"infoStr":self.infoStr};
-    [KKNotificationCenter postNotificationName:@"showSelcetedInfo" object:nil userInfo:notDic];
+    if (self.cellType==1) {
+        [KKNotificationCenter postNotificationName:@"showSelcetedInfo1" object:nil userInfo:notDic];
+    }else{
+        [KKNotificationCenter postNotificationName:@"showSelcetedInfo2" object:nil userInfo:notDic];
+    }
+
 }
 
 #pragma mark - UIPickerViewDataSource
