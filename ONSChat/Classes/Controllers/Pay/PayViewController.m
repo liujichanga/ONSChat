@@ -238,7 +238,6 @@
 {
     [SVProgressHUD showErrorWithStatus:@"未完成支付" duration:1.5];
 
-    [self buySucceed];
 }
 
 

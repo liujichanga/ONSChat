@@ -170,6 +170,9 @@
     
     KKSharedCurrentUser.vipEndTime=[[NSDate dateWithTimeIntervalSince1970:currentViptime] stringYearMonthDay];
     KKSharedCurrentUser.isVIP=YES;
+    
+    [KKSharedGlobalManager payBackCheck:self.navigationController];
+
 }
 
 @end

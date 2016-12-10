@@ -370,7 +370,8 @@
         else if(indexPath.row==1)
         {
             //vip会员
-            
+            VIPPayViewController *vipVC=KKViewControllerOfMainSB(@"VIPPayViewController");
+            [self.navigationController pushViewController:vipVC animated:YES];
         }
         else if(indexPath.row==2)
         {
