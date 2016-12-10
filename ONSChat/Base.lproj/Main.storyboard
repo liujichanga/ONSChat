@@ -193,10 +193,10 @@
             </objects>
             <point key="canvasLocation" x="-71.200000000000003" y="-9853.223388305847"/>
         </scene>
-        <!--包月付费-->
+        <!--包月写信-->
         <scene sceneID="9Cm-d5-gtf">
             <objects>
-                <viewController storyboardIdentifier="BaoYuePayViewController" title="包月付费" id="sSP-N5-EBW" customClass="BaoYuePayViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BaoYuePayViewController" title="包月写信" hidesBottomBarWhenPushed="YES" id="sSP-N5-EBW" customClass="BaoYuePayViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yOC-vI-bMW"/>
                         <viewControllerLayoutGuide type="bottom" id="otf-dU-nfT"/>
@@ -204,8 +204,27 @@
                     <view key="view" contentMode="scaleToFill" id="fLE-Ic-QDT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jaf-VI-L8f">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="sSP-N5-EBW" id="487-2L-Plp"/>
+                                    <outlet property="delegate" destination="sSP-N5-EBW" id="Vzf-kh-yTs"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Jaf-VI-L8f" secondAttribute="trailing" id="Pgk-1q-V8W"/>
+                            <constraint firstAttribute="bottom" secondItem="Jaf-VI-L8f" secondAttribute="bottom" id="QGN-mV-iEy"/>
+                            <constraint firstItem="Jaf-VI-L8f" firstAttribute="top" secondItem="fLE-Ic-QDT" secondAttribute="top" id="ZbF-51-PpB"/>
+                            <constraint firstItem="Jaf-VI-L8f" firstAttribute="leading" secondItem="fLE-Ic-QDT" secondAttribute="leading" id="zYp-Lh-Y1k"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Jaf-VI-L8f" id="JzW-c2-ffc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Htf-Vs-Y5U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

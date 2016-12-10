@@ -10,4 +10,6 @@
 
 @interface BaoYuePayViewController : KKBaseViewController
 
+@property(assign,nonatomic) BOOL showBean;
+
 @end

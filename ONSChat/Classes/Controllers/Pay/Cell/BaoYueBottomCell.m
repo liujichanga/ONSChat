@@ -1,21 +1,21 @@
 //
-//  VIPBottomCell.m
+//  BaoYueBottomCell.m
 //  ONSChat
 //
-//  Created by liujichang on 2016/12/8.
+//  Created by liujichang on 2016/12/10.
 //  Copyright © 2016年 LiuJichang. All rights reserved.
 //
 
-#import "VIPBottomCell.h"
+#import "BaoYueBottomCell.h"
 
-@interface VIPBottomCell()
+@interface BaoYueBottomCell()
 
 @property (weak, nonatomic) IBOutlet UILabel *sphoneLabel;
 
 
 @end
 
-@implementation VIPBottomCell
+@implementation BaoYueBottomCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -28,7 +28,7 @@
     [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:rang];
     [attributedString addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:NSMakeRange(0, str.length)];
     [attributedString addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleNone] range:NSMakeRange(0, 5)];
-
+    
     _sphoneLabel.attributedText=attributedString;
 }
 

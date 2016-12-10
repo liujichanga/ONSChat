@@ -246,13 +246,17 @@
         
         cell.getBeanBlock=^{
             
+            BaoYuePayViewController *baoyueVC=KKViewControllerOfMainSB(@"BaoYuePayViewController");
+            baoyueVC.showBean=YES;
+            [weakself.navigationController pushViewController:baoyueVC animated:YES];
         };
         cell.vipBlock=^{
             VIPPayViewController *vipVC=KKViewControllerOfMainSB(@"VIPPayViewController");
             [weakself.navigationController pushViewController:vipVC animated:YES];
         };
         cell.baoyueBlock=^{
-            
+            BaoYuePayViewController *baoyueVC=KKViewControllerOfMainSB(@"BaoYuePayViewController");
+            [weakself.navigationController pushViewController:baoyueVC animated:YES];
         };
         cell.likemeBlock=^{
             
@@ -366,6 +370,8 @@
         if(indexPath.row==0)
         {
             //包月写信
+            BaoYuePayViewController *baoyueVC=KKViewControllerOfMainSB(@"BaoYuePayViewController");
+            [self.navigationController pushViewController:baoyueVC animated:YES];
         }
         else if(indexPath.row==1)
         {
@@ -376,6 +382,9 @@
         else if(indexPath.row==2)
         {
             //红豆
+            BaoYuePayViewController *baoyueVC=KKViewControllerOfMainSB(@"BaoYuePayViewController");
+            baoyueVC.showBean=YES;
+            [self.navigationController pushViewController:baoyueVC animated:YES];
         }
     }
     else if(indexPath.section==2)

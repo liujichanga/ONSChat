@@ -1,35 +1,36 @@
 //
-//  VIPBottomCell.m
+//  BeanBottomCell.m
 //  ONSChat
 //
-//  Created by liujichang on 2016/12/8.
+//  Created by liujichang on 2016/12/10.
 //  Copyright © 2016年 LiuJichang. All rights reserved.
 //
 
-#import "VIPBottomCell.h"
+#import "BeanBottomCell.h"
 
-@interface VIPBottomCell()
+@interface BeanBottomCell()
 
 @property (weak, nonatomic) IBOutlet UILabel *sphoneLabel;
 
 
 @end
 
-@implementation VIPBottomCell
+@implementation BeanBottomCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
     self.selectionStyle=UITableViewCellSelectionStyleNone;
-
+    
     NSString *str=KKStringWithFormat(@"客服热线：%@",KKSharedGlobalManager.SPhone);
     NSRange rang=NSMakeRange(5, KKSharedGlobalManager.SPhone.length);
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:str];
     [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:rang];
     [attributedString addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:NSMakeRange(0, str.length)];
     [attributedString addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleNone] range:NSMakeRange(0, 5)];
-
+    
     _sphoneLabel.attributedText=attributedString;
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
