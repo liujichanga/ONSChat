@@ -42,8 +42,8 @@
 
 //获取资料
 #define ServiceInterfaceUserInfo KKStringWithFormat(@"%@/%@/user/info", KKServerDomain, App)
-//绑定手机号
-#define ServiceInterfaceUserSendSmsCode KKStringWithFormat(@"%@/%@/user/SendSmsCode", KKServerDomain, App)
+//获取验证码
+#define ServiceInterfaceUserSendSmsCode KKStringWithFormat(@"%@/%@/sendsms", KKServerDomain, App)
 //首页推荐
 #define ServiceInterfaceIndex KKStringWithFormat(@"%@/%@/indexdata", KKServerDomain, App)
 //动态列表
@@ -74,7 +74,8 @@
 #define ServiceInterfacePay KKStringWithFormat(@"%@/%@/pay", KKServerDomain, App)
 //支付回调
 #define ServiceInterfacePayCallBack KKStringWithFormat(@"%@/%@/payEco/callback", KKServerDomain, AppPre)
-
+//绑定手机号
+#define ServiceInterfaceUsertTelbind KKStringWithFormat(@"%@/%@/user/telbind", KKServerDomain, AppPre)
 
 
 

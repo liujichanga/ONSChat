@@ -37,11 +37,6 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(close:)];
     [self addGestureRecognizer:tap];
     
-    //使用NSNotificationCenter 鍵盤出現時
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardWillShowNotification object:nil];
-    //使用NSNotificationCenter 鍵盤隐藏時
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
-    
 }
 
 -(void)close:(UITapGestureRecognizer*)tap{
@@ -49,27 +44,6 @@
     [self removeFromSuperview];
 }
 
-//实现当键盘出现的时候计算键盘的高度大小。用于输入框显示位置
-- (void)keyboardWasShown:(NSNotification*)aNotification
-{
-    NSDictionary* info = [aNotification userInfo];
-    //kbSize即為鍵盤尺寸 (有width, height)
-    CGSize kbSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;//得到鍵盤的高度
-    NSLog(@"hight_hitht:%f",kbSize.height);
-    
-    [UIView animateWithDuration:0.4f animations:^{
-        
-        self.frame = CGRectMake(0.0f, -kbSize.height, self.frame.size.width, self.frame.size.height);
-    }];
-}
-
-//当键盘隐藏的时候
-- (void)keyboardWillBeHidden:(NSNotification*)aNotification
-{
-    [UIView animateWithDuration:0.4f animations:^{
-        self.frame =CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
-    }];
-}
 
 - (IBAction)sendCommentBtnClick:(id)sender {
     KKLog(@"发表 %@",self.commentTextField.text);

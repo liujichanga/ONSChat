@@ -11,6 +11,7 @@
 #import <AMapFoundationKit/AMapFoundationKit.h>
 #import "WXApi.h"
 #import <AlipaySDK/AlipaySDK.h>
+#import "IQKeyboardManager.h"
 
 
 @interface AppDelegate ()<WXApiDelegate>
@@ -72,7 +73,11 @@
         
     }
     
-   
+    [IQKeyboardManager sharedManager].shouldShowTextFieldPlaceholder = NO;
+    [IQKeyboardManager sharedManager].keyboardDistanceFromTextField = 4.0;
+    [IQKeyboardManager sharedManager].canAdjustTextView = NO;
+    [IQKeyboardManager sharedManager].shouldAdoptDefaultKeyboardAnimation = YES;
+    [IQKeyboardManager sharedManager].shouldRestoreScrollViewContentOffset = YES;
     
     return YES;
 }
