@@ -49,7 +49,6 @@
     
     //tabbar badge
     [self initTabBarBadge];
-
     
     //未读数量
     KKNotificationCenterAddObserverOfSelf(unReadCount:, ONSChatManagerNotification_UnReadCount, nil);
@@ -68,7 +67,7 @@
     [KKSharedGlobalManager getSPhone];
     
     //读取是否IAP
-    [KKSharedGlobalManager getIAP];
+    //[KKSharedGlobalManager getIAP];
 }
 
 #pragma mark - Tabbar Dadge
@@ -148,11 +147,10 @@
     if(KKSharedCurrentUser.sex==KKFemale)
     {
         //女性用户
-        if(![KKSharedCurrentUser isPayUser])
+        if(![KKSharedUserManager isPayUser])
         {
             //没有付费，先付费
             VIPPayViewController *vipVC=KKViewControllerOfMainSB(@"VIPPayViewController");
-            vipVC.isDismiss=YES;
             UINavigationController *navController=[[UINavigationController alloc] initWithRootViewController:vipVC];
             [self presentViewController:navController animated:YES completion:nil];
         }
@@ -163,7 +161,7 @@
             {
                 //验证手机号
                 BindingPhoneNumberViewController *bindVC = KKViewControllerOfMainSB(@"BindingPhoneNumberViewController");
-                bindVC.isDismiss=YES;
+                bindVC.showText=YES;
                 UINavigationController *navController=[[UINavigationController alloc] initWithRootViewController:bindVC];
                 [self presentViewController:navController animated:YES completion:nil];
             }
@@ -173,10 +171,10 @@
     {
         //男性用户
         //付费过,没有验证过手机号，先验证手机号
-        if([KKSharedCurrentUser isPayUser]&&KKStringIsBlank(KKSharedCurrentUser.phone))
+        if([KKSharedUserManager isPayUser]&&KKStringIsBlank(KKSharedCurrentUser.phone))
         {
             BindingPhoneNumberViewController *bindVC = KKViewControllerOfMainSB(@"BindingPhoneNumberViewController");
-            bindVC.isDismiss=YES;
+            bindVC.showText=YES;
             UINavigationController *navController=[[UINavigationController alloc] initWithRootViewController:bindVC];
             [self presentViewController:navController animated:YES completion:nil];
         }

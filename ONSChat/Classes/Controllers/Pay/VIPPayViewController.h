@@ -10,7 +10,5 @@
 
 @interface VIPPayViewController : KKBaseViewController
 
-//是否最后dismiss
-@property(nonatomic,assign) BOOL isDismiss;
 
 @end

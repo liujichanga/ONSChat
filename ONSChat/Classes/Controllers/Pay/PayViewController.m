@@ -220,10 +220,10 @@
     } delay:2.0];
     
     //检测手机号，如果没有绑定，进到绑定手机号
-    if(KKSharedCurrentUser.isPhone)
+    if(!KKSharedCurrentUser.isPhone)
     {
         BindingPhoneNumberViewController *bindVC = KKViewControllerOfMainSB(@"BindingPhoneNumberViewController");
-        bindVC.paySucceed=YES;
+        bindVC.showText=YES;
         [self.navigationController pushViewController:bindVC animated:YES];
     }
     else
@@ -238,6 +238,7 @@
 {
     [SVProgressHUD showErrorWithStatus:@"未完成支付" duration:1.5];
 
+    [self buySucceed];
 }
 
 

@@ -188,4 +188,14 @@ static KKUserManager *instance;
     return NO;
 }
 
+-(BOOL)isPayUser
+{
+    if(KKSharedCurrentUser.isBaoYue||KKSharedCurrentUser.isVIP||KKSharedCurrentUser.beannum>0)
+    {
+        NSLog(@"is payed");
+        return YES;
+    }
+    else return NO;
+}
+
 @end
