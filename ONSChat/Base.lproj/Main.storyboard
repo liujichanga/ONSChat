@@ -342,7 +342,7 @@
         <!--绑定手机号-->
         <scene sceneID="9vQ-yl-tda">
             <objects>
-                <viewController storyboardIdentifier="BindingPhoneNumberViewController" title="绑定手机号" id="mZf-CV-l6H" customClass="BindingPhoneNumberViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BindingPhoneNumberViewController" title="绑定手机号" hidesBottomBarWhenPushed="YES" id="mZf-CV-l6H" customClass="BindingPhoneNumberViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Uh0-9R-0AY"/>
                         <viewControllerLayoutGuide type="bottom" id="qvw-ar-vgo"/>

@@ -68,9 +68,22 @@
         [MBProgressHUD showMessag:@"请输入正确的手机号" toView:nil];
         return;
     }
-
+    //获取1到x之间的整数的代码如下:
+    int value = (arc4random() % 899999) + 100000;
+    NSDictionary *param = @{@"mobile":self.phoneNubText.text,@"content":[NSString stringWithFormat:@"%zd",value]};
+    [FSSharedNetWorkingManager GET:ServiceInterfaceUserSendSmsCode parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *respDic = (NSDictionary*)responseObject;
+        NSInteger status = [respDic integerForKey:@"status" defaultValue:0];
+        if (status==1) {
+            [SVProgressHUD showSuccessWithStatus:@"发送成功" duration:1.2];
+            [self startCountdown];
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [SVProgressHUD showErrorWithStatus:@"发送失败" duration:1.2];
+    }];
     
-    [self startCountdown];
+
 }
 
 //绑定手机 验证验证码格式
@@ -79,14 +92,13 @@
         [MBProgressHUD showMessag:@"请填写正确的验证码" toView:nil];
         return;
     }
-    NSDictionary *param = @{@"mobile":self.phoneNubText.text,@"code":self.codeText.text,@"type":@(0)};
-    [SVProgressHUD show];
-    [FSSharedNetWorkingManager GET:ServiceInterfaceUserSendSmsCode parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    NSDictionary *param = @{@"mobile":self.phoneNubText.text,@"code":self.codeText.text};
+    [FSSharedNetWorkingManager POST:ServiceInterfaceUsertTelbind parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *respDic = (NSDictionary*)responseObject;
         if (respDic&&respDic.count>0) {
             NSInteger status = [respDic integerForKey:@"status" defaultValue:0];
             if (status==1) {
-               //下一步处理
+                //下一步处理
                 if(KKSharedCurrentUser.sex==KKFemale)
                 {
                     //女性用户绑定完就消失了
@@ -122,7 +134,7 @@
                         [KKSharedGlobalManager payBackCheck:self.navigationController];
                     }
                 }
-
+                
             }else{
                 //失败
                 [SVProgressHUD dismissWithError:@"绑定失败，请重试" afterDelay:1.2];
@@ -130,6 +142,7 @@
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [SVProgressHUD dismissWithError:KKErrorInfo(error) afterDelay:1.2];
+
     }];
 }
 
