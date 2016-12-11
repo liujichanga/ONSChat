@@ -12,6 +12,7 @@
 #import "BaoYueNamesCell.h"
 #import "BaoYueBottomCell.h"
 #import "BeanBottomCell.h"
+#import "PayViewController.h"
 
 
 #define cellBaoYueHeadIdentifier @"BaoYueHeadCell"
@@ -24,8 +25,16 @@
 #define BaoYueSelected 1
 #define BeanSelected 2
 
+#define BaoYueID_7Day @"Month001"
+#define BaoYueID_30Day @"Month002"
+#define BaoYueID_90Day @"Month003"
 
-@interface BaoYuePayViewController ()<UITableViewDelegate,UITableViewDataSource>
+#define BeanID_300 @"Bean001"
+#define BeanID_600 @"Bean002"
+#define BeanID_900 @"Bean003"
+
+
+@interface BaoYuePayViewController ()<UITableViewDelegate,UITableViewDataSource,FSStoreDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -34,6 +43,8 @@
 @property(strong,nonatomic) NSMutableArray *boysRandArr;
 
 @property(strong,nonatomic) NSMutableArray *productArr;
+
+@property(strong,nonatomic) FSStore *store;
 
 @end
 
@@ -54,6 +65,9 @@
     _boysRandArr=[NSMutableArray array];
     _productArr=[NSMutableArray array];
     
+    self.store=[[FSStore alloc] init];
+    self.store.delegate=self;
+    
     //使用registerNib 方法可以从XIB加载控件
     [self.tableView registerNib:[UINib nibWithNibName:cellBaoYueHeadIdentifier bundle:nil] forCellReuseIdentifier:cellBaoYueHeadIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:cellBaoYueProductIdentifier bundle:nil] forCellReuseIdentifier:cellBaoYueProductIdentifier];
@@ -61,7 +75,6 @@
     [self.tableView registerNib:[UINib nibWithNibName:cellBaoYueBottomIdentifier bundle:nil] forCellReuseIdentifier:cellBaoYueBottomIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:cellBeanBottomIdentifier bundle:nil] forCellReuseIdentifier:cellBeanBottomIdentifier];
 
-    
     
     [self loadProduct:self.selectedModel];
 }
@@ -79,22 +92,6 @@
     if(self.selectedModel==BaoYueSelected) self.navigationItem.title=@"包月短信";
     else self.navigationItem.title=@"红豆服务";
     
-    NSDictionary *dic=@{@"type":@(type),@"gender":@(KKSharedCurrentUser.sex)};
-    [FSSharedNetWorkingManager GET:ServiceInterfaceGoodList parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        NSDictionary *respDic=(NSDictionary*)responseObject;
-        NSLog(@"goodlist:%@",respDic);
-        NSArray *arr=[respDic objectForKey:@"aaData"];
-        if(arr)
-        {
-            [self.productArr addObjectsFromArray:arr];
-            [self.tableView reloadData];
-        }
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-    }];
-    
     //加载话费名单
     [FSSharedNetWorkingManager GET:ServiceInterfaceBoysRand parameters:@{@"limit":@(50)} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
@@ -111,7 +108,40 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
     }];
-
+    
+    
+    //判断使用iap商品还是服务器商品
+    if(KKSharedGlobalManager.isIAP)
+    {
+        if(self.selectedModel==BaoYueSelected)
+        {
+            [self.productArr addObjectsFromArray:@[@{@"name":@"90天无限畅聊",@"id":BaoYueID_90Day,@"price":@(9800)},@{@"name":@"30天无限畅聊",@"id":BaoYueID_30Day,@"price":@(6800)},@{@"name":@"7天无限畅聊",@"id":BaoYueID_7Day,@"price":@(4500)}]];
+        }
+        else
+        {
+            [self.productArr addObjectsFromArray:@[@{@"name":@"900红豆",@"id":BeanID_900,@"price":@(9800)},@{@"name":@"600红豆",@"id":BeanID_600,@"price":@(6800)},@{@"name":@"300红豆",@"id":BeanID_300,@"price":@(4500)}]];
+        }
+        
+        [self.tableView reloadData];
+        return;
+    }
+    
+    //读取商品信息
+    NSDictionary *dic=@{@"type":@(type),@"gender":@(KKSharedCurrentUser.sex)};
+    [FSSharedNetWorkingManager GET:ServiceInterfaceGoodList parameters:dic progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSDictionary *respDic=(NSDictionary*)responseObject;
+        NSLog(@"goodlist:%@",respDic);
+        NSArray *arr=[respDic objectForKey:@"aaData"];
+        if(arr)
+        {
+            [self.productArr addObjectsFromArray:arr];
+            [self.tableView reloadData];
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
     
 }
 
@@ -136,7 +166,10 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row==0) return 180.0;
+    if(indexPath.row==0)
+    {
+        return 180;
+    }
     else if(indexPath.row==1) return self.productArr.count*(75+10)+5;
     else if(indexPath.row==2) return 50+10*21;
     else{
@@ -175,6 +208,25 @@
         
         [cell showDisplay:self.productArr];
         
+        KKWEAKSELF;
+        cell.buyProductClickBlock=^(NSDictionary *dic){
+          
+            if(KKSharedGlobalManager.isIAP)
+            {
+                if([weakself.store canPayment])
+                {
+                    [weakself.store buyProduct:[dic stringForKey:@"id" defaultValue:@""]];
+                }
+            }
+            else
+            {
+                PayViewController *payVC=KKViewControllerOfMainSB(@"PayViewController");
+                payVC.payDic=dic;
+                [weakself.navigationController pushViewController:payVC animated:YES];
+            }
+            
+        };
+        
         return cell;
     }
     else if(indexPath.row==2)
@@ -201,6 +253,53 @@
         
     }
    
+}
+
+#pragma mark - FSStoreDelegate
+-(void)buySucceed:(NSString *)productId
+{
+    if([productId isEqualToString:BaoYueID_7Day] || [productId isEqualToString:BaoYueID_30Day] || [productId isEqualToString:BaoYueID_90Day])
+    {
+        long long currentBaoYuetime=[KKSharedLocalPlistManager kkLongForKey:Plist_Key_BaoYueEndTime];
+        if(currentBaoYuetime==0) currentBaoYuetime=[[NSDate date] timeIntervalSince1970];
+        
+        if([productId isEqualToString:BaoYueID_7Day])
+        {
+            currentBaoYuetime+=7*24*3600;
+        }
+        else if([productId isEqualToString:BaoYueID_30Day])
+        {
+            currentBaoYuetime+=30*24*3600;
+        }
+        else if([productId isEqualToString:BaoYueID_90Day])
+        {
+            currentBaoYuetime+=90*24*3600;
+        }
+        [KKSharedLocalPlistManager setKKValue:@(currentBaoYuetime) forKey:Plist_Key_BaoYueEndTime];
+        
+        KKSharedCurrentUser.baoyueEndTime=[[NSDate dateWithTimeIntervalSince1970:currentBaoYuetime] stringYearMonthDay];
+        KKSharedCurrentUser.isBaoYue=YES;
+    }
+    else
+    {
+        NSInteger beannum=[KKSharedLocalPlistManager kkIntergerForKey:Plist_Key_BeanNum];
+        if([productId isEqualToString:BeanID_300])
+        {
+            beannum+=300;
+        }
+        else if([productId isEqualToString:BeanID_600])
+        {
+            beannum+=600;
+        }
+        else if([productId isEqualToString:BeanID_900])
+        {
+            beannum+=900;
+        }
+        [KKSharedLocalPlistManager setKKValue:@(beannum) forKey:Plist_Key_BeanNum];
+        KKSharedCurrentUser.beannum=beannum;
+    }
+    
+    [KKSharedGlobalManager payBackCheck:self.navigationController];
     
 }
 

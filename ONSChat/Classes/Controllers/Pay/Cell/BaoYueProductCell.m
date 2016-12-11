@@ -32,6 +32,7 @@
     }
 
     CGFloat orignY=5;
+    KKWEAKSELF;
     for (int i=0; i<arr.count; i++) {
         NSDictionary *dic=arr[i];
         BaoYueProductView *view=[BaoYueProductView productView];
@@ -51,7 +52,7 @@
         
         view.buyProductBlock=^(NSDictionary *dic){
           
-            
+            if(weakself.buyProductClickBlock) weakself.buyProductClickBlock(dic);
             
         };
     }
