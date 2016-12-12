@@ -52,6 +52,7 @@
 #import "KKBaseNavigationController.h"
 #import "KKBaseViewController.h"
 #import "KKBaseTableViewController.h"
+#import "KKWebViewController.h"
 //
 //#import "KKLoadDataViewController.h"
 

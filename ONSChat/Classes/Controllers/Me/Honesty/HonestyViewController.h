@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HonestyViewController : UIViewController
+@interface HonestyViewController : KKBaseViewController
 
 @end

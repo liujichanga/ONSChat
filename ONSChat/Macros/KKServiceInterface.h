@@ -82,6 +82,15 @@
 #define ServiceInterfaceReduceBeanNum KKStringWithFormat(@"%@/%@/reduceBeannum", KKServerDomain, App)
 
 
+/**  h5 URL **/
+//客服中心
+#define ServiceInterfaceCustomCallCenter @"http://www.tongchengsupei.cn/appdocument/callCenter.html"
+//用户协议
+#define ServiceInterfaceUserAgreement @"http://www.tongchengsupei.cn/appdocument/agreement.html"
+//用户关心的问题
+#define ServiceInterfaceQuestions @"http://www.tongchengsupei.cn/appdocument/questions.html"
+
+
 
 
 #endif

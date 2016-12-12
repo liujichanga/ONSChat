@@ -436,6 +436,11 @@
         else if(indexPath.row==3)
         {
             //在线客服
+            KKWebViewController *webVC=[[KKWebViewController alloc] init];
+            webVC.urlStr=ServiceInterfaceCustomCallCenter;
+            webVC.navTitle=@"客服中心";
+            webVC.hidesBottomBarWhenPushed=YES;
+            [self.navigationController pushViewController:webVC animated:YES];
         }
         else if(indexPath.row==4)
         {
