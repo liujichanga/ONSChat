@@ -246,10 +246,5 @@
         [SVProgressHUD dismissWithError:KKErrorInfo(error) afterDelay:1.2];
     }];
 }
-//计算资料完成度
--(void)infoCompletionPercentage{
-    
-    
-    
-}
+
 @end

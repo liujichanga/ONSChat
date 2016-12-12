@@ -72,7 +72,7 @@
     if(KKSharedCurrentUser.isPhone) startcount+=1;
     if([KKSharedGlobalManager getPhotosCount]>=3) startcount+=1;
     //判断资料完整度
-    NSInteger complete=[KKSharedGlobalManager infoCompletedPercent];
+    NSInteger complete=[KKSharedGlobalManager infoCompletedPercent:nil];
     if(complete>=90) startcount+=1;
 
     

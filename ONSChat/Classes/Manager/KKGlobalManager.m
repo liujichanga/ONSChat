@@ -204,9 +204,32 @@ static KKGlobalManager *instance;
     return count;
 }
 
--(NSInteger)infoCompletedPercent
+-(NSInteger)infoCompletedPercent:(KKUser *)user
 {
-    return 90;
+    NSInteger count = 0;
+    if(KKStringIsNotBlank(user.birthday)) count+=1;
+    if(KKStringIsNotBlank(user.address)) count+=1;
+    if(user.height!=0) count+=1;
+    if(user.weight!=0) count+=1;
+    if(KKStringIsNotBlank(user.blood)) count+=1;
+    if(KKStringIsNotBlank(user.graduate)) count+=1;
+    if(KKStringIsNotBlank(user.job)) count+=1;
+    if(KKStringIsNotBlank(user.income)) count+=1;
+    if(KKStringIsNotBlank(user.hasHouse)) count+=1;
+    if(user.hasCar) count+=1;
+    if(KKStringIsNotBlank(user.marry)) count+=1;
+    if(KKStringIsNotBlank(user.child)) count+=1;
+    if(KKStringIsNotBlank(user.distanceLove)) count+=1;
+    if(KKStringIsNotBlank(user.lovetype)) count+=1;
+    if(KKStringIsNotBlank(user.livetog)) count+=1;
+    if(KKStringIsNotBlank(user.withparent)) count+=1;
+    if(KKStringIsNotBlank(user.pos)) count+=1;
+    if(KKStringIsNotBlank(user.hobby)) count+=1;
+    if(KKStringIsNotBlank(user.personality)) count+=1;
+    if(KKStringIsNotBlank(user.phone)) count+=1;
+    if(KKStringIsNotBlank(user.qq)) count+=1;
+
+    return (count/21.0)*100;
 }
 
 @end

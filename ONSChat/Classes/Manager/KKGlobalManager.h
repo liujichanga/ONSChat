@@ -42,7 +42,7 @@
 //当前用户相册图片的数量
 -(NSInteger)getPhotosCount;
 //资料完善程度
--(NSInteger)infoCompletedPercent;
+-(NSInteger)infoCompletedPercent:(KKUser *)user;
 
 
 //表情数组
