@@ -120,7 +120,7 @@
         _iconImageView.image=[UIImage imageNamed:@"vetify_info"];
         _titleTextLabel.text=@"资料达到90%";
       
-        NSInteger complete=[KKSharedGlobalManager infoCompletedPercent];
+        NSInteger complete=[KKSharedGlobalManager infoCompletedPercent:nil];
         _subtitleTextLabel.text=KKStringWithFormat(@"目前%ld%%",complete);
         
         //星星判断

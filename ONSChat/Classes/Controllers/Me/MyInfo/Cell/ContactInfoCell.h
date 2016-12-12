@@ -10,4 +10,6 @@
 
 @interface ContactInfoCell : UITableViewCell
 
+@property (nonatomic, strong) KKUser *user;
+
 @end

@@ -11,4 +11,6 @@
 @interface MyPersonalityCell : UITableViewCell
 @property (nonatomic, strong) NSArray *dataArr;
 @property (nonatomic, copy) void(^cellHeight)(CGFloat height);
+//用户已选个性
+@property (nonatomic, strong) NSString *selectedInfoStr;
 @end

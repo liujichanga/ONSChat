@@ -71,6 +71,19 @@
         self.age = [userDic integerForKey:@"age" defaultValue:0];
         self.nickName = [userDic stringForKey:@"nickname" defaultValue:@""];
         self.noticedToday = [userDic boolForKey:@"noticed" defaultValue:NO];
+        self.address = [userDic stringForKey:@"address" defaultValue:@""];
+        //时间戳转生日
+        NSString *birthStr = [userDic stringForKey:@"birth" defaultValue:@""];
+        NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateStyle:NSDateFormatterMediumStyle];
+        [formatter setTimeStyle:NSDateFormatterShortStyle];
+        [formatter setDateFormat:@"yyyy-MM-dd"];
+        NSDate* date = [NSDate dateWithTimeIntervalSince1970:[birthStr doubleValue]/ 1000.0];
+        self.birthday = [formatter stringFromDate:date];
+        self.graduate = [userDic stringForKey:@"graduate" defaultValue:@""];
+        self.qq = [userDic stringForKey:@"qq" defaultValue:@""];
+        self.phone = [userDic stringForKey:@"phone" defaultValue:@""];
+        self.height = [userDic integerForKey:@"height" defaultValue:0];
     }
     
     return self;

@@ -21,18 +21,30 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WX3-CR-1VI">
                             <rect key="frame" x="15" y="15" width="345" height="153"/>
                             <subviews>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" placeholder="对她感兴趣，写下评论，引起她的注意吧....." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8AC-Qq-5dK">
-                                    <rect key="frame" x="10" y="13" width="325" height="132"/>
-                                    <nil key="textColor"/>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4UZ-u5-wKV">
+                                    <rect key="frame" x="15" y="15" width="315" height="123"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="对她感兴趣，写下评论，引起她的注意吧....." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1X8-Je-oU3">
+                                    <rect key="frame" x="15" y="15" width="315" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="VOi-g8-c3w"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                </textField>
+                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="8AC-Qq-5dK" secondAttribute="bottom" constant="8" id="22i-WY-yyC"/>
-                                <constraint firstItem="8AC-Qq-5dK" firstAttribute="top" secondItem="WX3-CR-1VI" secondAttribute="top" constant="13" id="Fn4-rw-BYc"/>
-                                <constraint firstItem="8AC-Qq-5dK" firstAttribute="leading" secondItem="WX3-CR-1VI" secondAttribute="leading" constant="10" id="WiR-9M-T4x"/>
-                                <constraint firstAttribute="trailing" secondItem="8AC-Qq-5dK" secondAttribute="trailing" constant="10" id="ytT-qW-MS9"/>
+                                <constraint firstAttribute="trailing" secondItem="4UZ-u5-wKV" secondAttribute="trailing" constant="15" id="7AR-Cc-6Lq"/>
+                                <constraint firstItem="4UZ-u5-wKV" firstAttribute="top" secondItem="WX3-CR-1VI" secondAttribute="top" constant="15" id="A69-GN-4fT"/>
+                                <constraint firstItem="1X8-Je-oU3" firstAttribute="leading" secondItem="4UZ-u5-wKV" secondAttribute="leading" id="RMm-Cw-pbj"/>
+                                <constraint firstItem="1X8-Je-oU3" firstAttribute="trailing" secondItem="4UZ-u5-wKV" secondAttribute="trailing" id="UtT-Wa-uP0"/>
+                                <constraint firstItem="1X8-Je-oU3" firstAttribute="top" secondItem="4UZ-u5-wKV" secondAttribute="top" id="VbH-Yb-832"/>
+                                <constraint firstAttribute="bottom" secondItem="4UZ-u5-wKV" secondAttribute="bottom" constant="15" id="bzZ-JR-sTa"/>
+                                <constraint firstItem="4UZ-u5-wKV" firstAttribute="leading" secondItem="WX3-CR-1VI" secondAttribute="leading" constant="15" id="s51-0h-mgS"/>
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kt4-PM-d1V" customClass="ONSButtonPurple">
@@ -72,7 +84,8 @@
             <nil key="simulatedStatusBarMetrics"/>
             <connections>
                 <outlet property="bgView" destination="WX3-CR-1VI" id="2vR-BH-HIS"/>
-                <outlet property="commentTextField" destination="8AC-Qq-5dK" id="p3h-Ka-ar1"/>
+                <outlet property="commentTextView" destination="4UZ-u5-wKV" id="n8a-Kw-Ju4"/>
+                <outlet property="placeLabel" destination="1X8-Je-oU3" id="v7l-4j-E9g"/>
             </connections>
             <point key="canvasLocation" x="9.5" y="-274.5"/>
         </view>

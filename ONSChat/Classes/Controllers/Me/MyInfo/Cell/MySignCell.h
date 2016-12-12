@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MySignCell : UITableViewCell
-
+@property (nonatomic, strong) NSString *userSign;
 @end

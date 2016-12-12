@@ -97,8 +97,8 @@
             
             NSDictionary *dic = (NSDictionary*)responseObject;
             KKLog(@"register:%@",responseObject);
-            BOOL status=[dic boolForKey:@"status" defaultValue:NO];
-            if(status)
+            NSInteger status=[dic integerForKey:@"status" defaultValue:0];
+            if(status==1)
             {
                 KKSharedUserManager.tempUser.userId=[dic stringForKey:@"id" defaultValue:@""];
                 KKSharedUserManager.tempUser.password=[dic stringForKey:@"password" defaultValue:@""];
