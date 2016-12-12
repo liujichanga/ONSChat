@@ -27,15 +27,17 @@
 -(void)inputViewClickPhoto;
 
 //开通短信包月
--(void)gotoBaoYue;
+-(void)inputGotoBaoYue;
 //开通vip
--(void)gotoVIP;
+-(void)inputGotoVIP;
 
 @end
 
 
 @interface ONSInputView : UIView
 
+//要发送的信息
+@property(strong,nonatomic) NSString *targetId;
 
 /** 文本输入框 */
 @property (weak, nonatomic) UITextView *textView;

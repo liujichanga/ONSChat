@@ -13,12 +13,17 @@
 /**点击*/
 -(void)answerViewTap:(NSString*)answer;
 
+//开通短信包月
+-(void)answerGotoBaoYue;
+
 @end
 
 
 @interface AnswerView : UIView
 
 -(instancetype)initWithAnswer:(NSDictionary*)dic;
+
+@property(strong,nonatomic) NSString *targetId;
 
 @property (weak, nonatomic) id<AnswerViewDelegate> delegate;
 

@@ -69,6 +69,7 @@
     toolView.delegate = self;
     _onsInputView = toolView;
     _onsInputView.hidden=YES;
+    _onsInputView.targetId=self.targetId;
     [self.view addSubview:_onsInputView];
     [self setTableViewBottomInset:0.0];
 
@@ -120,6 +121,7 @@
             {
                 AnswerView *answerview=[[AnswerView alloc] initWithAnswer:lastMessage.contentJson];
                 [weakself.view addSubview:answerview];
+                answerview.targetId=self.targetId;
                 answerview.delegate=self;
             }
             
@@ -179,29 +181,12 @@
 /** 文本内容输入完成 */
 - (void)inputView:(ONSInputView *)inputView didEndEditingText:(NSString *)text {
     
-    //去接口判断
-    NSDictionary *param=@{@"toId":self.targetId,@"content":text,@"type":@(1)};
-    [FSSharedNetWorkingManager POST:ServiceInterfaceMessageSend parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSDictionary *respDic=(NSDictionary*)responseObject;
-        NSLog(@"send:%@",respDic);
-        NSInteger status=[respDic integerForKey:@"status" defaultValue:0];
-        if(status==1)
-        {
-            //可以发送
-            NSDictionary *med=@{@"content":text};
-            NSDictionary *dic=@{@"fromid":self.targetId,@"avatar":self.targetIdAvaterUrl,@"nickname":self.targetNickName,@"age":@(self.targetAge),@"msgtype":@(ONSMessageType_Text),@"replytype":@(ONSReplyType_Normal),@"medirlist":med};
-            
-            [KKSharedONSChatManager sendMessage:dic];
-        }
-        else
-        {
-            //去购买
-            [self gotoBaoYue];
-        }
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-    }];
+    //可以发送
+    NSDictionary *med=@{@"content":text};
+    NSDictionary *dic=@{@"fromid":self.targetId,@"avatar":self.targetIdAvaterUrl,@"nickname":self.targetNickName,@"age":@(self.targetAge),@"msgtype":@(ONSMessageType_Text),@"replytype":@(ONSReplyType_Normal),@"medirlist":med};
+    
+    [KKSharedONSChatManager sendMessage:dic];
+    
 }
 
 /** InputView高度发成变化 */
@@ -255,14 +240,14 @@
 }
 
 /** 去开通包月**/
--(void)gotoBaoYue
+-(void)inputGotoBaoYue
 {
     BaoYuePayViewController *baoyueVC=KKViewControllerOfMainSB(@"BaoYuePayViewController");
     [self.navigationController pushViewController:baoyueVC animated:YES];
 }
 
 /** 去开通vip**/
--(void)gotoVIP
+-(void)inputGotoVIP
 {
     VIPPayViewController *vipVC=KKViewControllerOfMainSB(@"VIPPayViewController");
     [self.navigationController pushViewController:vipVC animated:YES];
@@ -344,30 +329,18 @@
 #pragma mark - AnswerViewDelegate
 -(void)answerViewTap:(NSString *)answer
 {
-    //去接口判断
-    NSDictionary *param=@{@"toId":self.targetId,@"content":answer,@"type":@(3)};
-    [FSSharedNetWorkingManager POST:ServiceInterfaceMessageSend parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSDictionary *respDic=(NSDictionary*)responseObject;
-        NSLog(@"send:%@",respDic);
-        NSInteger status=[respDic integerForKey:@"status" defaultValue:0];
-        if(status==1)
-        {
-            //可以发送
-            NSDictionary *med=@{@"content":answer};
-            NSDictionary *dic=@{@"fromid":self.targetId,@"avatar":self.targetIdAvaterUrl,@"nickname":self.targetNickName,@"age":@(self.targetAge),@"msgtype":@(ONSMessageType_Text),@"replytype":@(ONSReplyType_Contact),@"medirlist":med};
-            
-            [KKSharedONSChatManager sendMessage:dic];
-        }
-        else
-        {
-            //去购买
-            [self gotoBaoYue];
-        }
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-    }];
+    //可以发送
+    NSDictionary *med=@{@"content":answer};
+    NSDictionary *dic=@{@"fromid":self.targetId,@"avatar":self.targetIdAvaterUrl,@"nickname":self.targetNickName,@"age":@(self.targetAge),@"msgtype":@(ONSMessageType_Text),@"replytype":@(ONSReplyType_Contact),@"medirlist":med};
     
+    [KKSharedONSChatManager sendMessage:dic];
+    
+}
+
+-(void)answerGotoBaoYue
+{
+    BaoYuePayViewController *baoyueVC=KKViewControllerOfMainSB(@"BaoYuePayViewController");
+    [self.navigationController pushViewController:baoyueVC animated:YES];
 }
 
 
@@ -543,6 +516,12 @@
         recommendUser.uid =message.targetId;
         [self.navigationController pushViewController:recommendUser animated:YES];
     }
+}
+
+-(void)messageGotoVip
+{
+    VIPPayViewController *vipVC=KKViewControllerOfMainSB(@"VIPPayViewController");
+    [self.navigationController pushViewController:vipVC animated:YES];
 }
 
 #pragma mark - ViewController lifecycle
