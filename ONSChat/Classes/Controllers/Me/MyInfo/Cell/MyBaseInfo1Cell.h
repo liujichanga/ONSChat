@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MyBaseInfo1Cell : UITableViewCell
+//弹出所有选项
 @property (nonatomic, copy) void(^infoTypeBlock)(MyInfoType type);
+@property (nonatomic, strong) KKUser *user;
 @end

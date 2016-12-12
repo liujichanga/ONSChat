@@ -19,9 +19,9 @@
 
 @implementation OptionsView
 
--(instancetype)initWithFrame:(CGRect)frame andData:(NSArray*)optionArray{
+-(instancetype)initWithFrame:(CGRect)frame andData:(NSArray*)optionArray andSelectedHobby:(NSString*)selectedInfo{
     if (self = [super initWithFrame:frame]) {
-        
+        self.optionBtnArr = [NSMutableArray array];
         //第一个选项的Y值
         CGFloat startY = 0;
         CGFloat btnW = (KKScreenWidth-4*Interval)/3.0;
@@ -42,6 +42,17 @@
             [optionBtn setImage:[UIImage imageNamed:@"abc_btn_check_to_on_mtrl_000"] forState:UIControlStateNormal];
             [optionBtn setImage:[UIImage imageNamed:@"abc_btn_check_to_on_mtrl_015"] forState:UIControlStateSelected];
             optionBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+            //加载用户兴趣、个性信息
+            if (selectedInfo.length>0) {
+                if ([selectedInfo rangeOfString:optionStr].location!=NSNotFound) {
+                    optionBtn.selected = YES;
+                }
+            }
+            if (selectedInfo.length>0) {
+                if ([selectedInfo rangeOfString:optionStr].location !=NSNotFound){
+                    optionBtn.selected = YES;
+                }
+            }
 //            [optionBtn setBackgroundColor:[UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0]];
             [optionBtn addTarget:self action:@selector(optionBtnClick:) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:optionBtn];
@@ -55,5 +66,9 @@
     
     btn.selected = !btn.selected;
 
+}
+
+-(void)dealloc{
+    KKLog(@"%@ dealloc",self.class);
 }
 @end

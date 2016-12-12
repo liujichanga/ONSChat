@@ -40,19 +40,23 @@
         btn.layer.cornerRadius=8.0;
         btn.layer.masksToBounds = YES;
     }
-    _marryLabel.text = KKSharedCurrentUser.marry;
-    _childLabel.text = KKSharedCurrentUser.child;
-    _distanceLoveLabel.text = KKSharedCurrentUser.distanceLove;
-    _loveTypeLabel.text = KKSharedCurrentUser.lovetype;
-    _liveTogLabel.text = KKSharedCurrentUser.livetog;
-    _withParentLabel.text = KKSharedCurrentUser.withparent;
-    _posLabel.text = KKSharedCurrentUser.pos;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+-(void)setUser:(KKUser *)user{
+    _user = user;
+    _marryLabel.text = user.marry;
+    _childLabel.text = user.child;
+    _distanceLoveLabel.text = user.distanceLove;
+    _loveTypeLabel.text = user.lovetype;
+    _liveTogLabel.text = user.livetog;
+    _withParentLabel.text = user.withparent;
+    _posLabel.text = user.pos;
 }
 
 -(void)showSelcetedInfo:(NSNotification*)dic{
@@ -63,8 +67,14 @@
 }
 
 -(void)saveInfo{
-    
     KKLog(@"基本信息2");
+    KKSharedCurrentUser.marry=_marryLabel.text;
+    KKSharedCurrentUser.child=_childLabel.text;
+    KKSharedCurrentUser.distanceLove=_distanceLoveLabel.text;
+    KKSharedCurrentUser.lovetype=_loveTypeLabel.text;
+    KKSharedCurrentUser.livetog=_liveTogLabel.text;
+    KKSharedCurrentUser.withparent=_withParentLabel.text;
+    KKSharedCurrentUser.pos=_posLabel.text;
 }
 
 - (IBAction)bgBtnClick:(UIButton *)sender {

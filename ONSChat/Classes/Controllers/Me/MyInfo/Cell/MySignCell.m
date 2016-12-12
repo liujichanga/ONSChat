@@ -24,7 +24,7 @@
     _signText.delegate = self;
     _signText.layer.borderWidth = 0.5;
     _signText.layer.borderColor = [UIColor groupTableViewBackgroundColor].CGColor;
-    _signText.text = KKSharedCurrentUser.sign;
+    
     KKNotificationCenterAddObserverOfSelf(saveInfo, @"saveInfo", nil);
 }
 
@@ -32,6 +32,10 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+-(void)setUserSign:(NSString *)userSign{
+    _userSign = userSign;
+    _signText.text = userSign;
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {
@@ -48,8 +52,8 @@
 
 
 -(void)saveInfo{
-    
     KKLog(@"内心独白");
+    KKSharedCurrentUser.sign = self.signText.text;
 }
 
 -(void)dealloc{

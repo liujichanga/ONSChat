@@ -54,6 +54,7 @@
     
 }
 
+//根据所选信息的类型 拿到此类型选项数据
 -(void)showInfoPickerViewWithType:(MyInfoType)type{
     self.hidden = NO;
     self.infoType = type;
@@ -177,6 +178,7 @@
     self.hidden = YES;
 }
 
+//完成按钮点击事件 取到答案 传给cell显示
 - (IBAction)OKBtnClick:(id)sender {
     
     if (self.infoType==MyInfoType_Birthday) {
@@ -206,6 +208,7 @@
     }
     self.hidden = YES;
     NSDictionary *notDic = @{@"infoStr":self.infoStr};
+    //cell不同 通知名不同
     if (self.cellType==1) {
         [KKNotificationCenter postNotificationName:@"showSelcetedInfo1" object:nil userInfo:notDic];
     }else{
