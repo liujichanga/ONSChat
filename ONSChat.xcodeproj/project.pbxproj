@@ -77,6 +77,13 @@
 		1C2170391DFA9E5F009A5BC8 /* PayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2170381DFA9E5F009A5BC8 /* PayViewController.m */; };
 		1C21703D1DFA9EDE009A5BC8 /* PayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C21703B1DFA9EDE009A5BC8 /* PayCell.m */; };
 		1C21703E1DFA9EDE009A5BC8 /* PayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C21703C1DFA9EDE009A5BC8 /* PayCell.xib */; };
+		1C2B66151DFE70D700E07BFF /* HonestyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2B66141DFE70D700E07BFF /* HonestyViewController.m */; };
+		1C2B66181DFE78BB00E07BFF /* IdentifierViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2B66171DFE78BB00E07BFF /* IdentifierViewController.m */; };
+		1C2B661D1DFE7B9C00E07BFF /* IdentifierCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2B661B1DFE7B9C00E07BFF /* IdentifierCell.m */; };
+		1C2B661E1DFE7B9C00E07BFF /* IdentifierCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C2B661C1DFE7B9C00E07BFF /* IdentifierCell.xib */; };
+		1C2B66221DFE981E00E07BFF /* HonestBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2B66201DFE981E00E07BFF /* HonestBottomCell.m */; };
+		1C2B66231DFE981E00E07BFF /* HonestBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C2B66211DFE981E00E07BFF /* HonestBottomCell.xib */; };
+		1C2B66271DFEAB9700E07BFF /* CustomHiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2B66261DFEAB9700E07BFF /* CustomHiViewController.m */; };
 		1C2B9DEA1DEE6B3F0088E2FE /* KKDynamic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2B9DE91DEE6B3F0088E2FE /* KKDynamic.m */; };
 		1C2B9DED1DEEC7240088E2FE /* KKDynamicDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2B9DEC1DEEC7240088E2FE /* KKDynamicDao.m */; };
 		1C2B9DF21DEED4F70088E2FE /* ChatListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2B9DF01DEED4F70088E2FE /* ChatListCell.m */; };
@@ -627,6 +634,18 @@
 		1C21703A1DFA9EDE009A5BC8 /* PayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayCell.h; sourceTree = "<group>"; };
 		1C21703B1DFA9EDE009A5BC8 /* PayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayCell.m; sourceTree = "<group>"; };
 		1C21703C1DFA9EDE009A5BC8 /* PayCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayCell.xib; sourceTree = "<group>"; };
+		1C2B66131DFE70D700E07BFF /* HonestyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HonestyViewController.h; sourceTree = "<group>"; };
+		1C2B66141DFE70D700E07BFF /* HonestyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HonestyViewController.m; sourceTree = "<group>"; };
+		1C2B66161DFE78BB00E07BFF /* IdentifierViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IdentifierViewController.h; sourceTree = "<group>"; };
+		1C2B66171DFE78BB00E07BFF /* IdentifierViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IdentifierViewController.m; sourceTree = "<group>"; };
+		1C2B661A1DFE7B9C00E07BFF /* IdentifierCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IdentifierCell.h; sourceTree = "<group>"; };
+		1C2B661B1DFE7B9C00E07BFF /* IdentifierCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IdentifierCell.m; sourceTree = "<group>"; };
+		1C2B661C1DFE7B9C00E07BFF /* IdentifierCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IdentifierCell.xib; sourceTree = "<group>"; };
+		1C2B661F1DFE981E00E07BFF /* HonestBottomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HonestBottomCell.h; sourceTree = "<group>"; };
+		1C2B66201DFE981E00E07BFF /* HonestBottomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HonestBottomCell.m; sourceTree = "<group>"; };
+		1C2B66211DFE981E00E07BFF /* HonestBottomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HonestBottomCell.xib; sourceTree = "<group>"; };
+		1C2B66251DFEAB9700E07BFF /* CustomHiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomHiViewController.h; sourceTree = "<group>"; };
+		1C2B66261DFEAB9700E07BFF /* CustomHiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomHiViewController.m; sourceTree = "<group>"; };
 		1C2B9DE81DEE6B3F0088E2FE /* KKDynamic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKDynamic.h; sourceTree = "<group>"; };
 		1C2B9DE91DEE6B3F0088E2FE /* KKDynamic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKDynamic.m; sourceTree = "<group>"; };
 		1C2B9DEB1DEEC7240088E2FE /* KKDynamicDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKDynamicDao.h; sourceTree = "<group>"; };
@@ -1328,6 +1347,8 @@
 		1C0E77A91DE325790083F9F8 /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				1C2B66241DFEAB7B00E07BFF /* CustomHi */,
+				1C2B66121DFE70C700E07BFF /* Honesty */,
 				9BAFFC7E1DF7EDC7000747E1 /* MyInfo */,
 				9BFBE33C1DF02EBE009EF3BE /* MyDynamic */,
 				1C5EE22E1DEC2865004B6AFB /* MyPhoto */,
@@ -1500,6 +1521,40 @@
 				1C2170231DFA9C6E009A5BC8 /* WXApiObject.h */,
 			);
 			path = WeChatSDK_1.5;
+			sourceTree = "<group>";
+		};
+		1C2B66121DFE70C700E07BFF /* Honesty */ = {
+			isa = PBXGroup;
+			children = (
+				1C2B66191DFE7B7600E07BFF /* Cell */,
+				1C2B66131DFE70D700E07BFF /* HonestyViewController.h */,
+				1C2B66141DFE70D700E07BFF /* HonestyViewController.m */,
+				1C2B66161DFE78BB00E07BFF /* IdentifierViewController.h */,
+				1C2B66171DFE78BB00E07BFF /* IdentifierViewController.m */,
+			);
+			path = Honesty;
+			sourceTree = "<group>";
+		};
+		1C2B66191DFE7B7600E07BFF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1C2B661A1DFE7B9C00E07BFF /* IdentifierCell.h */,
+				1C2B661B1DFE7B9C00E07BFF /* IdentifierCell.m */,
+				1C2B661C1DFE7B9C00E07BFF /* IdentifierCell.xib */,
+				1C2B661F1DFE981E00E07BFF /* HonestBottomCell.h */,
+				1C2B66201DFE981E00E07BFF /* HonestBottomCell.m */,
+				1C2B66211DFE981E00E07BFF /* HonestBottomCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		1C2B66241DFEAB7B00E07BFF /* CustomHi */ = {
+			isa = PBXGroup;
+			children = (
+				1C2B66251DFEAB9700E07BFF /* CustomHiViewController.h */,
+				1C2B66261DFEAB9700E07BFF /* CustomHiViewController.m */,
+			);
+			path = CustomHi;
 			sourceTree = "<group>";
 		};
 		1C2B9DEE1DEED4E10088E2FE /* Cell */ = {
@@ -2701,6 +2756,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C2B66231DFE981E00E07BFF /* HonestBottomCell.xib in Resources */,
 				1C89E93A1DF5984900949973 /* 054@2x.png in Resources */,
 				1C89E91B1DF5984800949973 /* 039.png in Resources */,
 				1C89E8E01DF5984800949973 /* 009@2x.png in Resources */,
@@ -2783,6 +2839,7 @@
 				1C89E8E91DF5984800949973 /* 014.png in Resources */,
 				1C89E8E31DF5984800949973 /* 011.png in Resources */,
 				1C89E8ED1DF5984800949973 /* 016.png in Resources */,
+				1C2B661E1DFE7B9C00E07BFF /* IdentifierCell.xib in Resources */,
 				9BFBE3441DF02F40009EF3BE /* DynamicCommentCell.xib in Resources */,
 				1C89E9431DF5984900949973 /* 059.png in Resources */,
 				9BA6B3051DF00E83006AD474 /* CommentPopView.xib in Resources */,
@@ -2897,6 +2954,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C2B9DED1DEEC7240088E2FE /* KKDynamicDao.m in Sources */,
+				1C2B66221DFE981E00E07BFF /* HonestBottomCell.m in Sources */,
 				569864341DE00EAF0059D484 /* UIImage+GIF.m in Sources */,
 				1C21702D1DFA9C6E009A5BC8 /* openssl_wrapper.m in Sources */,
 				5698645F1DE010B40059D484 /* UIColor+Hex.m in Sources */,
@@ -2935,6 +2993,7 @@
 				1C1BD8701DF810F00017FA3A /* ONSWaitReplyView.m in Sources */,
 				5698645C1DE010B40059D484 /* NSString+Digest.m in Sources */,
 				1C2170391DFA9E5F009A5BC8 /* PayViewController.m in Sources */,
+				1C2B66181DFE78BB00E07BFF /* IdentifierViewController.m in Sources */,
 				9BC32EFB1DE6D31600CDDAFB /* FemaleIncomeViewController.m in Sources */,
 				1C08B6821DF96CD6006820FE /* VIPProductCell.m in Sources */,
 				569864271DE00EAF0059D484 /* UIScrollView+MJExtension.m in Sources */,
@@ -2949,6 +3008,7 @@
 				1C6B3A0B1DE3DCF3008ACCA8 /* KKGlobalManager.m in Sources */,
 				1C7B8FBB1DFBCC34006DAAA9 /* BaoYueHeadCell.m in Sources */,
 				1C0E77AC1DE325840083F9F8 /* MeViewController.m in Sources */,
+				1C2B66151DFE70D700E07BFF /* HonestyViewController.m in Sources */,
 				9BD749EF1DFBABAA0045C6DA /* IQKeyboardManager.m in Sources */,
 				9BD749F51DFBABAA0045C6DA /* IQToolbar.m in Sources */,
 				9BAFFC7C1DF6A725000747E1 /* VideoThumbnailCell.m in Sources */,
@@ -3052,6 +3112,7 @@
 				569864391DE00EAF0059D484 /* UIView+WebCacheOperation.m in Sources */,
 				1C5EE2441DEC4B04004B6AFB /* KKMediaThumbnailController.m in Sources */,
 				9BD749F01DFBABAA0045C6DA /* IQKeyboardReturnKeyHandler.m in Sources */,
+				1C2B66271DFEAB9700E07BFF /* CustomHiViewController.m in Sources */,
 				1C216FB91DFA8D7D009A5BC8 /* FSStore.m in Sources */,
 				5698645B1DE010B40059D484 /* NSString+Convertor.m in Sources */,
 				1C20F7A11DF6990A00099832 /* TextMessageCell.m in Sources */,
@@ -3063,6 +3124,7 @@
 				1C327C5E1DE691E400E9DFB3 /* NearUserCell.m in Sources */,
 				5698641B1DE00EAF0059D484 /* MJRefreshHeader.m in Sources */,
 				1CDD6D001DE97771006AAFAB /* VIPPayViewController.m in Sources */,
+				1C2B661D1DFE7B9C00E07BFF /* IdentifierCell.m in Sources */,
 				1C2B9DEA1DEE6B3F0088E2FE /* KKDynamic.m in Sources */,
 				9BD749EE1DFBABAA0045C6DA /* IQUIWindow+Hierarchy.m in Sources */,
 				9BC32EE91DE5A8CE00CDDAFB /* UserInfoViewController.m in Sources */,

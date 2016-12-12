@@ -106,6 +106,7 @@
 - (void)completeTransaction:(SKPaymentTransaction *)transaction {
     [[SKPaymentQueue defaultQueue] finishTransaction: transaction];
     NSLog(@"complete");
+    [SVProgressHUD dismiss];
     if(_delegate) [_delegate buySucceed:self.productId];
 }
 

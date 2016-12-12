@@ -78,6 +78,9 @@
 #define ServiceInterfaceUsertTelbind KKStringWithFormat(@"%@/%@/user/telbind", KKServerDomain, AppPre)
 //读取红豆随机人
 #define ServiceInterfaceBoysRand KKStringWithFormat(@"%@/%@/user/boys/rand", KKServerDomain, AppPre)
+//减去红豆
+#define ServiceInterfaceReduceBeanNum KKStringWithFormat(@"%@/%@/reduceBeannum", KKServerDomain, App)
+
 
 
 

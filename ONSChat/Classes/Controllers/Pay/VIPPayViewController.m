@@ -11,6 +11,8 @@
 #import "VIPProductCell.h"
 #import "VIPBottomCell.h"
 #import "PayViewController.h"
+#import "ChatViewController.h"
+#import "RecommendUserInfoViewController.h"
 
 
 #define cellVIPHeadIdentifier @"VIPHeadCell"
@@ -171,7 +173,15 @@
     KKSharedCurrentUser.vipEndTime=[[NSDate dateWithTimeIntervalSince1970:currentViptime] stringYearMonthDay];
     KKSharedCurrentUser.isVIP=YES;
     
-    [KKSharedGlobalManager payBackCheck:self.navigationController];
+    //回退
+    for (UIViewController *viewController in self.navigationController.viewControllers) {
+        if([viewController isKindOfClass:[ChatViewController class]] || [viewController isKindOfClass:[RecommendUserInfoViewController class]])
+        {
+            [self.navigationController popToViewController:viewController animated:YES];
+            return;
+        }
+    }
+    [self.navigationController popToRootViewControllerAnimated:YES];
 
 }
 

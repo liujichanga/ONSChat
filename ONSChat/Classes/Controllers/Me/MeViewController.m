@@ -16,6 +16,9 @@
 #import "MyInfoViewController.h"
 #import "VIPPayViewController.h"
 #import "BaoYuePayViewController.h"
+#import "HonestyViewController.h"
+#import "CustomHiViewController.h"
+
 
 
 #define cellHeadIdentifier @"HeadCell"
@@ -402,7 +405,6 @@
             dynamicList.uidStr = @"0";
             dynamicList.showRightItem = YES;
             [self.navigationController pushViewController:dynamicList animated:YES];
-
             
         }
         else if(indexPath.row==2)
@@ -421,11 +423,15 @@
         else if(indexPath.row==1)
         {
             //诚信星级
+            HonestyViewController *honestVC=KKViewControllerOfMainSB(@"HonestyViewController");
+            [self.navigationController pushViewController:honestVC animated:YES];
             
         }
         else if(indexPath.row==2)
         {
             //自定义招呼
+            CustomHiViewController *customhiVC=KKViewControllerOfMainSB(@"CustomHiViewController");
+            [self.navigationController pushViewController:customhiVC animated:YES];
         }
         else if(indexPath.row==3)
         {

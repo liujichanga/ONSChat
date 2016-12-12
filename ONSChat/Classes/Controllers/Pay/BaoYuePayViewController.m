@@ -13,6 +13,9 @@
 #import "BaoYueBottomCell.h"
 #import "BeanBottomCell.h"
 #import "PayViewController.h"
+#import "ChatViewController.h"
+#import "RecommendUserInfoViewController.h"
+
 
 
 #define cellBaoYueHeadIdentifier @"BaoYueHeadCell"
@@ -299,9 +302,16 @@
         KKSharedCurrentUser.beannum=beannum;
     }
     
-    [KKSharedGlobalManager payBackCheck:self.navigationController];
-    
+    for (UIViewController *viewController in self.navigationController.viewControllers) {
+        if([viewController isKindOfClass:[ChatViewController class]] || [viewController isKindOfClass:[RecommendUserInfoViewController class]])
+        {
+            [self.navigationController popToViewController:viewController animated:YES];
+            return;
+        }
+    }
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
+
 
 
 @end
