@@ -83,6 +83,13 @@
 //使用协议
 - (IBAction)useAgreementClick:(id)sender {
     KKLog(@"协议");
+    [self.navigationController setNavigationBarHidden:NO];
+
+    KKWebViewController *webVC=[[KKWebViewController alloc] init];
+    webVC.urlStr=ServiceInterfaceUserAgreement;
+    webVC.navTitle=@"用户协议";
+    webVC.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:webVC animated:YES];
 }
 //下一步点击事件 男女跳转不同
 - (IBAction)nextStepBtnClick:(id)sender {

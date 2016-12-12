@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *registerBtnLeftConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *loginBtnRightConstraint;
 
+@property (weak, nonatomic) IBOutlet UILabel *getPasswordLabel;
 @end
 
 @implementation LoginViewController
@@ -35,6 +36,21 @@
     {
         _passwordTextField.text=[KKSharedUserManager lastLoginUser].password;
     }
+    
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(getPassword:)];
+    [self.getPasswordLabel addGestureRecognizer:tapGestureRecognizer];
+    
+    NSString *str=@"忘记密码，这里找回密码";
+    NSRange rang=NSMakeRange(5, 6);
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:str];
+    [attributedString addAttribute:NSForegroundColorAttributeName value:KKColorPurple range:rang];
+    _getPasswordLabel.attributedText=attributedString;
+
+}
+
+-(void)getPassword:(id)sender{
+    
+    
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
