@@ -36,6 +36,8 @@
 
 @property(strong,nonatomic) NSMutableArray *arrDatas;
 
+@property(assign,nonatomic) NSInteger completed;
+
 @end
 
 
@@ -51,6 +53,8 @@
     [self.tableView registerNib:[UINib nibWithNibName:cellIdentifierIdentifier bundle:nil] forCellReuseIdentifier:cellIdentifierIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:cellHonestBottomIdentifier bundle:nil] forCellReuseIdentifier:cellHonestBottomIdentifier];
 
+    [self loadUserInfo];
+
     [self loadStar];
 }
 
@@ -63,6 +67,8 @@
 {
     [super viewWillAppear:animated];
     
+    [self loadUserInfo];
+    
     [self loadStar];
 }
 
@@ -72,10 +78,8 @@
     if(KKSharedCurrentUser.isPhone) startcount+=1;
     if([KKSharedGlobalManager getPhotosCount]>=3) startcount+=1;
     //判断资料完整度
-    NSInteger complete=[KKSharedGlobalManager infoCompletedPercent:nil];
-    if(complete>=90) startcount+=1;
+    if(self.completed>=90) startcount+=1;
 
-    
     _start1ImageView.image=[[UIImage imageNamed:@"star"] imageWithColor:[UIColor lightGrayColor]];
     _start2ImageView.image=[[UIImage imageNamed:@"star"] imageWithColor:[UIColor lightGrayColor]];
     _start3ImageView.image=[[UIImage imageNamed:@"star"] imageWithColor:[UIColor lightGrayColor]];
@@ -98,6 +102,24 @@
     }
     
     [self.tableView reloadData];
+
+}
+
+-(void)loadUserInfo
+{
+    NSDictionary *param = @{@"uid":@(0)};
+    [FSSharedNetWorkingManager GET:ServiceInterfaceUserInfo parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *respDic = (NSDictionary*)responseObject;
+        KKLog(@"资料 %@",respDic);
+        if (respDic&&respDic.count>0) {
+            KKUser *user = [[KKUser alloc]initWithDicFull:respDic];
+            
+            self.completed = [KKSharedGlobalManager infoCompletedPercent:user];
+            
+            [self loadStar];
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    }];
 
 }
 
@@ -127,7 +149,7 @@
     {
         IdentifierCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifierIdentifier forIndexPath:indexPath];
         
-        [cell showDisplayInfo:indexPath.row];
+        [cell showDisplayInfo:indexPath.row completedInfo:self.completed];
         
         KKWEAKSELF;
         cell.identifierClickBlock=^(NSInteger index){

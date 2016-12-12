@@ -45,7 +45,7 @@
     // Configure the view for the selected state
 }
 
--(void)showDisplayInfo:(NSInteger)index
+-(void)showDisplayInfo:(NSInteger)index completedInfo:(NSInteger)completed
 {
     self.index=index;
     
@@ -120,12 +120,11 @@
         _iconImageView.image=[UIImage imageNamed:@"vetify_info"];
         _titleTextLabel.text=@"资料达到90%";
       
-        NSInteger complete=[KKSharedGlobalManager infoCompletedPercent:nil];
-        _subtitleTextLabel.text=KKStringWithFormat(@"目前%ld%%",complete);
+        _subtitleTextLabel.text=KKStringWithFormat(@"目前%ld%%",completed);
         
         //星星判断
         _star1ImageView.image=[[UIImage imageNamed:@"star"] imageWithColor:[UIColor lightGrayColor]];
-        if(complete>=90)
+        if(completed>=90)
         {
             _star1ImageView.image=[[UIImage imageNamed:@"star"] imageWithColor:GoldColor];
         }
