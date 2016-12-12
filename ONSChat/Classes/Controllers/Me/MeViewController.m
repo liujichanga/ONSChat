@@ -16,6 +16,9 @@
 #import "MyInfoViewController.h"
 #import "VIPPayViewController.h"
 #import "BaoYuePayViewController.h"
+#import "HonestyViewController.h"
+#import "CustomHiViewController.h"
+
 
 
 #define cellHeadIdentifier @"HeadCell"
@@ -246,13 +249,17 @@
         
         cell.getBeanBlock=^{
             
+            BaoYuePayViewController *baoyueVC=KKViewControllerOfMainSB(@"BaoYuePayViewController");
+            baoyueVC.showBean=YES;
+            [weakself.navigationController pushViewController:baoyueVC animated:YES];
         };
         cell.vipBlock=^{
             VIPPayViewController *vipVC=KKViewControllerOfMainSB(@"VIPPayViewController");
             [weakself.navigationController pushViewController:vipVC animated:YES];
         };
         cell.baoyueBlock=^{
-            
+            BaoYuePayViewController *baoyueVC=KKViewControllerOfMainSB(@"BaoYuePayViewController");
+            [weakself.navigationController pushViewController:baoyueVC animated:YES];
         };
         cell.likemeBlock=^{
             
@@ -366,15 +373,21 @@
         if(indexPath.row==0)
         {
             //包月写信
+            BaoYuePayViewController *baoyueVC=KKViewControllerOfMainSB(@"BaoYuePayViewController");
+            [self.navigationController pushViewController:baoyueVC animated:YES];
         }
         else if(indexPath.row==1)
         {
             //vip会员
-            
+            VIPPayViewController *vipVC=KKViewControllerOfMainSB(@"VIPPayViewController");
+            [self.navigationController pushViewController:vipVC animated:YES];
         }
         else if(indexPath.row==2)
         {
             //红豆
+            BaoYuePayViewController *baoyueVC=KKViewControllerOfMainSB(@"BaoYuePayViewController");
+            baoyueVC.showBean=YES;
+            [self.navigationController pushViewController:baoyueVC animated:YES];
         }
     }
     else if(indexPath.section==2)
@@ -392,7 +405,6 @@
             dynamicList.uidStr = @"0";
             dynamicList.showRightItem = YES;
             [self.navigationController pushViewController:dynamicList animated:YES];
-
             
         }
         else if(indexPath.row==2)
@@ -411,11 +423,15 @@
         else if(indexPath.row==1)
         {
             //诚信星级
+            HonestyViewController *honestVC=KKViewControllerOfMainSB(@"HonestyViewController");
+            [self.navigationController pushViewController:honestVC animated:YES];
             
         }
         else if(indexPath.row==2)
         {
             //自定义招呼
+            CustomHiViewController *customhiVC=KKViewControllerOfMainSB(@"CustomHiViewController");
+            [self.navigationController pushViewController:customhiVC animated:YES];
         }
         else if(indexPath.row==3)
         {

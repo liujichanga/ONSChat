@@ -81,4 +81,7 @@
 /** 获取缓存图片的尺寸 */
 + (CGSize)cacheImageSize:(id)imageURL;
 
+//改变图片颜色
+- (UIImage *)imageWithColor:(UIColor *)color;
+
 @end

@@ -10,6 +10,9 @@
 #import "UploadHeadImageViewController.h"
 #import "DailyRecommandViewController.h"
 #import "VIPPayViewController.h"
+#import "ChatViewController.h"
+#import "RecommendUserInfoViewController.h"
+
 
 
 // 重新获取验证码的等待时间
@@ -131,7 +134,14 @@
                     else
                     {
                         //回退
-                        [KKSharedGlobalManager payBackCheck:self.navigationController];
+                        for (UIViewController *viewController in self.navigationController.viewControllers) {
+                            if([viewController isKindOfClass:[ChatViewController class]] || [viewController isKindOfClass:[RecommendUserInfoViewController class]])
+                            {
+                                [self.navigationController popToViewController:viewController animated:YES];
+                                return;
+                            }
+                        }
+                        [self.navigationController popToRootViewControllerAnimated:YES];
                     }
                 }
                 

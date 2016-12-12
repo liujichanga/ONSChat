@@ -19,6 +19,10 @@
 #define Plist_Key_Photo1 @"Plist_Key_Photo1" //相册1
 #define Plist_Key_Photo2 @"Plist_Key_Photo2" //相册1
 #define Plist_Key_Photo3 @"Plist_Key_Photo3" //相册1
+#define Plist_Key_IdentifierName @"Plist_Key_IdentifierName" //身份信息
+#define Plist_Key_IdentifierID @"Plist_Key_IdentifierID" //身份信息
+#define Plist_Key_CustomHi @"Plist_Key_CustomHi" //自定义打招呼
+
 
 //iap相关的
 #define Plist_Key_BeanNum @"Plist_Key_BeanNum" //红豆数量

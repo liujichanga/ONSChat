@@ -229,7 +229,15 @@
     else
     {
         //回退到的界面
-        [KKSharedGlobalManager payBackCheck:self.navigationController];
+        for (UIViewController *viewController in self.navigationController.viewControllers) {
+            if([viewController isKindOfClass:[ChatViewController class]] || [viewController isKindOfClass:[RecommendUserInfoViewController class]])
+            {
+                [self.navigationController popToViewController:viewController animated:YES];
+                return;
+            }
+        }
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        
     }
     
 }
@@ -238,7 +246,6 @@
 {
     [SVProgressHUD showErrorWithStatus:@"未完成支付" duration:1.5];
 
-    [self buySucceed];
 }
 
 

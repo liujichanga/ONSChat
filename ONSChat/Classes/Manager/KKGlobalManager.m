@@ -167,7 +167,7 @@ static KKGlobalManager *instance;
 {
     
     //如果是用iap的方式
-    self.isIAP=NO;
+    self.isIAP=YES;
     
     NSInteger beannum = [KKSharedLocalPlistManager kkIntergerForKey:Plist_Key_BeanNum];
     KKSharedCurrentUser.beannum=beannum;
@@ -190,16 +190,23 @@ static KKGlobalManager *instance;
     
 }
 
--(void)payBackCheck:(UINavigationController *)navController
+-(NSInteger)getPhotosCount
 {
-    for (UIViewController *viewController in navController.viewControllers) {
-        if([viewController isKindOfClass:[ChatViewController class]] || [viewController isKindOfClass:[RecommendUserInfoViewController class]])
-        {
-            [navController popToViewController:viewController animated:YES];
-            return;
-        }
-    }
-    [navController popToRootViewControllerAnimated:YES];
+    NSString *photo1=[KKSharedLocalPlistManager kkValueForKey:Plist_Key_Photo1];
+    NSString *photo2=[KKSharedLocalPlistManager kkValueForKey:Plist_Key_Photo2];
+    NSString *photo3=[KKSharedLocalPlistManager kkValueForKey:Plist_Key_Photo3];
+    
+    NSInteger count=0;
+    if(KKStringIsNotBlank(photo1)) count+=1;
+    if(KKStringIsNotBlank(photo2)) count+=1;
+    if(KKStringIsNotBlank(photo3)) count+=1;
+    
+    return count;
+}
+
+-(NSInteger)infoCompletedPercent
+{
+    return 90;
 }
 
 @end

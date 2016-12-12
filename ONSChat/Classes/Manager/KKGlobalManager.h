@@ -39,8 +39,11 @@
 //iap
 @property(assign,nonatomic) BOOL isIAP;
 
-//vip，bind手机流程判断
--(void)payBackCheck:(UINavigationController*)navController;
+//当前用户相册图片的数量
+-(NSInteger)getPhotosCount;
+//资料完善程度
+-(NSInteger)infoCompletedPercent;
+
 
 //表情数组
 @property(strong,nonatomic) NSArray *emoticons;

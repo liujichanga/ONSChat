@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A319" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BaoYueNamesCell" rowHeight="40" id="KGk-i7-Jjw" customClass="BaoYueNamesCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="39"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pf9-PP-pAL">
+                        <rect key="frame" x="20" y="8" width="2" height="25"/>
+                        <color key="backgroundColor" red="0.82352941180000006" green="0.34509803919999998" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="YIO-aZ-wZm"/>
+                            <constraint firstAttribute="width" constant="2" id="rfN-Rc-HMV"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="领取话费名单：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PD5-kB-xwb">
+                        <rect key="frame" x="30" y="10" width="142" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="142" id="At1-Ls-soX"/>
+                            <constraint firstAttribute="height" constant="21" id="HLA-ZW-Xu8"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Pf9-PP-pAL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="0zn-yb-91h"/>
+                    <constraint firstItem="PD5-kB-xwb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="26f-Np-xV9"/>
+                    <constraint firstItem="PD5-kB-xwb" firstAttribute="leading" secondItem="Pf9-PP-pAL" secondAttribute="trailing" constant="8" id="VhE-nx-dbE"/>
+                    <constraint firstItem="Pf9-PP-pAL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="iEw-fm-ziy"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="-110" y="-83"/>
+        </tableViewCell>
+    </objects>
+</document>

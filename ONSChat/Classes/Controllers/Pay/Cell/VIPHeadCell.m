@@ -25,7 +25,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    
+    self.selectionStyle=UITableViewCellSelectionStyleNone;
+
     NSRange rang=NSMakeRange(0, 5);
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:@"VIP会员功能特权"];
     [attributedString addAttribute:NSForegroundColorAttributeName value:KKColorPurple range:rang];

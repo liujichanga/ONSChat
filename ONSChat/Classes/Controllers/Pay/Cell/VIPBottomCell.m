@@ -20,7 +20,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    
+    self.selectionStyle=UITableViewCellSelectionStyleNone;
+
     NSString *str=KKStringWithFormat(@"客服热线：%@",KKSharedGlobalManager.SPhone);
     NSRange rang=NSMakeRange(5, KKSharedGlobalManager.SPhone.length);
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:str];
