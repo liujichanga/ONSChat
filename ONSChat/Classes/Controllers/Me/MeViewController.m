@@ -18,6 +18,8 @@
 #import "BaoYuePayViewController.h"
 #import "HonestyViewController.h"
 #import "CustomHiViewController.h"
+#import "LikeMeViewController.h"
+#import "VisterViewController.h"
 
 
 
@@ -263,12 +265,19 @@
         };
         cell.likemeBlock=^{
             
+            LikeMeViewController *likemeVC=KKViewControllerOfMainSB(@"LikeMeViewController");
+            [weakself.navigationController pushViewController:likemeVC animated:YES];
+            
         };
         cell.melikeBlock=^{
             
+            LikeMeViewController *likemeVC=KKViewControllerOfMainSB(@"LikeMeViewController");
+            likemeVC.isMeLike=YES;
+            [weakself.navigationController pushViewController:likemeVC animated:YES];
         };
         cell.visitBlock=^{
-            
+            VisterViewController *visterVC=KKViewControllerOfMainSB(@"VisterViewController");
+            [weakself.navigationController pushViewController:visterVC animated:YES];
         };
         
         return cell;
