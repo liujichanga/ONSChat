@@ -184,6 +184,8 @@
     
     VIPPayViewController *vipVC=KKViewControllerOfMainSB(@"VIPPayViewController");
     [self.navigationController pushViewController:vipVC animated:YES];
+    
+    [MobClick event:@"024"];
 }
 
 -(void)imageTap:(UITapGestureRecognizer *)tapGesture{

@@ -39,6 +39,9 @@
 //聊天的数组
 @property(strong,nonatomic) NSMutableArray *messages;
 
+//会话
+@property(strong,nonatomic) ONSConversation *conversation;
+
 @end
 
 @implementation ChatViewController
@@ -139,6 +142,14 @@
         }
         
     } inBackground:YES];
+    
+    //读取当前会话
+    [ONSSharedConversationDao getConversationByTargetId:self.targetId completion:^(id result) {
+        if(result)
+        {
+            self.conversation=(ONSConversation*)result;
+        }
+    } inBackground:YES];
 }
 
 /** 设置TableView的底部内边距 */
@@ -187,6 +198,7 @@
     
     [KKSharedONSChatManager sendMessage:dic];
     
+    [MobClick event:self.conversation.esendtxtevent];
 }
 
 /** InputView高度发成变化 */
@@ -244,6 +256,9 @@
 {
     BaoYuePayViewController *baoyueVC=KKViewControllerOfMainSB(@"BaoYuePayViewController");
     [self.navigationController pushViewController:baoyueVC animated:YES];
+    
+    KKLog(@"evelt:%@",self.conversation.ebillevent);
+    [MobClick event:self.conversation.ebillevent];
 }
 
 /** 去开通vip**/
@@ -251,6 +266,8 @@
 {
     VIPPayViewController *vipVC=KKViewControllerOfMainSB(@"VIPPayViewController");
     [self.navigationController pushViewController:vipVC animated:YES];
+    
+    [MobClick event:self.conversation.ebillevent];
 }
 
 //显示本地视频列表
@@ -341,6 +358,8 @@
 {
     BaoYuePayViewController *baoyueVC=KKViewControllerOfMainSB(@"BaoYuePayViewController");
     [self.navigationController pushViewController:baoyueVC animated:YES];
+    
+    [MobClick event:self.conversation.esendtxtevent];
 }
 
 

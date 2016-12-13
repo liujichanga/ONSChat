@@ -61,10 +61,15 @@ static ONSChatManager *instance;
         if(dataArr&&[dataArr isKindOfClass:[NSArray class]]&&dataArr.count>0)
         {
             NSDictionary *dataDic=dataArr[0];
+            NSMutableDictionary *newDic=[NSMutableDictionary dictionaryWithDictionary:dataDic];
+            [newDic setValue:[dic stringForKey:@"eddevent" defaultValue:@""] forKey:@"eddevent"];
+            [newDic setValue:[dic stringForKey:@"esendtxtevent" defaultValue:@""] forKey:@"esendtxtevent"];
+            [newDic setValue:[dic stringForKey:@"ebillevent" defaultValue:@""] forKey:@"ebillevent"];
+
             
             NSLog(@"new message");
             
-            ONSConversation *conversation=[[ONSConversation alloc] initWithDic:dataDic];
+            ONSConversation *conversation=[[ONSConversation alloc] initWithDic:newDic];
             
             ONSMessage *message=[[ONSMessage alloc] initWithDic:dataDic];
             message.messageDirection=ONSMessageDirection_RECEIVE;

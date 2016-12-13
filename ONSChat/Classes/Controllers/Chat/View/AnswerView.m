@@ -84,6 +84,8 @@
 
 -(void)answerClick:(UIButton*)sender{
     
+    [MobClick event:@"017"];
+
     NSString *answer=[sender titleForState:UIControlStateDisabled];
     
     //去接口判断
@@ -103,6 +105,8 @@
         {
             //去购买
             if(_delegate) [_delegate answerGotoBaoYue];
+            [MobClick event:@"019"];
+
         }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

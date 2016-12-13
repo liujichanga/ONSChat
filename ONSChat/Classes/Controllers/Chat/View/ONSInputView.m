@@ -74,6 +74,8 @@
     // 点击了发送按钮
     if(KKStringIsNotBlank(self.textView.text))
     {
+        [MobClick event:@"018"];
+
         if([self isVIP])
         {
             //去接口判断
@@ -99,6 +101,8 @@
                 {
                     //去购买
                     if(_delegate) [_delegate inputGotoBaoYue];
+                    [MobClick event:@"019"];
+
                 }
                 
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

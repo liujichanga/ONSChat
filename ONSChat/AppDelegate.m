@@ -45,6 +45,12 @@
     
     //微信appid
     [WXApi registerApp:@"wx18755d15c1b89107"];
+    
+    //友盟
+    UMConfigInstance.appKey = @"57bc000ce0f55a347e000f3d";
+    UMConfigInstance.channelId = @"AppStore";
+    [MobClick startWithConfigure:UMConfigInstance];//配置以上参数后调用此方法初始化SDK！
+    [MobClick setAppVersion:KKAppVersion];
 
     
     //最后一个登录用户
@@ -82,10 +88,13 @@
     return YES;
 }
 
-
+//挂起 当有电话进来或者锁屏,或者进入后台，这时你的应用程会挂起
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+    
+    //添加一个通知
+    [self addNotification];
 }
 
 
@@ -99,9 +108,12 @@
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
 }
 
-
+//程序已经被激活 lanuch或者后台激活都会调用
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    //取消所有通知
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
 }
 
 
@@ -137,6 +149,30 @@
     }
     
     return YES;
+}
+
+#pragma mark - AddNotification
+-(void)addNotification{
+    
+    NSArray *arr=@[@"你附近的妹子看上你啦，快去瞅瞅~",@"你附近刚刚注册了3位美女，快去打个招呼~",@"附近有妹子喜欢你啦，快去勾搭她一下哦~",@"一大波妹子更新了动态，快去看看都是啥？",@"不要帅不要钱，身体好的就放马过来吧！"];
+    int value = arc4random() % arr.count;
+    NSString *title=arr[value];
+    
+    //注册本地通知
+    UILocalNotification *notification=[[UILocalNotification alloc] init];
+    notification.repeatInterval=0;
+    
+    NSDate *date = [[NSDate date] dateByAddingTimeInterval:5];
+    notification.fireDate=date;
+    
+    //设置通知属性
+    notification.alertBody=title;
+    
+    notification.soundName=UILocalNotificationDefaultSoundName;
+    
+    //登记通知
+    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+    
 }
 
 #pragma mark -Weixin Delegate
