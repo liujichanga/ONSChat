@@ -29,7 +29,12 @@
 #define Plist_Key_VIPEndTime @"Plist_Key_VIPEndTime" //红豆数量
 #define Plist_Key_BaoYueEndTime @"Plist_Key_BaoYueEndTime" //红豆数量
 
-
+//征友条件
+#define Plist_Key_PartnerAge @"Plist_Key_PartnerAge"
+#define Plist_Key_PartnerHeight @"Plist_Key_PartnerHeight"
+#define Plist_Key_PartnerGraduate @"Plist_Key_PartnerGraduate"
+#define Plist_Key_PartnerIncome @"Plist_Key_PartnerIncome"
+#define Plist_Key_PartnerAddress @"Plist_Key_PartnerAddress"
 
 
 +(instancetype)sharedLocalPlistManager;

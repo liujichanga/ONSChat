@@ -265,7 +265,6 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="t2L-Da-H39" secondAttribute="trailing" constant="15" id="0zQ-nB-uY9"/>
-                            <constraint firstAttribute="bottom" secondItem="RRp-bo-hM6" secondAttribute="bottom" constant="50" id="2bg-7t-SZL"/>
                             <constraint firstItem="RRp-bo-hM6" firstAttribute="top" secondItem="2Hm-Ml-v7j" secondAttribute="top" id="7xP-cb-FH3"/>
                             <constraint firstItem="3jO-fS-0S7" firstAttribute="top" secondItem="t2L-Da-H39" secondAttribute="bottom" constant="5" id="ArL-xz-UC5"/>
                             <constraint firstItem="t2L-Da-H39" firstAttribute="leading" secondItem="2Hm-Ml-v7j" secondAttribute="leading" constant="15" id="Gml-jw-TT5"/>
@@ -964,6 +963,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q7B-ez-D8j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4334" y="-10543"/>
+        </scene>
+        <!--征友条件-->
+        <scene sceneID="hN1-ff-XO4">
+            <objects>
+                <viewController storyboardIdentifier="PartnerConditionsViewController" title="征友条件" hidesBottomBarWhenPushed="YES" id="uhx-5x-t81" customClass="PartnerConditionsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BVf-B0-zKg"/>
+                        <viewControllerLayoutGuide type="bottom" id="3xg-hd-uvc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6GD-EM-pcg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="8Vq-X0-Qf9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="uhx-5x-t81" id="93N-NS-osQ"/>
+                                    <outlet property="delegate" destination="uhx-5x-t81" id="BQr-MC-0KU"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Jw-5N-OSL" customClass="ONSButtonPurple">
+                                <rect key="frame" x="15" y="622" width="345" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Md4-ZS-MdK"/>
+                                </constraints>
+                                <state key="normal" title="保存"/>
+                                <connections>
+                                    <action selector="saveBtnClick:" destination="uhx-5x-t81" eventType="touchUpInside" id="SoU-nI-6ip"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8Vq-X0-Qf9" firstAttribute="leading" secondItem="6GD-EM-pcg" secondAttribute="leading" id="1lc-eO-7LV"/>
+                            <constraint firstAttribute="trailing" secondItem="2Jw-5N-OSL" secondAttribute="trailing" constant="15" id="cQh-cv-pWI"/>
+                            <constraint firstAttribute="trailing" secondItem="8Vq-X0-Qf9" secondAttribute="trailing" id="e2C-cO-4cr"/>
+                            <constraint firstItem="2Jw-5N-OSL" firstAttribute="top" secondItem="8Vq-X0-Qf9" secondAttribute="bottom" constant="5" id="ei5-fF-Dzc"/>
+                            <constraint firstItem="2Jw-5N-OSL" firstAttribute="leading" secondItem="6GD-EM-pcg" secondAttribute="leading" constant="15" id="h6g-bI-Fht"/>
+                            <constraint firstItem="3xg-hd-uvc" firstAttribute="top" secondItem="2Jw-5N-OSL" secondAttribute="bottom" constant="5" id="mUR-Ik-9tf"/>
+                            <constraint firstItem="8Vq-X0-Qf9" firstAttribute="top" secondItem="6GD-EM-pcg" secondAttribute="top" id="ykV-Yn-PYF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="8Vq-X0-Qf9" id="SyI-wB-w4Q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CHe-El-7O1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5071" y="-10601"/>
         </scene>
         <!--附近Nav-->
         <scene sceneID="SyG-hz-hAv">

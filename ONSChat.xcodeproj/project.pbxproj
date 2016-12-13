@@ -378,6 +378,7 @@
 		9B53D32F1DEBD9FA00913DFC /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B53D32D1DEBD9FA00913DFC /* VideoCell.xib */; };
 		9B53D3351DEC098700913DFC /* KRVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B53D3321DEC098700913DFC /* KRVideoPlayerController.m */; };
 		9B53D3361DEC098700913DFC /* KRVideoPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B53D3341DEC098700913DFC /* KRVideoPlayerControlView.m */; };
+		9B8EBC001DFF9483006B856A /* PartnerConditionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B8EBBFF1DFF9483006B856A /* PartnerConditionsViewController.m */; };
 		9BA6B2F21DEECFBF006AD474 /* DynamicListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6B2F11DEECFBF006AD474 /* DynamicListViewController.m */; };
 		9BA6B2F61DEED359006AD474 /* DynamicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6B2F41DEED359006AD474 /* DynamicCell.m */; };
 		9BA6B2FF1DEFBACB006AD474 /* DynamicDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BA6B2FE1DEFBACB006AD474 /* DynamicDetailViewController.m */; };
@@ -427,6 +428,16 @@
 		9BD749F51DFBABAA0045C6DA /* IQToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD749E61DFBABAA0045C6DA /* IQToolbar.m */; };
 		9BD749F61DFBABAA0045C6DA /* IQUIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD749E81DFBABAA0045C6DA /* IQUIView+IQKeyboardToolbar.m */; };
 		9BD749F71DFBABAA0045C6DA /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9BD749EB1DFBABAA0045C6DA /* IQKeyboardManager.bundle */; };
+		9BE47DA11DFFDAF000A3A602 /* PartnerAgeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE47D9F1DFFDAF000A3A602 /* PartnerAgeCell.m */; };
+		9BE47DA21DFFDAF000A3A602 /* PartnerAgeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BE47DA01DFFDAF000A3A602 /* PartnerAgeCell.xib */; };
+		9BE47DA61DFFDB0600A3A602 /* PartnerHeightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE47DA41DFFDB0600A3A602 /* PartnerHeightCell.m */; };
+		9BE47DA71DFFDB0600A3A602 /* PartnerHeightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BE47DA51DFFDB0600A3A602 /* PartnerHeightCell.xib */; };
+		9BE47DAB1DFFDB3C00A3A602 /* PartnerGraduateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE47DA91DFFDB3C00A3A602 /* PartnerGraduateCell.m */; };
+		9BE47DAC1DFFDB3C00A3A602 /* PartnerGraduateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BE47DAA1DFFDB3C00A3A602 /* PartnerGraduateCell.xib */; };
+		9BE47DB01DFFDB6400A3A602 /* PartnerIncomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE47DAE1DFFDB6400A3A602 /* PartnerIncomeCell.m */; };
+		9BE47DB11DFFDB6400A3A602 /* PartnerIncomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BE47DAF1DFFDB6400A3A602 /* PartnerIncomeCell.xib */; };
+		9BE47DB51DFFDB8100A3A602 /* PartnerAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE47DB31DFFDB8100A3A602 /* PartnerAddressCell.m */; };
+		9BE47DB61DFFDB8100A3A602 /* PartnerAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BE47DB41DFFDB8100A3A602 /* PartnerAddressCell.xib */; };
 		9BFB22C81DE95A1300DB9BE6 /* BindingPhoneNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB22C71DE95A1300DB9BE6 /* BindingPhoneNumberViewController.m */; };
 		9BFB22CC1DE95A4C00DB9BE6 /* RecommendUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB22CB1DE95A4C00DB9BE6 /* RecommendUserInfoViewController.m */; };
 		9BFB22D21DE9709500DB9BE6 /* BaseInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB22D01DE9709500DB9BE6 /* BaseInfoCell.m */; };
@@ -1066,6 +1077,8 @@
 		9B53D3321DEC098700913DFC /* KRVideoPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRVideoPlayerController.m; sourceTree = "<group>"; };
 		9B53D3331DEC098700913DFC /* KRVideoPlayerControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRVideoPlayerControlView.h; sourceTree = "<group>"; };
 		9B53D3341DEC098700913DFC /* KRVideoPlayerControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRVideoPlayerControlView.m; sourceTree = "<group>"; };
+		9B8EBBFE1DFF9483006B856A /* PartnerConditionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartnerConditionsViewController.h; sourceTree = "<group>"; };
+		9B8EBBFF1DFF9483006B856A /* PartnerConditionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartnerConditionsViewController.m; sourceTree = "<group>"; };
 		9BA6B2F01DEECFBF006AD474 /* DynamicListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicListViewController.h; sourceTree = "<group>"; };
 		9BA6B2F11DEECFBF006AD474 /* DynamicListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicListViewController.m; sourceTree = "<group>"; };
 		9BA6B2F31DEED359006AD474 /* DynamicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicCell.h; sourceTree = "<group>"; };
@@ -1155,6 +1168,21 @@
 		9BD749E81DFBABAA0045C6DA /* IQUIView+IQKeyboardToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIView+IQKeyboardToolbar.m"; sourceTree = "<group>"; };
 		9BD749E91DFBABAA0045C6DA /* KeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardManager.h; sourceTree = "<group>"; };
 		9BD749EB1DFBABAA0045C6DA /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
+		9BE47D9E1DFFDAF000A3A602 /* PartnerAgeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartnerAgeCell.h; sourceTree = "<group>"; };
+		9BE47D9F1DFFDAF000A3A602 /* PartnerAgeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartnerAgeCell.m; sourceTree = "<group>"; };
+		9BE47DA01DFFDAF000A3A602 /* PartnerAgeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PartnerAgeCell.xib; sourceTree = "<group>"; };
+		9BE47DA31DFFDB0600A3A602 /* PartnerHeightCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartnerHeightCell.h; sourceTree = "<group>"; };
+		9BE47DA41DFFDB0600A3A602 /* PartnerHeightCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartnerHeightCell.m; sourceTree = "<group>"; };
+		9BE47DA51DFFDB0600A3A602 /* PartnerHeightCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PartnerHeightCell.xib; sourceTree = "<group>"; };
+		9BE47DA81DFFDB3C00A3A602 /* PartnerGraduateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartnerGraduateCell.h; sourceTree = "<group>"; };
+		9BE47DA91DFFDB3C00A3A602 /* PartnerGraduateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartnerGraduateCell.m; sourceTree = "<group>"; };
+		9BE47DAA1DFFDB3C00A3A602 /* PartnerGraduateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PartnerGraduateCell.xib; sourceTree = "<group>"; };
+		9BE47DAD1DFFDB6400A3A602 /* PartnerIncomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartnerIncomeCell.h; sourceTree = "<group>"; };
+		9BE47DAE1DFFDB6400A3A602 /* PartnerIncomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartnerIncomeCell.m; sourceTree = "<group>"; };
+		9BE47DAF1DFFDB6400A3A602 /* PartnerIncomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PartnerIncomeCell.xib; sourceTree = "<group>"; };
+		9BE47DB21DFFDB8100A3A602 /* PartnerAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartnerAddressCell.h; sourceTree = "<group>"; };
+		9BE47DB31DFFDB8100A3A602 /* PartnerAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartnerAddressCell.m; sourceTree = "<group>"; };
+		9BE47DB41DFFDB8100A3A602 /* PartnerAddressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PartnerAddressCell.xib; sourceTree = "<group>"; };
 		9BFB22C61DE95A1300DB9BE6 /* BindingPhoneNumberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BindingPhoneNumberViewController.h; sourceTree = "<group>"; };
 		9BFB22C71DE95A1300DB9BE6 /* BindingPhoneNumberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindingPhoneNumberViewController.m; sourceTree = "<group>"; };
 		9BFB22CA1DE95A4C00DB9BE6 /* RecommendUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendUserInfoViewController.h; sourceTree = "<group>"; };
@@ -1347,6 +1375,7 @@
 		1C0E77A91DE325790083F9F8 /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				9B8EBBFB1DFF9417006B856A /* PartnerConditions */,
 				1C2B66241DFEAB7B00E07BFF /* CustomHi */,
 				1C2B66121DFE70C700E07BFF /* Honesty */,
 				9BAFFC7E1DF7EDC7000747E1 /* MyInfo */,
@@ -2413,6 +2442,46 @@
 			path = KRVideoPlayer;
 			sourceTree = "<group>";
 		};
+		9B8EBBFB1DFF9417006B856A /* PartnerConditions */ = {
+			isa = PBXGroup;
+			children = (
+				9B8EBBFC1DFF9417006B856A /* Cell */,
+				9B8EBBFD1DFF9417006B856A /* View */,
+				9B8EBBFE1DFF9483006B856A /* PartnerConditionsViewController.h */,
+				9B8EBBFF1DFF9483006B856A /* PartnerConditionsViewController.m */,
+			);
+			path = PartnerConditions;
+			sourceTree = "<group>";
+		};
+		9B8EBBFC1DFF9417006B856A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9BE47D9E1DFFDAF000A3A602 /* PartnerAgeCell.h */,
+				9BE47D9F1DFFDAF000A3A602 /* PartnerAgeCell.m */,
+				9BE47DA01DFFDAF000A3A602 /* PartnerAgeCell.xib */,
+				9BE47DA31DFFDB0600A3A602 /* PartnerHeightCell.h */,
+				9BE47DA41DFFDB0600A3A602 /* PartnerHeightCell.m */,
+				9BE47DA51DFFDB0600A3A602 /* PartnerHeightCell.xib */,
+				9BE47DA81DFFDB3C00A3A602 /* PartnerGraduateCell.h */,
+				9BE47DA91DFFDB3C00A3A602 /* PartnerGraduateCell.m */,
+				9BE47DAA1DFFDB3C00A3A602 /* PartnerGraduateCell.xib */,
+				9BE47DAD1DFFDB6400A3A602 /* PartnerIncomeCell.h */,
+				9BE47DAE1DFFDB6400A3A602 /* PartnerIncomeCell.m */,
+				9BE47DAF1DFFDB6400A3A602 /* PartnerIncomeCell.xib */,
+				9BE47DB21DFFDB8100A3A602 /* PartnerAddressCell.h */,
+				9BE47DB31DFFDB8100A3A602 /* PartnerAddressCell.m */,
+				9BE47DB41DFFDB8100A3A602 /* PartnerAddressCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		9B8EBBFD1DFF9417006B856A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		9BA6B2EE1DEECC5B006AD474 /* Dynamic */ = {
 			isa = PBXGroup;
 			children = (
@@ -2770,6 +2839,7 @@
 				1C89E94E1DF5984900949973 /* 064@2x.png in Resources */,
 				1C89E95D1DF5984900949973 /* 072.png in Resources */,
 				1C89E5521DF5565A00949973 /* WZMRecordView.xib in Resources */,
+				9BE47DB61DFFDB8100A3A602 /* PartnerAddressCell.xib in Resources */,
 				1C89E9201DF5984800949973 /* 041@2x.png in Resources */,
 				1C89E9031DF5984800949973 /* 027.png in Resources */,
 				1C89E9191DF5984800949973 /* 038.png in Resources */,
@@ -2797,6 +2867,7 @@
 				1C6B3A161DE3F33C008ACCA8 /* VIPCell.xib in Resources */,
 				1C08B6881DF96CE6006820FE /* VIPBottomCell.xib in Resources */,
 				1C89E9021DF5984800949973 /* 026@2x.png in Resources */,
+				9BE47DA71DFFDB0600A3A602 /* PartnerHeightCell.xib in Resources */,
 				1C89E8E41DF5984800949973 /* 011@2x.png in Resources */,
 				9BAFFCA91DF960C6000747E1 /* MyBaseInfo2Cell.xib in Resources */,
 				1C89E9161DF5984800949973 /* 036@2x.png in Resources */,
@@ -2827,6 +2898,7 @@
 				5698643A1DE00EAF0059D484 /* SVProgressHUD.bundle in Resources */,
 				1C89E9301DF5984900949973 /* 049@2x.png in Resources */,
 				1C89E9471DF5984900949973 /* 061.png in Resources */,
+				9BE47DA21DFFDAF000A3A602 /* PartnerAgeCell.xib in Resources */,
 				1C7B8FC11DFBCC56006DAAA9 /* BaoYueProductCell.xib in Resources */,
 				567F545E1DDFEC5500872A36 /* Assets.xcassets in Resources */,
 				1C89E92E1DF5984900949973 /* 048@2x.png in Resources */,
@@ -2908,6 +2980,7 @@
 				1C89E95B1DF5984900949973 /* 071.png in Resources */,
 				56C6FFD81DE09E9000BB5C3B /* RCConfig.plist in Resources */,
 				9BAFFC7D1DF6A725000747E1 /* VideoThumbnailCell.xib in Resources */,
+				9BE47DAC1DFFDB3C00A3A602 /* PartnerGraduateCell.xib in Resources */,
 				1C89E9671DF5984900949973 /* 077.png in Resources */,
 				1C89E92A1DF5984900949973 /* 046@2x.png in Resources */,
 				1C89E92D1DF5984900949973 /* 048.png in Resources */,
@@ -2941,6 +3014,7 @@
 				1C89E9531DF5984900949973 /* 067.png in Resources */,
 				1C89E8E11DF5984800949973 /* 010.png in Resources */,
 				1C89E9681DF5984900949973 /* 077@2x.png in Resources */,
+				9BE47DB11DFFDB6400A3A602 /* PartnerIncomeCell.xib in Resources */,
 				9BAFFC9F1DF83DD0000747E1 /* MyPersonalityCell.xib in Resources */,
 				1C89E8F11DF5984800949973 /* 018.png in Resources */,
 			);
@@ -3006,6 +3080,7 @@
 				5698643B1DE00EAF0059D484 /* SVProgressHUD.m in Sources */,
 				1C21702B1DFA9C6E009A5BC8 /* MD5DataSigner.m in Sources */,
 				1C6B3A0B1DE3DCF3008ACCA8 /* KKGlobalManager.m in Sources */,
+				9BE47DB51DFFDB8100A3A602 /* PartnerAddressCell.m in Sources */,
 				1C7B8FBB1DFBCC34006DAAA9 /* BaoYueHeadCell.m in Sources */,
 				1C0E77AC1DE325840083F9F8 /* MeViewController.m in Sources */,
 				1C2B66151DFE70D700E07BFF /* HonestyViewController.m in Sources */,
@@ -3026,6 +3101,7 @@
 				9BC32EF01DE5AE8E00CDDAFB /* TopPageView.m in Sources */,
 				567F54561DDFEC5500872A36 /* AppDelegate.m in Sources */,
 				1C0E77A21DE3249A0083F9F8 /* HomeViewController.m in Sources */,
+				9BE47DAB1DFFDB3C00A3A602 /* PartnerGraduateCell.m in Sources */,
 				567F54531DDFEC5500872A36 /* main.m in Sources */,
 				1C0E77B01DE32AA20083F9F8 /* KKCarouselView.m in Sources */,
 				1C89E54B1DF53B9600949973 /* ONSInputView.m in Sources */,
@@ -3037,6 +3113,7 @@
 				1C20F7A41DF6ACB000099832 /* ChoiceMessageCell.m in Sources */,
 				1C89E5551DF5579600949973 /* ONSEmoticonView.m in Sources */,
 				569864961DE055AE0059D484 /* KKUserManager.m in Sources */,
+				9BE47DA11DFFDAF000A3A602 /* PartnerAgeCell.m in Sources */,
 				5698641D1DE00EAF0059D484 /* MJRefreshAutoNormalFooter.m in Sources */,
 				1C0E77661DE31F870083F9F8 /* AFURLResponseSerialization.m in Sources */,
 				5698645E1DE010B40059D484 /* NSString+Valid.m in Sources */,
@@ -3084,6 +3161,8 @@
 				569864051DE00EAF0059D484 /* FMDatabasePool.m in Sources */,
 				9BD749F11DFBABAA0045C6DA /* IQSegmentedNextPrevious.m in Sources */,
 				9BD749F21DFBABAA0045C6DA /* IQTextView.m in Sources */,
+				9B8EBC001DFF9483006B856A /* PartnerConditionsViewController.m in Sources */,
+				9BE47DA61DFFDB0600A3A602 /* PartnerHeightCell.m in Sources */,
 				569864261DE00EAF0059D484 /* MJRefreshConst.m in Sources */,
 				9BFB22CC1DE95A4C00DB9BE6 /* RecommendUserInfoViewController.m in Sources */,
 				9BA6B3031DF00E7A006AD474 /* CommentPopView.m in Sources */,
@@ -3143,6 +3222,7 @@
 				1C21703D1DFA9EDE009A5BC8 /* PayCell.m in Sources */,
 				569864041DE00EAF0059D484 /* FMDatabaseAdditions.m in Sources */,
 				569864301DE00EAF0059D484 /* SDWebImageDownloaderOperation.m in Sources */,
+				9BE47DB01DFFDB6400A3A602 /* PartnerIncomeCell.m in Sources */,
 				5698641C1DE00EAF0059D484 /* MJRefreshAutoGifFooter.m in Sources */,
 				5698642F1DE00EAF0059D484 /* SDWebImageDownloader.m in Sources */,
 				1C76972C1DF04AAB00CC2EB8 /* ONSConversationDao.m in Sources */,

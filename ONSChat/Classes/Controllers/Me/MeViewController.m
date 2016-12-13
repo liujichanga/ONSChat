@@ -18,7 +18,7 @@
 #import "BaoYuePayViewController.h"
 #import "HonestyViewController.h"
 #import "CustomHiViewController.h"
-
+#import "PartnerConditionsViewController.h"
 
 
 #define cellHeadIdentifier @"HeadCell"
@@ -419,6 +419,8 @@
         if(indexPath.row==0)
         {
             //征友条件
+            PartnerConditionsViewController *partner = KKViewControllerOfMainSB(@"PartnerConditionsViewController");
+            [self.navigationController pushViewController:partner animated:YES];
         }
         else if(indexPath.row==1)
         {

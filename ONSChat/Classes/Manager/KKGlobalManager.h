@@ -63,5 +63,13 @@
 //血型
 @property (nonatomic, strong) NSArray *bloodArr;
 
-
+//征友条件相关
+//年龄范围
+@property (nonatomic, strong) NSArray *ageArr;
+//身高范围
+@property (nonatomic, strong) NSArray *friendHeightArr;
+//居住地
+@property (nonatomic, strong) NSArray *addressArr;
+//学历
+@property (nonatomic, strong) NSArray *graduateArr;
 @end
