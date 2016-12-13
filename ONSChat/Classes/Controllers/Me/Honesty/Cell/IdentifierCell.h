@@ -13,6 +13,6 @@
 @property (nonatomic, copy) void(^identifierClickBlock)(NSInteger index);
 
 
--(void)showDisplayInfo:(NSInteger)index;
+-(void)showDisplayInfo:(NSInteger)index completedInfo:(NSInteger)completed;
 
 @end

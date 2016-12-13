@@ -213,7 +213,12 @@
 #pragma mark - TabBarControllerDelegate
 -(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
-   
+    KKLog(@"selectdtabbar:%ld",tabBarController.selectedIndex);
+    if(tabBarController.selectedIndex==0)     [MobClick event:@"020"];
+    else if(tabBarController.selectedIndex==1)     [MobClick event:@"023"];
+    else if(tabBarController.selectedIndex==2)     [MobClick event:@"021"];
+    else     [MobClick event:@"022"];
+
 }
 
 

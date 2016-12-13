@@ -84,11 +84,34 @@
 
 -(void)answerClick:(UIButton*)sender{
     
-    NSString *str=[sender titleForState:UIControlStateDisabled];
+    [MobClick event:@"017"];
+
+    NSString *answer=[sender titleForState:UIControlStateDisabled];
     
-    if(_delegate) [_delegate answerViewTap:str];
-    
-    [self removeFromSuperview];
+    //去接口判断
+    NSDictionary *param=@{@"toId":self.targetId,@"content":answer,@"type":@(3)};
+    [FSSharedNetWorkingManager POST:ServiceInterfaceMessageSend parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary *respDic=(NSDictionary*)responseObject;
+        NSLog(@"send:%@",respDic);
+        NSInteger status=[respDic integerForKey:@"status" defaultValue:0];
+        if(status==1)
+        {
+            //可以发送
+            if(_delegate) [_delegate answerViewTap:answer];
+            
+            [self removeFromSuperview];
+        }
+        else
+        {
+            //去购买
+            if(_delegate) [_delegate answerGotoBaoYue];
+            [MobClick event:@"019"];
+
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
     
 }
 

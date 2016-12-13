@@ -18,7 +18,13 @@
 #import "BaoYuePayViewController.h"
 #import "HonestyViewController.h"
 #import "CustomHiViewController.h"
+<<<<<<< HEAD
 #import "PartnerConditionsViewController.h"
+=======
+#import "LikeMeViewController.h"
+#import "VisterViewController.h"
+
+>>>>>>> 98ae2bbe803c5105e66b623222d6b70b710541cc
 
 
 #define cellHeadIdentifier @"HeadCell"
@@ -263,12 +269,20 @@
         };
         cell.likemeBlock=^{
             
+            LikeMeViewController *likemeVC=KKViewControllerOfMainSB(@"LikeMeViewController");
+            [weakself.navigationController pushViewController:likemeVC animated:YES];
+            [MobClick event:@"007"];
         };
         cell.melikeBlock=^{
             
+            LikeMeViewController *likemeVC=KKViewControllerOfMainSB(@"LikeMeViewController");
+            likemeVC.isMeLike=YES;
+            [weakself.navigationController pushViewController:likemeVC animated:YES];
         };
         cell.visitBlock=^{
-            
+            VisterViewController *visterVC=KKViewControllerOfMainSB(@"VisterViewController");
+            [weakself.navigationController pushViewController:visterVC animated:YES];
+            [MobClick event:@"008"];
         };
         
         return cell;
@@ -375,12 +389,14 @@
             //包月写信
             BaoYuePayViewController *baoyueVC=KKViewControllerOfMainSB(@"BaoYuePayViewController");
             [self.navigationController pushViewController:baoyueVC animated:YES];
+            [MobClick event:@"004"];
         }
         else if(indexPath.row==1)
         {
             //vip会员
             VIPPayViewController *vipVC=KKViewControllerOfMainSB(@"VIPPayViewController");
             [self.navigationController pushViewController:vipVC animated:YES];
+            [MobClick event:@"005"];
         }
         else if(indexPath.row==2)
         {
@@ -388,6 +404,7 @@
             BaoYuePayViewController *baoyueVC=KKViewControllerOfMainSB(@"BaoYuePayViewController");
             baoyueVC.showBean=YES;
             [self.navigationController pushViewController:baoyueVC animated:YES];
+            [MobClick event:@"006"];
         }
     }
     else if(indexPath.section==2)
@@ -438,6 +455,11 @@
         else if(indexPath.row==3)
         {
             //在线客服
+            KKWebViewController *webVC=[[KKWebViewController alloc] init];
+            webVC.urlStr=ServiceInterfaceCustomCallCenter;
+            webVC.navTitle=@"客服中心";
+            webVC.hidesBottomBarWhenPushed=YES;
+            [self.navigationController pushViewController:webVC animated:YES];
         }
         else if(indexPath.row==4)
         {

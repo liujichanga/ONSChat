@@ -27,6 +27,11 @@
 //时间戳
 @property(assign,nonatomic) long long time;
 
+//友盟统计用
+@property(strong,nonatomic) NSString *eddevent;
+@property(strong,nonatomic) NSString *esendtxtevent;
+@property(strong,nonatomic) NSString *ebillevent;
+
 
 //最后一条消息
 //-(ONSMessage*)lastMessage;

@@ -191,6 +191,8 @@
 #pragma mark - 购买成功通知
 -(void)buySucceed
 {
+    [MobClick event:@"032" label:[self.payDic stringForKey:@"name" defaultValue:@""]];
+    
     //检查一下支付信息
     [KKThredUtils runInMainQueue:^{
         
@@ -245,6 +247,8 @@
 -(void)buyFail
 {
     [SVProgressHUD showErrorWithStatus:@"未完成支付" duration:1.5];
+
+    [MobClick event:@"040" label:[self.payDic stringForKey:@"name" defaultValue:@""]];
 
 }
 

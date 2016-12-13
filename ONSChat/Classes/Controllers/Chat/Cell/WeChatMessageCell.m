@@ -75,6 +75,7 @@
     else
     {
         
+        if(self.delegate) [self.delegate messageGotoVip];
     }
 
 }

@@ -18,6 +18,8 @@
 #import "VIPPayViewController.h"
 #import "BaoYuePayViewController.h"
 #import "RecommendUserInfoViewController.h"
+#import "IQKeyboardManager.h"
+
 
 
 @interface ChatViewController ()<UITableViewDelegate,UITableViewDataSource,ONSInputViewDelegate,WZMRecordViewDelegate,ONSEmoticonViewDelegate,MessageCellDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,AnswerViewDelegate>
@@ -39,6 +41,9 @@
 //聊天的数组
 @property(strong,nonatomic) NSMutableArray *messages;
 
+//会话
+@property(strong,nonatomic) ONSConversation *conversation;
+
 @end
 
 @implementation ChatViewController
@@ -48,6 +53,7 @@
     // Do any additional setup after loading the view.
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor=KKColorFromRGB(0xF2F2F2);
+    
     
     _messages=[NSMutableArray array];
     
@@ -69,6 +75,7 @@
     toolView.delegate = self;
     _onsInputView = toolView;
     _onsInputView.hidden=YES;
+    _onsInputView.targetId=self.targetId;
     [self.view addSubview:_onsInputView];
     [self setTableViewBottomInset:0.0];
 
@@ -120,6 +127,7 @@
             {
                 AnswerView *answerview=[[AnswerView alloc] initWithAnswer:lastMessage.contentJson];
                 [weakself.view addSubview:answerview];
+                answerview.targetId=self.targetId;
                 answerview.delegate=self;
             }
             
@@ -136,6 +144,14 @@
             }
         }
         
+    } inBackground:YES];
+    
+    //读取当前会话
+    [ONSSharedConversationDao getConversationByTargetId:self.targetId completion:^(id result) {
+        if(result)
+        {
+            self.conversation=(ONSConversation*)result;
+        }
     } inBackground:YES];
 }
 
@@ -179,29 +195,13 @@
 /** 文本内容输入完成 */
 - (void)inputView:(ONSInputView *)inputView didEndEditingText:(NSString *)text {
     
-    //去接口判断
-    NSDictionary *param=@{@"toId":self.targetId,@"content":text,@"type":@(1)};
-    [FSSharedNetWorkingManager POST:ServiceInterfaceMessageSend parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSDictionary *respDic=(NSDictionary*)responseObject;
-        NSLog(@"send:%@",respDic);
-        NSInteger status=[respDic integerForKey:@"status" defaultValue:0];
-        if(status==1)
-        {
-            //可以发送
-            NSDictionary *med=@{@"content":text};
-            NSDictionary *dic=@{@"fromid":self.targetId,@"avatar":self.targetIdAvaterUrl,@"nickname":self.targetNickName,@"age":@(self.targetAge),@"msgtype":@(ONSMessageType_Text),@"replytype":@(ONSReplyType_Normal),@"medirlist":med};
-            
-            [KKSharedONSChatManager sendMessage:dic];
-        }
-        else
-        {
-            //去购买
-            [self gotoBaoYue];
-        }
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-    }];
+    //可以发送
+    NSDictionary *med=@{@"content":text};
+    NSDictionary *dic=@{@"fromid":self.targetId,@"avatar":self.targetIdAvaterUrl,@"nickname":self.targetNickName,@"age":@(self.targetAge),@"msgtype":@(ONSMessageType_Text),@"replytype":@(ONSReplyType_Normal),@"medirlist":med};
+    
+    [KKSharedONSChatManager sendMessage:dic];
+    
+    [MobClick event:self.conversation.esendtxtevent];
 }
 
 /** InputView高度发成变化 */
@@ -255,17 +255,22 @@
 }
 
 /** 去开通包月**/
--(void)gotoBaoYue
+-(void)inputGotoBaoYue
 {
     BaoYuePayViewController *baoyueVC=KKViewControllerOfMainSB(@"BaoYuePayViewController");
     [self.navigationController pushViewController:baoyueVC animated:YES];
+    
+    KKLog(@"evelt:%@",self.conversation.ebillevent);
+    [MobClick event:self.conversation.ebillevent];
 }
 
 /** 去开通vip**/
--(void)gotoVIP
+-(void)inputGotoVIP
 {
     VIPPayViewController *vipVC=KKViewControllerOfMainSB(@"VIPPayViewController");
     [self.navigationController pushViewController:vipVC animated:YES];
+    
+    [MobClick event:self.conversation.ebillevent];
 }
 
 //显示本地视频列表
@@ -344,30 +349,20 @@
 #pragma mark - AnswerViewDelegate
 -(void)answerViewTap:(NSString *)answer
 {
-    //去接口判断
-    NSDictionary *param=@{@"toId":self.targetId,@"content":answer,@"type":@(3)};
-    [FSSharedNetWorkingManager POST:ServiceInterfaceMessageSend parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSDictionary *respDic=(NSDictionary*)responseObject;
-        NSLog(@"send:%@",respDic);
-        NSInteger status=[respDic integerForKey:@"status" defaultValue:0];
-        if(status==1)
-        {
-            //可以发送
-            NSDictionary *med=@{@"content":answer};
-            NSDictionary *dic=@{@"fromid":self.targetId,@"avatar":self.targetIdAvaterUrl,@"nickname":self.targetNickName,@"age":@(self.targetAge),@"msgtype":@(ONSMessageType_Text),@"replytype":@(ONSReplyType_Contact),@"medirlist":med};
-            
-            [KKSharedONSChatManager sendMessage:dic];
-        }
-        else
-        {
-            //去购买
-            [self gotoBaoYue];
-        }
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-    }];
+    //可以发送
+    NSDictionary *med=@{@"content":answer};
+    NSDictionary *dic=@{@"fromid":self.targetId,@"avatar":self.targetIdAvaterUrl,@"nickname":self.targetNickName,@"age":@(self.targetAge),@"msgtype":@(ONSMessageType_Text),@"replytype":@(ONSReplyType_Contact),@"medirlist":med};
     
+    [KKSharedONSChatManager sendMessage:dic];
+    
+}
+
+-(void)answerGotoBaoYue
+{
+    BaoYuePayViewController *baoyueVC=KKViewControllerOfMainSB(@"BaoYuePayViewController");
+    [self.navigationController pushViewController:baoyueVC animated:YES];
+    
+    [MobClick event:self.conversation.esendtxtevent];
 }
 
 
@@ -545,6 +540,12 @@
     }
 }
 
+-(void)messageGotoVip
+{
+    VIPPayViewController *vipVC=KKViewControllerOfMainSB(@"VIPPayViewController");
+    [self.navigationController pushViewController:vipVC animated:YES];
+}
+
 #pragma mark - ViewController lifecycle
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -581,6 +582,7 @@
 
 - (void)dealloc {
     KKNotificationCenterRemoveObserverOfSelf;
+    
     
     KKLog(@"%s", __func__);
 }

@@ -20,7 +20,9 @@
         _address=[dic stringForKey:@"address" defaultValue:@""];
         _age=[dic integerForKey:@"age" defaultValue:0];
        
-        
+        _eddevent=[dic stringForKey:@"eddevent" defaultValue:@""];
+        _esendtxtevent=[dic stringForKey:@"esendtxtevent" defaultValue:@""];
+        _ebillevent=[dic stringForKey:@"ebillevent" defaultValue:@""];
     }
     
     return self;

@@ -74,16 +74,41 @@
     // 点击了发送按钮
     if(KKStringIsNotBlank(self.textView.text))
     {
+        [MobClick event:@"018"];
+
         if([self isVIP])
         {
-            CGRect selfFrame = KKFrameOfSizeH(self.frame, 90);
-            selfFrame.origin.y = self.frame.origin.y + (self.bounds.size.height - 90.0);
-            self.frame = selfFrame;
+            //去接口判断
+            NSDictionary *param=@{@"toId":self.targetId,@"content":self.textView.text,@"type":@(1)};
+            [FSSharedNetWorkingManager POST:ServiceInterfaceMessageSend parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                NSDictionary *respDic=(NSDictionary*)responseObject;
+                NSLog(@"send:%@",respDic);
+                NSInteger status=[respDic integerForKey:@"status" defaultValue:0];
+                if(status==1)
+                {
+                    //可以发送
+                    CGRect selfFrame = KKFrameOfSizeH(self.frame, 90);
+                    selfFrame.origin.y = self.frame.origin.y + (self.bounds.size.height - 90.0);
+                    self.frame = selfFrame;
+                    
+                    self.textView.frame = KKFrameOfSizeH(self.textView.frame, 37.0);
+                    [_delegate inputView:self didEndEditingText:self.textView.text];
+                    [_delegate inputView:self didChangedHeigth:90.0];
+                    _textView.text = nil;
+
+                }
+                else
+                {
+                    //去购买
+                    if(_delegate) [_delegate inputGotoBaoYue];
+                    [MobClick event:@"019"];
+
+                }
+                
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                
+            }];
             
-            self.textView.frame = KKFrameOfSizeH(self.textView.frame, 37.0);
-            [_delegate inputView:self didEndEditingText:self.textView.text];
-            [_delegate inputView:self didChangedHeigth:90.0];
-            _textView.text = nil;
         }
     }
     
@@ -210,7 +235,7 @@
             if(buttonIndex==1)
             {
                 //去开通
-                if(_delegate) [_delegate gotoBaoYue];
+                if(_delegate) [_delegate inputGotoBaoYue];
             }
             
         } cancelButtonTitle:@"下次再说" otherButtonTitles:@"开通", nil];
@@ -234,7 +259,7 @@
                     if(buttonIndex==1)
                     {
                         //去开通vip
-                        if(_delegate) [_delegate gotoVIP];
+                        if(_delegate) [_delegate inputGotoVIP];
                     }
                     
                 } cancelButtonTitle:@"继续忍着" otherButtonTitles:@"升级VIP", nil];

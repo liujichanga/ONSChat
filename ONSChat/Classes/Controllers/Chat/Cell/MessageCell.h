@@ -17,6 +17,9 @@
 /** 点击头像 */
 -(void)messageCellTapHead:(ONSMessage*)message;
 
+/** 去vip*/
+-(void)messageGotoVip;
+
 
 @end
 

@@ -80,6 +80,24 @@
 #define ServiceInterfaceBoysRand KKStringWithFormat(@"%@/%@/user/boys/rand", KKServerDomain, AppPre)
 //减去红豆
 #define ServiceInterfaceReduceBeanNum KKStringWithFormat(@"%@/%@/reduceBeannum", KKServerDomain, App)
+//喜欢我的人
+#define ServiceInterfaceLikeMe KKStringWithFormat(@"%@/%@/user/likelist", KKServerDomain, App)
+//我喜欢的人
+#define ServiceInterfaceMeLike KKStringWithFormat(@"%@/%@/user/melike", KKServerDomain, App)
+//最近访客
+#define ServiceInterfaceVisit KKStringWithFormat(@"%@/%@/user/visitlist", KKServerDomain, App)
+
+
+
+
+
+/**  h5 URL **/
+//客服中心
+#define ServiceInterfaceCustomCallCenter @"http://www.tongchengsupei.cn/appdocument/callCenter.html"
+//用户协议
+#define ServiceInterfaceUserAgreement @"http://www.tongchengsupei.cn/appdocument/agreement.html"
+//用户关心的问题
+#define ServiceInterfaceQuestions @"http://www.tongchengsupei.cn/appdocument/questions.html"
 
 
 

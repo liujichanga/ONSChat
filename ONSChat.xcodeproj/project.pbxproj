@@ -84,12 +84,16 @@
 		1C2B66221DFE981E00E07BFF /* HonestBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2B66201DFE981E00E07BFF /* HonestBottomCell.m */; };
 		1C2B66231DFE981E00E07BFF /* HonestBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C2B66211DFE981E00E07BFF /* HonestBottomCell.xib */; };
 		1C2B66271DFEAB9700E07BFF /* CustomHiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2B66261DFEAB9700E07BFF /* CustomHiViewController.m */; };
+		1C2B662A1DFEB22300E07BFF /* KKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2B66291DFEB22300E07BFF /* KKWebViewController.m */; };
+		1C2B662C1DFEB9A600E07BFF /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C2B662B1DFEB9A600E07BFF /* WebKit.framework */; };
 		1C2B9DEA1DEE6B3F0088E2FE /* KKDynamic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2B9DE91DEE6B3F0088E2FE /* KKDynamic.m */; };
 		1C2B9DED1DEEC7240088E2FE /* KKDynamicDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2B9DEC1DEEC7240088E2FE /* KKDynamicDao.m */; };
 		1C2B9DF21DEED4F70088E2FE /* ChatListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C2B9DF01DEED4F70088E2FE /* ChatListCell.m */; };
 		1C2B9DF31DEED4F70088E2FE /* ChatListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C2B9DF11DEED4F70088E2FE /* ChatListCell.xib */; };
 		1C327C5E1DE691E400E9DFB3 /* NearUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C327C5C1DE691E400E9DFB3 /* NearUserCell.m */; };
 		1C327C5F1DE691E400E9DFB3 /* NearUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C327C5D1DE691E400E9DFB3 /* NearUserCell.xib */; };
+		1C33241F1DFF861100EA95CB /* LikeMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C33241E1DFF861100EA95CB /* LikeMeViewController.m */; };
+		1C3324221DFF861F00EA95CB /* VisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3324211DFF861F00EA95CB /* VisterViewController.m */; };
 		1C5EE2311DEC2879004B6AFB /* MyPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EE2301DEC2879004B6AFB /* MyPhotoViewController.m */; };
 		1C5EE23F1DEC4B04004B6AFB /* KKMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EE2341DEC4B04004B6AFB /* KKMedia.m */; };
 		1C5EE2401DEC4B04004B6AFB /* KKMediaNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5EE2361DEC4B04004B6AFB /* KKMediaNavigationController.m */; };
@@ -657,6 +661,9 @@
 		1C2B66211DFE981E00E07BFF /* HonestBottomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HonestBottomCell.xib; sourceTree = "<group>"; };
 		1C2B66251DFEAB9700E07BFF /* CustomHiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomHiViewController.h; sourceTree = "<group>"; };
 		1C2B66261DFEAB9700E07BFF /* CustomHiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomHiViewController.m; sourceTree = "<group>"; };
+		1C2B66281DFEB22300E07BFF /* KKWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKWebViewController.h; sourceTree = "<group>"; };
+		1C2B66291DFEB22300E07BFF /* KKWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKWebViewController.m; sourceTree = "<group>"; };
+		1C2B662B1DFEB9A600E07BFF /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		1C2B9DE81DEE6B3F0088E2FE /* KKDynamic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKDynamic.h; sourceTree = "<group>"; };
 		1C2B9DE91DEE6B3F0088E2FE /* KKDynamic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKDynamic.m; sourceTree = "<group>"; };
 		1C2B9DEB1DEEC7240088E2FE /* KKDynamicDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKDynamicDao.h; sourceTree = "<group>"; };
@@ -667,6 +674,10 @@
 		1C327C5B1DE691E400E9DFB3 /* NearUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearUserCell.h; sourceTree = "<group>"; };
 		1C327C5C1DE691E400E9DFB3 /* NearUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearUserCell.m; sourceTree = "<group>"; };
 		1C327C5D1DE691E400E9DFB3 /* NearUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearUserCell.xib; sourceTree = "<group>"; };
+		1C33241D1DFF861100EA95CB /* LikeMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikeMeViewController.h; sourceTree = "<group>"; };
+		1C33241E1DFF861100EA95CB /* LikeMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeMeViewController.m; sourceTree = "<group>"; };
+		1C3324201DFF861F00EA95CB /* VisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisterViewController.h; sourceTree = "<group>"; };
+		1C3324211DFF861F00EA95CB /* VisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisterViewController.m; sourceTree = "<group>"; };
 		1C5EE22F1DEC2879004B6AFB /* MyPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPhotoViewController.h; sourceTree = "<group>"; };
 		1C5EE2301DEC2879004B6AFB /* MyPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPhotoViewController.m; sourceTree = "<group>"; };
 		1C5EE2331DEC4B04004B6AFB /* KKMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKMedia.h; sourceTree = "<group>"; };
@@ -1202,6 +1213,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C2B662C1DFEB9A600E07BFF /* WebKit.framework in Frameworks */,
 				1C2170361DFA9E1E009A5BC8 /* CoreMotion.framework in Frameworks */,
 				1C2170341DFA9CEA009A5BC8 /* Security.framework in Frameworks */,
 				1C216FB61DFA8575009A5BC8 /* StoreKit.framework in Frameworks */,
@@ -1376,6 +1388,8 @@
 			isa = PBXGroup;
 			children = (
 				9B8EBBFB1DFF9417006B856A /* PartnerConditions */,
+				1C33241C1DFF85F100EA95CB /* Vister */,
+				1C33241B1DFF85E200EA95CB /* LikeMe */,
 				1C2B66241DFEAB7B00E07BFF /* CustomHi */,
 				1C2B66121DFE70C700E07BFF /* Honesty */,
 				9BAFFC7E1DF7EDC7000747E1 /* MyInfo */,
@@ -1624,6 +1638,24 @@
 				1C327C5D1DE691E400E9DFB3 /* NearUserCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		1C33241B1DFF85E200EA95CB /* LikeMe */ = {
+			isa = PBXGroup;
+			children = (
+				1C33241D1DFF861100EA95CB /* LikeMeViewController.h */,
+				1C33241E1DFF861100EA95CB /* LikeMeViewController.m */,
+			);
+			path = LikeMe;
+			sourceTree = "<group>";
+		};
+		1C33241C1DFF85F100EA95CB /* Vister */ = {
+			isa = PBXGroup;
+			children = (
+				1C3324201DFF861F00EA95CB /* VisterViewController.h */,
+				1C3324211DFF861F00EA95CB /* VisterViewController.m */,
+			);
+			path = Vister;
 			sourceTree = "<group>";
 		};
 		1C5EE22E1DEC2865004B6AFB /* MyPhoto */ = {
@@ -2246,6 +2278,7 @@
 		5698643D1DE00F130059D484 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1C2B662B1DFEB9A600E07BFF /* WebKit.framework */,
 				1C2170351DFA9E1E009A5BC8 /* CoreMotion.framework */,
 				1C2170331DFA9CEA009A5BC8 /* Security.framework */,
 				1C216FB51DFA8575009A5BC8 /* StoreKit.framework */,
@@ -2397,6 +2430,8 @@
 				5698648C1DE0530D0059D484 /* RootTabBarController.m */,
 				1CDD6CF61DE9209E006AAFAB /* ComeBackViewController.h */,
 				1CDD6CF71DE9209E006AAFAB /* ComeBackViewController.m */,
+				1C2B66281DFEB22300E07BFF /* KKWebViewController.h */,
+				1C2B66291DFEB22300E07BFF /* KKWebViewController.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -3042,6 +3077,7 @@
 				9B53D3351DEC098700913DFC /* KRVideoPlayerController.m in Sources */,
 				5698641F1DE00EAF0059D484 /* MJRefreshBackGifFooter.m in Sources */,
 				1C21702E1DFA9C6E009A5BC8 /* RSADataSigner.m in Sources */,
+				1C3324221DFF861F00EA95CB /* VisterViewController.m in Sources */,
 				9BC32F011DE6E05600CDDAFB /* FemalePersonalityViewController.m in Sources */,
 				1C5EE23F1DEC4B04004B6AFB /* KKMedia.m in Sources */,
 				569864311DE00EAF0059D484 /* SDWebImageManager.m in Sources */,
@@ -3099,6 +3135,7 @@
 				9BAFFC771DF6A39C000747E1 /* VideoListViewController.m in Sources */,
 				569864291DE00EAF0059D484 /* UIView+MJExtension.m in Sources */,
 				9BC32EF01DE5AE8E00CDDAFB /* TopPageView.m in Sources */,
+				1C2B662A1DFEB22300E07BFF /* KKWebViewController.m in Sources */,
 				567F54561DDFEC5500872A36 /* AppDelegate.m in Sources */,
 				1C0E77A21DE3249A0083F9F8 /* HomeViewController.m in Sources */,
 				9BE47DAB1DFFDB3C00A3A602 /* PartnerGraduateCell.m in Sources */,
@@ -3189,6 +3226,7 @@
 				569864071DE00EAF0059D484 /* FMResultSet.m in Sources */,
 				1C20F7AD1DF6ACED00099832 /* VoiceMessageCell.m in Sources */,
 				569864391DE00EAF0059D484 /* UIView+WebCacheOperation.m in Sources */,
+				1C33241F1DFF861100EA95CB /* LikeMeViewController.m in Sources */,
 				1C5EE2441DEC4B04004B6AFB /* KKMediaThumbnailController.m in Sources */,
 				9BD749F01DFBABAA0045C6DA /* IQKeyboardReturnKeyHandler.m in Sources */,
 				1C2B66271DFEAB9700E07BFF /* CustomHiViewController.m in Sources */,

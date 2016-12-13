@@ -63,6 +63,12 @@
     {
         self.selectedModel=BeanSelected;
         self.navigationItem.title=@"红豆服务";
+        
+        [MobClick event:@"031"];
+    }
+    else
+    {
+        [MobClick event:@"029"];
     }
     
     _boysRandArr=[NSMutableArray array];
@@ -226,6 +232,15 @@
                 PayViewController *payVC=KKViewControllerOfMainSB(@"PayViewController");
                 payVC.payDic=dic;
                 [weakself.navigationController pushViewController:payVC animated:YES];
+                
+                if(self.selectedModel==BaoYueSelected)
+                {
+                    [MobClick event:@"009" label:[dic stringForKey:@"name" defaultValue:@""]];
+                }
+                else
+                {
+                    [MobClick event:@"014" label:[dic stringForKey:@"name" defaultValue:@""]];
+                }
             }
             
         };

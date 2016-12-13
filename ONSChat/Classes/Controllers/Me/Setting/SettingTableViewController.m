@@ -82,12 +82,14 @@
     }
     else
     {
-        UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"settingcell"];
+        UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:@"settingcellexit"];
         if(cell==nil)
         {
-            cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"settingcell"];
+            cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"settingcellexit"];
         }
         cell.textLabel.text=@"退出账号";
+        cell.textLabel.textColor=KKColorPurple;
+        cell.textLabel.textAlignment=NSTextAlignmentCenter;
         return cell;
     }
     
@@ -100,6 +102,11 @@
         if(indexPath.row==0)
         {
             //用户关心的问题
+            KKWebViewController *webVC=[[KKWebViewController alloc] init];
+            webVC.urlStr=ServiceInterfaceQuestions;
+            webVC.navTitle=@"用户关心的问题";
+            webVC.hidesBottomBarWhenPushed=YES;
+            [self.navigationController pushViewController:webVC animated:YES];
         }
         else if(indexPath.row==1)
         {
@@ -109,10 +116,12 @@
         else if(indexPath.row==2)
         {
             //清除缓存
+            [SVProgressHUD showSuccessWithStatus:@"清理成功" duration:2.0];
         }
         else if(indexPath.row==3)
         {
             //关于我们
+            
         }
     }
     else if(indexPath.section==1)

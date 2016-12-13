@@ -22,21 +22,26 @@
 #define ColUnReadCount @"unReadCount"
 #define ColTime @"time"
 
+#define ColEddevent @"eddevent"
+#define ColEsendtxtevent @"esendtxtevent"
+#define ColEbillevent @"ebillevent"
+
+
 
 //所有列
-#define AllColumns ColTargetId,ColAvatar,ColNickName,ColAddress,ColAge,ColLastMessageId,ColUnReadCount,ColTime
+#define AllColumns ColTargetId,ColAvatar,ColNickName,ColAddress,ColAge,ColLastMessageId,ColUnReadCount,ColTime,ColEddevent,ColEsendtxtevent,ColEbillevent
 
 //Run实列所有字段值
-#define AllFields record.targetId,record.avatar,record.nickName,record.address,@(record.age),@(record.lastMessageId),@(record.unReadCount),@(record.time)
+#define AllFields record.targetId,record.avatar,record.nickName,record.address,@(record.age),@(record.lastMessageId),@(record.unReadCount),@(record.time),record.eddevent,record.esendtxtevent,record.ebillevent
 
 //-------------CURD------------------/
 //插入语句
-#define InsertRecordSql KKStringWithFormat(@"INSERT INTO %@(%@, %@, %@, %@, %@, %@, %@, %@) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", TableName, AllColumns)
+#define InsertRecordSql KKStringWithFormat(@"INSERT INTO %@(%@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", TableName, AllColumns)
 //插入数值
 #define InsertRecordSqlArgs @[AllFields]
 
 //更新语句
-#define UpdateRecordSql KKStringWithFormat(@"UPDATE %@ SET %@=?, %@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=? WHERE %@=?",TableName, AllColumns,ColID)
+#define UpdateRecordSql KKStringWithFormat(@"UPDATE %@ SET %@=?, %@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=?,%@=? WHERE %@=?",TableName, AllColumns,ColID)
 //更新数值
 #define UpdateRecordSqlArgs @[AllFields,@(record.conversationId)]
 
@@ -77,7 +82,7 @@ static ONSConversationDao *instance;
 //创建表语句
 -(NSString*)createTableSql
 {
-    return KKStringWithFormat(@"CREATE TABLE %@ (%@ INTEGER PRIMARY KEY AUTOINCREMENT, %@ char(100),%@ char(200),%@ char(100),%@ char(100),%@ INTEGER,%@ INTEGER,%@ INTEGER,%@ INTEGER)", TableName, ColID, AllColumns);
+    return KKStringWithFormat(@"CREATE TABLE %@ (%@ INTEGER PRIMARY KEY AUTOINCREMENT, %@ char(100),%@ char(200),%@ char(100),%@ char(100),%@ INTEGER,%@ INTEGER,%@ INTEGER,%@ INTEGER,%@ char(100),%@ char(100),%@ char(100))", TableName, ColID, AllColumns);
 }
 
 
@@ -94,6 +99,10 @@ static ONSConversationDao *instance;
     record.lastMessageId=[rs longLongIntForColumn:ColLastMessageId];
     record.unReadCount=[rs intForColumn:ColUnReadCount];
     record.time=[rs longLongIntForColumn:ColTime];
+    
+    record.eddevent=[rs stringForColumn:ColEddevent];
+    record.esendtxtevent=[rs stringForColumn:ColEsendtxtevent];
+    record.ebillevent=[rs stringForColumn:ColEbillevent];
     
     return record;
 }

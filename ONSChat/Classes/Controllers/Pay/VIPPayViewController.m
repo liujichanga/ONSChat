@@ -39,6 +39,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [MobClick event:@"030"];
+    
     //使用registerNib 方法可以从XIB加载控件
     [self.tableView registerNib:[UINib nibWithNibName:cellVIPHeadIdentifier bundle:nil] forCellReuseIdentifier:cellVIPHeadIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:cellVIPProductIdentifier bundle:nil] forCellReuseIdentifier:cellVIPProductIdentifier];
@@ -136,6 +138,8 @@
                 PayViewController *payVC=KKViewControllerOfMainSB(@"PayViewController");
                 payVC.payDic=dic;
                 [weakself.navigationController pushViewController:payVC animated:YES];
+                
+                [MobClick event:@"012" label:[dic stringForKey:@"name" defaultValue:@""]];
             }
             
         };

@@ -292,7 +292,10 @@
             }else{
                 //跳转付费页面
                 VIPPayViewController *vipVC=KKViewControllerOfMainSB(@"VIPPayViewController");
-                [self.navigationController pushViewController:vipVC animated:YES];            }
+                [self.navigationController pushViewController:vipVC animated:YES];
+                
+                [MobClick event:@"026"];
+            }
         };
         return cell;
     }
