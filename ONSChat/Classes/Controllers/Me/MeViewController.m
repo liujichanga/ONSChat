@@ -18,13 +18,9 @@
 #import "BaoYuePayViewController.h"
 #import "HonestyViewController.h"
 #import "CustomHiViewController.h"
-<<<<<<< HEAD
 #import "PartnerConditionsViewController.h"
-=======
 #import "LikeMeViewController.h"
 #import "VisterViewController.h"
-
->>>>>>> 98ae2bbe803c5105e66b623222d6b70b710541cc
 
 
 #define cellHeadIdentifier @"HeadCell"
