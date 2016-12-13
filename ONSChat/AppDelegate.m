@@ -12,6 +12,7 @@
 #import "WXApi.h"
 #import <AlipaySDK/AlipaySDK.h>
 #import "IQKeyboardManager.h"
+#import "ChatViewController.h"
 
 
 @interface AppDelegate ()<WXApiDelegate>
@@ -84,6 +85,9 @@
     [IQKeyboardManager sharedManager].canAdjustTextView = NO;
     [IQKeyboardManager sharedManager].shouldAdoptDefaultKeyboardAnimation = YES;
     [IQKeyboardManager sharedManager].shouldRestoreScrollViewContentOffset = YES;
+    
+    [[IQKeyboardManager sharedManager] disableInViewControllerClass:[ChatViewController class]];
+    [[IQKeyboardManager sharedManager] disableToolbarInViewControllerClass:[ChatViewController class]];
     
     return YES;
 }
@@ -209,7 +213,7 @@
     KKSharedCurrentUser.sex=[dic integerForKey:@"gender" defaultValue:0];
     KKSharedCurrentUser.isVIP=[dic boolForKey:@"isVIP" defaultValue:NO];
     KKSharedCurrentUser.isBaoYue=[dic boolForKey:@"isMonth" defaultValue:NO];
-    KKSharedCurrentUser.phone=@"dd";//[dic stringForKey:@"phone" defaultValue:@""];
+    KKSharedCurrentUser.phone=[dic stringForKey:@"phone" defaultValue:@""];
     KKSharedCurrentUser.dayFirst=[dic boolForKey:@"dayfirst" defaultValue:NO];
     NSLog(@"user:%@,phone:%@,vip:%zd,baoyue:%zd,benum:%ld,endtime:%@",KKSharedCurrentUser,KKSharedCurrentUser.phone,KKSharedCurrentUser.isVIP,KKSharedCurrentUser.isBaoYue,KKSharedCurrentUser.beannum,KKSharedCurrentUser.vipEndTime);
     

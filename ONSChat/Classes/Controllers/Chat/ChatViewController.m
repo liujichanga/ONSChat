@@ -18,6 +18,8 @@
 #import "VIPPayViewController.h"
 #import "BaoYuePayViewController.h"
 #import "RecommendUserInfoViewController.h"
+#import "IQKeyboardManager.h"
+
 
 
 @interface ChatViewController ()<UITableViewDelegate,UITableViewDataSource,ONSInputViewDelegate,WZMRecordViewDelegate,ONSEmoticonViewDelegate,MessageCellDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,AnswerViewDelegate>
@@ -51,6 +53,7 @@
     // Do any additional setup after loading the view.
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor=KKColorFromRGB(0xF2F2F2);
+    
     
     _messages=[NSMutableArray array];
     
@@ -579,6 +582,7 @@
 
 - (void)dealloc {
     KKNotificationCenterRemoveObserverOfSelf;
+    
     
     KKLog(@"%s", __func__);
 }
