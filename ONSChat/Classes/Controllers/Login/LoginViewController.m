@@ -7,6 +7,8 @@
 //
 
 #import "LoginViewController.h"
+#import "ForgetPasswordViewController.h"
+
 
 @interface LoginViewController ()
 
@@ -49,7 +51,8 @@
 }
 
 -(void)getPassword:(id)sender{
-    
+    ForgetPasswordViewController *forget = KKViewControllerOfMainSB(@"ForgetPasswordViewController");
+    [self.navigationController pushViewController: forget animated:YES];
     
 }
 

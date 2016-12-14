@@ -31,7 +31,7 @@
 @property (assign, nonatomic) int second;
 //顶部文案
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;
-
+@property (nonatomic, strong) NSString *codeStr;
 @end
 
 @implementation BindingPhoneNumberViewController
@@ -73,7 +73,8 @@
     }
     //获取1到x之间的整数的代码如下:
     int value = (arc4random() % 899999) + 100000;
-    NSDictionary *param = @{@"mobile":self.phoneNubText.text,@"content":[NSString stringWithFormat:@"%zd",value]};
+    self.codeStr = [NSString stringWithFormat:@"%zd",value];
+    NSDictionary *param = @{@"mobile":self.phoneNubText.text,@"content":self.codeStr};
     [FSSharedNetWorkingManager GET:ServiceInterfaceUserSendSmsCode parameters:param progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSDictionary *respDic = (NSDictionary*)responseObject;
         NSInteger status = [respDic integerForKey:@"status" defaultValue:0];
@@ -91,7 +92,7 @@
 
 //绑定手机 验证验证码格式
 - (IBAction)bindingPhoneBtnClick:(id)sender {
-    if (self.codeText.text.length==0||![self.codeText.text isMatchsRegex:KKRegexNub]) {
+    if (self.codeText.text.length==0||![self.codeText.text isEqualToString:self.codeStr]) {
         [MBProgressHUD showMessag:@"请填写正确的验证码" toView:nil];
         return;
     }

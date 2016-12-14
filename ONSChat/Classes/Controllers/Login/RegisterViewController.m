@@ -53,6 +53,7 @@
     [self.maleBtn.layer setMasksToBounds:YES];
     [self.maleBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     [self.maleBtn setBackgroundImage:[UIImage imageWithColor:MaleColor forSize:self.maleBtn.frame.size radius:radius borderWidth:0 borderColor:nil] forState:UIControlStateSelected];
+    self.maleBtn.selected = YES;
     
     [self.femaleBtn.layer setCornerRadius:radius];
     [self.femaleBtn.layer setBorderWidth:1.0];

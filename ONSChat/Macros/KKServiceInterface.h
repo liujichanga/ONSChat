@@ -86,6 +86,8 @@
 #define ServiceInterfaceMeLike KKStringWithFormat(@"%@/%@/user/melike", KKServerDomain, App)
 //最近访客
 #define ServiceInterfaceVisit KKStringWithFormat(@"%@/%@/user/visitlist", KKServerDomain, App)
+//修改密码
+#define ServiceInterfaceModifypassword KKStringWithFormat(@"%@/%@/modifypassword", KKServerDomain, App)
 
 
 

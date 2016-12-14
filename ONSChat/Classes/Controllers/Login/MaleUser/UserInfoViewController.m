@@ -33,11 +33,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.ageArray = [NSMutableArray array];
-    
+    NSInteger selectdIndex=0;
     for (int i = minAge; i <= maxAge; ++i) {
         NSString *ageStr = [NSString stringWithFormat:@"%d",i];
         [self.ageArray addObject:ageStr];
+        if(i==24)
+        {
+            selectdIndex = self.ageArray.count -1;
+        }
     }
+    
+    [self.agePicker reloadAllComponents];
+    
+    [self.agePicker selectRow:selectdIndex inComponent:0 animated:NO];
 //    self.nickNameText.placeholder = @"占位昵称";
     self.nickNameText.delegate = self;
     self.cityLabel.text = KKStringWithFormat(@"%@-%@",KKSharedGlobalManager.GPSProvince,KKSharedGlobalManager.GPSCity);
@@ -50,6 +58,8 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
     }];
+    
+    
     
 }
 

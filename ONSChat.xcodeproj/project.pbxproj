@@ -442,6 +442,9 @@
 		9BE47DB11DFFDB6400A3A602 /* PartnerIncomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BE47DAF1DFFDB6400A3A602 /* PartnerIncomeCell.xib */; };
 		9BE47DB51DFFDB8100A3A602 /* PartnerAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE47DB31DFFDB8100A3A602 /* PartnerAddressCell.m */; };
 		9BE47DB61DFFDB8100A3A602 /* PartnerAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BE47DB41DFFDB8100A3A602 /* PartnerAddressCell.xib */; };
+		9BE47DB91E00E5F500A3A602 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE47DB81E00E5F500A3A602 /* AboutUsViewController.m */; };
+		9BE47DBC1E00ECC800A3A602 /* SetNewPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE47DBB1E00ECC800A3A602 /* SetNewPasswordViewController.m */; };
+		9BE47DBF1E0116BD00A3A602 /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BE47DBE1E0116BD00A3A602 /* ForgetPasswordViewController.m */; };
 		9BFB22C81DE95A1300DB9BE6 /* BindingPhoneNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB22C71DE95A1300DB9BE6 /* BindingPhoneNumberViewController.m */; };
 		9BFB22CC1DE95A4C00DB9BE6 /* RecommendUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB22CB1DE95A4C00DB9BE6 /* RecommendUserInfoViewController.m */; };
 		9BFB22D21DE9709500DB9BE6 /* BaseInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BFB22D01DE9709500DB9BE6 /* BaseInfoCell.m */; };
@@ -1194,6 +1197,12 @@
 		9BE47DB21DFFDB8100A3A602 /* PartnerAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartnerAddressCell.h; sourceTree = "<group>"; };
 		9BE47DB31DFFDB8100A3A602 /* PartnerAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartnerAddressCell.m; sourceTree = "<group>"; };
 		9BE47DB41DFFDB8100A3A602 /* PartnerAddressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PartnerAddressCell.xib; sourceTree = "<group>"; };
+		9BE47DB71E00E5F500A3A602 /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
+		9BE47DB81E00E5F500A3A602 /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
+		9BE47DBA1E00ECC800A3A602 /* SetNewPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetNewPasswordViewController.h; sourceTree = "<group>"; };
+		9BE47DBB1E00ECC800A3A602 /* SetNewPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetNewPasswordViewController.m; sourceTree = "<group>"; };
+		9BE47DBD1E0116BD00A3A602 /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
+		9BE47DBE1E0116BD00A3A602 /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
 		9BFB22C61DE95A1300DB9BE6 /* BindingPhoneNumberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BindingPhoneNumberViewController.h; sourceTree = "<group>"; };
 		9BFB22C71DE95A1300DB9BE6 /* BindingPhoneNumberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindingPhoneNumberViewController.m; sourceTree = "<group>"; };
 		9BFB22CA1DE95A4C00DB9BE6 /* RecommendUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendUserInfoViewController.h; sourceTree = "<group>"; };
@@ -1942,6 +1951,12 @@
 			children = (
 				1CDD6D051DE97CCE006AAFAB /* SettingTableViewController.h */,
 				1CDD6D061DE97CCE006AAFAB /* SettingTableViewController.m */,
+				9BE47DB71E00E5F500A3A602 /* AboutUsViewController.h */,
+				9BE47DB81E00E5F500A3A602 /* AboutUsViewController.m */,
+				9BE47DBA1E00ECC800A3A602 /* SetNewPasswordViewController.h */,
+				9BE47DBB1E00ECC800A3A602 /* SetNewPasswordViewController.m */,
+				9BE47DBD1E0116BD00A3A602 /* ForgetPasswordViewController.h */,
+				9BE47DBE1E0116BD00A3A602 /* ForgetPasswordViewController.m */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -3139,6 +3154,7 @@
 				567F54561DDFEC5500872A36 /* AppDelegate.m in Sources */,
 				1C0E77A21DE3249A0083F9F8 /* HomeViewController.m in Sources */,
 				9BE47DAB1DFFDB3C00A3A602 /* PartnerGraduateCell.m in Sources */,
+				9BE47DBF1E0116BD00A3A602 /* ForgetPasswordViewController.m in Sources */,
 				567F54531DDFEC5500872A36 /* main.m in Sources */,
 				1C0E77B01DE32AA20083F9F8 /* KKCarouselView.m in Sources */,
 				1C89E54B1DF53B9600949973 /* ONSInputView.m in Sources */,
@@ -3163,6 +3179,7 @@
 				563AD3741DE1511B006945BD /* ChatViewController.m in Sources */,
 				1C0E77651DE31F870083F9F8 /* AFURLRequestSerialization.m in Sources */,
 				1C0E77641DE31F870083F9F8 /* AFSecurityPolicy.m in Sources */,
+				9BE47DB91E00E5F500A3A602 /* AboutUsViewController.m in Sources */,
 				569864231DE00EAF0059D484 /* MJRefreshNormalHeader.m in Sources */,
 				1C0E77631DE31F870083F9F8 /* AFNetworkReachabilityManager.m in Sources */,
 				1C7697261DEFF57700CC2EB8 /* ONSConversation.m in Sources */,
@@ -3222,6 +3239,7 @@
 				569864991DE055D90059D484 /* KKUser.m in Sources */,
 				5698648F1DE0530D0059D484 /* KKBaseViewController.m in Sources */,
 				1C6B3A151DE3F33C008ACCA8 /* VIPCell.m in Sources */,
+				9BE47DBC1E00ECC800A3A602 /* SetNewPasswordViewController.m in Sources */,
 				569864011DE00EAF0059D484 /* FMTokenizers.m in Sources */,
 				569864071DE00EAF0059D484 /* FMResultSet.m in Sources */,
 				1C20F7AD1DF6ACED00099832 /* VoiceMessageCell.m in Sources */,

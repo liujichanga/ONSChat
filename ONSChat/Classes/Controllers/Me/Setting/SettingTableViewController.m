@@ -8,6 +8,8 @@
 
 #import "SettingTableViewController.h"
 #import <RongIMLib/RongIMLib.h>
+#import "AboutUsViewController.h"
+#import "SetNewPasswordViewController.h"
 
 @interface SettingTableViewController ()
 
@@ -111,6 +113,8 @@
         else if(indexPath.row==1)
         {
             //重置密码
+            SetNewPasswordViewController *newPassword = KKViewControllerOfMainSB(@"SetNewPasswordViewController");
+            [self.navigationController pushViewController:newPassword animated:YES];
             
         }
         else if(indexPath.row==2)
@@ -121,6 +125,8 @@
         else if(indexPath.row==3)
         {
             //关于我们
+            AboutUsViewController *about = KKViewControllerOfMainSB(@"AboutUsViewController");
+            [self.navigationController pushViewController:about animated:YES];
             
         }
     }
