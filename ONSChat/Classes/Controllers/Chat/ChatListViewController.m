@@ -39,6 +39,9 @@
     _topView.layer.borderWidth=1.0;
     _topView.layer.borderColor=[UIColor groupTableViewBackgroundColor].CGColor;
     
+    //此处写入让其不显示下划线的代码
+    self.tableView.tableFooterView = [[UIView alloc]init];
+    
     JSBadgeView *badgeview=[[JSBadgeView alloc] initWithParentView:self.topTipView alignment:JSBadgeViewAlignmentTopRight];
     badgeview.tag=102;
     badgeview.hidden=YES;
