@@ -14,7 +14,7 @@
 #define cellTwoPicIdentifier @"TwoPicCell"
 #define cellOneVideoIdentifier @"OneVideoCell"
 
-#define PerPageNumber 5
+#define PerPageNumber 10
 
 @interface HomeViewController ()
 {
@@ -165,7 +165,7 @@
     [self.tableView reloadData];
     [self.tableView.header endRefreshing];
     
-    if(arrNumber==PerPageNumber || arrNumber== -1)
+    if(arrNumber>=PerPageNumber || arrNumber== -1)
     {
         KKWEAKSELF
         //显示加载更多

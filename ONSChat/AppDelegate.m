@@ -52,6 +52,9 @@
     UMConfigInstance.channelId = @"AppStore";
     [MobClick startWithConfigure:UMConfigInstance];//配置以上参数后调用此方法初始化SDK！
     [MobClick setAppVersion:KKAppVersion];
+    
+    //本地通知
+    [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];//注册本地推送
 
     
     //最后一个登录用户

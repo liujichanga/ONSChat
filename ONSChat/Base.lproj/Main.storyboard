@@ -62,16 +62,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aZd-5Q-iId" userLabel="topview">
-                                <rect key="frame" x="-1" y="63" width="377" height="75"/>
+                                <rect key="frame" x="-1" y="63" width="377" height="65"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_system_msg" translatesAutoresizingMaskIntoConstraints="NO" id="mf1-rl-5jQ">
-                                        <rect key="frame" x="20" y="10" width="55" height="55"/>
+                                        <rect key="frame" x="20" y="10" width="45" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="mf1-rl-5jQ" secondAttribute="height" multiplier="1:1" id="r5A-so-had"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="系统通知" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7PR-CZ-Bud">
-                                        <rect key="frame" x="95" y="27" width="94" height="21"/>
+                                        <rect key="frame" x="85" y="22" width="94" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="7uT-WV-dlg"/>
                                             <constraint firstAttribute="width" constant="94" id="geh-y5-hi0"/>
@@ -87,12 +87,12 @@
                                     <constraint firstItem="mf1-rl-5jQ" firstAttribute="leading" secondItem="aZd-5Q-iId" secondAttribute="leading" constant="20" id="Ien-PM-779"/>
                                     <constraint firstItem="7PR-CZ-Bud" firstAttribute="leading" secondItem="mf1-rl-5jQ" secondAttribute="trailing" constant="20" id="e2v-fa-0n4"/>
                                     <constraint firstItem="mf1-rl-5jQ" firstAttribute="top" secondItem="aZd-5Q-iId" secondAttribute="top" constant="10" id="s5f-aE-yXT"/>
-                                    <constraint firstAttribute="height" constant="75" id="sIU-Gt-7rm"/>
+                                    <constraint firstAttribute="height" constant="65" id="sIU-Gt-7rm"/>
                                     <constraint firstItem="7PR-CZ-Bud" firstAttribute="centerY" secondItem="aZd-5Q-iId" secondAttribute="centerY" id="whb-SZ-QhM"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qCA-Fq-bV9">
-                                <rect key="frame" x="0.0" y="138" width="375" height="480"/>
+                                <rect key="frame" x="0.0" y="128" width="375" height="490"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Eui-78-B2g" id="XPb-lc-d5t"/>
