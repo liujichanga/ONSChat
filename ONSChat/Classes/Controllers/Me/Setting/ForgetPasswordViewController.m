@@ -73,10 +73,10 @@
 }
 - (IBAction)nextStepBtnClcik:(id)sender {
     [self.codeText resignFirstResponder];
-//    if (self.codeText.text.length==0||![self.codeText.text isEqualToString:self.smsCodeStr]) {
-//        [MBProgressHUD showMessag:@"请填写正确的验证码" toView:nil];
-//        return;
-//    }
+    if (self.codeText.text.length==0||![self.codeText.text isEqualToString:self.smsCodeStr]) {
+        [MBProgressHUD showMessag:@"请填写正确的验证码" toView:nil];
+        return;
+    }
     SetNewPasswordViewController *newPassword = KKViewControllerOfMainSB(@"SetNewPasswordViewController");
     [self.navigationController pushViewController:newPassword animated:YES];
 
