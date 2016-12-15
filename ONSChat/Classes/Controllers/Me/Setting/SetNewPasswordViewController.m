@@ -44,7 +44,7 @@
     }else if (![self.passwordText.text isEqualToString:self.confirmPasswordText.text]){
          [MBProgressHUD showMessag:@"输入密码不一致" toView:nil];
     }else{
-        NSString *uidStr;
+        NSString *uidStr = @"000000";
         if (KKStringIsNotBlank(KKSharedCurrentUser.userId)) {
             uidStr = KKSharedCurrentUser.userId;
         }else if (KKStringIsNotBlank([KKSharedUserManager lastLoginUser].userId)){
