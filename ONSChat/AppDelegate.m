@@ -113,6 +113,19 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    
+    //执行静默登录
+    if(KKStringIsNotBlank(KKSharedCurrentUser.userId)&&(KKStringIsNotBlank(KKSharedCurrentUser.password)))
+    {
+        NSDictionary *para=@{@"loginname":KKSharedCurrentUser.userId,@"password":KKSharedCurrentUser.password,@"channel":ChannelId};
+        [FSSharedNetWorkingManager GET:ServiceInterfaceLogin parameters:para progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSDictionary *dic=(NSDictionary*)responseObject;
+            KKLog(@"enterforeground:%@",dic);
+            
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            
+        }];
+    }
 }
 
 //程序已经被激活 lanuch或者后台激活都会调用

@@ -47,7 +47,7 @@
         }
     }
     
-    self.bigImageView.frame=CGRectMake(2, 5, message.imageSize.width, message.imageSize.height);
+    self.bigImageView.frame=CGRectMake(5, 5, message.imageSize.width, message.imageSize.height);
 
 }
 

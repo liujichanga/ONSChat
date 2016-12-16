@@ -178,15 +178,19 @@
     KKSharedCurrentUser.isVIP=YES;
     
     //回退
-    for (UIViewController *viewController in self.navigationController.viewControllers) {
-        if([viewController isKindOfClass:[ChatViewController class]] || [viewController isKindOfClass:[RecommendUserInfoViewController class]])
-        {
-            [self.navigationController popToViewController:viewController animated:YES];
-            return;
+    [KKThredUtils runInMainQueue:^{
+        
+        for (UIViewController *viewController in self.navigationController.viewControllers) {
+            if([viewController isKindOfClass:[ChatViewController class]] || [viewController isKindOfClass:[RecommendUserInfoViewController class]])
+            {
+                [self.navigationController popToViewController:viewController animated:YES];
+                return;
+            }
         }
-    }
-    [self.navigationController popToRootViewControllerAnimated:YES];
-
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        
+    } delay:0.3];
+    
 }
 
 @end

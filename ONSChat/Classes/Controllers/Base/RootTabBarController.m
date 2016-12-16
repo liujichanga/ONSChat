@@ -67,7 +67,7 @@
     [KKSharedGlobalManager getSPhone];
     
     //读取是否IAP
-    //[KKSharedGlobalManager getIAP];
+    [KKSharedGlobalManager getIAP];
 }
 
 #pragma mark - Tabbar Dadge
