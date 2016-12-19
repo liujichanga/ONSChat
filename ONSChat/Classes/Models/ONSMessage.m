@@ -64,8 +64,8 @@
     originY+=_dateLabelFrame.size.height+10;
     
     //头像frame
-    _receiveHeadButtonFrame=CGRectMake(MessageInterval, originY, 40, 40);
-    _sendHeadButtonFrame=CGRectMake(KKScreenWidth-MessageInterval-40, originY, 40, 40);
+    _receiveHeadButtonFrame=CGRectMake(MessageInterval, originY, 50, 55);
+    _sendHeadButtonFrame=CGRectMake(KKScreenWidth-MessageInterval-50, originY, 50, 55);
     
     switch (_messageType) {
         case ONSMessageType_NormImage:

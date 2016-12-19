@@ -98,6 +98,8 @@
         UIButton *headPortraitButton = [UIButton buttonWithType:UIButtonTypeCustom];
         headPortraitButton.userInteractionEnabled = YES;
         [headPortraitButton setBackgroundImage:[UIImage imageNamed:@"def_head"] forState:UIControlStateNormal];
+        headPortraitButton.imageView.contentMode=UIViewContentModeScaleAspectFill;
+        headPortraitButton.imageView.clipsToBounds=YES;
         self.headButton = headPortraitButton;
         [self.headButton addTarget:self action:@selector(headTap:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:headPortraitButton];

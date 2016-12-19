@@ -13,7 +13,7 @@
 #define MessageInterval 20.0
 #define MessageFont [UIFont systemFontOfSize:16]
 #define MessageContentMaxWidth KKScreenWidth-130
-#define MessageBackgoundInterval 70
+#define MessageBackgoundInterval 80
 
 
 @interface ONSMessage : NSObject
