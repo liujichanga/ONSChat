@@ -57,32 +57,6 @@
     [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];//注册本地推送
 
     
-    //最后一个登录用户
-    KKUser *lastLoginUser = [KKSharedUserManager lastLoginUser];
-
-    if (KKSharedUserManager.isAutoLoginEnabled) {
-        
-        // 最后一个登录的用户
-        KKSharedUserManager.currentUser = lastLoginUser;
-        
-        // 开启comback界面
-        self.window.rootViewController = KKViewControllerOfMainSB(@"ComeBackViewController");
-    } else {
-        
-        if(KKStringIsBlank(lastLoginUser.userId) ||KKStringIsBlank(lastLoginUser.password))
-        {
-            //注册界面
-            self.window.rootViewController=KKViewControllerOfMainSB(@"RegisterNavigationController");
-        }
-        else
-        {
-            //登录界面
-            self.window.rootViewController=KKViewControllerOfMainSB(@"LoginNavigationController");
-        }
-        
-        
-    }
-    
     [IQKeyboardManager sharedManager].shouldShowTextFieldPlaceholder = NO;
     [IQKeyboardManager sharedManager].keyboardDistanceFromTextField = 4.0;
     [IQKeyboardManager sharedManager].canAdjustTextView = NO;
@@ -91,6 +65,9 @@
     
     [[IQKeyboardManager sharedManager] disableInViewControllerClass:[ChatViewController class]];
     [[IQKeyboardManager sharedManager] disableToolbarInViewControllerClass:[ChatViewController class]];
+    
+    //根据登录状态判断
+    [self checkLogin];
     
     return YES;
 }
@@ -124,6 +101,7 @@
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             
+            [self checkLogin];
         }];
     }
 }
@@ -216,6 +194,35 @@
         }
     }
    
+}
+
+-(void)checkLogin
+{
+    //最后一个登录用户
+    KKUser *lastLoginUser = [KKSharedUserManager lastLoginUser];
+    
+    if (KKSharedUserManager.isAutoLoginEnabled) {
+        
+        // 最后一个登录的用户
+        KKSharedUserManager.currentUser = lastLoginUser;
+        
+        // 开启comback界面
+        self.window.rootViewController = KKViewControllerOfMainSB(@"ComeBackViewController");
+    } else {
+        
+        if(KKStringIsBlank(lastLoginUser.userId) ||KKStringIsBlank(lastLoginUser.password))
+        {
+            //注册界面
+            self.window.rootViewController=KKViewControllerOfMainSB(@"RegisterNavigationController");
+        }
+        else
+        {
+            //登录界面
+            self.window.rootViewController=KKViewControllerOfMainSB(@"LoginNavigationController");
+        }
+        
+        
+    }
 }
 
 -(void)loginSucceed:(NSDictionary *)dic
