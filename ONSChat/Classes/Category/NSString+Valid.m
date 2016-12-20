@@ -177,7 +177,7 @@
                     
                     //给附件添加图片
                     textAttachment.image = [UIImage imageNamed:face[i][@"png"]];
-                    textAttachment.bounds=CGRectMake(0, 0, 16, 16);
+                    textAttachment.bounds=CGRectMake(0, 0, 15, 15);
                     
                     //把附件转换成可变字符串，用于替换掉源字符串中的表情文字
                     NSAttributedString *imageStr = [NSAttributedString attributedStringWithAttachment:textAttachment];

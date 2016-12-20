@@ -140,6 +140,8 @@
         case ONSMessageType_NearBy:
         {
             NSString *str=[_contentJson stringForKey:@"content" defaultValue:@""];
+            //NSMutableAttributedString *mutableStr=[NSString showFace:str];
+            //size = [NSString getStringSize:mutableStr width:MessageContentMaxWidth-20 height:1000];
             size=[str sizeWithFont:MessageFont maxSize:CGSizeMake(MessageContentMaxWidth-20, 1000)];
             
         }

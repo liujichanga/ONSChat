@@ -17,4 +17,7 @@
 - (CGSize)sizeWithFont:(UIFont *)font maxSize:(CGSize)size;
 - (CGSize)sizeWithAttributes:(NSDictionary *)attrs maxSize:(CGSize)size;
 
+
++ (CGSize)getStringSize:(NSAttributedString *)aString width:(CGFloat)width height:(CGFloat)height;
+
 @end
