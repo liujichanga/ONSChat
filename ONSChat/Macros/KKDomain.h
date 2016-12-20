@@ -12,7 +12,7 @@
 // Domain
 //#define KKServerDomain @"http://192.168.40.56:8080"
 //#define KKServerDomain @"http://s.kuaikuaikeji.com"
-#define KKServerDomain @"http://114.215.81.244:8080" 
+#define KKServerDomain @"http://jiaoyou3app.tongchengsupei.cn:8080"
 //@"http://jiaoyou2app.tongchengsupei.cn:8090"
 
 #ifdef DEBUG

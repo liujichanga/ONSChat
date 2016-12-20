@@ -46,8 +46,11 @@
             [_bigImageView sd_setImageWithURL:[NSURL fileURLWithPath:url] placeholderImage:[UIImage imageNamed:@"def_head"]];
         }
     }
-    
-    self.bigImageView.frame=CGRectMake(5, 5, message.imageSize.width, message.imageSize.height);
+    CGFloat orignx=7;
+    if (message.messageDirection==ONSMessageDirection_SEND){
+        orignx=3;
+    }
+    self.bigImageView.frame=CGRectMake(orignx, 5, message.imageSize.width, message.imageSize.height);
 
 }
 

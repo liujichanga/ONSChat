@@ -18,7 +18,7 @@
         _avatar=[dic stringForKey:@"avatar" defaultValue:@""];
         _nickName=[dic stringForKey:@"nickname" defaultValue:@""];
         _address=[dic stringForKey:@"address" defaultValue:@""];
-        _age=[dic integerForKey:@"age" defaultValue:0];
+        _age=[dic integerForKey:@"age" defaultValue:24];
        
         _eddevent=[dic stringForKey:@"eddevent" defaultValue:@""];
         _esendtxtevent=[dic stringForKey:@"esendtxtevent" defaultValue:@""];
