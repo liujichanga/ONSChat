@@ -183,88 +183,37 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.arrDatas.count/PerPageNumber*3;
+    return self.arrDatas.count/2;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row%3==2)
-    {
-        return 287*KKScreenWidth/320.0;
-    }
-    else        
-        return 210*KKScreenWidth/320.0;
+    
+    return 210*KKScreenWidth/320.0;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    NSInteger val=indexPath.row/3;
-    NSInteger mod = indexPath.row%3;
-    
-    if(mod==0)
-    {
-        TwoPicCell *cell=[tableView dequeueReusableCellWithIdentifier:cellTwoPicIdentifier forIndexPath:indexPath];
-        
-        if(self.arrDatas.count>(val*PerPageNumber+mod+1))
-        {
-            [cell displayLeftDic:self.arrDatas[val*PerPageNumber+mod] rightDic:self.arrDatas[val*PerPageNumber+mod+1]];
-        }
-        
-        KKWEAKSELF
-        cell.clickBlock=^(KKUser *user){
-            
-            RecommendUserInfoViewController *recommendUser = KKViewControllerOfMainSB(@"RecommendUserInfoViewController");
-            recommendUser.uid = user.userId;
-            recommendUser.dynamicsID=user.dynamicsId;
-            [weakself.navigationController pushViewController:recommendUser animated:YES];
 
-        };
-        
-        return cell;
-    }
-    else if(mod==1)
+    TwoPicCell *cell=[tableView dequeueReusableCellWithIdentifier:cellTwoPicIdentifier forIndexPath:indexPath];
+    
+    if(self.arrDatas.count>(indexPath.row*2+1))
     {
-        TwoPicCell *cell=[tableView dequeueReusableCellWithIdentifier:cellTwoPicIdentifier forIndexPath:indexPath];
-        
-        if(self.arrDatas.count>(val*PerPageNumber+mod+2))
-        {
-            [cell displayLeftDic:self.arrDatas[val*PerPageNumber+mod+1] rightDic:self.arrDatas[val*PerPageNumber+mod+2]];
-        }
-        
-        KKWEAKSELF
-        cell.clickBlock=^(KKUser *user){
-            
-            RecommendUserInfoViewController *recommendUser = KKViewControllerOfMainSB(@"RecommendUserInfoViewController");
-            recommendUser.uid = user.userId;
-            recommendUser.dynamicsID=user.dynamicsId;
-            [weakself.navigationController pushViewController:recommendUser animated:YES];
-            
-        };
-        
-        return cell;
+        [cell displayLeftDic:self.arrDatas[indexPath.row*2] rightDic:self.arrDatas[indexPath.row*2+1]];
     }
-    else
-    {
-        OneVideoCell *cell=[tableView dequeueReusableCellWithIdentifier:cellOneVideoIdentifier forIndexPath:indexPath];
+    
+    KKWEAKSELF
+    cell.clickBlock=^(KKUser *user){
         
-        if(self.arrDatas.count>(val*PerPageNumber+mod+2))
-        {
-            [cell displayDic:self.arrDatas[val*PerPageNumber+mod+2]];
-        }
-        
-        KKWEAKSELF
-        cell.clickBlock=^(KKUser *user){
-            
-            RecommendUserInfoViewController *recommendUser = KKViewControllerOfMainSB(@"RecommendUserInfoViewController");
-            recommendUser.uid =user.userId;
-            recommendUser.dynamicsID = user.dynamicsId;// @"796";
-            [weakself.navigationController pushViewController:recommendUser animated:YES];
-            
-        };
-        
-        return cell;
-    }
+        RecommendUserInfoViewController *recommendUser = KKViewControllerOfMainSB(@"RecommendUserInfoViewController");
+        recommendUser.uid = user.userId;
+        recommendUser.dynamicsID=user.dynamicsId;
+        [weakself.navigationController pushViewController:recommendUser animated:YES];
+
+    };
+    
+    return cell;
+
     
 }
 

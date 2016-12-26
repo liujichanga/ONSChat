@@ -125,10 +125,10 @@
     {
         self.dynamicImageView.hidden=NO;
         self.dynamicImageView.frame=KKFrameOfOriginY(self.dynamicImageView.frame, locationY);
-        self.dynamicImageView.image=[UIImage imageNamed:@"def_head"];
+        self.dynamicImageView.image=[UIImage imageNamed:@"def_heart"];
         if(KKStringIsNotBlank(dynamic.dynamicUrl))
         {
-            KKImageViewWithUrlstring(self.dynamicImageView, dynamic.dynamicUrl, @"def_head");
+            KKImageViewWithUrlstring(self.dynamicImageView, dynamic.dynamicUrl, @"def_heart");
         }
     }
     

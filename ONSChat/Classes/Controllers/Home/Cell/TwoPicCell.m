@@ -109,11 +109,11 @@
     _leftUser = leftUser;
     _rightUser = rightUser;
     
-    _leftImageView.image=[UIImage imageNamed:@"def_head"];
+    _leftImageView.image=[UIImage imageNamed:@"def_heart"];
     NSString *leftimageurl=leftUser.avatarUrl;
     if(KKStringIsNotBlank(leftimageurl))
     {
-        KKImageViewWithUrlstring(_leftImageView, leftimageurl, @"def_head");
+        KKImageViewWithUrlstring(_leftImageView, leftimageurl, @"def_heart");
     }
     _leftNameLabel.text=leftUser.nickName;
     _leftAgeLabel.text=KKStringWithFormat(@"%ld岁 %@市",leftUser.age,KKSharedGlobalManager.GPSCity);
@@ -124,7 +124,7 @@
     NSString *rightimageurl=rightUser.avatarUrl;
     if(KKStringIsNotBlank(rightimageurl))
     {
-        KKImageViewWithUrlstring(_rightImageView, rightimageurl, @"def_head");
+        KKImageViewWithUrlstring(_rightImageView, rightimageurl, @"def_heart");
     }
     _rightNameLabel.text=rightUser.nickName;
     _rightAgeLabel.text=KKStringWithFormat(@"%ld岁 %@市",rightUser.age,KKSharedGlobalManager.GPSCity);

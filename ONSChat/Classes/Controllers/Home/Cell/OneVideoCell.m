@@ -47,10 +47,10 @@
     
     _user=user;
     
-    _headImageView.image=[UIImage imageNamed:@"def_head"];
+    _headImageView.image=[UIImage imageNamed:@"def_heart"];
     if(KKStringIsNotBlank(user.avatarUrl))
     {
-        KKImageViewWithUrlstring(_headImageView, user.avatarUrl, @"def_head");
+        KKImageViewWithUrlstring(_headImageView, user.avatarUrl, @"def_heart");
     }
     _nameLabel.text=user.nickName;
     _ageLabel.text=KKStringWithFormat(@"%ld岁 %@",user.age,user.address);
